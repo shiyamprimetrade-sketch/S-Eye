@@ -1,0 +1,23 @@
+test_camera_pipeline_reproducible_and_isolated (test_generalization.GeneralizationTests.test_camera_pipeline_reproducible_and_isolated) ... ok
+test_cli_preserves_existing_report (test_generalization.GeneralizationTests.test_cli_preserves_existing_report) ... ok
+test_corrupt_input_and_blank_negative_control (test_generalization.GeneralizationTests.test_corrupt_input_and_blank_negative_control) ... ok
+test_duplicate_photographs_rejected (test_generalization.GeneralizationTests.test_duplicate_photographs_rejected) ... ok
+test_duplicate_variants_rejected (test_generalization.GeneralizationTests.test_duplicate_variants_rejected) ... ok
+test_hash_mismatch_rejected_before_analysis (test_generalization.GeneralizationTests.test_hash_mismatch_rejected_before_analysis) ... ok
+test_invalid_row_and_nested_class_rejected (test_generalization.GeneralizationTests.test_invalid_row_and_nested_class_rejected) ... ok
+test_invalid_taxonomy_rejected (test_generalization.GeneralizationTests.test_invalid_taxonomy_rejected) ... ok
+test_legacy_quadrilateral_taxonomy (test_generalization.GeneralizationTests.test_legacy_quadrilateral_taxonomy) ... ok
+test_non_boolean_confirmation_rejected (test_generalization.GeneralizationTests.test_non_boolean_confirmation_rejected) ... ok
+test_original_uses_actual_source_bytes (test_generalization.GeneralizationTests.test_original_uses_actual_source_bytes) ... ok
+test_path_escape_rejected (test_generalization.GeneralizationTests.test_path_escape_rejected) ... ok
+test_pipeline_failures_remain_in_denominator (test_generalization.GeneralizationTests.test_pipeline_failures_remain_in_denominator) ... ok
+test_presence_metrics_duplicates_unknown_and_empty (test_generalization.GeneralizationTests.test_presence_metrics_duplicates_unknown_and_empty) ... ok
+test_report_counts_sources_and_separates_evidence (test_generalization.GeneralizationTests.test_report_counts_sources_and_separates_evidence) ... ok
+test_synthetic_confirmation_rejected (test_generalization.GeneralizationTests.test_synthetic_confirmation_rejected) ... ok
+test_transform_determinism_and_no_input_mutation (test_generalization.GeneralizationTests.test_transform_determinism_and_no_input_mutation) ... ok
+test_historical_geometry (test_legacy_regression.LegacyRegressionTests.test_historical_geometry) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 17.779s
+
+OK
