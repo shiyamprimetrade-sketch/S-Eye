@@ -80,6 +80,31 @@
         "New API resource bounds do not harden legacy scripts"
       ],
       "next_task": "Versioned instance/mask annotations and dataset-level localization evaluation"
+    },
+    {
+      "id": "uploaded-real-input-probe",
+      "objective": "Use the five supplied images without conflating screenshots, execution or repeatability with recognition accuracy",
+      "commit_sha": "704456d49db1bfbbaeb53dbe5d06de209562468d",
+      "files_changed": [
+        "src/seye/core/probes.py",
+        "scripts/probe_images.py",
+        "tests/test_real_input_probes.py",
+        "benchmarks/uploaded_input_probe.json",
+        "benchmarks/uploaded_probe_tests.txt",
+        "docs/REAL_INPUT_PROBES.md",
+        "docs/STATUS.md",
+        "DEVELOPMENT_STATUS.md"
+      ],
+      "tests_executed": "python -m unittest discover -s tests -v; scripts/probe_images.py on the supplied unlabelled manifest",
+      "test_results": "51 automated tests passed locally; inspect exact-head CI separately",
+      "benchmark_results": "1 photograph + 4 screenshots; 40/40 runs complete; all 10 image/mode original repeat pairs have stable predictions and masks; recognition/localization accuracy remain null",
+      "limitations": [
+        "No reviewed semantic labels or instance boxes",
+        "No hand/furniture/OCR category recognition",
+        "Correlated perturbations do not supply independent photos",
+        "Private pixel files absent from public git; exact reproduction requires original input bytes"
+      ],
+      "next_task": "Instance/mask annotation validation, dataset-level localization and unknown-rejection research"
     }
   ]
 }
