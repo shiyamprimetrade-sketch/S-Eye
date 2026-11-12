@@ -137,6 +137,21 @@ class DatasetTests(unittest.TestCase):
                                   '--manifest', str(self.manifest), '--output', str(output)], capture_output=True)
         self.assertEqual(process.returncode, 2)
 
+    def test_cli_audit_saves_exact_duplicate_conflict_evidence(self):
+        self.data['images'].append(dict(self.data['images'][0], id='copy', capture_group='different'))
+        for row in self.data['images']:
+            row['split'] = 'train'
+        self.data['images'][-1]['split'] = 'test'
+        self.manifest.write_text(json.dumps(self.data))
+        output = self.manifest.parent / 'conflict.json'
+        result = subprocess.run([sys.executable, str(ROOT / 'dataset_tools.py'), 'audit',
+                                 '--manifest', str(self.manifest), '--output', str(output)],
+                                capture_output=True, text=True)
+        self.assertEqual(result.returncode, 1, result.stderr)
+        self.assertTrue(json.loads(output.read_text())['leakage_detected'])
+        with self.assertRaisesRegex(ValueError, 'Duplicate source bytes'):
+            load_manifest(self.manifest)
+
     def test_confusion_matrices_and_errors_separate_pipeline_failures(self):
         rows = [dict(id='a', variant='original', source_kind='synthetic', human_confirmed=False,
                      expected_classes=['circle'], pipeline_success=True,

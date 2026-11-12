@@ -119,3 +119,19 @@ objects, reviewed boxes and source-to-processed coordinate validation), followed
 by contour/noise/merge-split experiments against fixed baselines. Propagate bounded
 ingestion into the legacy evaluator before accepting untrusted datasets. Obtain
 reviewed independent photographs in parallel; do not fabricate them.
+
+## Latest verified GitHub implementation checkpoints
+
+- Dataset/split diagnostics: `1535578`, CI passed on Python 3.12/3.13.
+- Localization/installation: `bc2cc54`, CI passed on Python 3.12/3.13, including
+  installed-package smoke and both benchmark artifacts:
+  https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43254093560
+- Final audit correction: persist exact-byte duplicate conflict reports without
+  allowing duplicate source bytes into recognition evaluation. The updated local
+  regression transcript is benchmarks/final_verification.txt. Inspect its own CI
+  run after publication; earlier passing CI claims refer to the exact commits above.
+
+No Stage 84 algorithm/checkpoint changed. Current package remains experimental;
+release gates, photographic validation, independent learning, advanced memory,
+video and main-S integration remain incomplete. Resume from docs/STATUS.md and
+CONTINUATION_PROTOCOL.md without restarting or rerunning historical patch scripts.

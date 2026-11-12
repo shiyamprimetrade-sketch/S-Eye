@@ -41,3 +41,8 @@ IoU is 1.0 on the nominal generated scene for both modes; this is not filled-obj
 segmentation validation. See per-case results, labels, source/code hashes and
 single-host wall timings in the report. No Android, Windows or live-video rate
 is implied. Installed-package smoke evidence is in `benchmarks/install_smoke.json`.
+
+Historical source pinning: the Stage 86 report corresponds to implementation commit
+`1535578`; the localization report corresponds to `bc2cc54`. Later validation-only
+fixes do not rewrite those reports. CI regenerates new artifacts for each new code
+head, with that run's evaluator/support fingerprints.

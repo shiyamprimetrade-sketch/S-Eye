@@ -51,6 +51,35 @@
         "Component ratios are not class-stratified"
       ],
       "next_task": "Opt-in structured localization and independent adaptive segmentation experiment"
+    },
+    {
+      "id": "stage90-localization-api-experiment",
+      "objective": "Opt-in structured localization, baseline parity, independent adaptive segmentation and installable local CLI",
+      "commit_sha": "bc2cc54814ecb4f18c669a6540a02951ad2a580e",
+      "files_changed": [
+        "src/seye/{geometry,segmentation,detection,image,api}",
+        "analyze_image.py",
+        "pyproject.toml",
+        "scripts/benchmark_localization.py",
+        "scripts/smoke_installed.py",
+        "tests/test_localization.py",
+        "benchmarks/localization_*",
+        "benchmarks/install_smoke.json",
+        "docs",
+        ".github/workflows/vision-tests.yml"
+      ],
+      "tests_executed": "python -m unittest discover -s tests -v; installed-package smoke; both benchmarks",
+      "test_results": "42 passed locally and CI Python 3.12/3.13; installed API smoke passed",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43254093560",
+      "benchmark_results": "14 generated runs; baseline TP/FP/FN=11/2/7; adaptive=14/2/4 at IoU>=0.5; no representative photo validation",
+      "limitations": [
+        "One generated scene with correlated variants",
+        "Clutter and small-scale errors remain",
+        "Adaptive remains opt-in",
+        "No calibrated confidence or general semantic recognition",
+        "New API resource bounds do not harden legacy scripts"
+      ],
+      "next_task": "Versioned instance/mask annotations and dataset-level localization evaluation"
     }
   ]
 }

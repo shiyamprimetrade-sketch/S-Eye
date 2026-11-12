@@ -26,7 +26,8 @@ hash, and mean/std-normalized grayscale thumbnail MAE. It is brightness-tolerant
 for tested fixtures, not guaranteed invariant. Policy thresholds, fingerprints,
 links and conflicts are emitted; inspect them before trusting a split.
 
-`audit` exits 1 and saves evidence for cross-split conflicts. `split` refuses fewer
+`audit` exits 1 and saves evidence for cross-split conflicts, including byte-identical
+files. Split creation and recognition evaluation still reject exact byte duplicates. `split` refuses fewer
 than three components. The evaluator validates the entire assigned dataset before
 running any selected split, and rejects leaked/partial/invalid assignments. It
 also rejects duplicate encoded bytes entirely, even within one subset. Deduplicate

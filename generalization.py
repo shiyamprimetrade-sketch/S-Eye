@@ -51,7 +51,7 @@ def class_metrics(expected, predicted):
             'exact_match': expected == predicted}
 
 
-def load_manifest(path, check_splits=True):
+def load_manifest(path, check_splits=True, allow_duplicates=False):
     path = Path(path).resolve()
     data = json.loads(path.read_text())
     if not isinstance(data, dict) or data.get('schema_version') != 1 or not isinstance(data.get('images'), list) or not data['images']:
@@ -73,7 +73,7 @@ def load_manifest(path, check_splits=True):
         actual = digest(photo)
         if row.get('sha256') != actual:
             raise ValueError(f"Source hash mismatch: {row['id']}")
-        if actual in seen_hashes:
+        if actual in seen_hashes and not allow_duplicates:
             raise ValueError('Duplicate source bytes cannot count as independent images')
         seen_hashes.add(actual)
         labels = row.get('expected_classes')

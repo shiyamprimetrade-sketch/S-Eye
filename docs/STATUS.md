@@ -40,6 +40,8 @@ stroke masks, deterministic object IDs, bounded input, optional independent adap
 segmentation, box/mask IoU and one-to-one detection matching. A development package
 and installed CLI smoke test run outside the checkout. 42 tests pass. The 14-run
 generated benchmark measures baseline TP/FP/FN=11/2/7 and adaptive=14/2/4.
+CI passed at `bc2cc54` on Python 3.12/3.13, including installation and both
+benchmarks: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43254093560
 This does not validate photographic recognition or complete Stage 90–99.
 
 ## Next substantive task
@@ -52,3 +54,10 @@ reviewed independent photographic captures for validation. Broader recognition,
 learning, video, memory retrieval and S integration remain roadmap work.
 
 Version 1.0 is not complete; see RELEASE_CRITERIA.md and LIMITATIONS.md.
+
+## Final audit-report correction
+
+The audit command now saves machine-readable exact-byte duplicate conflicts;
+normal evaluation and split creation still reject byte duplicates. A CLI regression
+checks both behaviors. See benchmarks/final_verification.txt for the current local
+suite; inspect the latest branch check run before extending earlier CI claims.

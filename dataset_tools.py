@@ -25,7 +25,7 @@ def main():
         if args.command == 'split' and args.output.resolve().parent != args.manifest.resolve().parent:
             raise ValueError('Split manifest must be saved beside the source manifest')
         from generalization import load_manifest
-        data = load_manifest(args.manifest, check_splits=False)
+        data = load_manifest(args.manifest, check_splits=False, allow_duplicates=args.command == 'audit')
         if args.command == 'split':
             result = assign_splits(data, args.manifest.resolve().parent, args.seed)
         else:
