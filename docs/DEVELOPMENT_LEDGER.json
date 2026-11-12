@@ -150,6 +150,38 @@
         "Unknown rejection/calibration remains inadequate"
       ],
       "next_task": "Validation-only rejection development and a new locked independent protocol"
+    },
+    {
+      "id": "offline-memory-scenes-video-workflows-and-release-audit",
+      "objective": "Implement remaining independent subsystem foundations and track every stage 86-199 without false completion",
+      "commit_sha": "0e47ca0b13146d5a5e426f2374ef556585d6eef2",
+      "files_changed": [
+        "src/seye/memory",
+        "src/seye/scenes",
+        "src/seye/video",
+        "src/seye/integration",
+        "src/seye/api/workflow.py",
+        "src/seye/segmentation/experimental.py",
+        "scripts/benchmark_independent_system.py",
+        "scripts/release_audit.py",
+        "scripts/audit_source.py",
+        "tasks/stages_086_199.json",
+        "tests/test_memory_scenes_video.py",
+        "tests/test_system_reliability.py",
+        "benchmarks/independent_system.json",
+        "benchmarks/system_verification.txt",
+        "benchmarks/package_build.json"
+      ],
+      "tests_executed": "python -m unittest discover -s tests -v; generated end-to-end benchmark; installed package/workflow smoke; two frozen-source wheel builds; source and release audits",
+      "test_results": "81 local tests passed; exact-head CI must be checked separately",
+      "benchmark_results": "Memory 3/3 generated top-1 category queries and 28 verified/restored records; six-frame generated MP4 0 ID switches/missing-track frames; prototype and SGD/fixed geometry all 3/6 on inspected generated classification test; two frozen-source wheel builds identical",
+      "limitations": [
+        "No representative photographic recognition or unknown/video validation",
+        "Several per-stage engineering requirements remain explicitly open",
+        "Probability calibration, robust contours/overlap, scalable memory and device evidence incomplete",
+        "Full security review missing; release_ready false"
+      ],
+      "next_task": "Validation-only uncertainty/rejection development, new locked audited test protocol, representative annotations and remaining per-stage engineering gaps"
     }
   ]
 }

@@ -53,3 +53,9 @@ new locked group-audited tests and representative annotations, while implementin
 remaining engineering requirements recorded for each stage. The v1 release audit
 must remain false until all mandatory gates are evidenced. No background work is
 claimed between inactive sessions.
+
+Published implementation references for this expansion: `b64fafc` (annotations/
+prototype), `1844b07` (seeded SGD comparison), `0e47ca0` (memory/scenes/video/workflows/
+stage registry and release gate). Read their exact CI runs and newest branch head
+before extending claims. The local suite is 81 tests. Current STATUS.md is rewritten
+around the latest implementation; older logs remain in ledger, reports and Git history.
