@@ -3,7 +3,7 @@ import math
 
 
 def valid_box(box):
-    if len(box) != 4 or any(isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) for v in box):
+    if not isinstance(box, (list, tuple)) or len(box) != 4 or any(isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) for v in box):
         raise ValueError('Box requires four finite coordinates')
     if box[2] <= box[0] or box[3] <= box[1]:
         raise ValueError('Box area must be positive')
