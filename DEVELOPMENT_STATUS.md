@@ -135,3 +135,24 @@ No Stage 84 algorithm/checkpoint changed. Current package remains experimental;
 release gates, photographic validation, independent learning, advanced memory,
 video and main-S integration remain incomplete. Resume from docs/STATUS.md and
 CONTINUATION_PROTOCOL.md without restarting or rerunning historical patch scripts.
+
+## Uploaded-image probe continuation
+
+Implemented unlabelled photograph/screenshot probing with source-kind separation,
+pre-inference bounded/hash validation, original repeatability, simulated dimming /
+rotation, optional overlays and explicit null accuracy fields. Eight new tests
+cover failure accounting, unsupported truth claims, source-root escapes, safe
+artifact names and repeatability limits. The complete local suite is recorded in
+benchmarks/uploaded_probe_tests.txt; the supplied-input experiment is recorded in
+benchmarks/uploaded_input_probe.json.
+
+User supplied one hand/interior camera photograph and four screenshots. These
+inputs now exercise the engine on actual supplied image bytes; they do not supply
+new photographs of the same labelled geometric shapes or reviewed instance boxes.
+The engine still lacks hand, furniture, OCR and broad semantic recognition.
+Never interpret arbitrary geometric proposals as recognized real-world objects.
+The uploaded pixels and preview overlays are not committed to the public repo.
+
+Next: reviewed instance/mask annotation schema, dataset-level localization scoring,
+and feature/unknown-rejection research. Preserve the original source files and
+use their recorded hashes when reproducing this probe.

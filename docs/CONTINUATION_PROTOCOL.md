@@ -34,3 +34,10 @@ Latest implemented continuation: grouped datasets (Stage 86) and the experimenta
 localization API (Stage 90 roadmap work). The exact next task is instance/mask
 annotation validation and dataset-level localization evaluation; see STATUS.md.
 The installed `seye` package is a development API, not a complete S-Eye release.
+
+Uploaded-image continuation: read REAL_INPUT_PROBES.md and the uploaded-input JSON
+report. Only one of the five supplied inputs is a photograph; four are screenshots.
+The real-input probe is deliberately unlabelled and cannot establish recognition
+accuracy. Original image bytes/overlays are private and absent from git; do not
+fabricate access to them in a later session. Use new supplied bytes or report the
+reproduction dependency. Continue with instance/mask annotations and unknown-rejection.

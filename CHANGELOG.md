@@ -16,3 +16,7 @@ model, classifier replacement or private-memory migration has been introduced.
   components, opt-in adaptive contrast segmentation, deterministic IDs, EXIF-aware
   boxes, stroke masks/overlays, IoU/one-to-one detection metrics, bounded local input,
   installable development package/CLI and installation smoke test.
+
+- Added unlabelled photograph/screenshot probes, repeated-original stability,
+  simulated dim/rotation tests, safe private preview export and tests preventing
+  unsupported recognition-accuracy claims. Recorded the five uploaded-image probe.

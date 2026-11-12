@@ -61,3 +61,13 @@ The audit command now saves machine-readable exact-byte duplicate conflicts;
 normal evaluation and split creation still reject byte duplicates. A CLI regression
 checks both behaviors. See benchmarks/final_verification.txt for the current local
 suite; inspect the latest branch check run before extending earlier CI claims.
+
+## Supplied-input probe
+
+One uploaded photograph and four screenshots were processed in 40 runs across
+baseline/adaptive modes, original repeats and simulated dim/rotation. All runs
+completed; all 10 original image/mode pairs repeated the same predictions and
+mask pixels. The complete suite now has 51 passing tests. These are execution/
+repeatability measurements, not recognized hands/text or photographic accuracy.
+See REAL_INPUT_PROBES.md and benchmarks/uploaded_input_probe.json. Private uploaded
+pixels/overlays are absent from git. Reviewed labels/boxes remain required.

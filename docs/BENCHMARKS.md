@@ -46,3 +46,12 @@ Historical source pinning: the Stage 86 report corresponds to implementation com
 `1535578`; the localization report corresponds to `bc2cc54`. Later validation-only
 fixes do not rewrite those reports. CI regenerates new artifacts for each new code
 head, with that run's evaluator/support fingerprints.
+
+## Uploaded real-input probes
+
+See REAL_INPUT_PROBES.md and benchmarks/uploaded_input_probe.json. Five supplied
+inputs are one photograph and four screenshots, not five camera photographs.
+Default probing attempts 40 runs (original repeats plus simulated dim/rotation,
+two modes). Report source kinds, run completion and prediction/mask repeatability
+separately. No recognition or localization accuracy is calculated without truth.
+The uploaded pixels remain outside the public repository.
