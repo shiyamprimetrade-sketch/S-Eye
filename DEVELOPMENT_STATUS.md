@@ -192,3 +192,9 @@ benchmarks, audits and development wheels. The later cache/config/grouping exten
 has its own transcript and repeat-input cache report. No Android device result is
 claimed. Current source remains experimental and every mandatory release gate
 must still pass before any v1.0 completion declaration.
+
+Cache/config/grouping code: `bec5213`; 87 tests pass locally. Final reliability
+review corrects physical JSONL source-line provenance across blank lines and keeps
+source bytes/legacy payloads unchanged. The final transcript is
+benchmarks/final_system_verification.txt. All exact commit references, objectives,
+measurements, limitations and next tasks are in docs/DEVELOPMENT_LEDGER.json.

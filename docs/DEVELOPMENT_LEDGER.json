@@ -182,6 +182,48 @@
         "Full security review missing; release_ready false"
       ],
       "next_task": "Validation-only uncertainty/rejection development, new locked audited test protocol, representative annotations and remaining per-stage engineering gaps"
+    },
+    {
+      "id": "windows-and-linux-runtime-verification",
+      "objective": "Exercise real Windows/Linux installation, tests, MP4 and artifact generation",
+      "commit_sha": "acf5cbeb96885286dd53c9d7998928e1e37f2c19",
+      "files_changed": [
+        ".github/workflows/vision-tests.yml"
+      ],
+      "tests_executed": "GitHub Actions matrix Windows/Linux x Python 3.12/3.13",
+      "test_results": "All four jobs passed with 81 tests, outside-checkout install/workflow, video and experiment/source/release/build artifacts",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43263993932",
+      "benchmark_results": "Controlled experiments reproduced on CI runners; per-run reports/wheels uploaded",
+      "limitations": [
+        "Windows/Linux CI runners are not actual Android hardware or a representative user-device performance study"
+      ],
+      "next_task": "Bounded caching, configuration, grouping and remaining scientific/engineering gates"
+    },
+    {
+      "id": "bounded-cache-configuration-and-groups",
+      "objective": "Bound descriptor caching, permissioned batch recognition, strict policy configuration and geometric adjacency",
+      "commit_sha": "bec52132baa7d08d5e332378a004e680a8deca49",
+      "files_changed": [
+        "src/seye/recognition/cache.py",
+        "src/seye/core/configuration.py",
+        "src/seye/integration/service.py",
+        "src/seye/api/workflow.py",
+        "src/seye/scenes/relations.py",
+        "scripts/benchmark_cache.py",
+        "tests/test_cache_configuration_groups.py",
+        "benchmarks/cache_experiment.json",
+        "benchmarks/cache_phase_tests.txt"
+      ],
+      "tests_executed": "python -m unittest discover -s tests -v; repeated generated-input cache experiment",
+      "test_results": "87 tests passed locally and all four Windows/Linux Python 3.12/3.13 CI jobs passed",
+      "benchmark_results": "20 identical repeated-input descriptors; 19 cache hits and 1 miss; 3197 estimated Python bytes; measured CPU/wall data in cache_experiment.json",
+      "limitations": [
+        "No full detection/video acceleration or device guarantee",
+        "Configuration/proximity are infrastructure, not semantic vision",
+        "Index scaling and persistent cross-session identity remain open"
+      ],
+      "next_task": "Validation-only uncertainty/rejection development and remaining explicit stage gaps",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43265760507"
     }
   ]
 }

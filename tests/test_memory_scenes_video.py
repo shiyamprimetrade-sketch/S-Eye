@@ -48,11 +48,12 @@ class MemoryTests(unittest.TestCase):
 
     def test_legacy_import_is_lossless_and_has_no_invented_features(self):
         original = {'schema_version': 2, 'objects': [{'label': 'Circle-like'}], 'photo': 'old.jpg'}
-        source = self.root / 'legacy.jsonl'; source.write_text(json.dumps(original) + '\n')
+        source = self.root / 'legacy.jsonl'; source.write_text('\n\n' + json.dumps(original) + '\n')
         before = source.read_bytes(); self.assertEqual(self.memory.import_legacy_jsonl(source), 1)
         exported = self.root / 'legacy-export.json'; self.memory.export(exported)
         record = read_json(exported)['payload']['observations'][0]
         self.assertEqual(record['legacy_payload'], original)
+        self.assertEqual(record['provenance']['line'], 3)
         self.assertIsNone(record['features'])
         self.assertEqual(source.read_bytes(), before)
         self.assertEqual(self.memory.search([0, 0]), [])

@@ -65,3 +65,10 @@ installation, the preceding 81 tests and actual MP4/benchmark/build checks.
 Later cache/config continuation has separate tests/reports; inspect its exact head.
 Read CONFIGURATION_PERFORMANCE.md for root/capability policy and cache measurement
 scope. Android hardware remains unverified; geometric proximity is not identity.
+
+Cache/config/group implementation is saved at `bec5213`; Windows/Linux verification
+is saved at `acf5cbe`. A final reliability fix preserves physical source-line numbers
+when importing JSONL with blank lines and enforces integer observation schema tags.
+The 87-test final transcript is benchmarks/final_system_verification.txt. Continue
+from the newest head/CI; do not declare completion of stages 86–199 or v1.0 merely
+from these tests. Existing learning/representative-data and engineering gaps persist.

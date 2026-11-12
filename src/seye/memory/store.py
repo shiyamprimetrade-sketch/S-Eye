@@ -14,7 +14,7 @@ APPLICATION_ID = 1397053765
 
 
 def validate_record(record):
-    if not isinstance(record, dict) or record.get('schema_version') != 1:
+    if not isinstance(record, dict) or type(record.get('schema_version')) is not int or record.get('schema_version') != 1:
         raise ValueError('Memory observation schema required')
     if record.get('features') is not None:
         if not isinstance(record['features'], list) or record.get('feature_version') != FEATURE_VERSION or len(record['features']) > 4096:
@@ -138,12 +138,12 @@ class Memory:
         if path.stat().st_size > 16 * 1024 * 1024:
             raise ValueError('Legacy import exceeds byte limit')
         original = path.read_bytes()
-        records = [json.loads(line) for line in original.splitlines() if line.strip()]
-        if any(not isinstance(record, dict) for record in records):
+        records = [(number, json.loads(line)) for number, line in enumerate(original.splitlines(), 1) if line.strip()]
+        if any(not isinstance(record, dict) for _, record in records):
             raise ValueError('Legacy observations must be objects')
         wrapped = [{'schema_version': 1, 'features': None, 'provenance': {'kind': 'legacy_jsonl',
-                    'source_sha256': __import__('hashlib').sha256(original).hexdigest(), 'line': index + 1},
-                    'legacy_payload': record} for index, record in enumerate(records)]
+                    'source_sha256': __import__('hashlib').sha256(original).hexdigest(), 'line': number},
+                    'legacy_payload': record} for number, record in records]
         with self.db:
             for record in wrapped:
                 identifier = checksum(record)

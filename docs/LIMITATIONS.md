@@ -19,7 +19,7 @@
 - Metadata such as source kind/human confirmation is declared, not authenticated.
 - Video tracking, independent learned recognition, searchable feature memory,
   end-to-end S adapters and release packaging remain future milestones.
-- Existing concurrency uses Unix fcntl; Windows compatibility is not established.
+- Historical concurrency uses Unix fcntl and remains Unix-only; new APIs/workflows have Windows CI coverage.
   Local execution is Linux Python 3.12; CI also exercises Python 3.13. No actual
   phone, live camera or Windows performance measurement is claimed.
 - New API byte/pixel/format/source-root boundaries are tested. Legacy scripts

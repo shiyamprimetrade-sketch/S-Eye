@@ -29,8 +29,8 @@ seye --image /path/to/photo.jpg --allowed-root /path/to --output-dir /path/to/ne
 python scripts/smoke_installed.py
 ```
 
-On Windows activate `.venv\Scripts\Activate.ps1` in PowerShell. Windows and
-Android installation are documented targets, not verified device results. The
+On Windows activate `.venv\Scripts\Activate.ps1` in PowerShell. New API installation is now verified on Windows/Linux CI. Actual Android and
+user-device installation remain unverified. The
 Linux smoke installation used a virtual environment with system site packages
 and already available Pillow, then installed the project with `--no-deps
 --no-build-isolation`. A completely clean dependency-download install is not

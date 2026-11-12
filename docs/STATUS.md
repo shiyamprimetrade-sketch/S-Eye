@@ -85,3 +85,9 @@ new-head CI must be checked separately. See CONFIGURATION_PERFORMANCE.md.
 The repeated-input cache experiment measured identical descriptors, 19 hits/1 miss,
 3,197 estimated Python bytes and a 6.66× observed descriptor-path wall-time ratio
 on one generated image. This is not full vision acceleration or an Android claim.
+
+Latest local full regression: 87 tests passed, including cache/config/batch/grouping
+and corrected physical JSONL provenance line numbers. See
+benchmarks/final_system_verification.txt. Current code/check runs must be inspected
+for the exact branch head; the earlier 81-test Windows/Linux run remains its own
+historical proof. The source tree remains experimental and v1.0 readiness is false.
