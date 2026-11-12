@@ -1,0 +1,31 @@
+# Continuation protocol
+
+1. Read this file, STATUS.md, DEVELOPMENT_STATUS.md, ROADMAP.md, latest ledger,
+   RELEASE_CRITERIA.md and repository instructions. Inspect working-tree changes,
+   active branches, PR #1 and its exact head/check runs before editing.
+2. Preserve baseline `e92bb55`, every historical checkpoint and independent
+   recognition path. Do not reset the project or overwrite unrelated work.
+3. Establish tests with `python -m unittest discover -s tests -v`. Legacy scripts
+   have local-data assumptions; do not run patch/backup scripts as setup steps.
+4. Use `dataset_tools.py` for grouped splits and leakage audits; validate the full
+   dataset before selecting held-out data. Do not tune on test data or fabricate
+   missing labels/capture conditions.
+5. Complete the next concrete task in STATUS.md, implement meaningful code, add
+   tests, fix failures and run relevant benchmarks. Update scientific status as
+   implemented/tested/measured/validated/experimental/blocked with real evidence.
+6. Commit to `development/stage85-generalization` and update PR #1 while this
+   continuation remains unmerged. Inspect remote state before every publication.
+   Never force-push unrelated work or merge failing required checks.
+7. Git CLI can read public refs but HTTPS push lacks credentials in this session.
+   Use connected GitHub create_tree/create_commit/update_ref with an expected
+   branch SHA. Preserve the full parent tree. Reconcile local and remote commits
+   only after checking identical trees. Do not expose credentials.
+8. Before execution limits: save code, tests, benchmark reports, branch/head/PR,
+   outstanding failures, limits and the next executable task here and in the ledger.
+   If publishing is blocked, preserve local work and state the exact blocker.
+9. Do not claim work continued between inactive sessions. Read actual latest
+   evidence on resume. Stage numbers do not establish completion.
+
+Real photographs are needed for validation, but their absence does not block
+independent architecture, annotation, localization or reliability implementation.
+No sub-agents are required or authorized by this protocol.

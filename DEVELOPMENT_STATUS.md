@@ -71,3 +71,22 @@ pretrained model, training claim, private-memory migration or deployment.
 7. Inspect remote CI runs for this branch. Preserve evidence and update this file
    before the next execution limit. Keep historical code/checkpoints and model
    independence intact.
+
+## Stage 86 — grouped datasets and error diagnostics
+
+Implemented/tested/measured: reproducible capture/content component splits,
+exact/pixel/near-duplicate leakage audit, pre-inference full-dataset validation,
+selected-split evaluation, multi-label confusion matrices and false-positive /
+false-negative examples. Added the required architecture/roadmap/status/benchmark/
+limitations/integration/release/continuation documents and development ledger.
+
+31 tests passed; `benchmarks/stage86_tests.txt` preserves the transcript.
+`python scripts/benchmark_stage86.py --output NEW_REPORT.json` reproduces
+`benchmarks/stage86_generalization.json`: 7 sources, 56 executions, 42 class-set
+matches, 14 mismatches and no detected cross-split leakage after grouped assignment.
+This is still synthetic evidence. Split metadata does not imply model training.
+The near-duplicate audit conservatively groups blank/tiny-circle controls; it is
+not a validated identity classifier. Approximate ratios are not class-stratified.
+
+Next executable milestone: opt-in structured box/mask localization API, independent
+adaptive segmentation experiment, IoU matching and parity against the legacy engine.

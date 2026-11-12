@@ -51,7 +51,7 @@ def class_metrics(expected, predicted):
             'exact_match': expected == predicted}
 
 
-def load_manifest(path):
+def load_manifest(path, check_splits=True):
     path = Path(path).resolve()
     data = json.loads(path.read_text())
     if not isinstance(data, dict) or data.get('schema_version') != 1 or not isinstance(data.get('images'), list) or not data['images']:
@@ -90,6 +90,9 @@ def load_manifest(path):
             raise ValueError('Synthetic labels use generator truth, not human photo confirmation')
         with Image.open(photo) as image:
             image.verify()
+    if check_splits and any('split' in row for row in data['images']):
+        from dataset_tools import validate_splits
+        validate_splits(data['images'], path.parent)
     return data
 
 
@@ -146,14 +149,22 @@ def run_pipeline(photo):
                 'artifacts': {name: digest(work / name) for name in OUTPUTS}, 'steps': steps}
 
 
-def evaluate(manifest, variants=VARIANTS):
+def evaluate(manifest, variants=VARIANTS, split=None):
     manifest = Path(manifest).resolve()
     data = load_manifest(manifest)  # Validate the entire dataset before execution.
     if not variants or len(set(variants)) != len(variants) or any(v not in VARIANTS for v in variants):
         raise ValueError('Expected unique supported variants')
+    if split is not None:
+        if split not in ('train', 'validation', 'test'):
+            raise ValueError('Unsupported split')
+        selected = [row for row in data['images'] if row.get('split') == split]
+        if not selected:
+            raise ValueError('Requested split has no images')
+    else:
+        selected = data['images']
     results = []
     with tempfile.TemporaryDirectory(prefix='s_eye_variants_') as directory:
-        for row in data['images']:
+        for row in selected:
             source = manifest.parent / row['path']
             for variant in variants:
                 if variant == 'original':
@@ -164,6 +175,7 @@ def evaluate(manifest, variants=VARIANTS):
                         transform(image, variant).save(candidate)
                 record = {key: row[key] for key in ('id', 'source_kind', 'human_confirmed',
                           'capture_group', 'lighting', 'camera_angle', 'annotation_source', 'expected_classes')}
+                record['split'] = row.get('split', 'unsplit')
                 record.update(variant=variant, source_sha256=row['sha256'], input_sha256=digest(candidate))
                 try:
                     record['prediction'] = run_pipeline(candidate)
@@ -174,25 +186,26 @@ def evaluate(manifest, variants=VARIANTS):
                 results.append(record)
             if digest(source) != row['sha256']:
                 raise RuntimeError('Source changed during evaluation')
-    # A failure is included in the exact-match denominator; never silently discarded.
-    summaries = []
-    for kind in ('synthetic', 'photograph'):
-        for confirmed in (False, True):
-            for variant in variants:
-                rows = [r for r in results if r['source_kind'] == kind and
-                        r['human_confirmed'] == confirmed and r['variant'] == variant]
-                if not rows:
-                    continue
-                summaries.append({'source_kind': kind, 'human_confirmed': confirmed, 'variant': variant,
-                                  'cases': len(rows), 'pipeline_failures': sum(not r['pipeline_success'] for r in rows),
-                                  'exact_matches': sum(r.get('metrics', {}).get('exact_match', False) for r in rows)})
-    return {'schema_version': 1, 'stage': 85, 'evaluation_type': 'class_presence',
+    # Keep source/annotation/split/condition partitions separate, including failures.
+    from dataset_tools import diagnostics
+    details = diagnostics(results)
+    summaries = [{key: row[key] for key in ('source_kind', 'human_confirmed', 'split', 'variant',
+                 'pipeline_failures', 'exact_matches')} | {'cases': row['attempted_cases']}
+                 for row in details['summaries']]
+    return {'schema_version': 2, 'stage': 86, 'evaluation_type': 'class_presence',
             'manifest_sha256': digest(manifest),
             'runtime': {'python': platform.python_version(), 'pillow': PIL.__version__},
             'pipeline_sha256': {name: digest(ROOT / name) for name in SCRIPTS},
             'evaluator_sha256': digest(ROOT / 'generalization.py'),
-            'distinct_sources': len(data['images']),
-            'confirmed_photographs': sum(r['source_kind'] == 'photograph' and r['human_confirmed'] for r in data['images']),
+            'support_sha256': {name: digest(ROOT / name) for name in (
+                'dataset_tools.py', 'src/seye/core/datasets.py', 'src/seye/core/evaluation.py')},
+            'distinct_sources': len(selected),
+            'manifest_sources': len(data['images']), 'selected_split': split,
+            'recognition_validation_status': 'not_established',
+            'data_scope': 'synthetic_only' if all(r['source_kind'] == 'synthetic' for r in selected) else 'photographs_present',
+            'split_provenance': data.get('split_provenance'),
+            'diagnostics': details,
+            'confirmed_photographs': sum(r['source_kind'] == 'photograph' and r['human_confirmed'] for r in selected),
             'localization_evaluated': False,
             'limitations': ['Perturbations of one image are correlated, not independent captures.',
                             'Class presence does not evaluate localization or instance counts.',
@@ -205,13 +218,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--manifest', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
+    parser.add_argument('--split', choices=('train', 'validation', 'test'))
     parser.add_argument('--variants', nargs='+', choices=VARIANTS, default=VARIANTS)
     args = parser.parse_args()
     try:
         # Avoid destroying inputs or existing evidence through an accidental output path.
         if args.output.exists():
             raise ValueError('Output already exists; choose a new report path')
-        report = evaluate(args.manifest, tuple(args.variants))
+        report = evaluate(args.manifest, tuple(args.variants), args.split)
         args.output.parent.mkdir(parents=True, exist_ok=True)
         with args.output.open('x') as stream:
             json.dump(report, stream, indent=2)

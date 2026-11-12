@@ -1,0 +1,28 @@
+# Current limitations
+
+- Only coarse geometric class presence is evaluated. Broad semantic object
+  recognition, calibrated confidence and unknown-class performance are unvalidated.
+- The baseline uses fixed contrast/area/aspect thresholds and hull simplification;
+  faint and elongated shapes have demonstrated failures. A circle-like result is
+  a geometric hypothesis, not object identity.
+- New independently captured, reviewed photographs are unavailable. Private
+  archives, historical memory and Stage 84 draft labels were excluded from git.
+- Perturbations are correlated simulations. Physical viewpoints, realistic clutter,
+  occlusion and segmentation/localization accuracy require appropriate annotations.
+- Near-duplicate detection is conservative and incomplete: it can overgroup similar
+  images or miss crops/viewpoint edits. Reviewer capture groups remain necessary.
+  Split grouping reduces leakage risk; it does not certify data independence.
+- Component split ratios are approximate and not class-stratified. Tiny datasets
+  can lack categories in a split. Fewer than three components cannot yield all splits.
+- Pairwise audit is quadratic, capped at 2,000 images pending a measured indexing
+  implementation. Do not describe this as an already scalable dataset system.
+- Metadata such as source kind/human confirmation is declared, not authenticated.
+- Video tracking, independent learned recognition, searchable feature memory,
+  end-to-end S adapters and release packaging remain future milestones.
+- Existing concurrency uses Unix fcntl; Windows compatibility is not established.
+  Local execution is Linux Python 3.12; CI also exercises Python 3.13. No actual
+  phone, live camera or Windows performance measurement is claimed.
+- Input resource hardening is incomplete. Process only trusted local inputs until
+  decoder/resource/permission boundaries are implemented and tested.
+
+S-Eye is experimental. Version 1.0 is not complete.

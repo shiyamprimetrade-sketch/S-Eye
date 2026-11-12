@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "project": "S-Eye",
+  "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+  "milestones": [
+    {
+      "id": "stage85-evaluator",
+      "objective": "Preserve Stage 84 and implement reproducible isolated multi-image generalization evaluation",
+      "commit_sha": "111a8c39e2fb97aeb28281451ff66ab85e568d05",
+      "files_changed": ["generalization.py", "stage85_fixture.py", "tests", "benchmarks", "docs", "DEVELOPMENT_STATUS.md", ".github/workflows/vision-tests.yml"],
+      "tests_executed": "python -m unittest discover -s tests -v",
+      "test_results": "18 passed locally and CI on Python 3.12/3.13",
+      "benchmark_results": "56 synthetic executions; 42 exact class-set matches; 14 mismatches; 0 new reviewed photographs",
+      "limitations": ["No photographic validation", "Class presence only", "Historical private archives absent"],
+      "next_task": "Grouped split and leakage protection with per-class diagnostics"
+    }
+  ]
+}
