@@ -18,6 +18,6 @@ test_transform_determinism_and_no_input_mutation (test_generalization.Generaliza
 test_historical_geometry (test_legacy_regression.LegacyRegressionTests.test_historical_geometry) ... ok
 
 ----------------------------------------------------------------------
-Ran 18 tests in 17.779s
+Ran 18 tests in 12.836s
 
 OK

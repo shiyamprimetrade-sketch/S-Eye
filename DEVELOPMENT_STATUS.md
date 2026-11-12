@@ -1,5 +1,7 @@
 # S-Eye development status
 
+Pull request: https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1
+
 Checkpoint date: 2026-11-12. Branch: `development/stage85-generalization`.
 
 ## Completed milestones
@@ -21,7 +23,10 @@ Checkpoint date: 2026-11-12. Branch: `development/stage85-generalization`.
   six geometry-challenge labels, uncertainty rules 9/9. Existing borderline
   geometry weakness reproduced at 4/8 and preserved explicitly.
 - GitHub Actions workflow added for Python 3.12 and 3.13; uploads benchmark report.
-  Remote CI outcome is pending until a run is observed on the published commit.
+  Remote CI passed on commit `88a7673` in both Python jobs:
+  https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43250792252
+  This checkpoint adds a malformed-row test correction and updated local evidence;
+  inspect its own run before extending the CI claim to a later commit.
 
 ## Evidence
 

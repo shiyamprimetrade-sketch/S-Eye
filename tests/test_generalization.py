@@ -135,6 +135,7 @@ class GeneralizationTests(unittest.TestCase):
         self.mutate(lambda rows: rows[0].update(expected_classes=[[]]))
         with self.assertRaises(ValueError):
             load_manifest(self.manifest)
+        self.mutate(lambda rows: rows[0].update(expected_classes=['circle']))
         self.mutate(lambda rows: rows.append(None))
         with self.assertRaises(ValueError):
             load_manifest(self.manifest)
