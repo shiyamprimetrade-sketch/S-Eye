@@ -1,0 +1,8 @@
+test_configuration_and_leakage_rejected (test_independent_sgd.IndependentSGDTests.test_configuration_and_leakage_rejected) ... ok
+test_independent_initialization_training_loss_and_determinism (test_independent_sgd.IndependentSGDTests.test_independent_initialization_training_loss_and_determinism) ... ok
+test_linear_checkpoint_restore_and_incompatible_features (test_independent_sgd.IndependentSGDTests.test_linear_checkpoint_restore_and_incompatible_features) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.005s
+
+OK

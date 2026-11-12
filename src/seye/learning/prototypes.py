@@ -42,6 +42,9 @@ def fit(training, validation):
 
 
 def validate_model(model):
+    if model.get('method') == 'independent_linear_softmax_sgd':
+        from seye.learning.linear import validate
+        return validate(model)
     if model.get('schema_version') != 1 or model.get('feature_version') != FEATURE_VERSION:
         raise ValueError('Incompatible model/preprocessing version')
     if type(model.get('dimension')) is not int or not 1 <= model['dimension'] <= 4096:
@@ -63,6 +66,9 @@ def validate_model(model):
 
 
 def predict(model, features):
+    if model.get('method') == 'independent_linear_softmax_sgd':
+        from seye.learning.linear import predict as linear_predict
+        return linear_predict(model, features)
     validate_model(model)
     if len(features) != model['dimension']:
         raise ValueError('Inference preprocessing dimension mismatch')
@@ -96,10 +102,17 @@ def evaluate(model, samples):
         output = predict(model, row['features'])
         pair = (row['label'], output['label'])
         confusion[pair] = confusion.get(pair, 0) + 1
-        results.append({'id': row['id'], 'expected': row['label'], 'prediction': output})
+        results.append({'id': row['id'], 'expected': row['label'], 'prediction': output,
+                        'source_kind': row.get('source_kind', 'unspecified'),
+                        'annotation_status': row.get('annotation_status', 'unspecified')})
     known = [r for r in results if r['expected'] != UNKNOWN]
     unknown = [r for r in results if r['expected'] == UNKNOWN]
-    return {'samples': len(results), 'correct': sum(r['expected'] == r['prediction']['label'] for r in results),
+    partitions = []
+    for kind, annotation in sorted({(r['source_kind'], r['annotation_status']) for r in results}):
+        subset = [r for r in results if r['source_kind'] == kind and r['annotation_status'] == annotation]
+        partitions.append({'source_kind': kind, 'annotation_status': annotation, 'samples': len(subset),
+                           'correct': sum(r['expected'] == r['prediction']['label'] for r in subset)})
+    return {'partitions': partitions, 'samples': len(results), 'correct': sum(r['expected'] == r['prediction']['label'] for r in results),
             'known_samples': len(known), 'known_correct': sum(r['expected'] == r['prediction']['label'] for r in known),
             'unknown_samples': len(unknown), 'unknown_rejected': sum(not r['prediction']['accepted'] for r in unknown),
             'confusion': [{'expected': a, 'predicted': b, 'count': count} for (a, b), count in sorted(confusion.items())],

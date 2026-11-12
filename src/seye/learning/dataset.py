@@ -90,3 +90,19 @@ def grouped_classification_split(data, directory, seed=85):
                                   'unknown_training_examples': 0}
     validate_splits(output['images'], directory)
     return output
+
+
+def train_linear(manifest, epochs=120, seed=91):
+    from seye.learning.linear import fit as fit_linear
+    data, samples = load_samples(manifest)
+    training = [r for r in samples if r['split'] == 'train']
+    validation = [r for r in samples if r['split'] == 'validation']
+    testing = [r for r in samples if r['split'] == 'test']
+    model = fit_linear(training, validation, epochs=epochs, seed=seed)
+    model['dataset_sha256'] = checksum(data)
+    return model, {'schema_version': 1, 'method': model['method'], 'dataset_sha256': checksum(data),
+                   'training': evaluate(model, training), 'validation': evaluate(model, validation), 'test': evaluate(model, testing),
+                   'learning_curves': model['training_history'], 'representative_validation': False,
+                   'limitations': ['Fixed descriptors with one learned linear layer; no deep feature learning.',
+                                   'Softmax scores are uncalibrated; threshold uses known validation examples.',
+                                   'Controlled exploratory comparison; a previously inspected tiny test set is not final validation.']}

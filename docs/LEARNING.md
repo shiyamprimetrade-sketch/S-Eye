@@ -4,9 +4,10 @@ Implemented: bounded fixed descriptors (ink occupancy, moments/aspect, color
 statistics/histograms and texture), category means fitted from labeled examples,
 nearest-category candidates, validation-derived distance rejection, transparent
 explanations, deterministic fitting, dataset hashes, learning curves and verified
-JSON model checkpoints. No pretrained weights, cloud inference, neural-network
-training or learned feature representation is claimed. This is prototype learning
-on independently engineered descriptors.
+JSON model checkpoints. No pretrained weights or cloud inference is used. Prototype fitting learns
+category means over independently engineered fixed descriptors. A separate seeded
+linear softmax classifier now trains its weights and biases with explicit SGD;
+it is one learned output layer, not deep vision or learned image representations.
 
 `seye.learning.dataset.train(manifest)` verifies assigned train/validation/test
 capture/content groups, fits only training rows, uses validation distances to set
@@ -50,3 +51,25 @@ furniture or text classifier. Broader labels require new representative training
 validation and locked test sets. Overfitting reports and learning curves describe
 these tiny generated data only. Probability calibration, learned representations,
 stronger models and realistic unknowns remain open research requirements.
+
+## Seeded independent SGD comparison
+
+`seye.learning.dataset.train_linear` initializes linear weights with a local seed,
+trains cross-entropy with explicit SGD, saves training/validation loss curves and
+uses known validation scores for a rejection threshold. It never fits test labels
+or pretrained weights. Prototype and linear checkpoints share the checksum/version
+contract; inference dispatches by the explicit model method. Raw softmax scores
+are uncalibrated; reported confidence probability stays null.
+
+The fixed experiment used 120 epochs, learning rate 0.1 and seed 91, chosen before
+its SGD test evaluation. On the same six previously inspected generated test items,
+the linear classifier got 3/3 known categories and rejected 0/3 unknowns. Prototype
+learning got 0/3 known and rejected 3/3 unknowns; fixed geometry and both learned
+methods scored 3/6 overall. Thus no overall accuracy improvement is established.
+This comparison is exploratory, not a new locked final test. Both generated-data
+checkpoints are preserved under checkpoints/generated_*_v1.json, together with
+learning curves and confusion reports in benchmarks/independent_learning_comparison.json.
+
+The next recognition task is validation-only rejection/calibration development,
+followed by a separately generated and locked group-audited test protocol and
+representative reviewed photographs. Do not tune to the six test labels above.
