@@ -41,3 +41,15 @@ The real-input probe is deliberately unlabelled and cannot establish recognition
 accuracy. Original image bytes/overlays are private and absent from git; do not
 fabricate access to them in a later session. Use new supplied bytes or report the
 reproduction dependency. Continue with instance/mask annotations and unknown-rejection.
+
+Expanded checkpoint continuation: inspect tasks/stages_086_199.json, current STATUS,
+LEARNING and benchmarks/independent_system.json. Source includes independent SGD,
+prototype learning, annotation evaluation, memory, scenes, video and scoped workflows.
+Do not mistake these experimental implementations for completion of every phase.
+The learned models trade known correctness against unknown rejection; total test
+correctness has not improved over fixed geometry (3/6 on the inspected generated set).
+Do not tune against those test labels. Next: validation-only rejection development,
+new locked group-audited tests and representative annotations, while implementing
+remaining engineering requirements recorded for each stage. The v1 release audit
+must remain false until all mandatory gates are evidenced. No background work is
+claimed between inactive sessions.

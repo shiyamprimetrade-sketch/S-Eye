@@ -15,16 +15,26 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
+      - run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
       - run: python -m pip install -r requirements.txt
       - run: python -m pip install --no-deps .
       - run: seye --help
+      - run: seye-workflow --help
       - run: python scripts/smoke_installed.py
       - run: python -m unittest discover -s tests -v
       - run: python scripts/benchmark_stage86.py --output /tmp/stage86-report.json
       - run: python scripts/benchmark_localization.py --output /tmp/localization-report.json
+      - run: python scripts/benchmark_independent_system.py --output /tmp/independent-system-report.json
+      - run: python scripts/audit_source.py --output /tmp/current-source-audit.json
+      - run: python scripts/release_audit.py --output /tmp/release-readiness.json
+      - run: SOURCE_DATE_EPOCH=315532800 python -m pip wheel --no-deps . --wheel-dir /tmp/seye-dist
       - uses: actions/upload-artifact@v4
         with:
           name: vision-python-${{ matrix.python }}
           path: |
             /tmp/stage86-report.json
             /tmp/localization-report.json
+            /tmp/independent-system-report.json
+            /tmp/release-readiness.json
+            /tmp/current-source-audit.json
+            /tmp/seye-dist/*.whl

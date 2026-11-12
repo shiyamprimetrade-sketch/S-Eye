@@ -105,6 +105,51 @@
         "Private pixel files absent from public git; exact reproduction requires original input bytes"
       ],
       "next_task": "Instance/mask annotation validation, dataset-level localization and unknown-rejection research"
+    },
+    {
+      "id": "instance-annotations-and-independent-prototypes",
+      "objective": "Versioned instance/mask evaluation and independent descriptor/category fitting",
+      "commit_sha": "b64fafcf56ccbe64aab340596dd42de5d3dd75a5",
+      "files_changed": [
+        "src/seye/core/storage.py",
+        "src/seye/detection/annotations.py",
+        "src/seye/recognition",
+        "src/seye/learning",
+        "scripts/evaluate_instances.py",
+        "scripts/create_annotations.py",
+        "tests/test_annotations_learning.py"
+      ],
+      "tests_executed": "python -m unittest discover -s tests -p test_annotations_learning.py -v",
+      "test_results": "10 focused tests passed",
+      "benchmark_results": "Prototype known test correct 0/3; generated unknowns rejected 3/3; negative result preserved",
+      "limitations": [
+        "Fixed descriptors, no representative semantic data",
+        "Confidence not probability-calibrated"
+      ],
+      "next_task": "Seeded independent SGD comparison, memory/video/integration verification"
+    },
+    {
+      "id": "seeded-independent-sgd",
+      "objective": "Actual independently initialized SGD weight training and honest fixed-baseline comparison",
+      "commit_sha": "1844b07d90d6ee26038958e3918a3b49e7450565",
+      "files_changed": [
+        "src/seye/learning/linear.py",
+        "src/seye/learning/dataset.py",
+        "src/seye/learning/prototypes.py",
+        "checkpoints/generated_linear_v1.json",
+        "checkpoints/generated_prototype_v1.json",
+        "benchmarks/independent_learning_comparison.json",
+        "tests/test_independent_sgd.py"
+      ],
+      "tests_executed": "python -m unittest discover -s tests -p test_independent_sgd.py -v",
+      "test_results": "3 focused tests passed; reproducible initialization/loss reduction/checkpoint restoration",
+      "benchmark_results": "Linear known=3/3, unknown rejected=0/3; prototype/fixed geometry/linear total=3/6 each; no overall improvement",
+      "limitations": [
+        "Previously inspected tiny generated test",
+        "One learned output layer over fixed descriptors",
+        "Unknown rejection/calibration remains inadequate"
+      ],
+      "next_task": "Validation-only rejection development and a new locked independent protocol"
     }
   ]
 }

@@ -20,3 +20,14 @@ model, classifier replacement or private-memory migration has been introduced.
 - Added unlabelled photograph/screenshot probes, repeated-original stability,
   simulated dim/rotation tests, safe private preview export and tests preventing
   unsupported recognition-accuracy claims. Recorded the five uploaded-image probe.
+
+- Added versioned instance/stroke-mask annotations and scoring with template safety.
+- Added fixed independent descriptors, category prototypes, seeded from-scratch
+  SGD linear training, loss curves, rejection, candidates and verified checkpoints.
+  Preserved negative results and no-overall-improvement model comparison.
+- Added private verified observation memory, read-only retrieval/browsing, legacy
+  JSONL preservation, atomic transfer and explicit retention.
+- Added geometric scenes, local prerecorded-video ingestion, deterministic box
+  tracking with missed-frame retention and controlled MP4 verification.
+- Added capability/root-scoped JSON workflows, subprocess deadlines, expanded
+  security tests, stage-by-stage registry 86–199 and an executable v1.0 release gate.

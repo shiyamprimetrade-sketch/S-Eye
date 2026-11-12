@@ -12,6 +12,7 @@ dependencies = ["Pillow==13.0.0"]
 
 [project.scripts]
 seye = "seye.api.cli:main"
+seye-workflow = "seye.api.workflow:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

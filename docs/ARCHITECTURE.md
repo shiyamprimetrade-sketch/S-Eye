@@ -46,3 +46,26 @@ Grow `src/seye/` incrementally with image, geometry, segmentation, detection,
 recognition, learning, memory, scenes, video, integration, security and API modules.
 Preserve root CLIs through wrappers and prove parity before migration. A directory
 or planning stage number alone is not evidence that its capability exists.
+
+## Expanded independent subsystems
+
+- Instance annotations: bounded reviewed/draft/generator manifests, source/box/mask
+  identity and per-partition localization scoring (`detection/annotations.py`).
+- Recognition/learning: bounded independent descriptors, category-mean prototypes,
+  seeded SGD linear classifiers, explicit candidate/explanation/rejection contracts,
+  canonical model checkpoints and split-audited dataset experiments. Fixed descriptor
+  learning is not deep representation learning (`recognition/`, `learning/`).
+- Memory: checksum-verified private SQLite observations, read-only retrieval/browsing,
+  exact descriptor scan, transaction-safe import, lossless JSONL migration and retention
+  (`memory/store.py`). Historical stores remain unchanged.
+- Scenes: geometric inventories, relative positions and one-to-one scene changes
+  (`scenes/relations.py`). No semantic scene narrative beyond evidence.
+- Video: optional FFmpeg ingestion plus S-Eye's own velocity/IoU tracker, bounded
+  occlusion retention and track summaries (`video/`). No external recognition model.
+- Integration: schema-1 request adapter, explicit root/capability grants, killable
+  request deadlines and evidence-grounded geometric queries (`integration/`).
+- Deployment: installed `seye` and `seye-workflow` entry points. Development wheel
+  builds and outside-checkout installation smoke tests do not constitute a v1 release.
+
+The stage registry spans every number 86–199 with explicit open requirements.
+A release audit refuses final completion while required evidence is missing.

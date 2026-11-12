@@ -28,3 +28,24 @@
   deployment is validated.
 
 S-Eye is experimental. Version 1.0 is not complete.
+
+## Expanded subsystem limits
+
+- Prototype and independent linear models currently trade known-class accuracy for
+  unknown rejection, with no overall improvement over fixed geometry on the tiny
+  inspected generated test. Fixed descriptors are not learned image representations.
+  Raw softmax/distance scores are not calibrated truth probabilities.
+- Convex boundaries, median denoising, morphology and a conservative projection
+  splitter are experimental primitives. Concave/holed contour tracing, robust region
+  merging, general overlap splitting and physical perspective invariance remain open.
+- New observation memory has verified identity/transfer, but feature retrieval is
+  linear and cross-session object histories are incomplete. JSONL import preserves
+  old payloads; full historical-index migration has not been implemented.
+- Scene relations use geometric hypotheses and overlap, not semantic understanding.
+  Video uses a simple velocity/IoU tracker and one generated MP4 control, not broad
+  representative tracking validation. FFmpeg is optional supporting infrastructure.
+- New request deadlines kill a worker but cannot undo already committed writes.
+  Full crash/decoder fault campaigns and release security review remain incomplete.
+- The staged audit spans 86–199, but allocating numbers does not complete their
+  goals. See tasks/stages_086_199.json and benchmarks/release_readiness.json for
+  explicit missing requirements. S-Eye v1.0 remains unready.

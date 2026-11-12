@@ -22,6 +22,13 @@ with tempfile.TemporaryDirectory(prefix='seye_installed_') as directory:
     report = json.loads((root / 'output/analysis.json').read_text())
     assert [row['class'] for row in report['objects']] == ['triangle'], report
     assert (root / 'output/overlay.png').is_file()
+    request = root / 'request.json'
+    request.write_text(json.dumps({'schema_version': 1, 'request_id': 'installed-smoke', 'action': 'analyze', 'image': str(source)}))
+    workflow = subprocess.run([sys.executable, '-m', 'seye.api.workflow', '--request', str(request),
+                               '--output', str(root / 'workflow.json'), '--read-root', str(root), '--write-root', str(root)],
+                              cwd=root, capture_output=True, text=True, timeout=120)
+    assert workflow.returncode == 0, workflow.stderr
+    assert json.loads((root / 'workflow.json').read_text())['success']
     module = subprocess.check_output([sys.executable, '-c', 'import seye; print(seye.__file__)'], cwd=root, text=True).strip()
     print(json.dumps({'installed_module': module, 'class': 'triangle', 'overlay_created': True,
-                      'source_sha256': report['source']['sha256'], 'executed_outside_checkout': True}, indent=2))
+                      'source_sha256': report['source']['sha256'], 'executed_outside_checkout': True, 'versioned_workflow_passed': True}, indent=2))

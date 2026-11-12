@@ -71,3 +71,38 @@ mask pixels. The complete suite now has 51 passing tests. These are execution/
 repeatability measurements, not recognized hands/text or photographic accuracy.
 See REAL_INPUT_PROBES.md and benchmarks/uploaded_input_probe.json. Private uploaded
 pixels/overlays are absent from git. Reviewed labels/boxes remain required.
+
+## Current continuation — expanded independent system
+
+81 tests pass locally. New implementation covers versioned instance annotations,
+independent descriptor/prototype and seeded SGD training, verified saved checkpoints,
+private transactional observation memory and retrieval, geometric scenes,
+prerecorded MP4 ingestion/tracking, and permission/deadline-scoped integration CLI.
+See benchmarks/system_verification.txt, independent_system.json and LEARNING.md.
+
+| Roadmap area | Current evidence | Still required |
+| --- | --- | --- |
+| 86–89 | Dataset identity, grouped splits, errors and real-input probes | Representative shape captures and complete perturbation coverage |
+| 90–99 | Annotation scoring, adaptive/edge/morphology/split primitives and boxes/masks | General contours/merge/overlap and physical-perspective validation |
+| 100–119 | Descriptors, prototype/SGD fitting, unknown rejection, candidates, curves, saved/restored checkpoints | Calibrated uncertainty, stronger learned features, representative known/unknown test |
+| 120–139 | Verified memory, retrieval/migration/export, geometric relations and scene changes | Scalable indexing, cross-session histories, realistic retrieval/scenes |
+| 140–159 | Actual controlled MP4, tracking/occlusion tests, scoped host timing/storage | Real tracking/crossings, cache/CPU/index profiling and Android/Windows measurements |
+| 160–179 | Versioned scoped client, deadlines, installed workflow CLI, reports and annotation templates | Main-S registration, full user configuration and interactive annotation/usability review |
+| 180–199 | Boundaries, atomic storage/rollback tests, CI and development packaging/readiness audit | Full fault/security review, representative release evidence and unmet mandatory gates |
+
+All numbers 86–199 have explicit objectives/open requirements in
+`tasks/stages_086_199.json`. No stage is marked complete merely by allocation.
+The release audit returns `release_ready: false`.
+
+Measured recognition tradeoff: on six inspected generated test items, prototypes
+get known=0/3 and unknown rejected=3/3; independent SGD gets known=3/3 and unknown
+rejected=0/3. Fixed geometry and both learned methods total 3/6. This is a negative
+research result for overall improvement. Memory retrieval is 3/3 on generated
+known queries with 28 verified/restored records. One six-frame MP4 has zero ID
+switches/misses. None of these tiny controls validates real-world general vision.
+
+Next executable priority: develop uncertainty/rejection using only development and
+validation data, then run a new locked group-audited test and representative photos.
+Continue the explicit unfinished engineering items (contour topology, region merge/
+overlap, scalable memory/history, richer tracking and security fault campaigns).
+Do not replace models with pretrained systems or declare v1.0 from passing CI.

@@ -55,3 +55,28 @@ Default probing attempts 40 runs (original repeats plus simulated dim/rotation,
 two modes). Report source kinds, run completion and prediction/mask repeatability
 separately. No recognition or localization accuracy is calculated without truth.
 The uploaded pixels remain outside the public repository.
+
+## Independent system experiment
+
+`benchmarks/independent_system.json` is produced by
+`python scripts/benchmark_independent_system.py --output NEW_REPORT.json`.
+It preserves generated classification manifests/splits, both actual fitted models,
+loss curves, per-category/unknown confusion, checkpoint equivalence, memory retrieval
+and export/restore checks, annotated box/mask experiments, an encoded/decoded MP4
+and scoped single-host performance/storage observations. Source module hashes are
+recorded. The first unsuccessful prototype-only run is retained separately.
+
+The locked-for-this-exploratory-comparison six-item generated test contains three
+known shapes and three unknown crosses. Prototype: known 0/3, unknown rejected 3/3.
+Independent SGD: known 3/3, unknown rejected 0/3. Fixed geometry and both learned
+methods score 3/6 overall. This is a tradeoff, not a demonstrated overall improvement
+or representative recognition accuracy. The test was inspected during development;
+a new separately locked and audited protocol is required for final evaluation.
+
+Memory: 28 generated training observations, top-1 same-category retrieval 3/3 on
+the three generated known test queries; all 28 observation checksums and verified
+export/restore pass. No realistic large-scale retrieval quality is established.
+Video: one generated moving circle, six frames at resampled 2 fps, zero identity
+switches and no frames missing exactly one track. Crossings/complex occlusion and
+real video remain unvalidated. Descriptor-only timing excludes image decode and
+feature extraction; no Android/Windows/device throughput claim is made.

@@ -20,3 +20,18 @@ from a stage number, successful script execution or synthetic-only accuracy.
 If a mandatory gate is missing, keep an experimental/release-candidate status.
 Reducing mandatory release scope requires owner approval. Ordinary engineering,
 testing and publication of development branches do not need repeated approval.
+
+## Executable release gate
+
+```bash
+python scripts/release_audit.py --output /tmp/new-readiness.json
+python scripts/release_audit.py --output /tmp/new-required-readiness.json --require-release
+```
+
+The first command records readiness even when false. The second exits nonzero
+while mandatory gates remain open. Regression tests assert that this checkpoint
+cannot declare v1.0. Current code includes independent descriptor/SGD training,
+verified checkpoints, memory transfer, scenes, controlled MP4 tracking and an
+installed integration CLI. Their controlled tests do not satisfy representative
+recognition/unknown/video validation, complete security review or every owner gate.
+Development wheel packaging is explicitly marked `v1_release: false`.

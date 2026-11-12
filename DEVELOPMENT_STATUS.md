@@ -156,3 +156,31 @@ The uploaded pixels and preview overlays are not committed to the public repo.
 Next: reviewed instance/mask annotation schema, dataset-level localization scoring,
 and feature/unknown-rejection research. Preserve the original source files and
 use their recorded hashes when reproducing this probe.
+
+## Expanded independent-system checkpoint
+
+Current local suite: 81 tests pass (benchmarks/system_verification.txt). Working code
+now includes instance/mask annotations and scoring; independent fixed descriptors,
+prototype fitting and seeded SGD; loss curves and restored model checkpoints;
+private observation memory with read-only browsing, verification, rollback and
+legacy JSONL preservation; geometric scenes; actual prerecorded MP4 decoding and
+tracking; and root/capability/deadline-scoped workflow requests.
+
+Measured controlled results: prototype known=0/3 / unknown rejected=3/3; independent
+SGD known=3/3 / unknown rejected=0/3; all methods, including fixed geometry, score
+3/6 overall. This is not an improvement claim. Memory top-1 category retrieval is
+3/3 on three generated known queries with 28 verified/exported/restored observations.
+The six-frame generated MP4 has zero ID switches/missing-track frames. Final reports
+include manifests, source hashes, actual learned parameters, loss curves and limits.
+
+The installed workflow client passes outside the checkout. Development wheel builds
+are byte-identical under a fixed build epoch, recorded in benchmarks/package_build.json.
+No v1.0 release is issued. Every stage number 86–199 is mapped to an objective and
+explicit unmet requirements; benchmarks/release_readiness.json remains false.
+The Stage 84 algorithms/checkpoints are preserved byte-for-byte; only its README
+and ignore rules were extended.
+
+Next execution: inspect latest GitHub head and CI, then continue validation-only
+unknown-rejection/calibration development, a new locked/audited test protocol,
+representative annotations and the explicit engineering gaps in the stage registry.
+Do not tune to the inspected six test labels or claim all 114 stages complete.

@@ -1,0 +1,10 @@
+{
+  "development_artifact": "seye_independent-0.1.0.dev90-py3-none-any.whl",
+  "sha256": "0d45fd40d1dfc4ca5cb4d5f27d568d808701566fa9eaf97758dd3991e3cb73af",
+  "repeat_build_sha256": "0d45fd40d1dfc4ca5cb4d5f27d568d808701566fa9eaf97758dd3991e3cb73af",
+  "repeat_build_identical": true,
+  "bytes": 41254,
+  "source_date_epoch": 315532800,
+  "v1_release": false,
+  "scope": "two sequential builds of the same frozen source/README using installed build dependencies; no dependency-download or final-release claim"
+}

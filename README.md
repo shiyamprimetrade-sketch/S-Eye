@@ -78,3 +78,27 @@ rule. See [localization and installation](docs/LOCALIZATION.md),
 [grouped datasets](docs/DATASETS.md), and [release gates](docs/RELEASE_CRITERIA.md).
 Broader recognition, learned confidence, video tracking and full S integration
 remain incomplete. This is a development package, not S-Eye v1.0.
+
+## Independent learning, memory, scenes and prerecorded video
+
+New experimental modules support prototype fitting and seeded SGD linear training
+from scratch over fixed S-Eye descriptors; checksum-verified model checkpoints;
+private local observation retrieval/export/import; geometric scene comparison;
+and optional FFmpeg video-frame decoding with an independent box tracker.
+
+```bash
+python scripts/benchmark_independent_system.py --output /tmp/new-system-experiment.json
+seye-workflow --request /path/to/request.json --output /path/to/new-response.json --read-root /path/to --write-root /path/to
+```
+
+See [learning and measured failures](docs/LEARNING.md),
+[instance annotations](docs/INSTANCE_ANNOTATIONS.md),
+[memory/scenes/video](docs/MEMORY_SCENES_VIDEO.md), and
+[integration requests and permissions](docs/INTEGRATION.md).
+The experiment is generated-data research; the current learned classifiers have
+not improved total test correctness over fixed geometry. Broader photographic
+recognition and final v1.0 remain unvalidated.
+
+Every roadmap number 86–199 is tracked in
+[tasks/stages_086_199.json](tasks/stages_086_199.json), with explicit open requirements.
+[Release readiness](benchmarks/release_readiness.json) remains false.
