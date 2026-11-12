@@ -6,35 +6,44 @@ permissions:
   contents: read
 jobs:
   vision:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: ['ubuntu-latest', 'windows-latest']
         python: ['3.12', '3.13']
     steps:
+      - run: git config --global core.autocrlf false
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-      - run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+      - if: runner.os == 'Linux'
+        run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+      - if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) { choco install ffmpeg -y --no-progress }
       - run: python -m pip install -r requirements.txt
       - run: python -m pip install --no-deps .
       - run: seye --help
       - run: seye-workflow --help
       - run: python scripts/smoke_installed.py
       - run: python -m unittest discover -s tests -v
-      - run: python scripts/benchmark_stage86.py --output /tmp/stage86-report.json
-      - run: python scripts/benchmark_localization.py --output /tmp/localization-report.json
-      - run: python scripts/benchmark_independent_system.py --output /tmp/independent-system-report.json
-      - run: python scripts/audit_source.py --output /tmp/current-source-audit.json
-      - run: python scripts/release_audit.py --output /tmp/release-readiness.json
-      - run: SOURCE_DATE_EPOCH=315532800 python -m pip wheel --no-deps . --wheel-dir /tmp/seye-dist
+      - run: python scripts/benchmark_stage86.py --output "${{ runner.temp }}/stage86-report.json"
+      - run: python scripts/benchmark_localization.py --output "${{ runner.temp }}/localization-report.json"
+      - run: python scripts/benchmark_independent_system.py --output "${{ runner.temp }}/independent-system-report.json"
+      - run: python scripts/audit_source.py --output "${{ runner.temp }}/current-source-audit.json"
+      - run: python scripts/release_audit.py --output "${{ runner.temp }}/release-readiness.json"
+      - run: python -m pip wheel --no-deps . --wheel-dir "${{ runner.temp }}/seye-dist"
+        env:
+          SOURCE_DATE_EPOCH: "315532800"
       - uses: actions/upload-artifact@v4
         with:
-          name: vision-python-${{ matrix.python }}
+          name: vision-${{ matrix.os }}-python-${{ matrix.python }}
           path: |
-            /tmp/stage86-report.json
-            /tmp/localization-report.json
-            /tmp/independent-system-report.json
-            /tmp/release-readiness.json
-            /tmp/current-source-audit.json
-            /tmp/seye-dist/*.whl
+            ${{ runner.temp }}/stage86-report.json
+            ${{ runner.temp }}/localization-report.json
+            ${{ runner.temp }}/independent-system-report.json
+            ${{ runner.temp }}/release-readiness.json
+            ${{ runner.temp }}/current-source-audit.json
+            ${{ runner.temp }}/seye-dist/*.whl
