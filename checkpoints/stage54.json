@@ -1,0 +1,19 @@
+{
+  "project": "S-Eye",
+  "stage": 54,
+  "timestamp_utc": "2026-11-12T14:30:52.923407+00:00",
+  "verified": {
+    "pipeline_steps": 4,
+    "accepted_regions": 3,
+    "rejected_artifacts": 1,
+    "report_valid": true
+  },
+  "sha256": {
+    "s_eye.py": "64ac3d27c6150775b0db7c7804983dc955d70cfddbe33290256fae36825a2fd5",
+    "s_eye_analysis.json": "4a1fc7ae1573222828a7d4252ef0d12f904aad1d6cfab92401865c051e0f8f30",
+    "classify_camera_v2.py": "2b4cd7593fb90afe9954259d362fb4b2c5915c8b377e96a7f020bda81eec9510",
+    "local_contrast.py": "0a5483dd75bcc6392003e0fe8afbd665b7decb0f1e61cf5d736f9cc6af9a42b0",
+    "group_shapes.py": "a4310e15b27cfd9f388ee417180ef2658e26339b572ba843c2309cc299054a3d",
+    "filter_regions.py": "d45662dbc44ba66a6edc2902d58c60ebc768a927c85d7cd42b26d85095f2d621"
+  }
+}

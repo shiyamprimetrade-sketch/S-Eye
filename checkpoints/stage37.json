@@ -1,0 +1,17 @@
+{
+  "project": "S-Eye",
+  "stage": 37,
+  "previous_test": "20/20 synthetic rotation cases passed",
+  "limitations": [
+    "Real-world accuracy unverified",
+    "Overlapping objects untested",
+    "Complex backgrounds untested",
+    "Small and noisy objects untested"
+  ],
+  "timestamp_utc": "2026-11-12T14:13:57.441011+00:00",
+  "sha256": {
+    "geometry_v2_runner.py": "980745c4f4648544ececaef5281e9ce16033c97542e533bc0104392bbfd05aa2",
+    "verify_geometry.py": "3d0b51369d91d0a332dc478d2b97a6e0311d709667e34103f5cc66fd9602f03d",
+    "stress_test.py": "fffccec7ecdb84069b4fae3115c5e9ffad5a59e4436028db829a9fa35a48e212"
+  }
+}

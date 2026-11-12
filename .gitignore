@@ -1,0 +1,36 @@
+.git/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*credentials*
+*secret*
+*token*
+*.sqlite
+*.sqlite3
+*.db
+*.tar.gz
+*.zip
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.heic
+*.mp4
+*.mov
+visual_memory*.jsonl
+visual_memory_index.json
+isolated_runs/
+sessions/
+stage82_dataset/
+
+# Runtime lock files
+.visual_memory_index.lock
+.visual_memory_workflow.lock
+
+# Private visual memory
+eye_memory.jsonl

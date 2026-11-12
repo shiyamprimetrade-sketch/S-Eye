@@ -1,0 +1,40 @@
+{
+  "project": "S-Eye",
+  "stage": 53,
+  "timestamp_utc": "2026-11-12T14:39:45.050152+00:00",
+  "success": true,
+  "steps": [
+    {
+      "step": "Local contrast",
+      "script": "local_contrast.py",
+      "success": true,
+      "return_code": 0,
+      "output": "S-Eye: Local contrast segmentation\nPhoto: 20261112_200137.jpg\nImage size: (300, 400)\nContrast threshold: 18\nSaved: local_contrast_mask.png",
+      "errors": ""
+    },
+    {
+      "step": "Shape grouping",
+      "script": "group_shapes.py",
+      "success": true,
+      "return_code": 0,
+      "output": "S-Eye: Grouped shape regions\nRegions: 4\nRegion 1: pixels=4016, box=(49, 115, 119, 186)\nRegion 2: pixels=1968, box=(160, 128, 213, 173)\nRegion 3: pixels=1770, box=(116, 197, 167, 255)\nRegion 4: pixels=1031, box=(136, 276, 177, 399)\nSaved: grouped_shapes.png",
+      "errors": ""
+    },
+    {
+      "step": "Region filtering",
+      "script": "filter_regions.py",
+      "success": true,
+      "return_code": 0,
+      "output": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.986\nAccepted region 2: ratio=0.852\nAccepted region 3: ratio=0.881\nRejected region: ratio=0.339\nAccepted: 3\nRejected: 1\nSaved: filtered_shapes.png",
+      "errors": ""
+    },
+    {
+      "step": "Camera geometry",
+      "script": "classify_camera_v2.py",
+      "success": true,
+      "return_code": 0,
+      "output": "S-Eye: Real-camera shape classification\nAccepted regions: 3\nRegion 1: Circle-like, corners=7, hull_vertices=26\nRegion 2: Ambiguous quadrilateral, corners=4, hull_vertices=12\nRegion 3: Triangle, corners=3, hull_vertices=13",
+      "errors": ""
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "project": "S-Eye",
+  "stage": 52,
+  "created_utc": "2026-11-12T14:28:49.234374+00:00",
+  "verified_results": {
+    "synthetic_shapes": "6/6",
+    "uncertainty_rules": "9/9",
+    "camera_regions": 3,
+    "camera_labels": [
+      "Circle-like",
+      "Ambiguous quadrilateral",
+      "Triangle"
+    ],
+    "borderline_test": "4/8"
+  },
+  "files_sha256": {
+    "geometry_v2_runner.py": "980745c4f4648544ececaef5281e9ce16033c97542e533bc0104392bbfd05aa2",
+    "geometry_v3_runner.py": "965f74790501d0a4e77bae46ba6aea109e28b80eefbe60109dcf178cd0891953",
+    "classify_camera.py": "ddbb808e2b7f671644205a5e2c32c7b1032cf055e619ad6278c9b93eafdfec17",
+    "classify_camera_v2.py": "2b4cd7593fb90afe9954259d362fb4b2c5915c8b377e96a7f020bda81eec9510",
+    "camera_v2.py": "59d78b203394f58403f1892c7bfe916e8234a12ffb7628c1e8b559f0d78f3784",
+    "uncertainty_test.py": "c52a3d280e4e21b74f18a2a6c83b6c98797a0f973ef72174b2b76f9af3103b90",
+    "borderline_test.py": "c4fbc107ac6f4390e8c672c35ef6b60c8249ab2a85b2551808078f2b0c812ad3",
+    "stress_test.py": "fffccec7ecdb84069b4fae3115c5e9ffad5a59e4436028db829a9fa35a48e212",
+    "local_contrast.py": "0a5483dd75bcc6392003e0fe8afbd665b7decb0f1e61cf5d736f9cc6af9a42b0",
+    "group_shapes.py": "a4310e15b27cfd9f388ee417180ef2658e26339b572ba843c2309cc299054a3d",
+    "filter_regions.py": "d45662dbc44ba66a6edc2902d58c60ebc768a927c85d7cd42b26d85095f2d621"
+  }
+}
