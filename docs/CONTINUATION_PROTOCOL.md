@@ -72,3 +72,9 @@ when importing JSONL with blank lines and enforces integer observation schema ta
 The 87-test final transcript is benchmarks/final_system_verification.txt. Continue
 from the newest head/CI; do not declare completion of stages 86–199 or v1.0 merely
 from these tests. Existing learning/representative-data and engineering gaps persist.
+
+Calibration continuation: learning/calibration.py implements independent monotonic
+validation-frequency pooling, strict finite inputs and support counts. It is not
+wired into inference and does not establish representative confidence. Next fit it
+only on validation predictions and assess a new locked test; never calibrate on test
+outcomes. Existing recognition failures and release gates remain open.
