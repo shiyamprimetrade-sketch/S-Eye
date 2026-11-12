@@ -184,3 +184,11 @@ Next execution: inspect latest GitHub head and CI, then continue validation-only
 unknown-rejection/calibration development, a new locked/audited test protocol,
 representative annotations and the explicit engineering gaps in the stage registry.
 Do not tune to the inspected six test labels or claim all 114 stages complete.
+
+Cross-platform verification: `acf5cbe`, CI passed on Windows/Linux Python 3.12/3.13:
+https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43263993932 . This run
+covered the 81-test independent-system checkpoint, actual MP4, installed workflows,
+benchmarks, audits and development wheels. The later cache/config/grouping extension
+has its own transcript and repeat-input cache report. No Android device result is
+claimed. Current source remains experimental and every mandatory release gate
+must still pass before any v1.0 completion declaration.

@@ -608,7 +608,7 @@
       "evidence_paths": [
         "src/seye/scenes/relations.py"
       ],
-      "open_requirement": "General scene object grouping not implemented",
+      "open_requirement": "Proximity grouping is implemented/tested; representative scene grouping remains unvalidated",
       "validated": false,
       "completion_declared": false
     },
@@ -901,7 +901,7 @@
         "src/seye/image/ingestion.py",
         "scripts/benchmark_independent_system.py"
       ],
-      "open_requirement": "No measured cache implementation or cache behavior experiment",
+      "open_requirement": "Bounded opt-in cache measured on one repeated generated image; realistic device workloads unvalidated",
       "validated": false,
       "completion_declared": false
     },
@@ -914,7 +914,7 @@
         "src/seye/image/ingestion.py",
         "scripts/benchmark_independent_system.py"
       ],
-      "open_requirement": "Single-host timings exist; CPU utilization profiling incomplete",
+      "open_requirement": "Python process CPU/wall times measured for descriptor cache; full system profiling pending",
       "validated": false,
       "completion_declared": false
     },
@@ -940,7 +940,7 @@
         "src/seye/image/ingestion.py",
         "scripts/benchmark_independent_system.py"
       ],
-      "open_requirement": "Actual Android and Windows devices are unavailable",
+      "open_requirement": "Windows/Linux CI verified on Python 3.12/3.13; actual Android hardware measurements unavailable",
       "validated": false,
       "completion_declared": false
     },
@@ -1172,7 +1172,7 @@
         "src/seye/api/workflow.py",
         "scripts/create_annotations.py"
       ],
-      "open_requirement": "CLI grants exist; full versioned user configuration migration remains incomplete",
+      "open_requirement": "Strict schema-1 configuration and pure version-0 migration implemented/tested; full user migration/usability review pending",
       "validated": false,
       "completion_declared": false
     },

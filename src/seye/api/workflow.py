@@ -10,18 +10,31 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--request', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--config', type=Path)
     parser.add_argument('--read-root', action='append', default=[])
     parser.add_argument('--write-root', action='append', default=[])
     parser.add_argument('--allow-memory', action='store_true')
     parser.add_argument('--allow-training', action='store_true')
     parser.add_argument('--allow-video', action='store_true')
-    parser.add_argument('--timeout', type=float, default=30)
+    parser.add_argument('--timeout', type=float)
     args = parser.parse_args()
-    grants = Permissions(tuple(args.read_root), tuple(args.write_root), args.allow_memory, args.allow_training, args.allow_video)
+    if args.config:
+        from seye.core.configuration import load_config
+        try:
+            config = load_config(args.config)
+        except (ValueError, OSError) as error:
+            parser.exit(2, f'Configuration rejected: {error}\n')
+        base = config['permissions']
+    else:
+        config = {'timeout': 30}; base = Permissions()
+    grants = Permissions(tuple(args.read_root) if args.read_root else base.read_roots,
+                         tuple(args.write_root) if args.write_root else base.write_roots,
+                         args.allow_memory or base.memory, args.allow_training or base.training, args.allow_video or base.video)
+    deadline = args.timeout if args.timeout is not None else config['timeout']
     try:
         output = grants.require(args.output, write=True)
         request = read_json(grants.require(args.request))
-        response = bounded_handle(request, grants, args.timeout)
+        response = bounded_handle(request, grants, deadline)
         atomic_json(output, response)
     except (ValueError, OSError) as error:
         parser.exit(2, f'Workflow failed: {error}\n')

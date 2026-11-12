@@ -31,3 +31,7 @@ model, classifier replacement or private-memory migration has been introduced.
   tracking with missed-frame retention and controlled MP4 verification.
 - Added capability/root-scoped JSON workflows, subprocess deadlines, expanded
   security tests, stage-by-stage registry 86–199 and an executable v1.0 release gate.
+
+- Verified Windows and Linux CI on Python 3.12/3.13; added strict versioned policy
+  configuration, granted batch recognition, bounded source-verified descriptor LRU,
+  scoped CPU/cache measurements and transitive geometric proximity groups.

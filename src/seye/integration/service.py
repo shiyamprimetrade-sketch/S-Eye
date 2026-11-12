@@ -77,6 +77,19 @@ def execute(request, permissions):
                     result = {'matches': memory.search(extract(decoded), request.get('limit', 5))}
             finally:
                 memory.close()
+    elif action == 'recognize_batch':
+        from seye.recognition.cache import FeatureCache
+        paths = request.get('images')
+        if not isinstance(paths, list) or not 1 <= len(paths) <= 100:
+            raise ValueError('Batch requires 1..100 explicit image paths')
+        sources = [permissions.require(path) for path in paths]
+        model = load_model(permissions.require(request['model']))
+        cache = FeatureCache()
+        outputs = []
+        for path in sources:
+            vector, provenance = cache.from_file(path)
+            outputs.append(dict(predict(model, vector), source_sha256=provenance['sha256']))
+        result = {'predictions': outputs, 'cache': cache.statistics(), 'model_sha256': checksum(model)}
     elif action == 'memory_list':
         if not permissions.memory:
             raise PermissionError('Explicit memory permission required')

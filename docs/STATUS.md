@@ -72,3 +72,16 @@ Version 1.0 is **not complete**. `benchmarks/release_readiness.json` records fal
 readiness. `scripts/release_audit.py --require-release` refuses unmet mandatory gates.
 Main-S registration/deployment, pretrained replacement and a production release
 have not been performed.
+
+## Cache/configuration continuation
+
+Windows and Linux CI at `acf5cbe` passed on Python 3.12/3.13, including the preceding
+81 tests, installation/video, experiment reports and development wheels.
+The subsequent continuation adds strict versioned configuration/migration, granted
+batch recognition, bounded descriptor LRU and transitive geometric proximity groups.
+Current local results are in benchmarks/cache_phase_tests.txt and cache_experiment.json;
+new-head CI must be checked separately. See CONFIGURATION_PERFORMANCE.md.
+
+The repeated-input cache experiment measured identical descriptors, 19 hits/1 miss,
+3,197 estimated Python bytes and a 6.66× observed descriptor-path wall-time ratio
+on one generated image. This is not full vision acceleration or an Android claim.

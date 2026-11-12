@@ -59,3 +59,9 @@ prototype), `1844b07` (seeded SGD comparison), `0e47ca0` (memory/scenes/video/wo
 stage registry and release gate). Read their exact CI runs and newest branch head
 before extending claims. The local suite is 81 tests. Current STATUS.md is rewritten
 around the latest implementation; older logs remain in ledger, reports and Git history.
+
+Cross-platform reference: `acf5cbe` passed Ubuntu/Windows, Python 3.12/3.13,
+installation, the preceding 81 tests and actual MP4/benchmark/build checks.
+Later cache/config continuation has separate tests/reports; inspect its exact head.
+Read CONFIGURATION_PERFORMANCE.md for root/capability policy and cache measurement
+scope. Android hardware remains unverified; geometric proximity is not identity.
