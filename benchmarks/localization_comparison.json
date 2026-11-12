@@ -1,0 +1,1069 @@
+{
+  "schema_version": 1,
+  "milestone": "Stage 90 experimental localization API",
+  "source_kind": "synthetic",
+  "representative_photo_validation": false,
+  "independent_photographs": 0,
+  "base_generated_scenes": 1,
+  "generated_blank_controls": 1,
+  "runtime": {
+    "python": "3.12.14",
+    "pillow": "13.0.0",
+    "system": "Linux",
+    "machine": "x86_64"
+  },
+  "code_sha256": {
+    "src/seye/__init__.py": "4ddc1cca47ef8b265dbbb04ab63c51aeab7561cf315731dce6620862ef0e0c43",
+    "src/seye/api/__init__.py": "8f0e4d5f003679583cd8fc94fcf2a9a74e0dfdd028ddbd5dcd23fa14967a59d4",
+    "src/seye/api/cli.py": "f5d9a996258658fe6bab1c4b6c8f27b6210c4f67fdd5d3d6db0aad341db997c8",
+    "src/seye/core/__init__.py": "a2b90b433fd20455634ee0676b61ae93a8780055355fee677fb5575c43b3e8ce",
+    "src/seye/core/datasets.py": "dd68646cbbca700e4ab86078b1427044ab34679ea4cc9ccabd61fb201b2db89a",
+    "src/seye/core/evaluation.py": "6fd754e80ea491d358d20e3cca421affd858a114263fd668ec12f2b233099fe4",
+    "src/seye/detection/__init__.py": "956b02f6524c5424a0414e6286a4cde9c8b899ff0c9ea3c43baf9d0288bae762",
+    "src/seye/detection/analysis.py": "5ceb9ea354ebd804d96ce38fe04223cd196a124ec086e3f1fa3786e11e16c7f4",
+    "src/seye/detection/metrics.py": "43220000f2b6fc788b0226d2d4f0178edc98d58375abb3d4ee095260697aaea7",
+    "src/seye/geometry/__init__.py": "9aeab3a1b9e992517c83eff5b890686ab0217c8aaaeeb94bd6d961557c6a343a",
+    "src/seye/geometry/hull.py": "74dd7c3ac8790f03f17440bb72f3fb71a761c538dea8c0704dd28def53c0bf03",
+    "src/seye/image/__init__.py": "42390fceb5c5382901df4154d4d19bfe845a83fd31c3904d6aa3ab23f754139c",
+    "src/seye/image/ingestion.py": "32b394bf9270fa1c3db66c34e0a48ecb35e5cca88af13aa191e188a267a779c2",
+    "src/seye/segmentation/__init__.py": "ca708119506aad0a7ee86e7bc7f2238c06bf93eb61c75aab2f9bcb1c8b50ae19",
+    "src/seye/segmentation/regions.py": "fcf6b2fd6350d00ccad9dd09e34907d3311a1b2107a08691e182857e071868e1",
+    "scripts/benchmark_localization.py": "03c4d95a1c82b8678ff8e2ad19090b8ef8fddd6de19b2622726c28943bd3bbdc"
+  },
+  "limitations": [
+    "Variants share one generated base scene; no independent sample accuracy.",
+    "Baseline/adaptive comparisons are exploratory, not held-out model validation.",
+    "Background grid is an unsupported clutter stress case.",
+    "Timing is a single host observation; no Android/Windows or streaming claim."
+  ],
+  "summary": [
+    {
+      "mode": "baseline",
+      "cases": 7,
+      "tp": 11,
+      "fp": 2,
+      "fn": 7,
+      "precision": 0.8461538461538461,
+      "recall": 0.6111111111111112
+    },
+    {
+      "mode": "adaptive",
+      "cases": 7,
+      "tp": 14,
+      "fp": 2,
+      "fn": 4,
+      "precision": 0.875,
+      "recall": 0.7777777777777778
+    }
+  ],
+  "results": [
+    {
+      "case": "original",
+      "mode": "baseline",
+      "source_sha256": "f79c8375fc696dc948eeadb6cf9c2aa9b820e750c7e661402a86f8ad9fa1ce2a",
+      "expected": [
+        {
+          "class": "circle",
+          "box": [
+            30,
+            40,
+            101,
+            111
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            170,
+            40,
+            241,
+            111
+          ]
+        },
+        {
+          "class": "triangle",
+          "box": [
+            105,
+            180,
+            196,
+            271
+          ]
+        }
+      ],
+      "predicted": [
+        {
+          "class": "triangle",
+          "box": [
+            103.0,
+            178.0,
+            198.0,
+            273.0
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            168.0,
+            38.0,
+            243.0,
+            113.0
+          ]
+        },
+        {
+          "class": "circle",
+          "box": [
+            28.0,
+            38.0,
+            103.0,
+            113.0
+          ]
+        }
+      ],
+      "detection_metrics": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "iou_threshold": 0.5,
+        "matches": [
+          {
+            "expected": 0,
+            "predicted": 2,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 1,
+            "predicted": 1,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 2,
+            "predicted": 0,
+            "iou": 0.9175623268698061
+          }
+        ],
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "stroke_mask_iou": 1.0,
+      "mask_metric_scope": "generator dark strokes, not filled silhouettes",
+      "wall_seconds": 0.15844308400005502
+    },
+    {
+      "case": "original",
+      "mode": "adaptive",
+      "source_sha256": "f79c8375fc696dc948eeadb6cf9c2aa9b820e750c7e661402a86f8ad9fa1ce2a",
+      "expected": [
+        {
+          "class": "circle",
+          "box": [
+            30,
+            40,
+            101,
+            111
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            170,
+            40,
+            241,
+            111
+          ]
+        },
+        {
+          "class": "triangle",
+          "box": [
+            105,
+            180,
+            196,
+            271
+          ]
+        }
+      ],
+      "predicted": [
+        {
+          "class": "triangle",
+          "box": [
+            103.0,
+            178.0,
+            198.0,
+            273.0
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            168.0,
+            38.0,
+            243.0,
+            113.0
+          ]
+        },
+        {
+          "class": "circle",
+          "box": [
+            28.0,
+            38.0,
+            103.0,
+            113.0
+          ]
+        }
+      ],
+      "detection_metrics": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "iou_threshold": 0.5,
+        "matches": [
+          {
+            "expected": 0,
+            "predicted": 2,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 1,
+            "predicted": 1,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 2,
+            "predicted": 0,
+            "iou": 0.9175623268698061
+          }
+        ],
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "stroke_mask_iou": 1.0,
+      "mask_metric_scope": "generator dark strokes, not filled silhouettes",
+      "wall_seconds": 0.4283648919999905
+    },
+    {
+      "case": "dim",
+      "mode": "baseline",
+      "source_sha256": "c426161ff449f47f299e28cd198a387004971188d0435341d14d60c1614ba281",
+      "expected": [
+        {
+          "class": "circle",
+          "box": [
+            30,
+            40,
+            101,
+            111
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            170,
+            40,
+            241,
+            111
+          ]
+        },
+        {
+          "class": "triangle",
+          "box": [
+            105,
+            180,
+            196,
+            271
+          ]
+        }
+      ],
+      "predicted": [
+        {
+          "class": "triangle",
+          "box": [
+            103.0,
+            178.0,
+            198.0,
+            273.0
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            168.0,
+            38.0,
+            243.0,
+            113.0
+          ]
+        },
+        {
+          "class": "circle",
+          "box": [
+            28.0,
+            38.0,
+            103.0,
+            113.0
+          ]
+        }
+      ],
+      "detection_metrics": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "iou_threshold": 0.5,
+        "matches": [
+          {
+            "expected": 0,
+            "predicted": 2,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 1,
+            "predicted": 1,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 2,
+            "predicted": 0,
+            "iou": 0.9175623268698061
+          }
+        ],
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "stroke_mask_iou": 1.0,
+      "mask_metric_scope": "generator dark strokes, not filled silhouettes",
+      "wall_seconds": 0.12056243800020638
+    },
+    {
+      "case": "dim",
+      "mode": "adaptive",
+      "source_sha256": "c426161ff449f47f299e28cd198a387004971188d0435341d14d60c1614ba281",
+      "expected": [
+        {
+          "class": "circle",
+          "box": [
+            30,
+            40,
+            101,
+            111
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            170,
+            40,
+            241,
+            111
+          ]
+        },
+        {
+          "class": "triangle",
+          "box": [
+            105,
+            180,
+            196,
+            271
+          ]
+        }
+      ],
+      "predicted": [
+        {
+          "class": "triangle",
+          "box": [
+            103.0,
+            178.0,
+            198.0,
+            273.0
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            168.0,
+            38.0,
+            243.0,
+            113.0
+          ]
+        },
+        {
+          "class": "circle",
+          "box": [
+            28.0,
+            38.0,
+            103.0,
+            113.0
+          ]
+        }
+      ],
+      "detection_metrics": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "iou_threshold": 0.5,
+        "matches": [
+          {
+            "expected": 0,
+            "predicted": 2,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 1,
+            "predicted": 1,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 2,
+            "predicted": 0,
+            "iou": 0.9175623268698061
+          }
+        ],
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "stroke_mask_iou": 1.0,
+      "mask_metric_scope": "generator dark strokes, not filled silhouettes",
+      "wall_seconds": 0.3320955880001293
+    },
+    {
+      "case": "faint",
+      "mode": "baseline",
+      "source_sha256": "b9839a3cd8ad71b02f66bc99b7c4d257e7ff17b422112c48ca7c6d0c0b51ed39",
+      "expected": [
+        {
+          "class": "circle",
+          "box": [
+            30,
+            40,
+            101,
+            111
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            170,
+            40,
+            241,
+            111
+          ]
+        },
+        {
+          "class": "triangle",
+          "box": [
+            105,
+            180,
+            196,
+            271
+          ]
+        }
+      ],
+      "predicted": [],
+      "detection_metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "iou_threshold": 0.5,
+        "matches": [],
+        "precision": null,
+        "recall": 0.0
+      },
+      "stroke_mask_iou": 0.0,
+      "mask_metric_scope": "generator dark strokes, not filled silhouettes",
+      "wall_seconds": 0.07948884999996153
+    },
+    {
+      "case": "faint",
+      "mode": "adaptive",
+      "source_sha256": "b9839a3cd8ad71b02f66bc99b7c4d257e7ff17b422112c48ca7c6d0c0b51ed39",
+      "expected": [
+        {
+          "class": "circle",
+          "box": [
+            30,
+            40,
+            101,
+            111
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            170,
+            40,
+            241,
+            111
+          ]
+        },
+        {
+          "class": "triangle",
+          "box": [
+            105,
+            180,
+            196,
+            271
+          ]
+        }
+      ],
+      "predicted": [
+        {
+          "class": "triangle",
+          "box": [
+            103.0,
+            178.0,
+            198.0,
+            273.0
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            168.0,
+            38.0,
+            243.0,
+            113.0
+          ]
+        },
+        {
+          "class": "circle",
+          "box": [
+            28.0,
+            38.0,
+            103.0,
+            113.0
+          ]
+        }
+      ],
+      "detection_metrics": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "iou_threshold": 0.5,
+        "matches": [
+          {
+            "expected": 0,
+            "predicted": 2,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 1,
+            "predicted": 1,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 2,
+            "predicted": 0,
+            "iou": 0.9175623268698061
+          }
+        ],
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "stroke_mask_iou": 1.0,
+      "mask_metric_scope": "generator dark strokes, not filled silhouettes",
+      "wall_seconds": 0.36274443000002066
+    },
+    {
+      "case": "rotate90",
+      "mode": "baseline",
+      "source_sha256": "f80ae3b77f0332607c922ef15c57151420a9536fbf569d091d44e2d48ee1daa4",
+      "expected": [
+        {
+          "class": "circle",
+          "box": [
+            40,
+            199,
+            111,
+            270
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            40,
+            59,
+            111,
+            130
+          ]
+        },
+        {
+          "class": "triangle",
+          "box": [
+            180,
+            104,
+            271,
+            195
+          ]
+        }
+      ],
+      "predicted": [
+        {
+          "class": "triangle",
+          "box": [
+            178.0,
+            102.0,
+            273.0,
+            197.0
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            38.0,
+            57.0,
+            113.0,
+            132.0
+          ]
+        },
+        {
+          "class": "circle",
+          "box": [
+            38.0,
+            197.0,
+            113.0,
+            272.0
+          ]
+        }
+      ],
+      "detection_metrics": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "iou_threshold": 0.5,
+        "matches": [
+          {
+            "expected": 0,
+            "predicted": 2,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 1,
+            "predicted": 1,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 2,
+            "predicted": 0,
+            "iou": 0.9175623268698061
+          }
+        ],
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "stroke_mask_iou": 1.0,
+      "mask_metric_scope": "generator dark strokes, not filled silhouettes",
+      "wall_seconds": 0.07208037500004139
+    },
+    {
+      "case": "rotate90",
+      "mode": "adaptive",
+      "source_sha256": "f80ae3b77f0332607c922ef15c57151420a9536fbf569d091d44e2d48ee1daa4",
+      "expected": [
+        {
+          "class": "circle",
+          "box": [
+            40,
+            199,
+            111,
+            270
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            40,
+            59,
+            111,
+            130
+          ]
+        },
+        {
+          "class": "triangle",
+          "box": [
+            180,
+            104,
+            271,
+            195
+          ]
+        }
+      ],
+      "predicted": [
+        {
+          "class": "triangle",
+          "box": [
+            178.0,
+            102.0,
+            273.0,
+            197.0
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            38.0,
+            57.0,
+            113.0,
+            132.0
+          ]
+        },
+        {
+          "class": "circle",
+          "box": [
+            38.0,
+            197.0,
+            113.0,
+            272.0
+          ]
+        }
+      ],
+      "detection_metrics": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "iou_threshold": 0.5,
+        "matches": [
+          {
+            "expected": 0,
+            "predicted": 2,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 1,
+            "predicted": 1,
+            "iou": 0.8961777777777777
+          },
+          {
+            "expected": 2,
+            "predicted": 0,
+            "iou": 0.9175623268698061
+          }
+        ],
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "stroke_mask_iou": 1.0,
+      "mask_metric_scope": "generator dark strokes, not filled silhouettes",
+      "wall_seconds": 0.2744697030000225
+    },
+    {
+      "case": "half_scale",
+      "mode": "baseline",
+      "source_sha256": "3bd4b281e09f496d072805c981093a5bce6d7a5378eb892b7ac44b97bda95f89",
+      "expected": [
+        {
+          "class": "circle",
+          "box": [
+            15.0,
+            20.0,
+            50.5,
+            55.5
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            85.0,
+            20.0,
+            120.5,
+            55.5
+          ]
+        },
+        {
+          "class": "triangle",
+          "box": [
+            52.5,
+            90.0,
+            98.0,
+            135.5
+          ]
+        }
+      ],
+      "predicted": [
+        {
+          "class": "quadrilateral",
+          "box": [
+            50.0,
+            88.0,
+            100.0,
+            138.0
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            83.0,
+            18.0,
+            123.0,
+            58.0
+          ]
+        },
+        {
+          "class": "circle",
+          "box": [
+            13.0,
+            18.0,
+            53.0,
+            58.0
+          ]
+        }
+      ],
+      "detection_metrics": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 1,
+        "iou_threshold": 0.5,
+        "matches": [
+          {
+            "expected": 0,
+            "predicted": 2,
+            "iou": 0.78765625
+          },
+          {
+            "expected": 1,
+            "predicted": 1,
+            "iou": 0.78765625
+          }
+        ],
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666
+      },
+      "stroke_mask_iou": 0.6774744027303754,
+      "mask_metric_scope": "generator dark strokes, not filled silhouettes",
+      "wall_seconds": 0.028037393999966298
+    },
+    {
+      "case": "half_scale",
+      "mode": "adaptive",
+      "source_sha256": "3bd4b281e09f496d072805c981093a5bce6d7a5378eb892b7ac44b97bda95f89",
+      "expected": [
+        {
+          "class": "circle",
+          "box": [
+            15.0,
+            20.0,
+            50.5,
+            55.5
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            85.0,
+            20.0,
+            120.5,
+            55.5
+          ]
+        },
+        {
+          "class": "triangle",
+          "box": [
+            52.5,
+            90.0,
+            98.0,
+            135.5
+          ]
+        }
+      ],
+      "predicted": [
+        {
+          "class": "quadrilateral",
+          "box": [
+            50.0,
+            88.0,
+            100.0,
+            138.0
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            82.0,
+            17.0,
+            123.0,
+            58.0
+          ]
+        },
+        {
+          "class": "circle",
+          "box": [
+            13.0,
+            18.0,
+            53.0,
+            58.0
+          ]
+        }
+      ],
+      "detection_metrics": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 1,
+        "iou_threshold": 0.5,
+        "matches": [
+          {
+            "expected": 0,
+            "predicted": 2,
+            "iou": 0.78765625
+          },
+          {
+            "expected": 1,
+            "predicted": 1,
+            "iou": 0.7497025580011898
+          }
+        ],
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666
+      },
+      "stroke_mask_iou": 0.6774744027303754,
+      "mask_metric_scope": "generator dark strokes, not filled silhouettes",
+      "wall_seconds": 0.06187548200000492
+    },
+    {
+      "case": "clutter",
+      "mode": "baseline",
+      "source_sha256": "023cd6ad43e1e71086c93d28ea2b10ccc27689da8aa39e293da7050fdfe38774",
+      "expected": [
+        {
+          "class": "circle",
+          "box": [
+            30,
+            40,
+            101,
+            111
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            170,
+            40,
+            241,
+            111
+          ]
+        },
+        {
+          "class": "triangle",
+          "box": [
+            105,
+            180,
+            196,
+            271
+          ]
+        }
+      ],
+      "predicted": [
+        {
+          "class": "quadrilateral",
+          "box": [
+            103.0,
+            0.0,
+            243.0,
+            300.0
+          ]
+        }
+      ],
+      "detection_metrics": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 3,
+        "iou_threshold": 0.5,
+        "matches": [],
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "stroke_mask_iou": null,
+      "mask_metric_scope": "not evaluated with clutter",
+      "wall_seconds": 0.18465430699984609
+    },
+    {
+      "case": "clutter",
+      "mode": "adaptive",
+      "source_sha256": "023cd6ad43e1e71086c93d28ea2b10ccc27689da8aa39e293da7050fdfe38774",
+      "expected": [
+        {
+          "class": "circle",
+          "box": [
+            30,
+            40,
+            101,
+            111
+          ]
+        },
+        {
+          "class": "quadrilateral",
+          "box": [
+            170,
+            40,
+            241,
+            111
+          ]
+        },
+        {
+          "class": "triangle",
+          "box": [
+            105,
+            180,
+            196,
+            271
+          ]
+        }
+      ],
+      "predicted": [
+        {
+          "class": "quadrilateral",
+          "box": [
+            103.0,
+            0.0,
+            243.0,
+            300.0
+          ]
+        }
+      ],
+      "detection_metrics": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 3,
+        "iou_threshold": 0.5,
+        "matches": [],
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "stroke_mask_iou": null,
+      "mask_metric_scope": "not evaluated with clutter",
+      "wall_seconds": 0.34257038400005513
+    },
+    {
+      "case": "blank",
+      "mode": "baseline",
+      "source_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "expected": [],
+      "predicted": [],
+      "detection_metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "iou_threshold": 0.5,
+        "matches": [],
+        "precision": null,
+        "recall": null
+      },
+      "stroke_mask_iou": null,
+      "mask_metric_scope": "generator dark strokes, not filled silhouettes",
+      "wall_seconds": 0.04772913399983736
+    },
+    {
+      "case": "blank",
+      "mode": "adaptive",
+      "source_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "expected": [],
+      "predicted": [],
+      "detection_metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "iou_threshold": 0.5,
+        "matches": [],
+        "precision": null,
+        "recall": null
+      },
+      "stroke_mask_iou": null,
+      "mask_metric_scope": "generator dark strokes, not filled silhouettes",
+      "wall_seconds": 0.21275743500018507
+    }
+  ]
+}

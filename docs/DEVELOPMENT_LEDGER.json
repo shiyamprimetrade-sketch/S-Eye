@@ -7,12 +7,50 @@
       "id": "stage85-evaluator",
       "objective": "Preserve Stage 84 and implement reproducible isolated multi-image generalization evaluation",
       "commit_sha": "111a8c39e2fb97aeb28281451ff66ab85e568d05",
-      "files_changed": ["generalization.py", "stage85_fixture.py", "tests", "benchmarks", "docs", "DEVELOPMENT_STATUS.md", ".github/workflows/vision-tests.yml"],
+      "files_changed": [
+        "generalization.py",
+        "stage85_fixture.py",
+        "tests",
+        "benchmarks",
+        "docs",
+        "DEVELOPMENT_STATUS.md",
+        ".github/workflows/vision-tests.yml"
+      ],
       "tests_executed": "python -m unittest discover -s tests -v",
       "test_results": "18 passed locally and CI on Python 3.12/3.13",
       "benchmark_results": "56 synthetic executions; 42 exact class-set matches; 14 mismatches; 0 new reviewed photographs",
-      "limitations": ["No photographic validation", "Class presence only", "Historical private archives absent"],
+      "limitations": [
+        "No photographic validation",
+        "Class presence only",
+        "Historical private archives absent"
+      ],
       "next_task": "Grouped split and leakage protection with per-class diagnostics"
+    },
+    {
+      "id": "stage86-grouped-datasets",
+      "objective": "Prevent capture/content leakage and expose class-presence error diagnostics",
+      "commit_sha": "1535578a693c45452752d5640497ed00a6207754",
+      "files_changed": [
+        "src/seye/core",
+        "dataset_tools.py",
+        "generalization.py",
+        "tests/test_datasets.py",
+        "scripts/benchmark_stage86.py",
+        "benchmarks/stage86_*",
+        "docs",
+        "CHANGELOG.md",
+        ".github/workflows/vision-tests.yml"
+      ],
+      "tests_executed": "python -m unittest discover -s tests -v",
+      "test_results": "31 passed; GitHub CI Python 3.12/3.13 passed",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43252638455",
+      "benchmark_results": "7 sources, 56 runs, 42 matches, 14 mismatches; grouped assignments have no detected cross-split conflicts",
+      "limitations": [
+        "Synthetic only",
+        "Near duplicates are a heuristic",
+        "Component ratios are not class-stratified"
+      ],
+      "next_task": "Opt-in structured localization and independent adaptive segmentation experiment"
     }
   ]
 }

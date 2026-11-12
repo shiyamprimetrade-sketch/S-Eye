@@ -5,8 +5,8 @@ from a stage number, successful script execution or synthetic-only accuracy.
 
 | Gate | Required proof | Current status |
 | --- | --- | --- |
-| Image analysis | Installable ingestion and evidence-grounded reports | Baseline/harness implemented and tested; install release pending |
-| Multi-object detection/localization | Documented supported conditions and representative box/mask evaluation | Pending |
+| Image analysis | Installable ingestion and evidence-grounded reports | Baseline/harness and opt-in installed API tested on Linux; full release pending |
+| Multi-object detection/localization | Documented supported conditions and representative box/mask evaluation | Synthetic box/mask metrics and API implemented/tested; representative validation pending |
 | Recognition/rejection | Independent category evidence and unknown inputs rejected | Geometry-only; broader recognition/rejection pending |
 | Visual memory | Persistent retrieval, provenance, integrity and failure recovery | Historical implementation; new representative verification pending |
 | Scenes | Supported change/similarity workflows tested on scenes | Historical experiments; validation pending |

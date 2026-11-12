@@ -23,6 +23,14 @@ is part of core inference. Pillow supplies image decoding, resampling and filter
 - Compatibility entry point: `dataset_tools.py` exposes the new src components
   without moving legacy scripts. No import triggers inference or private memory writes.
 
+- Opt-in localization: `src/seye/detection/analysis.py` returns deterministic
+  geometric objects, half-open boxes, source coordinate mapping and mask artifacts.
+  Baseline geometry is preserved; adaptive segmentation is a separate experiment.
+- Image ingestion: `src/seye/image/ingestion.py` enforces explicit local source,
+  optional permitted root, decoded format, byte and pixel limits for the new API.
+- Installed CLI: `seye` and checkout wrapper `analyze_image.py` expose private local
+  reports/overlays, leaving historical camera/memory interfaces available.
+
 ## Contracts
 
 Dataset manifest schema 1 uses source-relative paths and actual SHA-256 values.

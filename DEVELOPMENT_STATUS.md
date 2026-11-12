@@ -90,3 +90,32 @@ not a validated identity classifier. Approximate ratios are not class-stratified
 
 Next executable milestone: opt-in structured box/mask localization API, independent
 adaptive segmentation experiment, IoU matching and parity against the legacy engine.
+
+## Experimental localization API milestone (Stage 90 roadmap work)
+
+Implemented/tested/measured: opt-in structured geometric boxes and masks,
+deterministic instance IDs, EXIF-aware source coordinates, unchanged extracted
+hull math, baseline parity, independent adaptive local mean/variance segmentation,
+one-to-one class-aware box matching and mask/box IoU. The new API bounds JPEG/PNG
+input by actual bytes/pixels and optional permitted root. It exports a local JSON
+report, stroke/grouped masks and overlay; no camera or memory access is automatic.
+
+42 automated tests pass (see `benchmarks/localization_tests.txt`). Legacy labels
+and segmentation mask hashes match on all seven generated control/stress fixtures.
+A three-object scene and repeated-category instances are localized in unit tests.
+An installed development package (`seye-independent` 0.1.0.dev90) was tested from
+outside the checkout on Linux using existing Pillow; no clean offline dependency
+installation or phone/Windows validation is claimed.
+
+`benchmarks/localization_comparison.json`: 14 generated runs, baseline TP=11,
+FP=2, FN=7 versus adaptive TP=14, FP=2, FN=4 at box IoU≥0.5. The difference comes
+from a generated faint scene. Both still fail clutter and have a scale error.
+These correlated synthetic probes do not establish photographic accuracy;
+adaptive remains experimental and opt-in, and Stage 90–99 is not complete.
+
+Next concrete task: versioned instance/segmentation annotation schema and
+multi-image localization evaluation (including negatives, multiple same-class
+objects, reviewed boxes and source-to-processed coordinate validation), followed
+by contour/noise/merge-split experiments against fixed baselines. Propagate bounded
+ingestion into the legacy evaluator before accepting untrusted datasets. Obtain
+reviewed independent photographs in parallel; do not fabricate them.

@@ -29,3 +29,8 @@
 Real photographs are needed for validation, but their absence does not block
 independent architecture, annotation, localization or reliability implementation.
 No sub-agents are required or authorized by this protocol.
+
+Latest implemented continuation: grouped datasets (Stage 86) and the experimental
+localization API (Stage 90 roadmap work). The exact next task is instance/mask
+annotation validation and dataset-level localization evaluation; see STATUS.md.
+The installed `seye` package is a development API, not a complete S-Eye release.

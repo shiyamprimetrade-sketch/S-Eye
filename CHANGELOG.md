@@ -11,3 +11,8 @@
 
 Photographic validation and version 1.0 remain incomplete. No pretrained recognition
 model, classifier replacement or private-memory migration has been introduced.
+
+- Experimental localization milestone: reusable baseline geometry and connected
+  components, opt-in adaptive contrast segmentation, deterministic IDs, EXIF-aware
+  boxes, stroke masks/overlays, IoU/one-to-one detection metrics, bounded local input,
+  installable development package/CLI and installation smoke test.

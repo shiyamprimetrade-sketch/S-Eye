@@ -22,7 +22,9 @@
 - Existing concurrency uses Unix fcntl; Windows compatibility is not established.
   Local execution is Linux Python 3.12; CI also exercises Python 3.13. No actual
   phone, live camera or Windows performance measurement is claimed.
-- Input resource hardening is incomplete. Process only trusted local inputs until
-  decoder/resource/permission boundaries are implemented and tested.
+- New API byte/pixel/format/source-root boundaries are tested. Legacy scripts
+  and the evaluator do not yet inherit them. Decoder isolation, timeouts and
+  atomic multi-file output transactions remain incomplete; no untrusted-upload
+  deployment is validated.
 
 S-Eye is experimental. Version 1.0 is not complete.

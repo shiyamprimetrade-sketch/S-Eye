@@ -21,3 +21,23 @@ STAGE85_PROTOCOL.md and DATASETS.md for reproducible dataset/evaluation commands
 Report hardware/software, source counts and capture conditions. Future model
 training must compare fixed baselines on held-out capture groups, with dataset
 versions and learning curves. No synthetic-only experiment validates general vision.
+
+## Opt-in localization and adaptive segmentation experiment
+
+Reproduce `benchmarks/localization_comparison.json` with:
+`python scripts/benchmark_localization.py --output NEW_REPORT.json`.
+
+One generated three-object scene, six correlated conditions and one blank control
+were evaluated in both modes, 14 runs total. Class-aware one-to-one box matching
+uses IoU≥0.5. Across the six scene conditions (18 expected instances per mode),
+baseline measured TP=11 / FP=2 / FN=7; adaptive measured TP=14 / FP=2 / FN=4.
+Both modes detected/localized all three shapes in original, dim and 90-degree
+rotation cases. Adaptive recovered three faint shapes missed by baseline. Both
+modes still made a class error at half scale and failed the clutter scene.
+
+This is an exploratory generated comparison, not an independent test-set accuracy
+or proof of improvement on photographs. Adaptive mode remains opt-in. Stroke mask
+IoU is 1.0 on the nominal generated scene for both modes; this is not filled-object
+segmentation validation. See per-case results, labels, source/code hashes and
+single-host wall timings in the report. No Android, Windows or live-video rate
+is implied. Installed-package smoke evidence is in `benchmarks/install_smoke.json`.

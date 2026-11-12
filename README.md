@@ -64,3 +64,17 @@ See [development status](DEVELOPMENT_STATUS.md), the
 [Stage 84 audit](docs/STAGE84_AUDIT.md) and
 [Stage 85 capture/evaluation protocol](docs/STAGE85_PROTOCOL.md).
 Generated fixtures are synthetic; they do not establish real-photo accuracy.
+
+## Structured localization (experimental)
+
+```bash
+python -m pip install .
+seye --image /path/to/photo.jpg --output-dir /path/to/new-analysis
+```
+
+Returns geometric boxes, masks, an overlay and JSON. The default preserves the
+legacy baseline; `--mode adaptive` enables an independent experimental contrast
+rule. See [localization and installation](docs/LOCALIZATION.md),
+[grouped datasets](docs/DATASETS.md), and [release gates](docs/RELEASE_CRITERIA.md).
+Broader recognition, learned confidence, video tracking and full S integration
+remain incomplete. This is a development package, not S-Eye v1.0.

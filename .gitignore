@@ -34,3 +34,9 @@ stage82_dataset/
 
 # Private visual memory
 eye_memory.jsonl
+
+# Python packaging and local environments
+build/
+dist/
+*.egg-info/
+.venv/

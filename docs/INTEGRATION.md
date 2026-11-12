@@ -6,7 +6,9 @@ S-Memory or the parent S repository. `generalization.py --manifest ... --output 
 emits versioned JSON; `dataset_tools.py audit|split` supplies dataset provenance.
 
 The `src/seye/core/` modules establish reusable dataset and metric contracts.
-They are not yet a full recognition, visual-memory or S-Tools API. No end-to-end
+The opt-in installed `seye.detection.analysis.analyze` API and `seye` CLI now
+return structured geometric boxes and masks (see LOCALIZATION.md). These are not
+a full recognition, visual-memory or S-Tools API. No end-to-end
 main-S integration is claimed. No cloud vision service or pretrained model is used.
 
 Future contracts must include request/schema IDs, permitted source roots, input
