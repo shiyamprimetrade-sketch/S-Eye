@@ -95,3 +95,8 @@ block implementation on human review or claim unmeasured accuracy.
 Stage 90 adds optional `matcher: contrast` and explicit `scales` to the same request.
 The default pixel matcher is preserved. See STAGE90_INTERFACE_MATCHING.md for
 contrast thresholds, bounded scale search, measured comparisons and limitations.
+
+
+Stage 91 adds optional `region_proposals: true` to return unlabeled visual regions
+and `region_hypotheses` signals without requiring templates. These do not establish
+control names or clickability. See STAGE91_INTERFACE_REGIONS.md for bounds/results.

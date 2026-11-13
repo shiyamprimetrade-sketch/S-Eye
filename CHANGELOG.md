@@ -43,3 +43,7 @@ model, classifier replacement or private-memory migration has been introduced.
 - Stage 89: deterministic 75-case interface fixture matrix, automatic oracles, per-condition confusion/IoU/error accounting, explicit execution failures and recorded theme/scale misses; CI artifact added.
 
 - Stage 90: clarify S-Eye as S visual subsystem; add optional independent local contrast/polarity and bounded scale matching, preserve pixel baseline, and compare on frozen/additional generated designs.
+
+- Stage 91: independent RGB edge/connected-region hypotheses without templates; optional structured observation signals and memory, bounded processing/truncation, generated box scoring and supplied-screenshot probes.
+
+- Repair Stage 90 cross-platform frozen-report acceptance: retain encoded provenance and require canonical decoded image identities plus unchanged semantic results.

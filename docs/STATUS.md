@@ -174,3 +174,24 @@ negative/overlap checks. OCR/code comprehension and live host interaction are
 unfinished; no human-review prerequisite is imposed on engineering continuation.
 
 Stage 90 implementation published at `492c0146766999b5544f6a3e81a3a73385708ce1` in PR #1. Exact-head CI is tracked separately from the 117 passing local tests.
+
+
+## Stage 91 — template-free interface-region hypotheses
+
+Implemented independent bounded RGB neighbor edges and eight-connected rectangular
+region proposals, opt-in via region_proposals=true in observe_interface. Proposals
+remain unlabeled and clickability unknown; default/template behavior is preserved.
+124 local tests pass. Generated 33-case benchmark: 25 matched regions, 8 extra
+proposals, 12 missed out of 37 targets at IoU >= 0.5. Outline duplicates, overlap
+and low-contrast misses remain recorded. All four supplied screenshots process,
+with 19/15/11/18 unlabelled hypotheses; no real localization accuracy is claimed.
+See STAGE91_INTERFACE_REGIONS.md, benchmarks/stage91_regions.json and
+benchmarks/stage91_uploaded_screenshots.json. Stage 91 scoped engineering acceptance
+is complete; representative application validation and v1.0 remain incomplete.
+Next Continue: Stage 92 ordered boundary extraction and outline-pair consolidation,
+keeping nested/touching/overlap tests and the fixed Stage 91 baseline.
+
+Cross-platform check: prior Stage 90 run 43404599506 failed on Windows at frozen
+report acceptance while both Ubuntu jobs passed. Stage 91 includes canonical
+RGB/dimension identity checks plus semantic equality to repair this gate; encoded
+file hashes remain provenance. Local regression passes; new Windows CI is pending.

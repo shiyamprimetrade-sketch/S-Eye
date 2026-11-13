@@ -194,3 +194,26 @@ is complete; exact-head CI must be checked independently.
 Next Continue: Stage 91 independent edge-based interface-region proposals with
 negative/overlap checks. OCR/code comprehension and live host interaction are
 unfinished; no human-review prerequisite is imposed on engineering continuation.
+
+
+## Stage 91 — template-free interface-region hypotheses
+
+Implemented independent bounded RGB neighbor edges and eight-connected rectangular
+region proposals, opt-in via region_proposals=true in observe_interface. Proposals
+remain unlabeled and clickability unknown; default/template behavior is preserved.
+124 local tests pass. Generated 33-case benchmark: 25 matched regions, 8 extra
+proposals, 12 missed out of 37 targets at IoU >= 0.5. Outline duplicates, overlap
+and low-contrast misses remain recorded. All four supplied screenshots process,
+with 19/15/11/18 unlabelled hypotheses; no real localization accuracy is claimed.
+See STAGE91_INTERFACE_REGIONS.md, benchmarks/stage91_regions.json and
+benchmarks/stage91_uploaded_screenshots.json. Stage 91 scoped engineering acceptance
+is complete; representative application validation and v1.0 remain incomplete.
+Next Continue: Stage 92 ordered boundary extraction and outline-pair consolidation,
+keeping nested/touching/overlap tests and the fixed Stage 91 baseline.
+
+Stage 91 also repairs Stage 90's representation-sensitive frozen-report gate:
+Windows CI run 43404599506 failed report equality while detection totals matched.
+Canonical mode/dimension/RGB identities are now pinned, encoded hashes retained,
+and semantic results still required. See tests/test_benchmark_portability.py and
+benchmarks/stage91_portability_regression.json. Inspect new Windows CI before
+claiming remote success. Do not revert to encoded-file equality or drop pixel checks.

@@ -89,16 +89,21 @@
     },
     {
       "stage": 91,
-      "objective": "Edge detection",
+      "objective": "Independent edge-based template-free interface-region proposals",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/detection/annotations.py",
-        "src/seye/segmentation/experimental.py"
+        "src/seye/interface/regions.py",
+        "tests/test_interface_regions.py",
+        "scripts/benchmark_stage91.py",
+        "benchmarks/stage91_regions.json",
+        "benchmarks/stage91_uploaded_screenshots.json",
+        "docs/STAGE91_INTERFACE_REGIONS.md"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped Stage 91 engineering requirement; duplicate outlines, overlap, low contrast and broader application validation remain recorded for subsequent work.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Bounded RGB neighbor edges and rectangular visual hypotheses with generated localization diagnostics; no semantic control or real-application accuracy claim"
     },
     {
       "stage": 92,

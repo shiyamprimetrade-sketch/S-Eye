@@ -320,6 +320,36 @@
         "No OCR, code comprehension or live host actions"
       ],
       "next_task": "Stage 91 independent edge-based interface-region proposals with negative and overlap tests"
+    },
+    {
+      "id": "stage91-template-free-region-hypotheses",
+      "objective": "Give S independent interface-region hypotheses without a supplied template",
+      "files_changed": [
+        "src/seye/interface/regions.py",
+        "src/seye/interface/observer.py",
+        "src/seye/integration/service.py",
+        "tests/test_interface_regions.py",
+        "scripts/benchmark_stage91.py",
+        "benchmarks/stage91_regions.json",
+        "benchmarks/stage91_uploaded_screenshots.json",
+        "docs/STAGE91_INTERFACE_REGIONS.md",
+        "scripts/benchmark_stage90.py",
+        "tests/test_benchmark_portability.py",
+        "benchmarks/stage89_pixel_identities.json",
+        "benchmarks/stage91_portability_regression.json"
+      ],
+      "tests_executed": "117-test baseline; 124-test local suite; 33 generated localization cases; four uploaded screenshot execution probes; Stage 90 cross-platform baseline repair",
+      "test_results": "124 tests passed locally; exact-head CI pending",
+      "benchmark_results": "33/33 completed; 37 target regions: TP25 FP8 FN12 at IoU>=0.5. Four screenshots completed, proposals19/15/11/18; no real localization accuracy measured.",
+      "commit_sha": "Publication receipt follows in this branch",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Unlabeled hypotheses, not controls",
+        "Outline duplicates",
+        "Overlapping and low-contrast misses",
+        "No real-application localization validation"
+      ],
+      "next_task": "Stage 92 ordered contours and inner/outer boundary pairing against frozen benchmark"
     }
   ]
 }

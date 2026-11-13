@@ -43,6 +43,24 @@ def heldout():
                            'expected_change':{'signal':'pixels_changed' if pixels else 'pixels_unchanged','changed_pixels':pixels}},before,after,reference
 
 
+def pixel_digest(image):
+    rgb=image.convert('RGB')
+    return hashlib.sha256(f'RGB:{rgb.width}:{rgb.height}:'.encode()+rgb.tobytes()).hexdigest()
+
+
+def frozen_equivalent(actual, frozen, pixel_identities):
+    # Encoded PNG bytes can differ across platform zlib builds. Keep their hashes
+    # as provenance, but require canonical RGB pixels and all semantic results.
+    encoded={'source_sha256','previous_sha256','template_sha256'}
+    pixels={'source_pixel_sha256','previous_pixel_sha256','template_pixel_sha256'}
+    if actual['summary']!=frozen['summary']:return False
+    first=[{k:v for k,v in row.items() if k not in encoded|pixels} for row in actual['cases']]
+    second=[{k:v for k,v in row.items() if k not in encoded} for row in frozen['cases']]
+    if first!=second:return False
+    observed={row['id']:{key:row[key] for key in pixels} for row in actual['cases']}
+    return observed==pixel_identities
+
+
 def run():
     suites={'frozen_stage89':list(fixtures()),'heldout_designs':list(heldout())}
     protocol={'threshold':1,'stride':4,'scales':[.75,1,1.25,1.5,2],
@@ -58,7 +76,10 @@ def run():
                 before.save(root/'before.png');after.save(root/'after.png');templates=[]
                 if template is not None:
                     template.save(root/'template.png');templates=[{'name':metadata['family'],'path':root/'template.png'}]
-                provenance={'source_sha256':hashlib.sha256((root/'after.png').read_bytes()).hexdigest(),
+                provenance={'source_pixel_sha256':pixel_digest(after),
+                            'previous_pixel_sha256':pixel_digest(before),
+                            'template_pixel_sha256':pixel_digest(template) if template is not None else None,
+                            'source_sha256':hashlib.sha256((root/'after.png').read_bytes()).hexdigest(),
                             'previous_sha256':hashlib.sha256((root/'before.png').read_bytes()).hexdigest(),
                             'template_sha256':hashlib.sha256((root/'template.png').read_bytes()).hexdigest() if templates else None}
                 for mode in cases:
@@ -71,7 +92,8 @@ def run():
                     cases[mode].append(row)
             report['suites'][suite]={mode:{'summary':summarize(rows),'cases':rows} for mode,rows in cases.items()}
     frozen=json.loads((ROOT/'benchmarks/stage89_interface_conditions.json').read_text())
-    report['acceptance']={'frozen_pixel_baseline_preserved':report['suites']['frozen_stage89']['pixel']=={'summary':frozen['summary'],'cases':frozen['cases']}}
+    pixels=json.loads((ROOT/'benchmarks/stage89_pixel_identities.json').read_text())['images']
+    report['acceptance']={'frozen_pixel_baseline_preserved':frozen_equivalent(report['suites']['frozen_stage89']['pixel'],frozen,pixels)}
     for suite,methods in report['suites'].items():
         result=methods['contrast']['summary']
         report['acceptance'][suite+'_contrast_contract']=(result['completed_cases']==result['requested_cases'] and

@@ -94,7 +94,7 @@ def execute(request, permissions):
             if not permissions.memory:
                 raise PermissionError('Explicit memory permission required')
             memory_path = permissions.require(request['memory'], write=True)
-        result = observe(image, previous, validated, request.get('stride', 4), request.get('min_similarity', .99 if request.get('matcher')=='contrast' else .97), request.get('matcher', 'pixel'), request.get('scales'))
+        result = observe(image, previous, validated, request.get('stride', 4), request.get('min_similarity', .99 if request.get('matcher')=='contrast' else .97), request.get('matcher', 'pixel'), request.get('scales'), request.get('region_proposals', False))
         if memory_path is not None:
             memory = Memory(memory_path)
             try:
