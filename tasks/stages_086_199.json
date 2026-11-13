@@ -72,16 +72,20 @@
     },
     {
       "stage": 90,
-      "objective": "Independent adaptive thresholding",
+      "objective": "Independent local contrast thresholding and bounded scale matching for S interface observation",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/detection/annotations.py",
-        "src/seye/segmentation/experimental.py"
+        "src/seye/interface/contrast.py",
+        "tests/test_interface_contrast.py",
+        "scripts/benchmark_stage90.py",
+        "benchmarks/stage90_interface_comparison.json",
+        "docs/STAGE90_INTERFACE_MATCHING.md"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped Stage 90 engineering requirement. Real-application false-positive and unfamiliar-pattern validation remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Opt-in interface contrast/scale matcher and generated controlled comparisons; no representative application accuracy claim"
     },
     {
       "stage": 91,

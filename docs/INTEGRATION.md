@@ -75,3 +75,21 @@ cases match expected statuses; four supplied screenshot same-frame probes show z
 change. See INTERFACE_OBSERVATION.md and benchmarks/interface_* evidence.
 Stop after this stage checkpoint. Next Continue: Stage 89 interface-condition
 diagnostics and automatic fixture ground truth, without a human-review dependency.
+
+
+## Stage 90 — S visual subsystem clarification and contrast matching
+
+README and PURPOSE.md now state the primary goal: S-Eye observes another computer
+and sends grounded visual signals to S; S decides and S-Tools acts. Added opt-in
+independent local binary contrast/polarity matching and bounded multiscale search;
+the pixel baseline and historical algorithms remain preserved.
+117 local tests pass. Frozen 75-case suite: 3/18 to 18/18 unique targets localized;
+new 32-case design suite: 0/8 to 8/8. No false accepts or unsafe duplicate choices
+in either generated suite. All 214 executions complete; 107/107 change oracles
+match per method. These are generated engineering results, not real-application
+accuracy or expert equivalence. See STAGE90_INTERFACE_MATCHING.md and
+benchmarks/stage90_interface_comparison.json. Stage 90 engineering acceptance
+is complete; exact-head CI must be checked independently.
+Next Continue: Stage 91 independent edge-based interface-region proposals with
+negative/overlap checks. OCR/code comprehension and live host interaction are
+unfinished; no human-review prerequisite is imposed on engineering continuation.

@@ -41,3 +41,5 @@ model, classifier replacement or private-memory migration has been introduced.
 - Owner-revised Stage 88 acceptance: human review no longer blocks engineering. Added independent interface screenshot change/template evidence, scoped S JSON action, verified observation recording and generated UI checks.
 
 - Stage 89: deterministic 75-case interface fixture matrix, automatic oracles, per-condition confusion/IoU/error accounting, explicit execution failures and recorded theme/scale misses; CI artifact added.
+
+- Stage 90: clarify S-Eye as S visual subsystem; add optional independent local contrast/polarity and bounded scale matching, preserve pixel baseline, and compare on frozen/additional generated designs.

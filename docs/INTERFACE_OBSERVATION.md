@@ -90,3 +90,8 @@ scaling, light/dark themes, repeated controls and unsupported cases. Use generat
 fixture metadata as exact automatic ground truth and label it generated. Add real
 application screenshot evaluations when a documented oracle is available; do not
 block implementation on human review or claim unmeasured accuracy.
+
+
+Stage 90 adds optional `matcher: contrast` and explicit `scales` to the same request.
+The default pixel matcher is preserved. See STAGE90_INTERFACE_MATCHING.md for
+contrast thresholds, bounded scale search, measured comparisons and limitations.

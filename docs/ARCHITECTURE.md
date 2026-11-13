@@ -1,5 +1,9 @@
 # S-Eye architecture
 
+Primary role: the visual subsystem of S for observing another computer during
+programming, research and design. S-Eye returns evidence; S decides; S-Tools acts.
+See [purpose](PURPOSE.md) and [interface contract](INTERFACE_OBSERVATION.md).
+
 S-Eye is an experimental independent visual-intelligence subsystem. The original
 Stage 84 algorithms remain the baseline at `e92bb55`. No externally trained model
 is part of core inference. Pillow supplies image decoding, resampling and filters.

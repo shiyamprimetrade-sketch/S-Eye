@@ -35,6 +35,7 @@ jobs:
       - run: python scripts/benchmark_cache.py --output "${{ runner.temp }}/cache-report.json"
       - run: python scripts/benchmark_interface.py --output "${{ runner.temp }}/interface-report.json"
       - run: python scripts/benchmark_stage89.py --output "${{ runner.temp }}/stage89-interface-report.json"
+      - run: python scripts/benchmark_stage90.py --output "${{ runner.temp }}/stage90-interface-report.json"
       - run: python scripts/audit_source.py --output "${{ runner.temp }}/current-source-audit.json"
       - run: python scripts/release_audit.py --output "${{ runner.temp }}/release-readiness.json"
       - run: python -m pip wheel --no-deps . --wheel-dir "${{ runner.temp }}/seye-dist"
@@ -52,4 +53,5 @@ jobs:
             ${{ runner.temp }}/cache-report.json
             ${{ runner.temp }}/interface-report.json
             ${{ runner.temp }}/stage89-interface-report.json
+            ${{ runner.temp }}/stage90-interface-report.json
             ${{ runner.temp }}/seye-dist/*.whl

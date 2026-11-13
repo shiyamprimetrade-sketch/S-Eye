@@ -294,6 +294,32 @@
         "No OCR or semantic/expert equivalence validation"
       ],
       "next_task": "Stage 90 independent preprocessing/multiscale experiments against frozen baseline and held-out generated designs"
+    },
+    {
+      "id": "stage90-interface-contrast-and-scale",
+      "objective": "Clarify S visual subsystem purpose and improve supported theme/scale localization independently",
+      "files_changed": [
+        "README.md",
+        "docs/PURPOSE.md",
+        "src/seye/interface/contrast.py",
+        "src/seye/interface/observer.py",
+        "src/seye/integration/service.py",
+        "tests/test_interface_contrast.py",
+        "scripts/benchmark_stage90.py",
+        "benchmarks/stage90_interface_comparison.json"
+      ],
+      "tests_executed": "117 local unit/integration/regression tests; frozen plus additional-design comparative benchmark; exact Stage 89 baseline reproduction",
+      "test_results": "117 tests passed locally; exact-head CI pending",
+      "benchmark_results": "Frozen unique IoU targets 3/18 pixel versus 18/18 contrast; additional-design 0/8 versus 8/8; no false accepts or unsafe single choices; 214 completed executions",
+      "commit_sha": "Publication receipt follows in this branch",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated glyphs only",
+        "Color/texture identity lost under binarization",
+        "Explicit scales, stride and contrast bound support",
+        "No OCR, code comprehension or live host actions"
+      ],
+      "next_task": "Stage 91 independent edge-based interface-region proposals with negative and overlap tests"
     }
   ]
 }
