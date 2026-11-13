@@ -1126,6 +1126,33 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 112"
+    },
+    {
+      "id": "stage112-learning-engineering",
+      "objective": "Explicit train/validation/test schema, taxonomy and identity/content/group guards for the newly frozen generated protocol; descriptor packets do not certify near-duplicate scene independence.",
+      "files_changed": [
+        "src/seye/learning/partitions.py",
+        "scripts/learning_batch_data.py",
+        "tests/test_stage112.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage112_tests.txt and benchmark_stage101_110.py --stage 112",
+      "test_results": "Focused tests passed; final regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 25,
+        "near_duplicate_scene_independence_certified": false,
+        "partition_counts": {
+          "test": 10,
+          "train": 9,
+          "validation": 6
+        },
+        "passed": true
+      },
+      "commit_sha": "Commit subject Stage 112; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 113"
     }
   ]
 }

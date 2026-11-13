@@ -14,6 +14,12 @@ def stage111():
         image=Image.new('RGB',(100,70),'black');ImageDraw.Draw(image).rectangle((x,10,x+19,29),fill='white');vectors.append(p.extract(image,['shape']))
     return {'cases':2,'translation_identity':vectors[0]==vectors[1],'dimension':len(vectors[0]['features']),'passed':vectors[0]==vectors[1] and len(vectors[0]['features'])==257}
 
+def stage112():
+    from learning_batch_data import dataset
+    from seye.learning.partitions import validate_partitions
+    r=validate_partitions(dataset())
+    return {'cases':25,'partition_counts':r['counts'],'near_duplicate_scene_independence_certified':False,'passed':r['counts']=={'train':9,'validation':6,'test':10}}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(111,121),required=True);p.add_argument('--output',type=Path,required=True)
