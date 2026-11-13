@@ -6,14 +6,16 @@
       "stage": 86,
       "objective": "Multi-image dataset loading and identity",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
         "src/seye/core/datasets.py",
-        "generalization.py"
+        "generalization.py",
+        "benchmarks/stage86_acceptance.json"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining loader acceptance requirement; representative recognition remains a separate phase gate",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Stage 86 loader/identity engineering contract only; not Stage 85-89 photographic recognition validation"
     },
     {
       "stage": 87,

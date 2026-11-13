@@ -86,3 +86,8 @@ including a test proving test outcomes cannot alter the fitted map. This is not
 a new locked or representative evaluation. Next: create a separately locked,
 group-audited evaluation protocol and assess calibrated rejection without tuning
 against these six test outcomes. See benchmarks/calibration_experiment.json.
+
+Sequential instruction: complete each stage's acceptance contract and commit it,
+then automatically proceed to the next stage while execution capacity permits.
+Stage 86 loader/identity acceptance passed all six checks; recognition validation
+is not implied. Next is Stage 87 grouped splits/leakage acceptance, then Stage 88.
