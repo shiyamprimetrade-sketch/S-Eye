@@ -10,6 +10,8 @@ def validate_snapshot(snapshot):
     if not isinstance(snapshot,dict) or not isinstance(snapshot.get('payload'),dict) or snapshot.get('sha256')!=checksum(snapshot['payload']):raise ValueError('Dataset revision integrity mismatch')
     p=snapshot['payload']
     if p.get('schema')!='seye-dataset-revision-v1' or not isinstance(p.get('images'),list) or not 1<=len(p['images'])<=2000:raise ValueError('Invalid dataset revision schema')
+    if not isinstance(p.get('dataset_id'),str) or not p['dataset_id'] or not isinstance(p.get('version'),str) or not re.fullmatch(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)',p['version']):raise ValueError('Invalid dataset revision identity/version')
+    if any(not isinstance(row,dict) for row in p['images']):raise ValueError('Dataset image objects required')
     return snapshot
 
 
@@ -22,6 +24,7 @@ def snapshot(manifest,version,parent=None):
         if parent['payload']['dataset_id']!=data['dataset_id'] or tuple(map(int,version.split('.'))) <= tuple(map(int,parent['payload']['version'].split('.'))):raise ValueError('Dataset parent or monotonic version mismatch')
     rows=[];pixels=set()
     for row in data['images']:
+        if not isinstance(row,dict):raise ValueError('Dataset image object required')
         if row.get('split') not in ('train','validation','test') or not isinstance(row.get('label'),str) or not row['label'] or row.get('source_kind') not in ('synthetic','photograph','screenshot') or row.get('annotation_status') not in ('generator','draft','human_reviewed'):raise ValueError('Split, label and annotation provenance required')
         if not isinstance(row.get('path'),str):raise ValueError('Source path required')
         path=(manifest.parent/row['path']).resolve();_,source=load_image(path,allowed_root=manifest.parent)

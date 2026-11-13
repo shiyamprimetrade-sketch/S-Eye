@@ -18,10 +18,13 @@ def bind(model,validation):
 def support(model,binding,packet):
     if not isinstance(binding,dict) or binding.get('calibration_sha256')!=checksum({k:v for k,v in binding.items() if k!='calibration_sha256'}):raise ValueError('Calibration integrity mismatch')
     if binding.get('model_sha256')!=checksum(model) or binding.get('validation_sha256')!=model.get('validation_sha256'):raise ValueError('Calibration model binding mismatch')
-    calibration=binding.get('calibrator',{});blocks=calibration.get('blocks')
+    calibration=binding.get('calibrator',{})
+    if not isinstance(calibration,dict):raise ValueError('Calibration object required')
+    blocks=calibration.get('blocks')
     if calibration.get('method')!='validation_isotonic_frequency' or not isinstance(blocks,list) or not blocks or len(blocks)>10000:raise ValueError('Invalid empirical calibration')
     previous=-1;count=0
     for block in blocks:
+        if not isinstance(block,dict):raise ValueError('Calibration block object required')
         for key in ('lower','upper'):
             if type(block.get(key)) not in (int,float) or not math.isfinite(block[key]) or not 0<=block[key]<=1:raise ValueError('Invalid calibration score range')
         if block['lower']>block['upper'] or block['lower']<=previous:raise ValueError('Calibration block order invalid')

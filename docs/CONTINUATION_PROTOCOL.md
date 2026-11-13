@@ -245,7 +245,7 @@ Implemented scoped geometric/appearance descriptors, schema-safe similarity,
 prototype fitting, model-bound validation-only empirical support, unknown rejection,
 ranked candidates, evidence explanations, generated evaluation and immutable dataset
 revisions. Each stage has focused tests, a reproducible experiment and a commit.
-163 local tests pass; exact-head CI is tracked separately. Existing models remain
+166 local tests pass; exact-head CI is tracked separately. Existing models remain
 compatible; no pretrained model or main-S modification is introduced.
 
 Critical measured limit: generated held-out known recognition is 0/6, unknown

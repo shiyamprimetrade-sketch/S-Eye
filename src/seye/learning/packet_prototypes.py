@@ -10,6 +10,7 @@ def validate_records(records):
     if not isinstance(records,list) or not 1<=len(records)<=10000:raise ValueError('1..10000 records required')
     ids=set();contents=set()
     for row in records:
+        if not isinstance(row,dict):raise ValueError('Sample object required')
         for field in ('id','group','label'):
             if not isinstance(row.get(field),str) or not 1<=len(row[field])<=128:raise ValueError('Bounded identity, group and label required')
         digest=row.get('content_sha256')

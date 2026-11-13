@@ -11,6 +11,7 @@ def validate_packet(packet):
     if type(dimension) is not int or not 1<=dimension<=4096 or not isinstance(components,list) or not 1<=len(components)<=8:raise ValueError('Invalid feature schema')
     names=set();offset=0
     for row in components:
+        if not isinstance(row,dict):raise ValueError('Component object required')
         name=row.get('name');version=row.get('version');count=row.get('dimension')
         if not isinstance(name,str) or not name or name in names or not isinstance(version,str) or not version or type(count) is not int or count<=0 or type(row.get('offset')) is not int or row['offset']!=offset:raise ValueError('Invalid component layout')
         names.add(name);offset+=count
