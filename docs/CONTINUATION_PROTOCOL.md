@@ -401,3 +401,14 @@ STOP at 160. Next Continue authorizes 161–170: versioned JSON contracts, S-Mem
 S-Tools adapters, permission-controlled file/camera boundaries, image/retrieval/
 evidence-question requests, errors/deadlines/cancellation, integration requirements
 and installed CLI. Preserve all source/data checkpoints and truthful open gates.
+
+
+Verified 151–160 source checkpoint `f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88`: all four Ubuntu/Windows Python
+3.12/3.13 CI jobs passed, including 278 tests, all ten new experiments, historical
+checks, installed CLI and Python-client worker/default-denial/cache smoke,
+source/release audits, wheel builds and uploaded artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574 .
+This later documentation-only receipt cites that exact source checkpoint, not its
+own documentation SHA. Stage 159 has Linux/Windows CI evidence; actual Android
+ARM64 hardware and representative application/device validation remain open.
+The high-dimensional no-pruning result and prior conservative-tracking negative
+result remain unchanged. Stop at 160; next Continue starts 161–170.

@@ -8,7 +8,8 @@ SQLite recovery snapshots and a stable permission-scoped Python Client. See
 
 278 local tests passed; all ten experiments passed twice; installed CLI/Python
 worker/default-denial/cache smokes outside the checkout and a wheel build passed.
-Exact-head Linux/Windows CI is pending publication. Generated index controls match
+All four Ubuntu/Windows Python 3.12/3.13 jobs passed at `f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88`.
+CI evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574 . Generated index controls match
 exhaustive retrieval at up to 2048 scalar records and 256 x 257-D vectors. The
 257-D case visits every vector: no universal indexing speedup is claimed. A
 128-record SQLite snapshot recovers with its index. Timing/allocation measurements
@@ -388,3 +389,14 @@ Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514
 checkpoint; it does not attribute its CI to a later documentation SHA. The
 conservative negative result and representative-validation gaps remain unchanged.
 Stop at 150; next Continue starts 151–160.
+
+
+Verified 151–160 source checkpoint `f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88`: all four Ubuntu/Windows Python
+3.12/3.13 CI jobs passed, including 278 tests, all ten new experiments, historical
+checks, installed CLI and Python-client worker/default-denial/cache smoke,
+source/release audits, wheel builds and uploaded artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574 .
+This later documentation-only receipt cites that exact source checkpoint, not its
+own documentation SHA. Stage 159 has Linux/Windows CI evidence; actual Android
+ARM64 hardware and representative application/device validation remain open.
+The high-dimensional no-pruning result and prior conservative-tracking negative
+result remain unchanged. Stop at 160; next Continue starts 161–170.

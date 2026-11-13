@@ -60,5 +60,7 @@
       "github_sha": "f910f87e8d781f76c1f7bc79586c2db7376abb95",
       "tree": "0945d6b07922d33239be3533fc9a7241c292f3b4"
     }
-  ]
+  ],
+  "verified_commit_sha": "f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88",
+  "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574"
 }

@@ -1220,7 +1220,7 @@
         "benchmarks/stage159_experiment.json",
         "benchmarks/stage159_tests.txt"
       ],
-      "open_requirement": "Actual Android ARM64 device measurements unavailable; Linux/Windows current-head CI recorded separately; portable host harness complete.",
+      "open_requirement": "Actual Android ARM64 hardware measurements unavailable; all four Linux/Windows Python 3.12/3.13 current-source CI jobs passed; portable host harness complete.",
       "validated": false,
       "completion_declared": true,
       "completion_scope": "Portable executable host/CI measurement harness; Android clues never certify hardware and actual Android validation remains open."

@@ -7517,7 +7517,7 @@
         "tests/test_stage151.py"
       ],
       "tests_executed": "benchmarks/stage151_tests.txt; benchmark_stage151_160.py --stage 151; full regression",
-      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "278 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python API smoke, source/release audits, wheels and artifacts passed",
       "benchmark_results": {
         "passed": true
       },
@@ -7530,7 +7530,9 @@
         "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
         "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
       ],
-      "next_task": "Stage 152"
+      "next_task": "Stage 152",
+      "verified_commit_sha": "f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574"
     },
     {
       "id": "stage152-performance-engineering",
@@ -7544,7 +7546,7 @@
         "tests/test_stage152.py"
       ],
       "tests_executed": "benchmarks/stage152_tests.txt; benchmark_stage151_160.py --stage 152; full regression",
-      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "278 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python API smoke, source/release audits, wheels and artifacts passed",
       "benchmark_results": {
         "passed": true
       },
@@ -7557,7 +7559,9 @@
         "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
         "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
       ],
-      "next_task": "Stage 153"
+      "next_task": "Stage 153",
+      "verified_commit_sha": "f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574"
     },
     {
       "id": "stage153-performance-engineering",
@@ -7570,7 +7574,7 @@
         "tests/test_stage153.py"
       ],
       "tests_executed": "benchmarks/stage153_tests.txt; benchmark_stage151_160.py --stage 153; full regression",
-      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "278 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python API smoke, source/release audits, wheels and artifacts passed",
       "benchmark_results": {
         "passed": true,
         "component_extractions": 3,
@@ -7585,7 +7589,9 @@
         "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
         "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
       ],
-      "next_task": "Stage 154"
+      "next_task": "Stage 154",
+      "verified_commit_sha": "f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574"
     },
     {
       "id": "stage154-performance-engineering",
@@ -7598,7 +7604,7 @@
         "tests/test_stage154.py"
       ],
       "tests_executed": "benchmarks/stage154_tests.txt; benchmark_stage151_160.py --stage 154; full regression",
-      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "278 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python API smoke, source/release audits, wheels and artifacts passed",
       "benchmark_results": {
         "passed": true,
         "index_controls": [
@@ -7661,7 +7667,9 @@
         "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
         "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
       ],
-      "next_task": "Stage 155"
+      "next_task": "Stage 155",
+      "verified_commit_sha": "f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574"
     },
     {
       "id": "stage155-performance-engineering",
@@ -7677,7 +7685,7 @@
         "tests/test_stage155.py"
       ],
       "tests_executed": "benchmarks/stage155_tests.txt; benchmark_stage151_160.py --stage 155; full regression",
-      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "278 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python API smoke, source/release audits, wheels and artifacts passed",
       "benchmark_results": {
         "passed": true,
         "records": 64,
@@ -7693,7 +7701,9 @@
         "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
         "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
       ],
-      "next_task": "Stage 156"
+      "next_task": "Stage 156",
+      "verified_commit_sha": "f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574"
     },
     {
       "id": "stage156-performance-engineering",
@@ -7707,7 +7717,7 @@
         "tests/test_stage156.py"
       ],
       "tests_executed": "benchmarks/stage156_tests.txt; benchmark_stage151_160.py --stage 156; full regression",
-      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "278 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python API smoke, source/release audits, wheels and artifacts passed",
       "benchmark_results": {
         "passed": true,
         "statistics": {
@@ -7728,7 +7738,9 @@
         "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
         "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
       ],
-      "next_task": "Stage 157"
+      "next_task": "Stage 157",
+      "verified_commit_sha": "f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574"
     },
     {
       "id": "stage157-performance-engineering",
@@ -7742,7 +7754,7 @@
         "tests/test_stage157.py"
       ],
       "tests_executed": "benchmarks/stage157_tests.txt; benchmark_stage151_160.py --stage 157; full regression",
-      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "278 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python API smoke, source/release audits, wheels and artifacts passed",
       "benchmark_results": {
         "passed": true
       },
@@ -7755,7 +7767,9 @@
         "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
         "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
       ],
-      "next_task": "Stage 158"
+      "next_task": "Stage 158",
+      "verified_commit_sha": "f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574"
     },
     {
       "id": "stage158-performance-engineering",
@@ -7769,7 +7783,7 @@
         "tests/test_stage158.py"
       ],
       "tests_executed": "benchmarks/stage158_tests.txt; benchmark_stage151_160.py --stage 158; full regression",
-      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "278 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python API smoke, source/release audits, wheels and artifacts passed",
       "benchmark_results": {
         "passed": true,
         "recovered_observations": 128
@@ -7783,7 +7797,9 @@
         "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
         "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
       ],
-      "next_task": "Stage 159"
+      "next_task": "Stage 159",
+      "verified_commit_sha": "f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574"
     },
     {
       "id": "stage159-performance-engineering",
@@ -7796,7 +7812,7 @@
         "tests/test_stage159.py"
       ],
       "tests_executed": "benchmarks/stage159_tests.txt; benchmark_stage151_160.py --stage 159; full regression",
-      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "278 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python API smoke, source/release audits, wheels and artifacts passed",
       "benchmark_results": {
         "passed": true
       },
@@ -7809,7 +7825,9 @@
         "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
         "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
       ],
-      "next_task": "Stage 160"
+      "next_task": "Stage 160",
+      "verified_commit_sha": "f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574"
     },
     {
       "id": "stage160-performance-engineering",
@@ -7824,7 +7842,7 @@
         "tests/test_stage160.py"
       ],
       "tests_executed": "benchmarks/stage160_tests.txt; benchmark_stage151_160.py --stage 160; full regression",
-      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "278 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python API smoke, source/release audits, wheels and artifacts passed",
       "benchmark_results": {
         "passed": true,
         "api_version": "seye-request-v1",
@@ -7839,7 +7857,9 @@
         "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
         "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
       ],
-      "next_task": "Stop at 160; next Continue starts 161\u2013170"
+      "next_task": "Stop at 160; next Continue starts 161\u2013170",
+      "verified_commit_sha": "f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574"
     }
   ]
 }

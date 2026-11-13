@@ -25,5 +25,37 @@
   ],
   "release_ready": false,
   "android_hardware_measured": false,
-  "remote_ci": "pending exact-head publication"
+  "remote_ci": "all four Ubuntu/Windows Python 3.12/3.13 jobs passed",
+  "verified_commit_sha": "f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88",
+  "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574",
+  "ci_jobs": [
+    {
+      "id": 132033300586,
+      "name": "vision (windows-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43468318574
+    },
+    {
+      "id": 132033300786,
+      "name": "vision (ubuntu-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43468318574
+    },
+    {
+      "id": 132033300866,
+      "name": "vision (windows-latest, 3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43468318574
+    },
+    {
+      "id": 132033300939,
+      "name": "vision (ubuntu-latest, 3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43468318574
+    }
+  ]
 }
