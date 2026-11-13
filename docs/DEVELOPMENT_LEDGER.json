@@ -531,6 +531,32 @@
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
       "next_task": "Stage 99"
+    },
+    {
+      "id": "stage99-interface-engineering",
+      "objective": "Independent projective normalization from validated caller corners with reprojection-error evidence; does not infer corners or establish physical viewpoint invariance.",
+      "files_changed": [
+        "src/seye/interface/perspective.py",
+        "tests/test_stage099.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage099_tests.txt and benchmark_stage92_100.py --stage 99",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 1,
+        "max_corner_reprojection_error": 1.4210854715202004e-14,
+        "output_size": [
+          40,
+          30
+        ],
+        "passed": true
+      },
+      "commit_sha": "Git commit with subject Stage 99; remote publication mapping recorded after batch",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated bounded evidence; no representative application accuracy",
+        "See STAGES_092_100.md for scope and unsupported cases"
+      ],
+      "next_task": "Stage 100"
     }
   ]
 }

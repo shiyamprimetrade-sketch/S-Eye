@@ -63,6 +63,12 @@ def stage98():
     r=visible_regions(image);counts=sorted(x['visible_pixels'] for x in r['regions'])
     return {'cases':1,'visible_components':len(r['regions']),'visible_pixels':counts,'box_overlap_pairs':len(r['overlaps']),'passed':counts==[800,1200] and len(r['overlaps'])==1}
 
+def stage99():
+    from seye.interface.perspective import rectify
+    image=Image.new('RGB',(100,80),'white');quad=[[10,10],[80,16],[70,65],[20,60]]
+    output,r=rectify(image,quad,(40,30))
+    return {'cases':1,'max_corner_reprojection_error':r['max_corner_reprojection_error'],'output_size':list(output.size),'passed':r['max_corner_reprojection_error']<1e-8}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(92,101),required=True);p.add_argument('--output',type=Path,required=True)
