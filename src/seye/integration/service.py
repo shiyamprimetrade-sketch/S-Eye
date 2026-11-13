@@ -167,7 +167,7 @@ def execute(request, permissions):
             from seye.memory.history import link,read as read_history
             result=link(memory,request['entity'],request['observation_id'],request['session'],request['event_index'],request.get('reason','caller_asserted_same_target')) if write else read_history(memory,request['entity'],request.get('limit',50))
         finally:memory.close()
-    elif action in ('memory_inspect','memory_provenance','memory_duplicates','memory_compare'):
+    elif action in ('memory_inspect','memory_provenance','memory_duplicates','memory_compare','memory_scene_inventory'):
         if not permissions.memory:raise PermissionError('Explicit memory permission required')
         memory=Memory(permissions.require(request['memory']),read_only=True)
         try:
@@ -179,6 +179,11 @@ def execute(request, permissions):
             elif action=='memory_provenance':
                 from seye.memory.provenance import audit
                 result=audit(memory)
+            elif action=='memory_scene_inventory':
+                from seye.memory.scene_inventory import inventory as memory_inventory
+                record=memory.get(request['observation_id'])
+                if record is None:raise ValueError('Observation not found')
+                result=memory_inventory(record)
             elif action=='memory_duplicates':
                 from seye.memory.duplicates import groups
                 result=groups(memory)

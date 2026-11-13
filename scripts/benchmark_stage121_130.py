@@ -102,6 +102,11 @@ def stage129():
     r=run()
     return {'cases':10,'retrieval_quality':r,'passed':r['top1_category_correct']==6 and r['category_recall_at3']==6 and r['unknown_queries_without_match']==4 and r['ambiguous_known_queries']==6}
 
+def stage130():
+    from seye.memory.scene_inventory import inventory
+    r=inventory(scene_record([[5,5,80,60],[20,20,40,40]]))
+    return {'cases':1,'visual_hypotheses':r['visual_hypothesis_count'],'containment':r['relations'][0]['containment'],'semantic_object_count':r['semantic_object_count'],'passed':r['visual_hypothesis_count']==2 and r['relations'][0]['containment']=='first_contains_second' and r['semantic_object_count'] is None}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(121,131),required=True);p.add_argument('--output',type=Path,required=True)

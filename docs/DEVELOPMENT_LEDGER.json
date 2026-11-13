@@ -2658,6 +2658,30 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 130"
+    },
+    {
+      "id": "stage130-memory-engineering",
+      "objective": "Source-bound scene inventories expose frame-local visual hypotheses, spatial/containment relations and proximity groups without inventing semantic names, clickability or persistent identities.",
+      "files_changed": [
+        "src/seye/memory/scene_inventory.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage130.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage130_tests.txt and benchmark_stage121_130.py --stage 130",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 1,
+        "containment": "first_contains_second",
+        "passed": true,
+        "semantic_object_count": null,
+        "visual_hypotheses": 2
+      },
+      "commit_sha": "Commit subject Stage 130; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stop and wait for Continue"
     }
   ]
 }
