@@ -82,6 +82,12 @@ def stage148():
             'candidate_edges':report['candidate_edges'],'passed':len(report['frames'])==100}
 
 
+def stage149():
+    from benchmark_tracking_validation import run
+    result=run()
+    return dict(result,passed=result['generated_sequences']==27 and all(t['tp']+t['fn']==648 for t in result['totals'].values()))
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--stage',type=int,required=True,choices=range(141,151))
