@@ -77,12 +77,25 @@ def execute(request, permissions):
                     result = {'matches': memory.search(extract(decoded), request.get('limit', 5))}
             finally:
                 memory.close()
+    elif action == 'track_sequence':
+        if not permissions.video:raise PermissionError('Explicit video permission required')
+        from seye.video.sequence import observe_sequence
+        from seye.core.storage import read_json, atomic_json
+        checkpoint=None;output=None
+        if request.get('checkpoint') is not None or request.get('output_checkpoint') is not None:
+            if not permissions.memory:raise PermissionError('Explicit persistence permission required')
+        if request.get('checkpoint') is not None:
+            checkpoint=read_json(permissions.require(request['checkpoint']),max_bytes=1024*1024)
+        if request.get('output_checkpoint') is not None:
+            output=permissions.require(request['output_checkpoint'],write=True)
+        result=observe_sequence(request['samples'],request['source_sha256'],request.get('config'),checkpoint)
+        if output is not None:atomic_json(output,result['checkpoint'])
     elif action == 'interface_video':
         from seye.video.interface import observe_video
         if not permissions.video:
             raise PermissionError('Explicit video permission required')
         video = permissions.require(request['video'])
-        result = observe_video(video, video.parent, fps=request.get('fps', 2), max_seconds=request.get('max_seconds', 4))
+        result = observe_video(video, video.parent, fps=request.get('fps', 2), max_seconds=request.get('max_seconds', 4), tracking_mode=request.get('tracking_mode','legacy'))
     elif action == 'observe_interface':
         from seye.interface.observer import observe
         image = permissions.require(request['image'])

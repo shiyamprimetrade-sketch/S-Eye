@@ -25,8 +25,10 @@ def sampling_plan(fps=2, seconds=4):
 def frame_contract(detections, timestamp, size, previous_timestamp=None, maximum=64):
     """Validate the complete frame before any state can change; copy caller data."""
     finite(timestamp, 'timestamp')
-    if previous_timestamp is not None and timestamp <= previous_timestamp:
-        raise ValueError('Strictly increasing timestamps required')
+    if timestamp>1_000_000_000:raise ValueError('Sampling time exceeds supported bound')
+    if previous_timestamp is not None:finite(previous_timestamp,'previous_timestamp')
+    if previous_timestamp is not None and timestamp-previous_timestamp < 1e-6:
+        raise ValueError('Sample times must increase by at least one microsecond')
     if not isinstance(size, (list, tuple)) or len(size) != 2 or any(type(n) is not int or not 1 <= n <= 4096 for n in size):
         raise ValueError('Two integer frame dimensions in 1..4096 required')
     if not isinstance(detections, list) or len(detections) > maximum:

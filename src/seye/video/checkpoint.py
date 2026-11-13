@@ -65,7 +65,7 @@ def restore(value, expected_source_sha256):
         if row['missed'] and row['last_seen']>=s['last_timestamp']:raise ValueError('Unobserved time mismatch')
         if row.get('unobserved_reason') not in (None,'not_detected','ambiguous_candidates','possible_covering_observation'):raise ValueError('Invalid absence reason')
         if row['missed'] and row.get('unobserved_reason') is None:raise ValueError('Unobserved reason required')
-        if not isinstance(row['velocity'],list) or len(row['velocity'])!=2 or any(type(v) not in (int,float) or not math.isfinite(v) for v in row['velocity']):raise ValueError('Invalid track velocity')
+        if not isinstance(row['velocity'],list) or len(row['velocity'])!=2 or any(type(v) not in (int,float) or (not math.isfinite(v) or abs(v)>4_096_000_000) for v in row['velocity']):raise ValueError('Invalid track velocity')
         tracks[tid]={key:deepcopy(v) for key,v in row.items() if key!='track_id'}
     if s['next_id']>s['frame_count']*64+1:raise ValueError('Impossible track counter')
     tracker.tracks=tracks;tracker.next_id=s['next_id'];tracker.last_timestamp=s['last_timestamp']

@@ -88,6 +88,26 @@ def stage149():
     return dict(result,passed=result['generated_sequences']==27 and all(t['tp']+t['fn']==648 for t in result['totals'].values()))
 
 
+def stage150():
+    import tempfile,tracemalloc
+    from benchmark_temporal_decode import run
+    from seye.video.resources import hash_file
+    report=run()
+    with tempfile.TemporaryDirectory() as directory:
+        path=Path(directory)/'allocation.mp4'
+        with path.open('wb') as stream:
+            for _ in range(8):stream.write(b'x'*(1024*1024))
+        tracing=tracemalloc.is_tracing()
+        if not tracing:tracemalloc.start()
+        before=tracemalloc.get_traced_memory()[0]
+        digest,count=hash_file(path)
+        current,peak=tracemalloc.get_traced_memory()
+        if not tracing:tracemalloc.stop()
+    report['stream_hash_allocation']={'input_bytes':count,'python_peak_traced_bytes':peak,'incremental_current_bytes':current-before,
+                                     'existing_tracing':tracing,'scope':'Python stream-hashing allocations only; excludes native decoder RSS'}
+    return dict(report,passed=report['decoded_frames']==24 and report['totals']['tp']+report['totals']['fn']==48 and all(c['source_preserved'] for c in report['cases']))
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--stage',type=int,required=True,choices=range(141,151))

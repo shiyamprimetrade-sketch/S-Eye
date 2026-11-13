@@ -27,6 +27,7 @@ class ContinuityTracker:
         self.tracks={};self.next_id=1;self.last_timestamp=None;self.size=None;self.frame_count=0
 
     def update(self, detections, timestamp, size, discontinuity=False):
+        if self.frame_count>=300:raise ValueError('Tracker session frame limit reached')
         clean=frame_contract(detections,timestamp,size,self.last_timestamp)
         if type(discontinuity) is not bool:raise ValueError('Explicit boolean discontinuity required')
         if self.size is not None and list(size)!=self.size and not discontinuity:

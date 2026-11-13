@@ -1,5 +1,5 @@
 """Observed geometric motion with explicit coordinate and registration assumptions."""
-from math import hypot
+from math import hypot, isfinite
 from statistics import median
 from seye.detection.metrics import valid_box
 from seye.video.temporal import finite
@@ -16,11 +16,13 @@ def motion(first, second, elapsed, registration=None):
             raise ValueError('Caller registration requires [dx,dy]')
         for value in registration:
             # Signed translations are allowed, but never bool/NaN/Inf.
-            if type(value) not in (int,float) or not __import__('math').isfinite(value):
+            if type(value) not in (int,float) or not isfinite(value):
                 raise ValueError('Finite registration required')
         correction=list(registration)
     residual=[shift[i]-correction[i] for i in (0,1)]
     velocity=[v/elapsed for v in shift]
+    if any(not isfinite(v) for v in shift+residual+velocity) or not isfinite(hypot(*velocity)):
+        raise ValueError('Motion arithmetic exceeds finite bounds')
     return {'observed_displacement':shift, 'velocity':velocity, 'elapsed_seconds':elapsed,
             'speed_pixels_per_second':hypot(*velocity),
             'size_delta':[second[i+2]-second[i]-(first[i+2]-first[i]) for i in (0,1)],

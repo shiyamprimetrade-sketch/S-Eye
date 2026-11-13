@@ -19,19 +19,29 @@ def latency_report(durations, total_seconds):
             'portable_speed_claim':False}
 
 
-def track_samples(samples, config=None):
+def _track(samples, tracker):
     if not isinstance(samples,list) or not 1<=len(samples)<=300:raise ValueError('1..300 explicit samples required')
-    previous=None
+    if len(samples)+tracker.frame_count>300:raise ValueError('Session exceeds 300 sampled frames')
+    total_detections=0
+    previous=tracker.last_timestamp
     for sample in samples:
         if not isinstance(sample,dict):raise ValueError('Sample object required')
         frame_contract(sample.get('detections'),sample.get('timestamp'),sample.get('source_size'),previous)
+        total_detections+=len(sample['detections'])
+        if total_detections>4096:raise ValueError('Sequence detection work budget exceeded')
         previous=sample['timestamp']
-    tracker=ContinuityTracker(**({} if config is None else config))
-    frames=[];durations=[];start=time.perf_counter()
+    frames=[];durations=[];edges=0;start=time.perf_counter()
     for sample in samples:
         before=time.perf_counter()
         frames.append(tracker.update(sample['detections'],sample['timestamp'],sample['source_size'],sample.get('discontinuity',False)))
         durations.append(time.perf_counter()-before)
+        edges+=len(frames[-1]['candidate_edges'])
+        if edges>16384:raise ValueError('Sequence candidate evidence budget exceeded')
     elapsed=time.perf_counter()-start
     return {'frames':frames,'performance':latency_report(durations,elapsed),
-            'candidate_edges':sum(len(frame['candidate_edges']) for frame in frames)}
+            'candidate_edges':sum(len(frame['candidate_edges']) for frame in frames)},tracker
+
+
+def track_samples(samples, config=None):
+    result,_=_track(samples,ContinuityTracker(**({} if config is None else config)))
+    return result
