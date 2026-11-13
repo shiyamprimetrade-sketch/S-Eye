@@ -478,6 +478,31 @@
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
       "next_task": "Stage 97"
+    },
+    {
+      "id": "stage97-interface-engineering",
+      "objective": "Refined source-coordinate localization pairs boundary duplicates and encodes actual observed edge strokes with bounded RLE, exposed through optional scoped JSON. Masks are not full object foreground.",
+      "files_changed": [
+        "src/seye/interface/localization.py",
+        "src/seye/interface/observer.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage097.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage097_tests.txt and benchmark_stage92_100.py --stage 97",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 1,
+        "observed_stroke_mask_iou": 1.0,
+        "passed": true,
+        "regions": 1
+      },
+      "commit_sha": "Git commit with subject Stage 97; remote publication mapping recorded after batch",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated bounded evidence; no representative application accuracy",
+        "See STAGES_092_100.md for scope and unsupported cases"
+      ],
+      "next_task": "Stage 98"
     }
   ]
 }

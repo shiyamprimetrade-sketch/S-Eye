@@ -190,14 +190,19 @@
       "stage": 97,
       "objective": "Boxes masks and object localization",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/detection/annotations.py",
-        "src/seye/segmentation/experimental.py"
+        "src/seye/interface/localization.py",
+        "src/seye/interface/observer.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage097.py",
+        "benchmarks/stage097_experiment.json",
+        "benchmarks/stage097_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Refined source-coordinate localization pairs boundary duplicates and encodes actual observed edge strokes with bounded RLE, exposed through optional scoped JSON. Masks are not full object foreground."
     },
     {
       "stage": 98,

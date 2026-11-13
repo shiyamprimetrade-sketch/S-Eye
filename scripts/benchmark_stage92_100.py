@@ -48,6 +48,14 @@ def stage96():
     r=repair_gaps(image)
     return {'cases':1,'introduced_pixels':r['introduced_pixels'],'retained_pixels':r['mask'].histogram()[255],'passed':r['introduced_pixels']==1 and r['mask'].histogram()[255]==18}
 
+def stage97():
+    from seye.interface.localization import localize,decode_runs
+    from seye.interface.regions import edge_mask
+    from seye.detection.metrics import mask_iou
+    image=Image.new('RGB',(100,70),'black');ImageDraw.Draw(image).rectangle((20,10,59,39),fill='white')
+    r=localize(image);m=r['regions'][0]['mask'];score=mask_iou(decode_runs(m['source_size'],m['runs']),edge_mask(image))
+    return {'cases':1,'regions':len(r['regions']),'observed_stroke_mask_iou':score,'passed':score==1 and len(r['regions'])==1}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(92,101),required=True);p.add_argument('--output',type=Path,required=True)
