@@ -97,3 +97,11 @@ splits, encoded/pixel/brightness duplicates, transitive capture groups, pre-infe
 leak rejection, immutable existing splits and machine-readable audit conflicts.
 Next stage is 88: finish scale/perspective/background perturbation coverage and
 record the physical-capture validation dependency. Do not skip that gate silently.
+
+Stage 88 is now active, not complete: added opt-in scale-half, projective warp and
+clutter-grid stress variants without changing the historical eight default variants.
+The grid is an overlay and may occlude foreground; it is not a clean background-only
+experiment. Projective warps are simulations, not physical camera captures. Recorded
+21 generated cases and deterministic/input-preservation tests. Review
+benchmarks/stage88_stress.json, then assess required physical capture/annotation
+coverage before closing Stage 88. Do not advance to Stage 89 while its gate is open.

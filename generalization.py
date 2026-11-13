@@ -26,6 +26,7 @@ OUTPUTS = ('local_contrast_mask.png', 'grouped_shapes.png', 'filtered_shapes.png
 CLASSES = {'circle', 'quadrilateral', 'triangle'}
 VARIANTS = ('original', 'dim', 'bright', 'low_contrast', 'rotate_15',
             'rotate_minus15', 'affine_shear', 'jpeg_50')
+EXTRA_VARIANTS = ('scale_half', 'perspective', 'background_grid')
 PATTERN = re.compile(r'^Region\s+\d+:\s+(.+?),\s*corners=\d+,\s*hull_vertices=\d+\s*$', re.M)
 
 
@@ -112,6 +113,18 @@ def transform(image, variant):
         return image.transform(image.size, Image.Transform.AFFINE,
                                (1, 0.15, -0.075 * image.height, 0, 1, 0),
                                resample=Image.Resampling.BICUBIC, fillcolor='white')
+    if variant == 'scale_half':
+        scaled = image.resize((max(1,image.width//2),max(1,image.height//2)),Image.Resampling.BICUBIC)
+        canvas = Image.new('RGB',image.size,'white')
+        canvas.paste(scaled,((image.width-scaled.width)//2,(image.height-scaled.height)//2))
+        return canvas
+    if variant == 'perspective':
+        return image.transform(image.size,Image.Transform.PERSPECTIVE,(1,0,0,0,1,0,.001,0),resample=Image.Resampling.BICUBIC,fillcolor='white')
+    if variant == 'background_grid':
+        from PIL import ImageDraw
+        result=image.copy();draw=ImageDraw.Draw(result)
+        for x in range(0,image.width,25):draw.line((x,0,x,image.height),fill=(130,130,130),width=1)
+        return result
     if variant == 'jpeg_50':
         stream = io.BytesIO()
         image.save(stream, format='JPEG', quality=50)
@@ -152,7 +165,7 @@ def run_pipeline(photo):
 def evaluate(manifest, variants=VARIANTS, split=None):
     manifest = Path(manifest).resolve()
     data = load_manifest(manifest)  # Validate the entire dataset before execution.
-    if not variants or len(set(variants)) != len(variants) or any(v not in VARIANTS for v in variants):
+    if not variants or len(set(variants)) != len(variants) or any(v not in VARIANTS + EXTRA_VARIANTS for v in variants):
         raise ValueError('Expected unique supported variants')
     if split is not None:
         if split not in ('train', 'validation', 'test'):
@@ -219,7 +232,7 @@ def main():
     parser.add_argument('--manifest', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--split', choices=('train', 'validation', 'test'))
-    parser.add_argument('--variants', nargs='+', choices=VARIANTS, default=VARIANTS)
+    parser.add_argument('--variants', nargs='+', choices=VARIANTS + EXTRA_VARIANTS, default=VARIANTS)
     args = parser.parse_args()
     try:
         # Avoid destroying inputs or existing evidence through an accidental output path.
