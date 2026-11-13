@@ -73,6 +73,16 @@ def stage109():
             'unknown_rejected':report['unknown_rejected'],'unknown_samples':report['unknown_samples'],'full_experiment':r,
             'passed':report['samples']==10 and report['known_samples']==6 and report['unknown_samples']==4}
 
+def stage110():
+    import tempfile
+    from seye.core.probes import sha256
+    from seye.learning.versioning import snapshot,verify
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);image=Image.new('RGB',(60,50),'white');ImageDraw.Draw(image).rectangle((10,10,40,30),fill='black');image.save(root/'source.png')
+        data={'schema_version':1,'dataset_id':'generated-version-fixture','images':[{'id':'one','path':'source.png','sha256':sha256(root/'source.png'),'capture_group':'one','split':'train','label':'rectangle','source_kind':'synthetic','annotation_status':'generator'}]}
+        (root/'manifest.json').write_text(json.dumps(data));revision=snapshot(root/'manifest.json','1.0.0');result=verify(revision,root)
+        return {'cases':1,'verified_sources':result['verified_sources'],'revision_sha256':revision['sha256'],'passed':result['verified_sources']==1 and revision==snapshot(root/'manifest.json','1.0.0')}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(101,111),required=True);p.add_argument('--output',type=Path,required=True)

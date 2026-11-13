@@ -407,14 +407,17 @@
       "stage": 110,
       "objective": "Dataset versioning",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/learning/dataset.py",
-        "src/seye/learning/prototypes.py"
+        "src/seye/learning/versioning.py",
+        "tests/test_stage110.py",
+        "benchmarks/stage110_experiment.json",
+        "benchmarks/stage110_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Immutable semantic dataset revisions bind labels, groups, splits, source/pixel hashes, ancestry and existing near-duplicate leakage policy; annotation truth and representative scene independence remain unauthenticated."
     },
     {
       "stage": 111,
