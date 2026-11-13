@@ -1,0 +1,12 @@
+test_frame_contract_is_atomic_and_copied (test_stage141.SamplingTests.test_frame_contract_is_atomic_and_copied) ... ok
+test_grid_and_short_decode_contract (test_stage141.SamplingTests.test_grid_and_short_decode_contract) ... ok
+test_ambiguity_abstains_instead_of_forcing_ids (test_stage143.ContinuityTests.test_ambiguity_abstains_instead_of_forcing_ids) ... ok
+test_bad_or_over_capacity_update_is_atomic (test_stage143.ContinuityTests.test_bad_or_over_capacity_update_is_atomic) ... ok
+test_velocity_and_reordering (test_stage143.ContinuityTests.test_velocity_and_reordering) ... ok
+test_long_gap_starts_new_track_and_validates_session (test_stage144.IdentityTests.test_long_gap_starts_new_track_and_validates_session) ... ok
+test_namespaces_no_reuse_and_discontinuity (test_stage144.IdentityTests.test_namespaces_no_reuse_and_discontinuity) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK

@@ -32,6 +32,15 @@ def stage143():
             'passed':all([r['track_id'] for r in f['visible']]==[1,2] for f in frames)}
 
 
+def stage144():
+    from seye.video.continuity import ContinuityTracker
+    t=ContinuityTracker(session_id='generated-identity',max_gap_seconds=1)
+    row={'class':'region','box':[10,10,30,30]}
+    frames=[t.update([row],0,[100,80]),t.update([row],2,[100,80]),t.update([row],3,[200,160],discontinuity=True)]
+    uids=[f['visible'][0]['track_uid'] for f in frames]
+    return {'track_uids':uids,'retirements':[f['retirements'] for f in frames], 'passed':len(set(uids))==3}
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--stage',type=int,required=True,choices=range(141,151))
