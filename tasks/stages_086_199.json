@@ -390,14 +390,18 @@
       "stage": 109,
       "objective": "Independent multicategory and unknown validation",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/recognition/features.py",
-        "src/seye/learning/prototypes.py"
+        "src/seye/learning/packet_evaluation.py",
+        "scripts/packet_glyph_experiment.py",
+        "tests/test_stage109.py",
+        "benchmarks/stage109_experiment.json",
+        "benchmarks/stage109_tests.txt"
       ],
-      "open_requirement": "Representative independently reviewed categories and unknown inputs unavailable",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Reproducible generated multicategory and unknown evaluation with split guards, full confusion/error accounting and support-loss measurements. Representative application validation remains absent; successful execution does not imply recognition success."
     },
     {
       "stage": 110,

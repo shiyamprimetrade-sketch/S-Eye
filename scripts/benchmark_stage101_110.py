@@ -66,6 +66,13 @@ def stage108():
     difference=r['explanation']['largest_descriptor_differences'][0]['absolute_difference']
     return {'cases':1,'largest_difference':difference,'reason':r['selection']['reason'],'passed':abs(difference-.01)<1e-12 and r['selection']['accepted']}
 
+def stage109():
+    from packet_glyph_experiment import run
+    r=run();report=r['report']
+    return {'cases':report['samples'],'known_correct':report['known_correct'],'known_samples':report['known_samples'],
+            'unknown_rejected':report['unknown_rejected'],'unknown_samples':report['unknown_samples'],'full_experiment':r,
+            'passed':report['samples']==10 and report['known_samples']==6 and report['unknown_samples']==4}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(101,111),required=True);p.add_argument('--output',type=Path,required=True)

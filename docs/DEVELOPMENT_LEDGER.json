@@ -788,6 +788,277 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 109"
+    },
+    {
+      "id": "stage109-recognition-engineering",
+      "objective": "Reproducible generated multicategory and unknown evaluation with split guards, full confusion/error accounting and support-loss measurements. Representative application validation remains absent; successful execution does not imply recognition success.",
+      "files_changed": [
+        "src/seye/learning/packet_evaluation.py",
+        "scripts/packet_glyph_experiment.py",
+        "tests/test_stage109.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage109_tests.txt and benchmark_stage101_110.py --stage 109",
+      "test_results": "Focused tests passed; final regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 10,
+        "full_experiment": {
+          "dataset_sha256": "d48af2dd0ce610d9a9192b65aa92b92b372c8d4eda01ce9e06a03ab6c8517458",
+          "limitations": [
+            "Generated glyphs share renderer; no representative application validation.",
+            "Numeric support calibration does not improve recognition labels.",
+            "Position/theme changes and unknown inputs can expose failures; no minimum accuracy target is assumed."
+          ],
+          "protocol": {
+            "classes": [
+              "run",
+              "stop",
+              "menu"
+            ],
+            "components": [
+              "geometry",
+              "appearance"
+            ],
+            "min_margin": 0.005,
+            "radius_floor": 0.015,
+            "selection": "fixed renderer coordinates and settings; no test fitting or parameter search",
+            "testing": 10,
+            "training": 9,
+            "unknown_designs": [
+              "plus",
+              "chevron"
+            ],
+            "validation": 6,
+            "validation_radius_factor": 1.1
+          },
+          "protocol_sha256": "802bf91ae857a3c3c701fa5577fb1d2fbfbffe14a31a70b826588b987ad8b236",
+          "report": {
+            "confusion": {
+              "__unknown__": {
+                "__unknown__": 4
+              },
+              "menu": {
+                "__unknown__": 2
+              },
+              "run": {
+                "__unknown__": 2
+              },
+              "stop": {
+                "__unknown__": 2
+              }
+            },
+            "empirical_support_brier": 0.2,
+            "known_correct": 0,
+            "known_samples": 6,
+            "parameter_selection_on_test": false,
+            "per_class": {
+              "__unknown__": {
+                "correct": 4,
+                "samples": 4
+              },
+              "menu": {
+                "correct": 0,
+                "samples": 2
+              },
+              "run": {
+                "correct": 0,
+                "samples": 2
+              },
+              "stop": {
+                "correct": 0,
+                "samples": 2
+              }
+            },
+            "raw_correctness_proxy_brier": 0.7466738948552774,
+            "representative_application_accuracy": null,
+            "results": [
+              {
+                "decision": {
+                  "accepted": false,
+                  "candidate_margin": 0.0024965446444023716,
+                  "confidence_probability": null,
+                  "label": "__unknown__",
+                  "minimum_margin": 0.005,
+                  "nearest_distance": 0.027445368625978597,
+                  "reason": "outside_validation_radius",
+                  "rejection_radius": 0.026537747477442683
+                },
+                "empirical_validation_support": 0.0,
+                "expected": "run",
+                "id": "test-run-0",
+                "source_kind": "generated",
+                "top_known_label": "menu"
+              },
+              {
+                "decision": {
+                  "accepted": false,
+                  "candidate_margin": 0.0016888852530520526,
+                  "confidence_probability": null,
+                  "label": "__unknown__",
+                  "minimum_margin": 0.005,
+                  "nearest_distance": 0.03964628809084229,
+                  "reason": "outside_validation_radius",
+                  "rejection_radius": 0.026537747477442683
+                },
+                "empirical_validation_support": 0.0,
+                "expected": "run",
+                "id": "test-run-1",
+                "source_kind": "generated",
+                "top_known_label": "menu"
+              },
+              {
+                "decision": {
+                  "accepted": false,
+                  "candidate_margin": 0.001772469665047148,
+                  "confidence_probability": null,
+                  "label": "__unknown__",
+                  "minimum_margin": 0.005,
+                  "nearest_distance": 0.032044076469629756,
+                  "reason": "outside_validation_radius",
+                  "rejection_radius": 0.026537747477442683
+                },
+                "empirical_validation_support": 0.0,
+                "expected": "stop",
+                "id": "test-stop-0",
+                "source_kind": "generated",
+                "top_known_label": "menu"
+              },
+              {
+                "decision": {
+                  "accepted": false,
+                  "candidate_margin": 0.0011829282540042618,
+                  "confidence_probability": null,
+                  "label": "__unknown__",
+                  "minimum_margin": 0.005,
+                  "nearest_distance": 0.04600264770419529,
+                  "reason": "outside_validation_radius",
+                  "rejection_radius": 0.026537747477442683
+                },
+                "empirical_validation_support": 0.0,
+                "expected": "stop",
+                "id": "test-stop-1",
+                "source_kind": "generated",
+                "top_known_label": "menu"
+              },
+              {
+                "decision": {
+                  "accepted": false,
+                  "candidate_margin": 0.0024861425609740105,
+                  "confidence_probability": null,
+                  "label": "__unknown__",
+                  "minimum_margin": 0.005,
+                  "nearest_distance": 0.028629317418931988,
+                  "reason": "outside_validation_radius",
+                  "rejection_radius": 0.026537747477442683
+                },
+                "empirical_validation_support": 0.0,
+                "expected": "menu",
+                "id": "test-menu-0",
+                "source_kind": "generated",
+                "top_known_label": "menu"
+              },
+              {
+                "decision": {
+                  "accepted": false,
+                  "candidate_margin": 0.0017185586903391004,
+                  "confidence_probability": null,
+                  "label": "__unknown__",
+                  "minimum_margin": 0.005,
+                  "nearest_distance": 0.04046219913220717,
+                  "reason": "outside_validation_radius",
+                  "rejection_radius": 0.026537747477442683
+                },
+                "empirical_validation_support": 0.0,
+                "expected": "menu",
+                "id": "test-menu-1",
+                "source_kind": "generated",
+                "top_known_label": "menu"
+              },
+              {
+                "decision": {
+                  "accepted": false,
+                  "candidate_margin": 0.0015796455141030424,
+                  "confidence_probability": null,
+                  "label": "__unknown__",
+                  "minimum_margin": 0.005,
+                  "nearest_distance": 0.03032426955923801,
+                  "reason": "outside_validation_radius",
+                  "rejection_radius": 0.026537747477442683
+                },
+                "empirical_validation_support": 0.0,
+                "expected": "__unknown__",
+                "id": "test-unknown-plus-0",
+                "source_kind": "generated",
+                "top_known_label": "menu"
+              },
+              {
+                "decision": {
+                  "accepted": false,
+                  "candidate_margin": 0.0010601662356425345,
+                  "confidence_probability": null,
+                  "label": "__unknown__",
+                  "minimum_margin": 0.005,
+                  "nearest_distance": 0.042763341108569046,
+                  "reason": "outside_validation_radius",
+                  "rejection_radius": 0.026537747477442683
+                },
+                "empirical_validation_support": 0.0,
+                "expected": "__unknown__",
+                "id": "test-unknown-plus-1",
+                "source_kind": "generated",
+                "top_known_label": "menu"
+              },
+              {
+                "decision": {
+                  "accepted": false,
+                  "candidate_margin": 0.0021103002828581317,
+                  "confidence_probability": null,
+                  "label": "__unknown__",
+                  "minimum_margin": 0.005,
+                  "nearest_distance": 0.02679262486092445,
+                  "reason": "outside_validation_radius",
+                  "rejection_radius": 0.026537747477442683
+                },
+                "empirical_validation_support": 0.0,
+                "expected": "__unknown__",
+                "id": "test-unknown-chevron-0",
+                "source_kind": "generated",
+                "top_known_label": "menu"
+              },
+              {
+                "decision": {
+                  "accepted": false,
+                  "candidate_margin": 0.0014624221301907797,
+                  "confidence_probability": null,
+                  "label": "__unknown__",
+                  "minimum_margin": 0.005,
+                  "nearest_distance": 0.03752226595262445,
+                  "reason": "outside_validation_radius",
+                  "rejection_radius": 0.026537747477442683
+                },
+                "empirical_validation_support": 0.0,
+                "expected": "__unknown__",
+                "id": "test-unknown-chevron-1",
+                "source_kind": "generated",
+                "top_known_label": "menu"
+              }
+            ],
+            "samples": 10,
+            "unknown_rejected": 4,
+            "unknown_samples": 4
+          }
+        },
+        "known_correct": 0,
+        "known_samples": 6,
+        "passed": true,
+        "unknown_rejected": 4,
+        "unknown_samples": 4
+      },
+      "commit_sha": "Commit subject Stage 109; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 110"
     }
   ]
 }
