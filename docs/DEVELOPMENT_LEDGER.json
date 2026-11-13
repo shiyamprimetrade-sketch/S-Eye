@@ -1252,6 +1252,81 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 117"
+    },
+    {
+      "id": "stage117-learning-engineering",
+      "objective": "Independently fitted learning curves use 1/2/3 examples per category with fixed validation identity and no test access; unavailable sample counts are rejected.",
+      "files_changed": [
+        "src/seye/learning/curves.py",
+        "tests/test_stage117.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage117_tests.txt and benchmark_stage101_110.py --stage 117",
+      "test_results": "Focused tests passed; final regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 3,
+        "curve": {
+          "points": [
+            {
+              "best_epoch": 20,
+              "per_class": 1,
+              "training": {
+                "correct": 3,
+                "cross_entropy": 0.00039283396701886406,
+                "samples": 3
+              },
+              "training_samples": 3,
+              "training_sha256": "67f3af69247fc8dccdcba0512175fdcd1e6bf568590adf237ca071e287cbe6ef",
+              "validation": {
+                "correct": 6,
+                "cross_entropy": 0.00039283396701886406,
+                "samples": 6
+              }
+            },
+            {
+              "best_epoch": 20,
+              "per_class": 2,
+              "training": {
+                "correct": 6,
+                "cross_entropy": 6.521386900561439e-06,
+                "samples": 6
+              },
+              "training_samples": 6,
+              "training_sha256": "a37463e841681a48b1dd1cfd127ad4cebaa0c4916347ec0f4ea978c5c16c32b7",
+              "validation": {
+                "correct": 6,
+                "cross_entropy": 6.521386900561438e-06,
+                "samples": 6
+              }
+            },
+            {
+              "best_epoch": 20,
+              "per_class": 3,
+              "training": {
+                "correct": 9,
+                "cross_entropy": 0.0002717746980315059,
+                "samples": 9
+              },
+              "training_samples": 9,
+              "training_sha256": "0ef63d1579b76fae5a9a13bf36d7e402b5c69c9af7e0088f3a8a3641ccb41a7e",
+              "validation": {
+                "correct": 6,
+                "cross_entropy": 0.0002717746980315059,
+                "samples": 6
+              }
+            }
+          ],
+          "scope": "generated subset fits; curves do not establish learning of new representations",
+          "test_data_used": false,
+          "validation_sha256": "bfe5378a041e883f96a0edd5a03c9fa9438f524ff359b425c6a08fb50cb154d0"
+        },
+        "passed": true
+      },
+      "commit_sha": "Commit subject Stage 117; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 118"
     }
   ]
 }

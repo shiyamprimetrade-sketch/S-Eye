@@ -49,6 +49,12 @@ def stage116():
     d=dataset();r=overfitting(fit(d['train'],d['validation'],epochs=20)['history'])
     return {'cases':1,'diagnostics':r,'passed':not r['test_data_used']}
 
+def stage117():
+    from learning_batch_data import dataset
+    from seye.learning.curves import learning_curve
+    d=dataset();r=learning_curve(d['train'],d['validation'],config={'epochs':20,'seed':113,'learning_rate':.2})
+    return {'cases':3,'curve':r,'passed':[p['training_samples'] for p in r['points']]==[3,6,9] and not r['test_data_used']}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(111,121),required=True);p.add_argument('--output',type=Path,required=True)
