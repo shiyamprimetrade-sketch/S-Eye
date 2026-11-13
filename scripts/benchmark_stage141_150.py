@@ -41,6 +41,17 @@ def stage144():
     return {'track_uids':uids,'retirements':[f['retirements'] for f in frames], 'passed':len(set(uids))==3}
 
 
+def stage145():
+    from seye.video.continuity import ContinuityTracker
+    t=ContinuityTracker(session_id='gap')
+    row=lambda x:{'class':'region','box':[x,10,x+20,30]}
+    a=t.update([row(10)],0,[100,80]);b=t.update([row(12)],.5,[100,80])
+    missing=t.update([],1,[100,80]);recovered=t.update([row(16)],1.5,[100,80])
+    return {'missing':missing['unobserved'],'recovery':recovered['visible'][0]['association'],
+            'same_geometric_track':recovered['visible'][0]['track_id']==a['visible'][0]['track_id'],
+            'passed':recovered['visible'][0]['association']=='tentative_reacquisition'}
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--stage',type=int,required=True,choices=range(141,151))

@@ -35,12 +35,17 @@ class ContinuityTracker:
         expired=[tid for tid,tr in sorted(tracks.items()) if discontinuity or timestamp-tr['last_seen']>self.max_gap_seconds]
         retirements=[{'track_id':tid,'reason':'caller_discontinuity' if discontinuity else 'elapsed_gap_limit'} for tid in expired]
         for tid in expired:del tracks[tid]
-        candidates=[]
+        candidates=[];covering=[]
         for identifier,track in sorted(tracks.items()):
             dt=timestamp-track['last_seen']
             shift=[v*dt for v in track['velocity']]
             expected=[v+shift[i%2] for i,v in enumerate(track['box'])]
             for index,row in enumerate(clean):
+                area=(expected[2]-expected[0])*(expected[3]-expected[1])
+                observed_area=(row['box'][2]-row['box'][0])*(row['box'][3]-row['box'][1])
+                intersection=max(0,min(expected[2],row['box'][2])-max(expected[0],row['box'][0]))*max(0,min(expected[3],row['box'][3])-max(expected[1],row['box'][1]))
+                if intersection/area>=.8 and observed_area>1.5*area:
+                    covering.append({'track_id':identifier,'detection_index':index,'predicted_coverage':intersection/area})
                 score=box_iou(expected,row['box']) if track['class']==row['class'] else 0
                 if score>=self.threshold:
                     candidates.append({'track_id':identifier,'detection_index':index,'predicted_iou':score})
@@ -49,25 +54,28 @@ class ContinuityTracker:
             tid,index=edge['track_id'],edge['detection_index']
             track_degree[tid]=track_degree.get(tid,0)+1
             detection_degree[index]=detection_degree.get(index,0)+1
-        accepted=[edge for edge in candidates if track_degree[edge['track_id']]==1 and detection_degree[edge['detection_index']]==1]
+        covered_tracks={e['track_id'] for e in covering};cover_indices={e['detection_index'] for e in covering}
+        accepted=[edge for edge in candidates if edge['track_id'] not in covered_tracks and edge['detection_index'] not in cover_indices and track_degree[edge['track_id']]==1 and detection_degree[edge['detection_index']]==1]
         visible=[];matched=set();used=set()
         for edge in accepted:
             tid,index=edge['track_id'],edge['detection_index'];track=tracks[tid];row=clean[index]
+            missed=track['missed']
             evidence=motion(track['box'],row['box'],timestamp-track['last_seen'])
             track.update(box=list(row['box']),velocity=evidence['velocity'],last_seen=timestamp,missed=0)
-            visible.append({'track_id':tid,**deepcopy(row),'motion':evidence,'association':'isolated_geometric_candidate'})
+            visible.append({'track_id':tid,**deepcopy(row),'motion':evidence,'association':'tentative_reacquisition' if missed else 'isolated_geometric_candidate', 'missed_samples_before_match':missed})
             matched.add(tid);used.add(index)
         retired=[]
         for tid in sorted(tracks):
             if tid not in matched:
                 tracks[tid]['missed']+=1
+                tracks[tid]['unobserved_reason']='possible_covering_observation' if tid in covered_tracks else ('ambiguous_candidates' if tid in track_degree else 'not_detected')
                 if tracks[tid]['missed']>self.max_missed:
                     retired.append(tid)
         for tid in retired:
             retirements.append({'track_id':tid,'reason':'missed_frame_limit'})
             del tracks[tid]
-        unresolved=[i for i in range(len(clean)) if i not in used and i in detection_degree]
-        births=[i for i in range(len(clean)) if i not in used and i not in detection_degree]
+        unresolved=[i for i in range(len(clean)) if i not in used and (i in detection_degree or i in cover_indices)]
+        births=[i for i in range(len(clean)) if i not in used and i not in detection_degree and i not in cover_indices]
         if len(tracks)+len(births)>self.max_tracks:raise ValueError('Active track capacity exceeded')
         for index in sorted(births,key=lambda i:(clean[i]['class'],clean[i]['box'])):
             row=clean[index];tid=next_id;next_id+=1
@@ -78,6 +86,10 @@ class ContinuityTracker:
                 'visible':sorted(visible,key=lambda r:r['track_id']),
                 'unresolved_detection_indices':unresolved,'candidate_edges':candidates,
                 'retained_unobserved_ids':sorted(set(tracks)-{r['track_id'] for r in visible}),
+                'covering_evidence':covering,
+                'unobserved':[{'track_id':tid,'missed_samples':tr['missed'],
+                               'seconds_since_seen':timestamp-tr['last_seen'],'reason':tr['unobserved_reason'],
+                               'occlusion_proven':False} for tid,tr in sorted(tracks.items()) if tr['missed']],
                 'retired_ids':sorted(expired+retired),'retirements':retirements,
                 'session_id':self.session_id,'caller_discontinuity':discontinuity,'semantic_identity_proven':False,'automatic_action_authorized':False}
         for row in result['visible']:
