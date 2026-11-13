@@ -270,6 +270,30 @@
         "Representative UI validation absent"
       ],
       "next_task": "Stage 89 automatic UI-condition fixture evaluation and localization/change diagnostics"
+    },
+    {
+      "id": "stage89-interface-condition-diagnostics",
+      "objective": "Automatic generated UI oracles and reproducible status/localization/change error reports",
+      "files_changed": [
+        "src/seye/interface/evaluation.py",
+        "scripts/benchmark_stage89.py",
+        "tests/test_interface_evaluation.py",
+        "benchmarks/stage89_interface_conditions.json",
+        "docs/STAGE89_INTERFACE_DIAGNOSTICS.md",
+        ".github/workflows/vision-tests.yml"
+      ],
+      "tests_executed": "106-test baseline; 112-test final suite; two identical full generated benchmark runs",
+      "test_results": "112 tests passed locally; exact-head CI pending",
+      "benchmark_results": "75 completed; 45 status matches; 3/18 unique localized, 15 missed, 0 false accepts; 3/18 duplicates ambiguous, 0 unsafe choices; 75 exact change oracles",
+      "commit_sha": "Publication receipt follows in this branch",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated design matrix only",
+        "Strict pixel comparator misses light theme and scaled controls",
+        "Tiny cursor signals lack changed-tile boxes",
+        "No OCR or semantic/expert equivalence validation"
+      ],
+      "next_task": "Stage 90 independent preprocessing/multiscale experiments against frozen baseline and held-out generated designs"
     }
   ]
 }

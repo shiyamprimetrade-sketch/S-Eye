@@ -112,3 +112,20 @@ cases match expected statuses; four supplied screenshot same-frame probes show z
 change. See INTERFACE_OBSERVATION.md and benchmarks/interface_* evidence.
 Stop after this stage checkpoint. Next Continue: Stage 89 interface-condition
 diagnostics and automatic fixture ground truth, without a human-review dependency.
+
+
+## Stage 89 — interface-condition diagnostic checkpoint
+
+Engineering acceptance complete: automatic renderer ground truth, 75-case theme/
+scale/state matrix, hashes, per-condition status confusion, IoU localization,
+false positives/negatives, ambiguity safety and change-count diagnostics.
+112 local tests pass. Two benchmark runs produced identical reports.
+75/75 executions and change oracles completed; only 3/18 unique targets localized
+(15 missed), 45/75 statuses matched, no false accepts or unsafe duplicate choices.
+The other 15 duplicate cases returned not-found. These are generated results,
+not representative application accuracy; no human-review block is introduced.
+See STAGE89_INTERFACE_DIAGNOSTICS.md and benchmarks/stage89_interface_conditions.json.
+No Stage 84/88 recognition algorithm, checkpoint or main-S code changed.
+Next Continue: Stage 90 independent contrast/edge processing and bounded scale
+search, measured against the frozen matcher; do not skip negative/safety cases.
+Version 1.0 and expert-programmer-level interface understanding remain incomplete.

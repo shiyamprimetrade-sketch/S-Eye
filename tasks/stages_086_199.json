@@ -55,16 +55,20 @@
     },
     {
       "stage": 89,
-      "objective": "Per-class errors and reproducible generalization reports",
+      "objective": "Per-condition interface status, localization and change error diagnostics",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/core/datasets.py",
-        "generalization.py"
+        "src/seye/interface/evaluation.py",
+        "scripts/benchmark_stage89.py",
+        "tests/test_interface_evaluation.py",
+        "benchmarks/stage89_interface_conditions.json",
+        "docs/STAGE89_INTERFACE_DIAGNOSTICS.md"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining diagnostic engineering acceptance requirement; baseline theme/scale failures are recorded for Stage 90.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Reproducible generated interface diagnostic infrastructure; no representative application accuracy or recognition improvement claimed"
     },
     {
       "stage": 90,

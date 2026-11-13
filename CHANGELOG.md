@@ -39,3 +39,5 @@ model, classifier replacement or private-memory migration has been introduced.
 - Stage 88: bounded, hash-pinned ALOI photograph acquisition; 18 documented physical captures, 396 unlabelled executions, safe archive tests and explicit pending-label gate.
 
 - Owner-revised Stage 88 acceptance: human review no longer blocks engineering. Added independent interface screenshot change/template evidence, scoped S JSON action, verified observation recording and generated UI checks.
+
+- Stage 89: deterministic 75-case interface fixture matrix, automatic oracles, per-condition confusion/IoU/error accounting, explicit execution failures and recorded theme/scale misses; CI artifact added.
