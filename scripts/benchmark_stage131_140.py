@@ -32,6 +32,11 @@ def stage134():
     a=view([[10,10,30,30]]);b=view([[20,20,60,60]],(200,160));strict=compare_layout(a,b);normalized=compare_layout(a,b,normalize=True)
     return {'cases':2,'strict_abstention':not strict['comparable'],'explicit_normalized_similarity':normalized['geometric_similarity'],'passed':not strict['comparable'] and normalized['geometric_similarity']==1}
 
+def stage135():
+    from seye.scenes.changes import changes
+    a=view([[10,10,50,40]]);b=view([[18,14,58,44]]);raw=changes(a,b);registered=changes(a,b,registration={'dx':8,'dy':4})
+    return {'cases':2,'unregistered_event':raw['events'][0]['kind'],'caller_registered_event':registered['events'][0]['kind'],'passed':raw['events'][0]['kind']=='moved' and registered['events'][0]['kind']=='stable'}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(131,141),required=True);p.add_argument('--output',type=Path,required=True)

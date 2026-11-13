@@ -2802,6 +2802,28 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 135"
+    },
+    {
+      "id": "stage135-scene-engineering",
+      "objective": "Source-grid movement/resize/stability evidence records observed and caller-registered residual motion separately; no automatic camera/scroll registration or semantic motion assertion.",
+      "files_changed": [
+        "src/seye/scenes/changes.py",
+        "tests/test_stage135.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage135_tests.txt and benchmark_stage121_130.py --stage 135",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "caller_registered_event": "stable",
+        "cases": 2,
+        "passed": true,
+        "unregistered_event": "moved"
+      },
+      "commit_sha": "Commit subject Stage 135; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 136"
     }
   ]
 }
