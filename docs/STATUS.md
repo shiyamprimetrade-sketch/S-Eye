@@ -267,3 +267,5 @@ or main-S change. Exact-head CI is tracked separately.
 STOP at Stage 120. Wait for Continue before 121–130, beginning with observation
 identity and schema-aware memory retrieval. OCR/expert vision and v1.0 remain
 unfulfilled. Human review does not block ordinary engineering continuation.
+
+Stages 111–120 implementation checkpoint `ff13e94e8224ac257b89cfb76f16dde0ecb58c3a`; individual stage SHAs are recorded in the ledger and benchmarks/stages111_120_publication.json. 187 local tests pass. The centered-descriptor gain is generated evidence only. Stop at 120; exact-head CI pending.
