@@ -91,3 +91,9 @@ Sequential instruction: complete each stage's acceptance contract and commit it,
 then automatically proceed to the next stage while execution capacity permits.
 Stage 86 loader/identity acceptance passed all six checks; recognition validation
 is not implied. Next is Stage 87 grouped splits/leakage acceptance, then Stage 88.
+
+Stage 87 engineering acceptance: all 14 dataset tests pass, covering deterministic
+splits, encoded/pixel/brightness duplicates, transitive capture groups, pre-inference
+leak rejection, immutable existing splits and machine-readable audit conflicts.
+Next stage is 88: finish scale/perspective/background perturbation coverage and
+record the physical-capture validation dependency. Do not skip that gate silently.

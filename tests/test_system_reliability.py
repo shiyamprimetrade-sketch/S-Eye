@@ -112,7 +112,7 @@ class ReleaseGateTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         stages = read_json(root / 'tasks/stages_086_199.json')['stages']
         self.assertEqual([r['stage'] for r in stages], list(range(86, 200)))
-        self.assertTrue(all(not row['completion_declared'] for row in stages))
+        self.assertTrue(all(row.get('completion_scope') and row.get('evidence_paths') for row in stages if row['completion_declared']))
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / 'release.json'
             result = subprocess.run([sys.executable, str(root / 'scripts/release_audit.py'), '--output', str(output), '--require-release'], capture_output=True)
