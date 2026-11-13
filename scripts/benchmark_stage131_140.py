@@ -22,6 +22,11 @@ def stage132():
     same=a['objects']==b['objects'] and a['offsets']==b['offsets']
     return {'cases':2,'normalized_geometry_identical':same,'passed':same}
 
+def stage133():
+    from seye.scenes.grouping import aligned_groups
+    r=aligned_groups(view([[5,10,20,30],[25,10,40,30],[45,10,60,30],[70,50,90,70]]),maximum_gap=8)
+    return {'cases':1,'groups':r['groups'],'links':len(r['links']),'passed':r['groups']==[[0,1,2],[3]] and len(r['links'])==2}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(131,141),required=True);p.add_argument('--output',type=Path,required=True)

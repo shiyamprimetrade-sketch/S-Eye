@@ -2749,6 +2749,37 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 133"
+    },
+    {
+      "id": "stage133-scene-engineering",
+      "objective": "Evidence-linked row/column grouping combines bounded alignment and edge proximity, excluding containment from alignment links; groups are not inferred semantic components.",
+      "files_changed": [
+        "src/seye/scenes/grouping.py",
+        "tests/test_stage133.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage133_tests.txt and benchmark_stage121_130.py --stage 133",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ],
+        "links": 2,
+        "passed": true
+      },
+      "commit_sha": "Commit subject Stage 133; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 134"
     }
   ]
 }

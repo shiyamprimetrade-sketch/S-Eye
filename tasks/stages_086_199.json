@@ -794,13 +794,17 @@
       "stage": 133,
       "objective": "Object grouping",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/scenes/relations.py"
+        "src/seye/scenes/grouping.py",
+        "tests/test_stage133.py",
+        "benchmarks/stage133_experiment.json",
+        "benchmarks/stage133_tests.txt"
       ],
-      "open_requirement": "Proximity grouping is implemented/tested; representative scene grouping remains unvalidated",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Evidence-linked row/column grouping combines bounded alignment and edge proximity, excluding containment from alignment links; groups are not inferred semantic components."
     },
     {
       "stage": 134,
