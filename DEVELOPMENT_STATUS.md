@@ -8,7 +8,8 @@ a generated experiment and a separate implementation commit. See
 
 257 local tests passed; installation smoke and wheel build passed; all ten new
 experiments passed. Eight deterministic reports reproduced exactly; Stages
-148/150 include variable host timings. Exact-head remote CI is pending publication.
+148/150 include variable host timings. All four Ubuntu/Windows Python 3.12/3.13 CI jobs passed at `54b90abfe19f64a13be5edf2641948b37277e1cb`.
+CI evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953 .
 Generated box-oracle comparison (27 sequences / 324 frames): conservative
 591 TP / 36 FP / 57 FN / 12 switches, legacy 618 / 36 / 30 / 9. This is **not**
 an aggregate accuracy improvement; conservative mode remains opt-in. Actual
@@ -222,3 +223,12 @@ review corrects physical JSONL source-line provenance across blank lines and kee
 source bytes/legacy payloads unchanged. The final transcript is
 benchmarks/final_system_verification.txt. All exact commit references, objectives,
 measurements, limitations and next tasks are in docs/DEVELOPMENT_LEDGER.json.
+
+
+Verified 141–150 source checkpoint `54b90abfe19f64a13be5edf2641948b37277e1cb`: all four Ubuntu/Windows Python
+3.12/3.13 CI jobs passed, including 257 tests, all ten new experiments, historical
+checks, installation, source/release audits, wheel builds and uploaded artifacts.
+Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953 . This later documentation-only receipt cites that exact source
+checkpoint; it does not attribute its CI to a later documentation SHA. The
+conservative negative result and representative-validation gaps remain unchanged.
+Stop at 150; next Continue starts 151–160.

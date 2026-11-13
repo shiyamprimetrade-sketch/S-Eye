@@ -30,7 +30,7 @@
     "README.md"
   ],
   "release_ready": false,
-  "remote_ci": "numeric-hardening exact-head CI pending publication",
+  "remote_ci": "all four Ubuntu/Windows Python 3.12/3.13 jobs passed",
   "historical_benchmarks_passed": "All existing scripts and Stage 92\u2013140 experiments",
   "installed_temporal_workflow": {
     "installed_temporal_workflow_passed": true,
@@ -44,5 +44,37 @@
     "commit": "ddccef1852934aaed02b030a7d99d20daff66f2c",
     "run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43462827706",
     "four_jobs": "success"
-  }
+  },
+  "verified_commit_sha": "54b90abfe19f64a13be5edf2641948b37277e1cb",
+  "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953",
+  "ci_jobs": [
+    {
+      "id": 132016423208,
+      "name": "vision (ubuntu-latest, 3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43463514953
+    },
+    {
+      "id": 132016423896,
+      "name": "vision (windows-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43463514953
+    },
+    {
+      "id": 132016424092,
+      "name": "vision (windows-latest, 3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43463514953
+    },
+    {
+      "id": 132016429490,
+      "name": "vision (ubuntu-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43463514953
+    }
+  ]
 }

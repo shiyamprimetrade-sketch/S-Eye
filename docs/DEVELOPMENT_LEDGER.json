@@ -7178,7 +7178,7 @@
         "tests/test_stage141.py"
       ],
       "tests_executed": "Focused transcript benchmarks/stage141_tests.txt; benchmark_stage141_150.py --stage 141; full 257-test regression",
-      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "test_results": "257 local tests and all four Ubuntu/Windows Python 3.12/3.13 jobs passed; new/historical experiments, installed smoke, source/release audits and wheel artifacts passed",
       "benchmark_results": {
         "passed": true,
         "frames": 6
@@ -7192,7 +7192,9 @@
         "Conservative association has worse aggregate metrics than legacy; remains opt-in",
         "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
       ],
-      "next_task": "Stage 142"
+      "next_task": "Stage 142",
+      "verified_commit_sha": "54b90abfe19f64a13be5edf2641948b37277e1cb",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953"
     },
     {
       "id": "stage142-temporal-engineering",
@@ -7205,7 +7207,7 @@
         "tests/test_stage142.py"
       ],
       "tests_executed": "Focused transcript benchmarks/stage142_tests.txt; benchmark_stage141_150.py --stage 142; full 257-test regression",
-      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "test_results": "257 local tests and all four Ubuntu/Windows Python 3.12/3.13 jobs passed; new/historical experiments, installed smoke, source/release audits and wheel artifacts passed",
       "benchmark_results": {
         "passed": true
       },
@@ -7218,7 +7220,9 @@
         "Conservative association has worse aggregate metrics than legacy; remains opt-in",
         "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
       ],
-      "next_task": "Stage 143"
+      "next_task": "Stage 143",
+      "verified_commit_sha": "54b90abfe19f64a13be5edf2641948b37277e1cb",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953"
     },
     {
       "id": "stage143-temporal-engineering",
@@ -7231,7 +7235,7 @@
         "tests/test_stage143.py"
       ],
       "tests_executed": "Focused transcript benchmarks/stage143_tests.txt; benchmark_stage141_150.py --stage 143; full 257-test regression",
-      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "test_results": "257 local tests and all four Ubuntu/Windows Python 3.12/3.13 jobs passed; new/historical experiments, installed smoke, source/release audits and wheel artifacts passed",
       "benchmark_results": {
         "passed": true,
         "frames": 8
@@ -7245,7 +7249,9 @@
         "Conservative association has worse aggregate metrics than legacy; remains opt-in",
         "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
       ],
-      "next_task": "Stage 144"
+      "next_task": "Stage 144",
+      "verified_commit_sha": "54b90abfe19f64a13be5edf2641948b37277e1cb",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953"
     },
     {
       "id": "stage144-temporal-engineering",
@@ -7258,7 +7264,7 @@
         "tests/test_stage144.py"
       ],
       "tests_executed": "Focused transcript benchmarks/stage144_tests.txt; benchmark_stage141_150.py --stage 144; full 257-test regression",
-      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "test_results": "257 local tests and all four Ubuntu/Windows Python 3.12/3.13 jobs passed; new/historical experiments, installed smoke, source/release audits and wheel artifacts passed",
       "benchmark_results": {
         "passed": true
       },
@@ -7271,7 +7277,9 @@
         "Conservative association has worse aggregate metrics than legacy; remains opt-in",
         "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
       ],
-      "next_task": "Stage 145"
+      "next_task": "Stage 145",
+      "verified_commit_sha": "54b90abfe19f64a13be5edf2641948b37277e1cb",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953"
     },
     {
       "id": "stage145-temporal-engineering",
@@ -7284,7 +7292,7 @@
         "tests/test_stage145.py"
       ],
       "tests_executed": "Focused transcript benchmarks/stage145_tests.txt; benchmark_stage141_150.py --stage 145; full 257-test regression",
-      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "test_results": "257 local tests and all four Ubuntu/Windows Python 3.12/3.13 jobs passed; new/historical experiments, installed smoke, source/release audits and wheel artifacts passed",
       "benchmark_results": {
         "passed": true,
         "same_geometric_track": true
@@ -7298,7 +7306,9 @@
         "Conservative association has worse aggregate metrics than legacy; remains opt-in",
         "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
       ],
-      "next_task": "Stage 146"
+      "next_task": "Stage 146",
+      "verified_commit_sha": "54b90abfe19f64a13be5edf2641948b37277e1cb",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953"
     },
     {
       "id": "stage146-temporal-engineering",
@@ -7311,7 +7321,7 @@
         "tests/test_stage146.py"
       ],
       "tests_executed": "Focused transcript benchmarks/stage146_tests.txt; benchmark_stage141_150.py --stage 146; full 257-test regression",
-      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "test_results": "257 local tests and all four Ubuntu/Windows Python 3.12/3.13 jobs passed; new/historical experiments, installed smoke, source/release audits and wheel artifacts passed",
       "benchmark_results": {
         "passed": true,
         "uninterrupted_equals_resumed": true
@@ -7325,7 +7335,9 @@
         "Conservative association has worse aggregate metrics than legacy; remains opt-in",
         "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
       ],
-      "next_task": "Stage 147"
+      "next_task": "Stage 147",
+      "verified_commit_sha": "54b90abfe19f64a13be5edf2641948b37277e1cb",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953"
     },
     {
       "id": "stage147-temporal-engineering",
@@ -7338,7 +7350,7 @@
         "tests/test_stage147.py"
       ],
       "tests_executed": "Focused transcript benchmarks/stage147_tests.txt; benchmark_stage141_150.py --stage 147; full 257-test regression",
-      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "test_results": "257 local tests and all four Ubuntu/Windows Python 3.12/3.13 jobs passed; new/historical experiments, installed smoke, source/release audits and wheel artifacts passed",
       "benchmark_results": {
         "passed": true
       },
@@ -7351,7 +7363,9 @@
         "Conservative association has worse aggregate metrics than legacy; remains opt-in",
         "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
       ],
-      "next_task": "Stage 148"
+      "next_task": "Stage 148",
+      "verified_commit_sha": "54b90abfe19f64a13be5edf2641948b37277e1cb",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953"
     },
     {
       "id": "stage148-temporal-engineering",
@@ -7364,7 +7378,7 @@
         "tests/test_stage148.py"
       ],
       "tests_executed": "Focused transcript benchmarks/stage148_tests.txt; benchmark_stage141_150.py --stage 148; full 257-test regression",
-      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "test_results": "257 local tests and all four Ubuntu/Windows Python 3.12/3.13 jobs passed; new/historical experiments, installed smoke, source/release audits and wheel artifacts passed",
       "benchmark_results": {
         "passed": true
       },
@@ -7377,7 +7391,9 @@
         "Conservative association has worse aggregate metrics than legacy; remains opt-in",
         "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
       ],
-      "next_task": "Stage 149"
+      "next_task": "Stage 149",
+      "verified_commit_sha": "54b90abfe19f64a13be5edf2641948b37277e1cb",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953"
     },
     {
       "id": "stage149-temporal-engineering",
@@ -7391,7 +7407,7 @@
         "tests/test_stage149.py"
       ],
       "tests_executed": "Focused transcript benchmarks/stage149_tests.txt; benchmark_stage141_150.py --stage 149; full 257-test regression",
-      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "test_results": "257 local tests and all four Ubuntu/Windows Python 3.12/3.13 jobs passed; new/historical experiments, installed smoke, source/release audits and wheel artifacts passed",
       "benchmark_results": {
         "passed": true,
         "frames": 324,
@@ -7424,7 +7440,9 @@
         "Conservative association has worse aggregate metrics than legacy; remains opt-in",
         "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
       ],
-      "next_task": "Stage 150"
+      "next_task": "Stage 150",
+      "verified_commit_sha": "54b90abfe19f64a13be5edf2641948b37277e1cb",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953"
     },
     {
       "id": "stage150-temporal-engineering",
@@ -7448,7 +7466,7 @@
         "tests/test_stage150.py"
       ],
       "tests_executed": "Focused transcript benchmarks/stage150_tests.txt; benchmark_stage141_150.py --stage 150; full 257-test regression",
-      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "test_results": "257 local tests and all four Ubuntu/Windows Python 3.12/3.13 jobs passed; new/historical experiments, installed smoke, source/release audits and wheel artifacts passed",
       "benchmark_results": {
         "passed": true,
         "decoded_frames": 24,
@@ -7469,6 +7487,21 @@
         "Generated evidence only; representative scene/tracking validation remains open",
         "Conservative association has worse aggregate metrics than legacy; remains opt-in",
         "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
+      ],
+      "next_task": "Stop at 150; next Continue starts 151\u2013160",
+      "verified_commit_sha": "54b90abfe19f64a13be5edf2641948b37277e1cb",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953"
+    },
+    {
+      "id": "stage150-numeric-hardening-verification",
+      "objective": "Reject nonfinite motion size arithmetic and timing ratios; verify installed worker/checkpoint flow",
+      "commit_sha": "54b90abfe19f64a13be5edf2641948b37277e1cb",
+      "tests_executed": "257 local tests, Stage 150 numeric/permission/resource regression, installed spawned-worker workflow and full four-job CI",
+      "test_results": "All passed; Stage 141\u2013150/historical experiments, installation, audits, wheels and artifact publication passed",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953",
+      "limitations": [
+        "Generated evidence only; conservative aggregate tracking still worse than legacy",
+        "Representative tracking and v1.0 gates remain open"
       ],
       "next_task": "Stop at 150; next Continue starts 151\u2013160"
     }

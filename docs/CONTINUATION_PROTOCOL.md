@@ -366,3 +366,12 @@ measured full-pipeline latency/feature/index/batch/cache/CPU/storage behavior,
 platform evidence and the stable Python API. Do not invent Android hardware access.
 Do not silently make the opt-in tracker default, tune against this reported test
 and call it new held-out evidence, or claim Stage 139 overlap is solved.
+
+
+Verified 141–150 source checkpoint `54b90abfe19f64a13be5edf2641948b37277e1cb`: all four Ubuntu/Windows Python
+3.12/3.13 CI jobs passed, including 257 tests, all ten new experiments, historical
+checks, installation, source/release audits, wheel builds and uploaded artifacts.
+Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953 . This later documentation-only receipt cites that exact source
+checkpoint; it does not attribute its CI to a later documentation SHA. The
+conservative negative result and representative-validation gaps remain unchanged.
+Stop at 150; next Continue starts 151–160.
