@@ -37,6 +37,11 @@ def stage135():
     a=view([[10,10,50,40]]);b=view([[18,14,58,44]]);raw=changes(a,b);registered=changes(a,b,registration={'dx':8,'dy':4})
     return {'cases':2,'unregistered_event':raw['events'][0]['kind'],'caller_registered_event':registered['events'][0]['kind'],'passed':raw['events'][0]['kind']=='moved' and registered['events'][0]['kind']=='stable'}
 
+def stage136():
+    from seye.scenes.absence import missing_evidence
+    a=view([[10,10,30,30]]);r=missing_evidence(a,[view([]),view([]),view([])]);covered=missing_evidence(a,[view([[0,0,100,80]]),view([[0,0,100,80]])])
+    return {'cases':2,'persistent_nonobservation_events':len(r['events']),'cover_events':len(covered['events']),'passed':len(r['events'])==1 and not r['events'][0]['semantic_removal_proven'] and not covered['events']}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(131,141),required=True);p.add_argument('--output',type=Path,required=True)

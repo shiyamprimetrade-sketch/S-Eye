@@ -2824,6 +2824,28 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 136"
+    },
+    {
+      "id": "stage136-scene-engineering",
+      "objective": "Bounded consecutive non-observation evidence resets on incomparable grids, plausible matches or covering regions; removed-object certainty is explicitly false.",
+      "files_changed": [
+        "src/seye/scenes/absence.py",
+        "tests/test_stage136.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage136_tests.txt and benchmark_stage121_130.py --stage 136",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 2,
+        "cover_events": 0,
+        "passed": true,
+        "persistent_nonobservation_events": 1
+      },
+      "commit_sha": "Commit subject Stage 136; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 137"
     }
   ]
 }
