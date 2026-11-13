@@ -91,3 +91,11 @@ and corrected physical JSONL provenance line numbers. See
 benchmarks/final_system_verification.txt. Current code/check runs must be inspected
 for the exact branch head; the earlier 81-test Windows/Linux run remains its own
 historical proof. The source tree remains experimental and v1.0 readiness is false.
+
+Stage 88 supplied-photo checkpoint: four camera photographs processed under eleven
+conditions and two modes, 88/88 runs completed; 93 local tests passed. Originals
+were preserved. See benchmarks/stage88_supplied_photos.json. The stress experiment
+is complete but photographic recognition validation is not: reviewed labels and a
+controlled same-object capture sweep remain missing. Stage 88 remains open; Stage
+89 is not started. Owner now requests one stage per Continue, followed by a report
+and stop. Private input pixels are excluded from the public repository.

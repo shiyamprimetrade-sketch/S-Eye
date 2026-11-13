@@ -105,3 +105,15 @@ experiment. Projective warps are simulations, not physical camera captures. Reco
 21 generated cases and deterministic/input-preservation tests. Review
 benchmarks/stage88_stress.json, then assess required physical capture/annotation
 coverage before closing Stage 88. Do not advance to Stage 89 while its gate is open.
+
+Owner workflow correction (2026-11-13): one stage per user Continue. Work on the
+active stage, report its acceptance status/evidence, then stop. Only a subsequent
+Continue starts the following stage. This supersedes earlier automatic sequential
+continuation language. Do not call a blocked validation gate completed.
+
+Stage 88 supplied-photo run uses four actual photographs, not screenshots. The
+reproducible unlabelled stress driver covers eleven conditions in both modes.
+Private pixels stay outside git. Physical lighting/angles are unmeasured, reviewed
+labels/boxes are absent and these are different views/scenes rather than a controlled
+same-object sweep. Execution and proposal counts cannot establish recognition
+accuracy. Report the remaining physical validation gate explicitly before Stage 89.
