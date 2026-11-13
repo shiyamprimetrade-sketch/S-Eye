@@ -650,6 +650,28 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 103"
+    },
+    {
+      "id": "stage103-recognition-engineering",
+      "objective": "Strict schema identity and component-balanced RMS similarity with contribution evidence; similarity is not calibrated confidence.",
+      "files_changed": [
+        "src/seye/recognition/similarity.py",
+        "tests/test_stage103.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage103_tests.txt and benchmark_stage101_110.py --stage 103",
+      "test_results": "Focused tests passed; final regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 2,
+        "different_distance": 0.38916769266667917,
+        "passed": true,
+        "same_distance": 0.0
+      },
+      "commit_sha": "Commit subject Stage 103; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 104"
     }
   ]
 }
