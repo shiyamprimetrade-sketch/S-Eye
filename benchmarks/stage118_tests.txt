@@ -1,0 +1,7 @@
+test_preprocessing_and_training_results_are_separate (test_stage118.ComparisonTests.test_preprocessing_and_training_results_are_separate) ... ok
+test_three_methods_use_same_test_capture_identity (test_stage118.ComparisonTests.test_three_methods_use_same_test_capture_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.376s
+
+OK

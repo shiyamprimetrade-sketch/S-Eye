@@ -1,0 +1,7 @@
+test_complete_new_protocol_and_deterministic_fingerprint (test_stage112.PartitionTests.test_complete_new_protocol_and_deterministic_fingerprint) ... ok
+test_each_identity_boundary_is_enforced (test_stage112.PartitionTests.test_each_identity_boundary_is_enforced) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.046s
+
+OK

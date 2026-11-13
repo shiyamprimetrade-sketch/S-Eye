@@ -1,0 +1,64 @@
+{
+  "experiments": [
+    {
+      "stage": 141,
+      "passed": true,
+      "exact_report_match": true,
+      "variable_host_timings": false
+    },
+    {
+      "stage": 142,
+      "passed": true,
+      "exact_report_match": true,
+      "variable_host_timings": false
+    },
+    {
+      "stage": 143,
+      "passed": true,
+      "exact_report_match": true,
+      "variable_host_timings": false
+    },
+    {
+      "stage": 144,
+      "passed": true,
+      "exact_report_match": true,
+      "variable_host_timings": false
+    },
+    {
+      "stage": 145,
+      "passed": true,
+      "exact_report_match": true,
+      "variable_host_timings": false
+    },
+    {
+      "stage": 146,
+      "passed": true,
+      "exact_report_match": true,
+      "variable_host_timings": false
+    },
+    {
+      "stage": 147,
+      "passed": true,
+      "exact_report_match": true,
+      "variable_host_timings": false
+    },
+    {
+      "stage": 148,
+      "passed": true,
+      "exact_report_match": false,
+      "variable_host_timings": true
+    },
+    {
+      "stage": 149,
+      "passed": true,
+      "exact_report_match": true,
+      "variable_host_timings": false
+    },
+    {
+      "stage": 150,
+      "passed": true,
+      "exact_report_match": false,
+      "variable_host_timings": true
+    }
+  ]
+}

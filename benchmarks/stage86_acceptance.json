@@ -1,0 +1,16 @@
+{
+  "stage": 86,
+  "acceptance_scope": "multi-image loading and byte identity contract",
+  "checks_passed": 6,
+  "checks": [
+    "three mixed JPEG/PNG sources loaded",
+    "input bytes unchanged",
+    "duplicate identity rejected",
+    "duplicate source bytes rejected",
+    "hash mismatch rejected",
+    "path escape rejected"
+  ],
+  "engineering_acceptance_passed": true,
+  "photographic_recognition_validated": false,
+  "next_stage": 87
+}

@@ -1,0 +1,7 @@
+test_annotation_provenance_and_box_bounds (test_stage111.AnnotationPreprocessTests.test_annotation_provenance_and_box_bounds) ... ok
+test_centered_shape_removes_translation_without_changing_layout_schema (test_stage111.AnnotationPreprocessTests.test_centered_shape_removes_translation_without_changing_layout_schema) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK

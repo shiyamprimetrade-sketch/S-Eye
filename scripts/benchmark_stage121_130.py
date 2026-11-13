@@ -1,0 +1,115 @@
+#!/usr/bin/env python3
+"""Bounded memory experiments, not representative visual intelligence accuracy."""
+import argparse,json,sys,tempfile
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT),str(ROOT/'src')]
+from PIL import Image,ImageDraw
+from seye.core.storage import atomic_json,checksum
+
+
+def stage121():
+    from seye.memory.identity import pixel_identity,identify
+    image=Image.new('RGB',(20,10),'red');digest=pixel_identity(image)
+    r=identify({'schema_version':1,'features':None,'analysis':{'source':{'pixel_sha256':digest}},'provenance':{'source_sha256':'a'*64}})
+    return {'cases':1,'pixel_identity_preserved':r['decoded_pixel_sha256']==digest,'missing_model_identity':r['model_sha256'],'passed':r['decoded_pixel_sha256']==digest and r['model_sha256'] is None}
+
+def numeric_record(value):
+    from benchmark_stage101_110 import numeric_packet
+    return {'schema_version':1,'features':None,'packet':numeric_packet(value),'provenance':{'kind':'numeric_memory_fixture','source_sha256':checksum({'numeric_fixture':value})}}
+
+def stage122():
+    from seye.memory.store import Memory
+    from seye.memory.packet_index import rebuild,load_tree
+    with tempfile.TemporaryDirectory() as directory:
+        m=Memory(Path(directory)/'m.sqlite3')
+        try:
+            for i in range(16):m.put(numeric_record(i/16))
+            r=rebuild(m);tree=load_tree(m,numeric_record(0)['packet']['schema_sha256'])
+        finally:m.close()
+    return {'cases':16,'indexed_observations':r['indexed_observations'],'tree_count':tree['count'],'passed':r['indexed_observations']==16 and tree['count']==16}
+
+def stage123():
+    from seye.memory.store import Memory
+    from seye.memory.packet_index import rebuild,query
+    from seye.recognition.similarity import compare
+    with tempfile.TemporaryDirectory() as directory:
+        m=Memory(Path(directory)/'m.sqlite3');items=[]
+        try:
+            for i in range(64):
+                row=numeric_record(i/64);items.append((m.put(row),row))
+            rebuild(m);packet=numeric_record(.41)['packet'];r=query(m,packet,limit=3)
+            expected=sorted(items,key=lambda item:(compare(packet,item[1]['packet'])['distance'],item[0]))[:3]
+            same=[x['id'] for x in r['matches']]==[x[0] for x in expected]
+        finally:m.close()
+    return {'cases':64,'top3_exact':same,'distance_evaluations':r['distance_evaluations'],'exhaustive_distance_evaluations':64,'passed':same and r['distance_evaluations']<64}
+
+def stage124():
+    from seye.memory.store import Memory
+    from seye.memory.history import link,read
+    with tempfile.TemporaryDirectory() as directory:
+        path=Path(directory)/'m.sqlite3';m=Memory(path);identifier=m.put(numeric_record(.1));link(m,'target',identifier,'one',0);link(m,'target',identifier,'two',0);m.close();m=Memory(path,read_only=True)
+        try:r=read(m,'target')
+        finally:m.close()
+    return {'cases':2,'persisted_events':r['total'],'caller_asserted':all(e['identity_origin']=='caller_asserted' for e in r['events']),'passed':r['total']==2}
+
+def scene_record(boxes,size=(100,80)):
+    return {'schema_version':1,'features':None,'provenance':{},'analysis':{'source':{'size':list(size)},'objects':[{'class':'interface_region','box':b} for b in boxes]}}
+
+def stage125():
+    from seye.memory.scenes import compare_observations
+    r=compare_observations(scene_record([[10,10,30,30],[60,10,80,30]]),scene_record([[10,10,30,30]]))
+    return {'cases':1,'matched':len(r['matched']),'missing':len(r['missing']),'passed':len(r['matched'])==1 and len(r['missing'])==1 and r['comparable']}
+
+def stage126():
+    import io,hashlib
+    from seye.memory.store import Memory
+    from seye.memory.identity import pixel_identity
+    from seye.memory.duplicates import groups
+    from seye.recognition.pipeline import FeaturePipeline
+    image=Image.new('RGB',(40,30),'black');ImageDraw.Draw(image).rectangle((10,8,29,21),fill='white');packet=FeaturePipeline().extract(image,['shape'])
+    with tempfile.TemporaryDirectory() as directory:
+        m=Memory(Path(directory)/'m.sqlite3')
+        try:
+            for compression in (0,9):
+                encoded=io.BytesIO();image.save(encoded,format='PNG',compress_level=compression)
+                m.put({'schema_version':1,'features':None,'packet':packet,'analysis':{'source':{'pixel_sha256':pixel_identity(image)}},'provenance':{'kind':'generated_duplicate_fixture','source_sha256':hashlib.sha256(encoded.getvalue()).hexdigest()}})
+            r=groups(m)
+        finally:m.close()
+    counts={k:len(v) for k,v in r['groups'].items()}
+    return {'cases':2,'group_counts':counts,'passed':counts=={'source_content':0,'decoded_pixels':1,'feature_equivalence':1} and not r['automatic_deletion']}
+
+def stage127():
+    from seye.memory.store import Memory
+    from seye.memory.provenance import audit
+    with tempfile.TemporaryDirectory() as directory:
+        m=Memory(Path(directory)/'m.sqlite3')
+        try:m.put({'schema_version':1,'features':None,'provenance':{}});r=audit(m)
+        finally:m.close()
+    return {'cases':1,'audit':r,'passed':r['missing_source_identity']==1 and not r['confidence_probabilities_inferred']}
+
+def stage128():
+    from seye.memory.store import Memory
+    from seye.memory.history import link,read
+    from seye.memory.transfer import export_bundle,restore_bundle
+    from seye.memory.retention import plan,apply
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);m=Memory(root/'m.sqlite3');a=m.put(numeric_record(.1));b=m.put(numeric_record(.2));link(m,'target',b,'s',0)
+        export_bundle(m,root/'bundle.json');restored=restore_bundle(root/'bundle.json',root/'restored.sqlite3');retained=apply(m,plan(m,1,[a]));remaining=m.verify()['verified_observations'];m.close()
+    return {'cases':2,'restored_observations':restored['verified_observations'],'restored_history_events':restored['history_events'],'retained_observations':remaining,'deleted_history_events':retained['deleted_history_events'],'passed':restored['verified_observations']==2 and remaining==1 and retained['deleted_history_events']==1}
+
+def stage129():
+    from benchmark_memory_quality import run
+    r=run()
+    return {'cases':10,'retrieval_quality':r,'passed':r['top1_category_correct']==6 and r['category_recall_at3']==6 and r['unknown_queries_without_match']==4 and r['ambiguous_known_queries']==6}
+
+def stage130():
+    from seye.memory.scene_inventory import inventory
+    r=inventory(scene_record([[5,5,80,60],[20,20,40,40]]))
+    return {'cases':1,'visual_hypotheses':r['visual_hypothesis_count'],'containment':r['relations'][0]['containment'],'semantic_object_count':r['semantic_object_count'],'passed':r['visual_hypothesis_count']==2 and r['relations'][0]['containment']=='first_contains_second' and r['semantic_object_count'] is None}
+
+# STAGE_CASES
+if __name__=='__main__':
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(121,131),required=True);p.add_argument('--output',type=Path,required=True)
+    args=p.parse_args();result=globals()['stage'+str(args.stage)]();report={'schema_version':1,'stage':args.stage,'scope':'controlled generated memory experiment','result':result,'representative_application_accuracy':None}
+    atomic_json(args.output,report);print(json.dumps(report))
+    if not result['passed']:raise SystemExit(1)

@@ -1,0 +1,80 @@
+{
+  "local_tests": 257,
+  "all_ten_experiments_passed": true,
+  "deterministic_reports_identical": [
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    149
+  ],
+  "variable_host_measurement_reports": [
+    148,
+    150
+  ],
+  "installed_smoke": {
+    "installed_module": "/tmp/seye150-venv/lib/python3.12/site-packages/seye/__init__.py",
+    "class": "triangle",
+    "overlay_created": true,
+    "source_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+    "executed_outside_checkout": true,
+    "versioned_workflow_passed": true
+  },
+  "wheel_built": true,
+  "source_syntax": "all parsed successfully",
+  "changed_baseline_files": [
+    ".gitignore",
+    "README.md"
+  ],
+  "release_ready": false,
+  "remote_ci": "all four Ubuntu/Windows Python 3.12/3.13 jobs passed",
+  "historical_benchmarks_passed": "All existing scripts and Stage 92\u2013140 experiments",
+  "installed_temporal_workflow": {
+    "installed_temporal_workflow_passed": true,
+    "executed_outside_checkout": true,
+    "spawned_worker_passed": true,
+    "explicit_video_and_persistence_grants": true,
+    "exclusive_checkpoint_written": true
+  },
+  "numeric_overflow_rejection_tested": true,
+  "earlier_verified_ci": {
+    "commit": "ddccef1852934aaed02b030a7d99d20daff66f2c",
+    "run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43462827706",
+    "four_jobs": "success"
+  },
+  "verified_commit_sha": "54b90abfe19f64a13be5edf2641948b37277e1cb",
+  "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953",
+  "ci_jobs": [
+    {
+      "id": 132016423208,
+      "name": "vision (ubuntu-latest, 3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43463514953
+    },
+    {
+      "id": 132016423896,
+      "name": "vision (windows-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43463514953
+    },
+    {
+      "id": 132016424092,
+      "name": "vision (windows-latest, 3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43463514953
+    },
+    {
+      "id": 132016429490,
+      "name": "vision (ubuntu-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43463514953
+    }
+  ]
+}

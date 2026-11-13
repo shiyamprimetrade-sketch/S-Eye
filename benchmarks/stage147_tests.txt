@@ -1,0 +1,7 @@
+test_source_bound_summary_keeps_gaps_and_endpoint_scope (test_stage147.SummaryTests.test_source_bound_summary_keeps_gaps_and_endpoint_scope) ... ok
+test_unrelated_sessions_reuse_duplicate_ids_and_bad_order_fail (test_stage147.SummaryTests.test_unrelated_sessions_reuse_duplicate_ids_and_bad_order_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

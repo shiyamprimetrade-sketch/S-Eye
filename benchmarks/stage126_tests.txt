@@ -1,0 +1,7 @@
+test_file_pixel_and_feature_groups_are_separate (test_stage126.DuplicateTests.test_file_pixel_and_feature_groups_are_separate) ... ok
+test_missing_pixels_are_not_guessed (test_stage126.DuplicateTests.test_missing_pixels_are_not_guessed) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.005s
+
+OK

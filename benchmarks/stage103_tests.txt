@@ -1,0 +1,7 @@
+test_identity_and_symmetric_component_evidence (test_stage103.SimilarityTests.test_identity_and_symmetric_component_evidence) ... ok
+test_schema_and_nonfinite_rejection (test_stage103.SimilarityTests.test_schema_and_nonfinite_rejection) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.005s
+
+OK

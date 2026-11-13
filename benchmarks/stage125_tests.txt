@@ -1,0 +1,7 @@
+test_missing_and_appeared_evidence (test_stage125.SceneMemoryTests.test_missing_and_appeared_evidence) ... ok
+test_viewport_mismatch_abstains_and_bad_boxes_reject (test_stage125.SceneMemoryTests.test_viewport_mismatch_abstains_and_bad_boxes_reject) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

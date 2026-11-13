@@ -1,0 +1,1 @@
+{"representative_application_accuracy":null,"result":{"audit":{"confidence_probabilities_inferred":false,"declared_model_identities":0,"label_truth_authenticated":false,"missing_pixel_identity":1,"missing_source_identity":1,"observations":1},"cases":1,"passed":true},"schema_version":1,"scope":"controlled generated memory experiment","stage":127}

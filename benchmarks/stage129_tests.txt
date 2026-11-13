@@ -1,0 +1,7 @@
+test_generated_category_quality_and_identity_ambiguity_are_separate (test_stage129.QualityTests.test_generated_category_quality_and_identity_ambiguity_are_separate) ... ok
+test_one_result_limit_still_detects_equal_distance_ambiguity (test_stage129.QualityTests.test_one_result_limit_still_detects_equal_distance_ambiguity) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.106s
+
+OK

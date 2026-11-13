@@ -1,0 +1,7 @@
+test_packet_observation_reopens_verifies_and_keeps_no_image_bytes (test_stage120.ObservationTests.test_packet_observation_reopens_verifies_and_keeps_no_image_bytes) ... ok
+test_read_only_memory_cannot_append (test_stage120.ObservationTests.test_read_only_memory_cannot_append) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.027s
+
+OK

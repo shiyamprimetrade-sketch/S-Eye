@@ -1,0 +1,7 @@
+test_atomic_insert_duplicates_bad_late_record_and_caller_rollback (test_stage155.BatchTests.test_atomic_insert_duplicates_bad_late_record_and_caller_rollback) ... ok
+test_mixed_batch_preserves_order_and_denies_all_paths_before_io (test_stage155.BatchTests.test_mixed_batch_preserves_order_and_denies_all_paths_before_io) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.043s
+
+OK

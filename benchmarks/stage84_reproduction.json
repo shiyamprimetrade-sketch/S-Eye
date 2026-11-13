@@ -1,0 +1,32 @@
+{
+  "stress_test.py": {
+    "exit_code": 0,
+    "stdout": "Circle     angle= 0 detected=Circle-like     PASS\nCircle     angle=15 detected=Circle-like     PASS\nCircle     angle=30 detected=Circle-like     PASS\nCircle     angle=45 detected=Circle-like     PASS\nCircle     angle=60 detected=Circle-like     PASS\nSquare     angle= 0 detected=Square          PASS\nSquare     angle=15 detected=Square          PASS\nSquare     angle=30 detected=Square          PASS\nSquare     angle=45 detected=Square          PASS\nSquare     angle=60 detected=Square          PASS\nRectangle  angle= 0 detected=Rectangle       PASS\nRectangle  angle=15 detected=Rectangle       PASS\nRectangle  angle=30 detected=Rectangle       PASS\nRectangle  angle=45 detected=Rectangle       PASS\nRectangle  angle=60 detected=Rectangle       PASS\nTriangle   angle= 0 detected=Triangle        PASS\nTriangle   angle=15 detected=Triangle        PASS\nTriangle   angle=30 detected=Triangle        PASS\nTriangle   angle=45 detected=Triangle        PASS\nTriangle   angle=60 detected=Triangle        PASS\n\nS-Eye Stress Test\nPassed: 20\nTotal: 20\nAccuracy: 100.0 %\n",
+    "stderr": ""
+  },
+  "geometry_challenge.py": {
+    "exit_code": 0,
+    "stdout": "Generated six geometry challenge shapes\n",
+    "stderr": ""
+  },
+  "geometry_v2_runner.py": {
+    "exit_code": 0,
+    "stdout": "S-Eye: Geometric recognition\nObjects: 6\nObject 1: Circle-like, corners=12, hull_vertices=40\n  Side lengths: [84.9, 84.9, 84.9, 84.9], ratio=1.000\nObject 2: Square, corners=4, hull_vertices=4\n  Side lengths: [100.0, 100.0, 100.0, 100.0], ratio=1.000\nObject 3: Square, corners=4, hull_vertices=4\n  Side lengths: [160.0, 70.0, 160.0, 70.0], ratio=0.438\nObject 4: Rectangle, corners=4, hull_vertices=4\nObject 5: Triangle, corners=3, hull_vertices=7\nObject 6: Triangle, corners=3, hull_vertices=7\n",
+    "stderr": ""
+  },
+  "stage84_evaluate.py": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/tmp/tmp4jwjmx2w/stage84_evaluate.py\", line 8, in <module>\n    (DATASET / \"ground_truth_draft.json\").read_text()\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/agent/S/eye/stage82_dataset/ground_truth_draft.json'\n"
+  },
+  "test_stage79.py": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "FAIL: Test photograph missing\n"
+  },
+  "test_stage80.py": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "FAIL: Memory index missing\n"
+  }
+}

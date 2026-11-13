@@ -1,0 +1,117 @@
+name: S-Eye verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  vision:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ['ubuntu-latest', 'windows-latest']
+        python: ['3.12', '3.13']
+    steps:
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - if: runner.os == 'Linux'
+        run: command -v ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+      - if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) { choco install ffmpeg -y --no-progress }
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pip install --no-deps .
+      - run: seye --help
+      - run: seye-workflow --help
+      - run: python scripts/smoke_installed.py
+      - run: python scripts/smoke_python_api.py
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/benchmark_stage86.py --output "${{ runner.temp }}/stage86-report.json"
+      - run: python scripts/benchmark_localization.py --output "${{ runner.temp }}/localization-report.json"
+      - run: python scripts/benchmark_independent_system.py --output "${{ runner.temp }}/independent-system-report.json"
+      - run: python scripts/benchmark_cache.py --output "${{ runner.temp }}/cache-report.json"
+      - run: python scripts/benchmark_interface.py --output "${{ runner.temp }}/interface-report.json"
+      - run: python scripts/benchmark_stage89.py --output "${{ runner.temp }}/stage89-interface-report.json"
+      - run: python scripts/benchmark_stage90.py --output "${{ runner.temp }}/stage90-interface-report.json"
+      - run: python scripts/benchmark_stage91.py --output "${{ runner.temp }}/stage91-region-report.json"
+
+      - name: Stage 92 through 100 experiments
+        shell: python
+        run: |
+          import os, subprocess, sys
+          for stage in range(92, 101):
+              subprocess.run([sys.executable, 'scripts/benchmark_stage92_100.py', '--stage', str(stage), '--output', os.path.join(os.environ['RUNNER_TEMP'], f'stage{stage:03d}-report.json')], check=True)
+      - name: Stage 101 through 110 experiments
+        shell: python
+        run: |
+          import os, subprocess, sys
+          for stage in range(101, 111):
+              subprocess.run([sys.executable, 'scripts/benchmark_stage101_110.py', '--stage', str(stage), '--output', os.path.join(os.environ['RUNNER_TEMP'], f'stage{stage}-report.json')], check=True)
+      - name: Stage 111 through 120 experiments
+        shell: python
+        run: |
+          import os, subprocess, sys
+          for stage in range(111, 121):
+              subprocess.run([sys.executable, 'scripts/benchmark_stage111_120.py', '--stage', str(stage), '--output', os.path.join(os.environ['RUNNER_TEMP'], f'stage{stage}-report.json')], check=True)
+      - name: Stage 121 through 130 experiments
+        shell: python
+        run: |
+          import os, subprocess, sys
+          for stage in range(121, 131):
+              subprocess.run([sys.executable, 'scripts/benchmark_stage121_130.py', '--stage', str(stage), '--output', os.path.join(os.environ['RUNNER_TEMP'], f'stage{stage}-report.json')], check=True)
+      - name: Stage 131 through 140 experiments
+        shell: python
+        run: |
+          import os, subprocess, sys
+          for stage in range(131, 141):
+              subprocess.run([sys.executable, 'scripts/benchmark_stage131_140.py', '--stage', str(stage), '--output', os.path.join(os.environ['RUNNER_TEMP'], f'stage{stage}-report.json')], check=True)
+      - name: Stage 141 through 150 experiments
+        shell: python
+        run: |
+          import os, subprocess, sys
+          for stage in range(141, 151):
+              subprocess.run([sys.executable, 'scripts/benchmark_stage141_150.py', '--stage', str(stage), '--output', os.path.join(os.environ['RUNNER_TEMP'], f'stage{stage}-report.json')], check=True)
+      - name: Stage 151 through 160 experiments
+        shell: python
+        run: |
+          import os, subprocess, sys
+          for stage in range(151, 161):
+              subprocess.run([sys.executable, 'scripts/benchmark_stage151_160.py', '--stage', str(stage), '--output', os.path.join(os.environ['RUNNER_TEMP'], f'stage{stage}-report.json')], check=True)
+      - run: python scripts/audit_source.py --output "${{ runner.temp }}/current-source-audit.json"
+      - run: python scripts/release_audit.py --output "${{ runner.temp }}/release-readiness.json"
+      - run: python -m pip wheel --no-deps . --wheel-dir "${{ runner.temp }}/seye-dist"
+        env:
+          SOURCE_DATE_EPOCH: "315532800"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vision-${{ matrix.os }}-python-${{ matrix.python }}
+          path: |
+            ${{ runner.temp }}/stage86-report.json
+            ${{ runner.temp }}/localization-report.json
+            ${{ runner.temp }}/independent-system-report.json
+            ${{ runner.temp }}/release-readiness.json
+            ${{ runner.temp }}/current-source-audit.json
+            ${{ runner.temp }}/cache-report.json
+            ${{ runner.temp }}/interface-report.json
+            ${{ runner.temp }}/stage89-interface-report.json
+            ${{ runner.temp }}/stage90-interface-report.json
+            ${{ runner.temp }}/stage91-region-report.json
+            ${{ runner.temp }}/stage0*-report.json
+            ${{ runner.temp }}/stage100-report.json
+            ${{ runner.temp }}/stage10*-report.json
+            ${{ runner.temp }}/stage110-report.json
+            ${{ runner.temp }}/stage11*-report.json
+            ${{ runner.temp }}/stage120-report.json
+            ${{ runner.temp }}/stage12*-report.json
+            ${{ runner.temp }}/stage130-report.json
+            ${{ runner.temp }}/stage13*-report.json
+            ${{ runner.temp }}/stage140-report.json
+            ${{ runner.temp }}/stage14*-report.json
+            ${{ runner.temp }}/stage150-report.json
+            ${{ runner.temp }}/stage15*-report.json
+            ${{ runner.temp }}/stage160-report.json
+            ${{ runner.temp }}/seye-dist/*.whl

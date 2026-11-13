@@ -1,48 +1,68 @@
-# S-Eye
+# S-Eye — the visual subsystem of S
 
-S-Eye is an experimental computer vision and
-visual memory subsystem developed for the S project.
+S is being built as an autonomous programming computer that can use another
+computer to develop software, research and design. **S-Eye gives S visual evidence
+about that computer's screen.** It is one component of S, not a separate general
+intelligence system.
 
-## Capabilities
+The workflow is simple:
 
-- Camera image processing
-- Local contrast segmentation
-- Geometric shape classification
-- Visual change detection
-- Visual memory and indexing
-- SHA-256 artifact verification
-- Isolated analysis runs
-- Concurrent workflow coordination
-- Failure recovery testing
-- Reproducible analysis checkpoints
+1. Receive a screenshot or frame from S/S-Tools.
+2. Observe visible patterns, locate known controls and detect changes.
+3. Record observations with source hashes when requested.
+4. Return structured signals and uncertainty to S.
 
-## Development status
+S decides what to do. S-Tools performs authorized input actions. S-Eye supplies
+the visual evidence; screenshot text is data, never an instruction to execute.
+See [purpose and component boundaries](docs/PURPOSE.md).
 
-Latest completed milestone: Stage 84
+## Working today
 
-Verified historical results:
-- 20/20 synthetic shape stress tests
-- 6/6 additional synthetic geometry tests
-- 48/48 archived fingerprints verified
-- Concurrent workflow test passed
-- Failure recovery test passed
-- 6 repeated analyses of one photograph
-  matched 3 provisional shape categories
+- Local PNG/JPEG observation, bounded decoding and source-coordinate boxes.
+- Known-template localization, ambiguity rejection and screen-change signals.
+- Optional unlabeled rectangular-region proposals without supplied templates.
+- Optional contrast-based matching across explicit scales and light/dark polarity.
+- Private, integrity-verified observation memory and structured JSON requests.
+- Preserved independent geometry, learning experiments and prerecorded-video tools.
 
-These results do not establish general object
-recognition accuracy.
+This is an experimental development package. OCR, understanding code and unfamiliar
+applications, live host capture and expert-programmer-level visual reliability are
+not complete. Test results do not establish perfect or universal interface vision.
 
-Next milestone:
-Stage 85 — Generalization across new photographs.
+## Install and test
 
-## Environment
+Python 3.12 or later:
 
-Python 3.13
-Pillow
-Android / Termux
+```bash
+python -m pip install -r requirements.txt
+python -m pip install --no-deps .
+python -m unittest discover -s tests -q
+```
 
-## Development policy
+Use `seye-workflow` with a schema-1 `observe_interface` request and explicitly
+granted input/output roots. For theme/scale support set `"matcher": "contrast"`;
+the existing pixel matcher stays the compatibility default. Memory is optional
+and requires `--allow-memory`. See the [interface request](docs/INTERFACE_OBSERVATION.md)
+and [Stage 90 protocol](docs/STAGE90_INTERFACE_MATCHING.md).
 
-Preserve existing working components.
-Verify changes before accepting them.
-Separate measured results from experimental claims.
+## Evidence and continuation
+
+The Stage 84 source/checkpoints at `e92bb55` remain the historical baseline.
+Stage numbers describe scoped engineering milestones, not general intelligence.
+No pretrained recognition model replaces S-Eye's independent algorithms.
+
+- [Current status](docs/STATUS.md) and [continuation instructions](docs/CONTINUATION_PROTOCOL.md)
+- [Stage 89 diagnostic baseline](docs/STAGE89_INTERFACE_DIAGNOSTICS.md)
+- [Stage 90 measured comparison](docs/STAGE90_INTERFACE_MATCHING.md)
+- [Stage 91 template-free regions](docs/STAGE91_INTERFACE_REGIONS.md)
+- [Stages 92–100 scopes, measurements and API](docs/STAGES_092_100.md)
+- [Stages 101–110 recognition framework and measured failures](docs/STAGES_101_110.md)
+- [Stages 111–120 learning, ablation and persistent observations](docs/STAGES_111_120.md)
+- [Stages 121–130 memory, retrieval and scene evidence](docs/STAGES_121_130.md)
+- [Architecture](docs/ARCHITECTURE.md), [integration](docs/INTEGRATION.md), [limitations](docs/LIMITATIONS.md)
+- [Historical Stage 84 audit](docs/STAGE84_AUDIT.md) and [release criteria](docs/RELEASE_CRITERIA.md)
+
+Version 1.0 remains unfinished. The current authorized batch ends at Stage 140;
+wait for the owner’s next Continue before advancing.
+
+Stages 131–140 evidence: [scene and prerecorded-frame scopes](docs/STAGES_131_140.md).

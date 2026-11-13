@@ -1,0 +1,7 @@
+test_containment_not_grouped_as_an_alignment_relation (test_stage133.AlignmentTests.test_containment_not_grouped_as_an_alignment_relation) ... ok
+test_row_chain_groups_with_explicit_edges (test_stage133.AlignmentTests.test_row_chain_groups_with_explicit_edges) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK

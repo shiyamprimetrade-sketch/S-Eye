@@ -1,0 +1,7 @@
+{
+  "installed_temporal_workflow_passed": true,
+  "executed_outside_checkout": true,
+  "spawned_worker_passed": true,
+  "explicit_video_and_persistence_grants": true,
+  "exclusive_checkpoint_written": true
+}

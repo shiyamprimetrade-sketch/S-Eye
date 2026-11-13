@@ -1,0 +1,7 @@
+test_history_survives_reopen_and_deduplicates_exact_events (test_stage124.HistoryTests.test_history_survives_reopen_and_deduplicates_exact_events) ... ok
+test_missing_observation_and_corruption_fail_explicitly (test_stage124.HistoryTests.test_missing_observation_and_corruption_fail_explicitly) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.007s
+
+OK

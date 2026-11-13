@@ -1,0 +1,270 @@
+## Latest checkpoint: Stages 151–160
+
+Implemented bounded decoding, optional full-observation latency/CPU tracing,
+within-image feature reuse, grouped verified memory queries, atomic observation
+batches, explicit-lifetime packet cache, process allocation profiling, verified
+SQLite recovery snapshots and a stable permission-scoped Python Client. See
+[STAGES_151_160.md](docs/STAGES_151_160.md) and the development ledger.
+
+278 local tests passed; all ten experiments passed twice; installed CLI/Python
+worker/default-denial/cache smokes outside the checkout and a wheel build passed.
+All four Ubuntu/Windows Python 3.12/3.13 jobs passed at `f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88`.
+CI evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574 . Generated index controls match
+exhaustive retrieval at up to 2048 scalar records and 256 x 257-D vectors. The
+257-D case visits every vector: no universal indexing speedup is claimed. A
+128-record SQLite snapshot recovers with its index. Timing/allocation measurements
+are host observations. Stage 159 completes its portable harness; actual Android
+ARM64 device measurements remain unavailable. Representative application accuracy,
+conservative-tracker negative results, native security and v1.0 gates stay open.
+
+STOP at 160. Wait for Continue before 161–170: extend versioned S integration
+contracts, memory/tools boundaries, requests, evidence questions, deadlines and
+installed-client requirements while preserving existing paths and checkpoints.
+
+---
+
+## Latest checkpoint: Stages 141–150
+
+Implemented opt-in conservative temporal association, explicit sampling/motion
+contracts, session IDs, gap/covering evidence, source-bound tracker snapshots,
+summary/timing APIs and decoder/work limits. Each stage has focused tests,
+a generated experiment and a separate implementation commit. See
+[STAGES_141_150.md](docs/STAGES_141_150.md) and the development ledger.
+
+257 local tests passed; installation smoke and wheel build passed; all ten new
+experiments passed. Eight deterministic reports reproduced exactly; Stages
+148/150 include variable host timings. All four Ubuntu/Windows Python 3.12/3.13 CI jobs passed at `54b90abfe19f64a13be5edf2641948b37277e1cb`.
+CI evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953 .
+Generated box-oracle comparison (27 sequences / 324 frames): conservative
+591 TP / 36 FP / 57 FN / 12 switches, legacy 618 / 36 / 30 / 9. This is **not**
+an aggregate accuracy improvement; conservative mode remains opt-in. Actual
+three-clip encode/decode/segmentation test: 24 frames, 41 TP / 0 FP / 7 FN,
+zero switches. All source hashes stayed unchanged. Representative validation,
+merged-region reliability, native process isolation and v1.0 gates remain open.
+
+STOP at 150; wait for Continue before 151–160. Next work starts with bounded
+image decoding and profiling the full observation pipeline, preserving these
+comparators and all historical checkpoints.
+
+---
+
+# S-Eye development status
+
+Pull request: https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1
+
+Checkpoint date: 2026-11-12. Branch: `development/stage85-generalization`.
+
+## Completed milestones
+
+- Stage 84 source baseline audited and inventoried at commit `e92bb55`.
+- Stage 85 executable evaluation milestone: portable photo manifest, strict
+  hashes, isolated unchanged camera pipeline, eight perturbation conditions,
+  explicit class taxonomy, class-presence metrics and evidence reports.
+- Automated verification: 18 tests passed on Python 3.12.14 / Pillow 13.0.0.
+  Includes legacy geometry, pipeline repeatability, no repository writes,
+  source corruption/duplicates, EXIF input, blank control, metric edge cases,
+  controlled failure accounting and preservation of existing reports.
+- Reproducible synthetic benchmark: 56 executions from 7 distinct generated
+  images × 8 conditions; 56 completed, 42 exact class-set matches, 14 mismatches.
+  All 32 simple-control cases matched; the faint triangle failed all eight
+  conditions, and elongated quadrilateral failed six (rotation ±15 succeeded).
+  These are geometric stress findings, **not photographic recognition accuracy**.
+- Historical synthetic regressions reproduced: rotation stress 20/20,
+  six geometry-challenge labels, uncertainty rules 9/9. Existing borderline
+  geometry weakness reproduced at 4/8 and preserved explicitly.
+- GitHub Actions workflow added for Python 3.12 and 3.13; uploads benchmark report.
+  Remote CI passed on commit `88a7673` in both Python jobs:
+  https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43250792252
+  This checkpoint adds a malformed-row test correction and updated local evidence;
+  inspect its own run before extending the CI claim to a later commit.
+
+## Evidence
+
+- `benchmarks/stage84_inventory.json`: original file inventory, hashes, definitions.
+- `benchmarks/stage84_reproduction.json`: baseline experiment logs and missing-data errors.
+- `benchmarks/stage85_stress.json`: all 56 cases, source and pipeline hashes,
+  predictions, artifact hashes, runtime versions and stdout/stderr.
+- `benchmarks/verification.txt`: local automated test transcript.
+- `docs/STAGE84_AUDIT.md`: architecture and reproducibility audit.
+- `docs/STAGE85_PROTOCOL.md`: dataset format, commands and completion gates.
+
+## Limitations and open gates
+
+Stage 85 photographic generalization is **pending**, not completed. No real
+photographs or human-confirmed annotations were available in the repository.
+Stage 84's 6 repeated photo runs / 48 archived fingerprints cannot be independently
+reproduced here. The source checkpoint is preserved unchanged.
+
+Results evaluate class presence only. They do not measure boxes, instance counts,
+complex object identities, or physical camera angle invariance. Affine transforms
+are simulations. Repeated variants are correlated and do not increase independent
+capture count. Confirmation/source-kind metadata is declarative, not authenticated.
+
+The legacy camera algorithms and thresholds remain unchanged. There is no external
+pretrained model, training claim, private-memory migration or deployment.
+
+## Continuation instructions
+
+1. Start from this branch/PR; read this file and both audit/protocol documents.
+2. Re-run `python -m unittest discover -s tests -v` after code changes.
+3. Obtain three or more independently captured photos across physical lighting
+   and viewpoints; label them before inspecting predictions, verify their hashes,
+   then evaluate using `generalization.py`. Keep private photo files out of git.
+4. Inspect photo failures by lighting, angle and capture group. Keep held-out
+   capture groups separate from threshold tuning. Do not inflate capture counts
+   with transforms or reruns.
+5. Next algorithm milestone: reproduce a photographic contrast/size/aspect-ratio
+   failure, implement an opt-in correction, compare old and new on held-out
+   photographs and these synthetic controls. Do not tune solely to this tiny suite.
+6. Later: correct localization/region correspondence with labelled boxes, then
+   evaluate repeated instances, clutter and occlusion.
+7. Inspect remote CI runs for this branch. Preserve evidence and update this file
+   before the next execution limit. Keep historical code/checkpoints and model
+   independence intact.
+
+## Stage 86 — grouped datasets and error diagnostics
+
+Implemented/tested/measured: reproducible capture/content component splits,
+exact/pixel/near-duplicate leakage audit, pre-inference full-dataset validation,
+selected-split evaluation, multi-label confusion matrices and false-positive /
+false-negative examples. Added the required architecture/roadmap/status/benchmark/
+limitations/integration/release/continuation documents and development ledger.
+
+31 tests passed; `benchmarks/stage86_tests.txt` preserves the transcript.
+`python scripts/benchmark_stage86.py --output NEW_REPORT.json` reproduces
+`benchmarks/stage86_generalization.json`: 7 sources, 56 executions, 42 class-set
+matches, 14 mismatches and no detected cross-split leakage after grouped assignment.
+This is still synthetic evidence. Split metadata does not imply model training.
+The near-duplicate audit conservatively groups blank/tiny-circle controls; it is
+not a validated identity classifier. Approximate ratios are not class-stratified.
+
+Next executable milestone: opt-in structured box/mask localization API, independent
+adaptive segmentation experiment, IoU matching and parity against the legacy engine.
+
+## Experimental localization API milestone (Stage 90 roadmap work)
+
+Implemented/tested/measured: opt-in structured geometric boxes and masks,
+deterministic instance IDs, EXIF-aware source coordinates, unchanged extracted
+hull math, baseline parity, independent adaptive local mean/variance segmentation,
+one-to-one class-aware box matching and mask/box IoU. The new API bounds JPEG/PNG
+input by actual bytes/pixels and optional permitted root. It exports a local JSON
+report, stroke/grouped masks and overlay; no camera or memory access is automatic.
+
+42 automated tests pass (see `benchmarks/localization_tests.txt`). Legacy labels
+and segmentation mask hashes match on all seven generated control/stress fixtures.
+A three-object scene and repeated-category instances are localized in unit tests.
+An installed development package (`seye-independent` 0.1.0.dev90) was tested from
+outside the checkout on Linux using existing Pillow; no clean offline dependency
+installation or phone/Windows validation is claimed.
+
+`benchmarks/localization_comparison.json`: 14 generated runs, baseline TP=11,
+FP=2, FN=7 versus adaptive TP=14, FP=2, FN=4 at box IoU≥0.5. The difference comes
+from a generated faint scene. Both still fail clutter and have a scale error.
+These correlated synthetic probes do not establish photographic accuracy;
+adaptive remains experimental and opt-in, and Stage 90–99 is not complete.
+
+Next concrete task: versioned instance/segmentation annotation schema and
+multi-image localization evaluation (including negatives, multiple same-class
+objects, reviewed boxes and source-to-processed coordinate validation), followed
+by contour/noise/merge-split experiments against fixed baselines. Propagate bounded
+ingestion into the legacy evaluator before accepting untrusted datasets. Obtain
+reviewed independent photographs in parallel; do not fabricate them.
+
+## Latest verified GitHub implementation checkpoints
+
+- Dataset/split diagnostics: `1535578`, CI passed on Python 3.12/3.13.
+- Localization/installation: `bc2cc54`, CI passed on Python 3.12/3.13, including
+  installed-package smoke and both benchmark artifacts:
+  https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43254093560
+- Final audit correction: persist exact-byte duplicate conflict reports without
+  allowing duplicate source bytes into recognition evaluation. The updated local
+  regression transcript is benchmarks/final_verification.txt. Inspect its own CI
+  run after publication; earlier passing CI claims refer to the exact commits above.
+
+No Stage 84 algorithm/checkpoint changed. Current package remains experimental;
+release gates, photographic validation, independent learning, advanced memory,
+video and main-S integration remain incomplete. Resume from docs/STATUS.md and
+CONTINUATION_PROTOCOL.md without restarting or rerunning historical patch scripts.
+
+## Uploaded-image probe continuation
+
+Implemented unlabelled photograph/screenshot probing with source-kind separation,
+pre-inference bounded/hash validation, original repeatability, simulated dimming /
+rotation, optional overlays and explicit null accuracy fields. Eight new tests
+cover failure accounting, unsupported truth claims, source-root escapes, safe
+artifact names and repeatability limits. The complete local suite is recorded in
+benchmarks/uploaded_probe_tests.txt; the supplied-input experiment is recorded in
+benchmarks/uploaded_input_probe.json.
+
+User supplied one hand/interior camera photograph and four screenshots. These
+inputs now exercise the engine on actual supplied image bytes; they do not supply
+new photographs of the same labelled geometric shapes or reviewed instance boxes.
+The engine still lacks hand, furniture, OCR and broad semantic recognition.
+Never interpret arbitrary geometric proposals as recognized real-world objects.
+The uploaded pixels and preview overlays are not committed to the public repo.
+
+Next: reviewed instance/mask annotation schema, dataset-level localization scoring,
+and feature/unknown-rejection research. Preserve the original source files and
+use their recorded hashes when reproducing this probe.
+
+## Expanded independent-system checkpoint
+
+Current local suite: 81 tests pass (benchmarks/system_verification.txt). Working code
+now includes instance/mask annotations and scoring; independent fixed descriptors,
+prototype fitting and seeded SGD; loss curves and restored model checkpoints;
+private observation memory with read-only browsing, verification, rollback and
+legacy JSONL preservation; geometric scenes; actual prerecorded MP4 decoding and
+tracking; and root/capability/deadline-scoped workflow requests.
+
+Measured controlled results: prototype known=0/3 / unknown rejected=3/3; independent
+SGD known=3/3 / unknown rejected=0/3; all methods, including fixed geometry, score
+3/6 overall. This is not an improvement claim. Memory top-1 category retrieval is
+3/3 on three generated known queries with 28 verified/exported/restored observations.
+The six-frame generated MP4 has zero ID switches/missing-track frames. Final reports
+include manifests, source hashes, actual learned parameters, loss curves and limits.
+
+The installed workflow client passes outside the checkout. Development wheel builds
+are byte-identical under a fixed build epoch, recorded in benchmarks/package_build.json.
+No v1.0 release is issued. Every stage number 86–199 is mapped to an objective and
+explicit unmet requirements; benchmarks/release_readiness.json remains false.
+The Stage 84 algorithms/checkpoints are preserved byte-for-byte; only its README
+and ignore rules were extended.
+
+Next execution: inspect latest GitHub head and CI, then continue validation-only
+unknown-rejection/calibration development, a new locked/audited test protocol,
+representative annotations and the explicit engineering gaps in the stage registry.
+Do not tune to the inspected six test labels or claim all 114 stages complete.
+
+Cross-platform verification: `acf5cbe`, CI passed on Windows/Linux Python 3.12/3.13:
+https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43263993932 . This run
+covered the 81-test independent-system checkpoint, actual MP4, installed workflows,
+benchmarks, audits and development wheels. The later cache/config/grouping extension
+has its own transcript and repeat-input cache report. No Android device result is
+claimed. Current source remains experimental and every mandatory release gate
+must still pass before any v1.0 completion declaration.
+
+Cache/config/grouping code: `bec5213`; 87 tests pass locally. Final reliability
+review corrects physical JSONL source-line provenance across blank lines and keeps
+source bytes/legacy payloads unchanged. The final transcript is
+benchmarks/final_system_verification.txt. All exact commit references, objectives,
+measurements, limitations and next tasks are in docs/DEVELOPMENT_LEDGER.json.
+
+
+Verified 141–150 source checkpoint `54b90abfe19f64a13be5edf2641948b37277e1cb`: all four Ubuntu/Windows Python
+3.12/3.13 CI jobs passed, including 257 tests, all ten new experiments, historical
+checks, installation, source/release audits, wheel builds and uploaded artifacts.
+Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514953 . This later documentation-only receipt cites that exact source
+checkpoint; it does not attribute its CI to a later documentation SHA. The
+conservative negative result and representative-validation gaps remain unchanged.
+Stop at 150; next Continue starts 151–160.
+
+
+Verified 151–160 source checkpoint `f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88`: all four Ubuntu/Windows Python
+3.12/3.13 CI jobs passed, including 278 tests, all ten new experiments, historical
+checks, installed CLI and Python-client worker/default-denial/cache smoke,
+source/release audits, wheel builds and uploaded artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574 .
+This later documentation-only receipt cites that exact source checkpoint, not its
+own documentation SHA. Stage 159 has Linux/Windows CI evidence; actual Android
+ARM64 hardware and representative application/device validation remain open.
+The high-dimensional no-pruning result and prior conservative-tracking negative
+result remain unchanged. Stop at 160; next Continue starts 161–170.

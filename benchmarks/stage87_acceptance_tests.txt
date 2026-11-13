@@ -1,0 +1,19 @@
+test_brightness_near_duplicate_and_group_assignment (test_datasets.DatasetTests.test_brightness_near_duplicate_and_group_assignment) ... ok
+test_cannot_overwrite_splits (test_datasets.DatasetTests.test_cannot_overwrite_splits) ... ok
+test_capture_group_and_transitive_connections (test_datasets.DatasetTests.test_capture_group_and_transitive_connections) ... ok
+test_cli_audit_saves_exact_duplicate_conflict_evidence (test_datasets.DatasetTests.test_cli_audit_saves_exact_duplicate_conflict_evidence) ... ok
+test_cli_split_and_audit_end_to_end (test_datasets.DatasetTests.test_cli_split_and_audit_end_to_end) ... ok
+test_confusion_matrices_and_errors_separate_pipeline_failures (test_datasets.DatasetTests.test_confusion_matrices_and_errors_separate_pipeline_failures) ... ok
+test_draft_confirmed_synthetic_and_split_results_never_mix (test_datasets.DatasetTests.test_draft_confirmed_synthetic_and_split_results_never_mix) ... ok
+test_evaluator_blocks_near_duplicate_leakage_before_inference (test_datasets.DatasetTests.test_evaluator_blocks_near_duplicate_leakage_before_inference) ... ok
+test_exact_duplicate_cross_split_rejected (test_datasets.DatasetTests.test_exact_duplicate_cross_split_rejected) ... ok
+test_insufficient_components_and_bad_ratios (test_datasets.DatasetTests.test_insufficient_components_and_bad_ratios) ... ok
+test_partial_splits_and_hash_changes_rejected (test_datasets.DatasetTests.test_partial_splits_and_hash_changes_rejected) ... ok
+test_pixel_duplicate_with_different_encoded_bytes (test_datasets.DatasetTests.test_pixel_duplicate_with_different_encoded_bytes) ... ok
+test_selected_split_counts_and_unestablished_validation (test_datasets.DatasetTests.test_selected_split_counts_and_unestablished_validation) ... ok
+test_splits_deterministic_under_manifest_reorder (test_datasets.DatasetTests.test_splits_deterministic_under_manifest_reorder) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.870s
+
+OK

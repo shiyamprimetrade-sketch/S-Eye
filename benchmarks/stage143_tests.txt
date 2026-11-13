@@ -1,0 +1,8 @@
+test_ambiguity_abstains_instead_of_forcing_ids (test_stage143.ContinuityTests.test_ambiguity_abstains_instead_of_forcing_ids) ... ok
+test_bad_or_over_capacity_update_is_atomic (test_stage143.ContinuityTests.test_bad_or_over_capacity_update_is_atomic) ... ok
+test_velocity_and_reordering (test_stage143.ContinuityTests.test_velocity_and_reordering) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
