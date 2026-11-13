@@ -45,7 +45,8 @@ def restore_bundle(bundle,destination):
     ids=[]
     for record in observations:validate_record(record);ids.append(checksum(record))
     if len(set(ids))!=len(ids) or checksum(ids)!=payload.get('observation_order_sha256'):raise ValueError('Bundle observation identity/order mismatch')
-    for event in events:_validate_event(event,set(ids))
+    identity_set=set(ids)
+    for event in events:_validate_event(event,identity_set)
     if len({checksum(e) for e in events})!=len(events):raise ValueError('Duplicate bundle history events')
     destination=Path(destination)
     if destination.exists() or destination.is_symlink():raise FileExistsError('Recovery never overwrites an existing destination')

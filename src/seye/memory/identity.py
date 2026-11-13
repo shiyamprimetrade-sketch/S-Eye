@@ -10,12 +10,24 @@ def pixel_identity(image):
 
 
 def identify(record):
-    validate_record(record);provenance=record['provenance'];source=record.get('analysis',{}).get('source',{})
-    return {'observation_sha256':checksum(record),'source_sha256':provenance.get('source_sha256'),
-            'decoded_pixel_sha256':source.get('pixel_sha256',provenance.get('pixel_sha256')),
+    validate_record(record);provenance=record['provenance'];analysis=record.get('analysis')
+    source=analysis.get('source') if isinstance(analysis,dict) else None
+    if not isinstance(source,dict):source={}
+    packet=record.get('packet')
+    if packet is not None:
+        from seye.recognition.similarity import validate_packet
+        validate_packet(packet)
+    warnings=[]
+    def digest(value,name):
+        if value is None:return None
+        if isinstance(value,str) and len(value)==64 and all(c in '0123456789abcdef' for c in value):return value
+        warnings.append(name+': declaration is not a verified SHA-256 identity')
+        return None
+    return {'observation_sha256':checksum(record),'source_sha256':digest(provenance.get('source_sha256'),'source'),
+            'decoded_pixel_sha256':digest(source.get('pixel_sha256',provenance.get('pixel_sha256')),'pixels'),
             'packet_sha256':checksum(record['packet']) if record.get('packet') is not None else None,
-            'feature_schema_sha256':record.get('packet',{}).get('schema_sha256'),
-            'model_sha256':provenance.get('model_sha256'),
+            'feature_schema_sha256':packet['schema_sha256'] if packet is not None else None,
+            'model_sha256':digest(provenance.get('model_sha256'),'model'),'identity_warnings':warnings,
             'scope':'Missing historical identities stay null; content hashes are not real-object identity.'}
 
 

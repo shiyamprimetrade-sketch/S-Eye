@@ -38,9 +38,11 @@ def rebuild(memory):
         if packet is None:continue
         vector=project(packet);values+=len(vector);indexed+=1
         if values>1_000_000:raise ValueError('Index vector-value budget exceeded')
+        from seye.memory.identity import identify
+        identity=identify(record)
         point={'id':identifier,'vector':vector,'packet_sha256':checksum(packet),
-               'source_sha256':record['provenance'].get('source_sha256'),
-               'pixel_sha256':record.get('analysis',{}).get('source',{}).get('pixel_sha256',record['provenance'].get('pixel_sha256'))}
+               'source_sha256':identity['source_sha256'],
+               'pixel_sha256':identity['decoded_pixel_sha256']}
         groups.setdefault(packet['schema_sha256'],[]).append(point)
     trees={schema:{'format':'seye-kd-index-v1','schema_sha256':schema,'snapshot':snapshot,'count':len(points),'tree':_tree(points)} for schema,points in groups.items()}
     if any(len(canonical(value))>32*1024*1024 for value in trees.values()):raise ValueError('Index serialization budget exceeded')
@@ -57,6 +59,7 @@ def load_tree(memory,schema):
     snapshot=_snapshot(memory)
     exists=memory.db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='seye_packet_trees'").fetchone()
     if not exists:raise ValueError('Packet index absent; explicit rebuild required')
+    if not memory.db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='seye_packet_index_state'").fetchone():raise ValueError('Packet index format requires explicit rebuild')
     state=memory.db.execute('SELECT snapshot FROM seye_packet_index_state WHERE id=1').fetchone()
     if state is None or state[0]!=snapshot:raise ValueError('Packet index stale; explicit rebuild required')
     row=memory.db.execute('SELECT payload,sha256 FROM seye_packet_trees WHERE schema_sha256=?',(schema,)).fetchone()

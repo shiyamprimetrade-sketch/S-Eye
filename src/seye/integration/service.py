@@ -98,7 +98,13 @@ def execute(request, permissions):
         if memory_path is not None:
             memory = Memory(memory_path)
             try:
-                record = {'schema_version': 1, 'features': None, 'analysis': result,
+                from seye.recognition.pipeline import FeaturePipeline
+                from seye.memory.identity import pixel_identity
+                decoded,decoded_source=load_image(image,max_pixels=4_000_000)
+                if decoded_source['sha256']!=result['source']['sha256']:raise ValueError('Source changed before observation persistence')
+                result['source']['pixel_sha256']=pixel_identity(decoded)
+                packet=FeaturePipeline().extract(decoded,request.get('memory_components',['shape']))
+                record = {'schema_version': 1, 'features': None, 'packet':packet, 'analysis': result,
                           'provenance': {'source_sha256': result['source']['sha256'],
                                          'request_id': identifier, 'kind': 'interface_observation'}}
                 result['observation_id'] = memory.put(record)

@@ -285,3 +285,26 @@ identity and schema-aware memory retrieval. OCR/expert vision and v1.0 remain
 unfulfilled. Human review does not block ordinary engineering continuation.
 
 Verified 111–120 checkpoint `fae018ae9ed9d96568c3334fe53d611b45d53010`: all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including 187 tests, all ten new experiments, historical checks, installation, audits and artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43437615904 . The 6/6 known and 4/4 unknown centered-descriptor result remains generated evidence, not real-application validation. This later receipt changes documentation only; the cited CI run belongs to that exact SHA. Stop at 120 and wait for Continue before 121–130.
+
+
+## Stages 121–130 visual-memory checkpoint
+
+Implemented separate image/observation/session identities, persistent schema KD
+indexes, exact packet retrieval, caller-linked histories, source-grid scene
+comparison, distinct duplicate evidence, provenance audits, portable recovery
+bundles, pinned dependency-aware retention, measured generated retrieval and
+unlabeled scene inventories. New interface memories retain searchable packets;
+legacy records stay unchanged. 210 local tests pass; exact-head CI is separate.
+
+64-vector test: exact top3 matches exhaustive search with 7 versus 64 distance
+evaluations, but full integrity/snapshot cost remains linear. Generated glyph
+retrieval: 6/6 known categories top1/recall@3, 4/4 unknowns without matches under
+fixed cutoff; all known queries have tied matches and no unique-object identity.
+Verified recovery/retention preserves links or removes dependencies transactionally.
+See STAGES_121_130.md and per-stage benchmark reports. These are controlled
+engineering results, not representative application memory/identity validation.
+
+STOP at Stage 130. Wait for Continue before 131–140. Future scene relationships
+must preserve coordinate/semantic uncertainty and cannot promote caller links,
+feature matches or proximity into proven object identity. Release v1.0, OCR and
+expert programmer vision remain incomplete; human review does not block engineering.

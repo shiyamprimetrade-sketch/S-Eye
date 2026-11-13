@@ -8,11 +8,12 @@ def summarize(record):
     if not isinstance(analysis,dict):analysis={}
     selection=analysis.get('selection',analysis)
     if not isinstance(selection,dict):selection={}
-    accepted=selection.get('accepted')
+    accepted=selection.get('accepted');candidates=analysis.get('candidates')
+    if not isinstance(candidates,list):candidates=[]
     return {'identity':identity,'provenance':record['provenance'],
             'stored_label':selection.get('label'),'stored_acceptance':accepted if type(accepted) is bool else None,
             'stored_reason':selection.get('reason'),'confidence_probability':None,
-            'raw_candidate_scores':[{k:c[k] for k in ('label','raw_softmax_score') if k in c} for c in analysis.get('candidates',[]) if isinstance(c,dict)],
+            'raw_candidate_scores':[{k:c[k] for k in ('label','raw_softmax_score') if k in c} for c in candidates if isinstance(c,dict)],
             'uncertainty_scope':'Stored training-label assertions and raw scores are not verified truth; missing historical values stay null.'}
 
 

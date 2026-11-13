@@ -34,6 +34,7 @@ def read(memory,entity,limit=50):
     events=[]
     for identifier,payload,digest in rows:
         event=json.loads(payload)
+        if not isinstance(event,dict):raise ValueError('History event object required')
         if checksum(event)!=digest or digest!=identifier or event.get('entity')!=entity:raise ValueError('History integrity mismatch')
         if occurrence(event['observation_id'],event['session'],event['event_index'])!=event.get('occurrence_sha256'):raise ValueError('History occurrence mismatch')
         available=memory.db.execute('SELECT 1 FROM observations WHERE id=?',(event['observation_id'],)).fetchone() is not None
