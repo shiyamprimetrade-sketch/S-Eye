@@ -66,6 +66,20 @@ def stage119():
     r=run()['methods'];g=guard(r['layout_prototype'],r['centered_sgd'])
     return {'cases':10,'gate':g,'passed':g['passed'] and r['centered_sgd']['known_correct']==6 and r['centered_sgd']['unknown_rejected']==4}
 
+def stage120():
+    import tempfile
+    from learning_batch_data import dataset
+    from seye.learning.packet_linear import fit
+    from seye.recognition.trained import predict
+    from seye.memory.packet_observations import remember
+    from seye.memory.store import Memory
+    d=dataset();m=fit(d['train'],d['validation'],epochs=5);packet=d['validation'][0]['packet'];r=predict(m,packet);r['source']={'sha256':'a'*64}
+    with tempfile.TemporaryDirectory() as directory:
+        path=Path(directory)/'memory.sqlite3';receipt=remember(path,'generated-request',packet,r);memory=Memory(path,read_only=True)
+        try:verified=memory.verify()['verified_observations'];same=memory.get(receipt['observation_id'])['packet']==packet
+        finally:memory.close()
+    return {'cases':1,'verified_observations':verified,'packet_preserved':same,'passed':verified==1 and same}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(111,121),required=True);p.add_argument('--output',type=Path,required=True)

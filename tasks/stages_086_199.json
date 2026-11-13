@@ -574,13 +574,19 @@
       "stage": 120,
       "objective": "Persistent observations",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/memory/store.py"
+        "src/seye/memory/packet_observations.py",
+        "src/seye/memory/store.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage120.py",
+        "benchmarks/stage120_experiment.json",
+        "benchmarks/stage120_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Optional verified persistence of source/model-bound trained observations and modular packets, with legacy-memory compatibility and explicit memory grants. No raw image bytes or calibrated confidence are invented."
     },
     {
       "stage": 121,

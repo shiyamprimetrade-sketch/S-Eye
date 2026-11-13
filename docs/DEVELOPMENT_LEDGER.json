@@ -2270,6 +2270,30 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 120"
+    },
+    {
+      "id": "stage120-learning-engineering",
+      "objective": "Optional verified persistence of source/model-bound trained observations and modular packets, with legacy-memory compatibility and explicit memory grants. No raw image bytes or calibrated confidence are invented.",
+      "files_changed": [
+        "src/seye/memory/packet_observations.py",
+        "src/seye/memory/store.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage120.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage120_tests.txt and benchmark_stage101_110.py --stage 120",
+      "test_results": "Focused tests passed; final regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 1,
+        "packet_preserved": true,
+        "passed": true,
+        "verified_observations": 1
+      },
+      "commit_sha": "Commit subject Stage 120; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stop and wait for Continue"
     }
   ]
 }

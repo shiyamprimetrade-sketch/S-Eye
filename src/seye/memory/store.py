@@ -22,6 +22,16 @@ def validate_record(record):
         distance(record['features'], record['features'])
     if not isinstance(record.get('provenance'), dict):
         raise ValueError('Memory provenance required')
+    if record['provenance'].get('kind')=='trained_visual_observation':
+        from seye.recognition.similarity import validate_packet
+        validate_packet(record.get('packet'))
+        analysis=record.get('analysis')
+        if not isinstance(analysis,dict) or analysis.get('schema_sha256')!=record['packet']['schema_sha256']:
+            raise ValueError('Stored packet schema mismatch')
+        for key in ('source_sha256','model_sha256'):
+            value=record['provenance'].get(key)
+            if not isinstance(value,str) or len(value)!=64 or any(c not in '0123456789abcdef' for c in value):raise ValueError('Stored observation identity invalid')
+        if analysis.get('model_sha256')!=record['provenance']['model_sha256'] or analysis.get('source',{}).get('sha256')!=record['provenance']['source_sha256']:raise ValueError('Stored observation provenance mismatch')
     canonical(record)
 
 

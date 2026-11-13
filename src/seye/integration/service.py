@@ -129,6 +129,10 @@ def execute(request, permissions):
         result=explain(model,packet,request.get('top_k',3),request.get('min_margin',.005),calibration)
         result['source']=source
     elif action == 'recognize_trained':
+        memory_path=None
+        if request.get('memory') is not None:
+            if not permissions.memory:raise PermissionError('Explicit memory permission required')
+            memory_path=permissions.require(request['memory'],write=True)
         from seye.learning.training_checkpoint import load
         from seye.recognition.pipeline import FeaturePipeline
         from seye.recognition.trained import predict
@@ -136,6 +140,9 @@ def execute(request, permissions):
         image,source=load_image(permissions.require(request['image']),max_pixels=4_000_000)
         packet=FeaturePipeline().extract(image,[component['name'] for component in model['schema']['components']])
         result=predict(model,packet);result['source']=source
+        if memory_path is not None:
+            from seye.memory.packet_observations import remember
+            result.update(remember(memory_path,identifier,packet,result))
     elif action == 'recognize_batch':
         from seye.recognition.cache import FeatureCache
         paths = request.get('images')
