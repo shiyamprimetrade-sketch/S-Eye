@@ -159,6 +159,14 @@ def execute(request, permissions):
             from seye.memory.packet_index import rebuild,query
             result=rebuild(memory) if write else query(memory,packet,request.get('limit',5),request.get('exclude_sources',[]))
         finally:memory.close()
+    elif action in ('memory_history_link','memory_history'):
+        if not permissions.memory:raise PermissionError('Explicit memory permission required')
+        write=action=='memory_history_link'
+        memory=Memory(permissions.require(request['memory'],write=write),read_only=not write)
+        try:
+            from seye.memory.history import link,read as read_history
+            result=link(memory,request['entity'],request['observation_id'],request['session'],request['event_index'],request.get('reason','caller_asserted_same_target')) if write else read_history(memory,request['entity'],request.get('limit',50))
+        finally:memory.close()
     elif action == 'recognize_batch':
         from seye.recognition.cache import FeatureCache
         paths = request.get('images')

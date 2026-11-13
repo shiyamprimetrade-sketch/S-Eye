@@ -43,6 +43,15 @@ def stage123():
         finally:m.close()
     return {'cases':64,'top3_exact':same,'distance_evaluations':r['distance_evaluations'],'exhaustive_distance_evaluations':64,'passed':same and r['distance_evaluations']<64}
 
+def stage124():
+    from seye.memory.store import Memory
+    from seye.memory.history import link,read
+    with tempfile.TemporaryDirectory() as directory:
+        path=Path(directory)/'m.sqlite3';m=Memory(path);identifier=m.put(numeric_record(.1));link(m,'target',identifier,'one',0);link(m,'target',identifier,'two',0);m.close();m=Memory(path,read_only=True)
+        try:r=read(m,'target')
+        finally:m.close()
+    return {'cases':2,'persisted_events':r['total'],'caller_asserted':all(e['identity_origin']=='caller_asserted' for e in r['events']),'passed':r['total']==2}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(121,131),required=True);p.add_argument('--output',type=Path,required=True)

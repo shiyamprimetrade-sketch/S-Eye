@@ -643,13 +643,18 @@
       "stage": 124,
       "objective": "Persistent object histories",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/memory/store.py"
+        "src/seye/memory/history.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage124.py",
+        "benchmarks/stage124_experiment.json",
+        "benchmarks/stage124_tests.txt"
       ],
-      "open_requirement": "Observations and per-clip tracks exist; cross-session object-history linking remains incomplete",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Persistent explicit caller-linked target histories separate session occurrence from observation identity and verify event provenance; no automatic cross-session object identity is claimed."
     },
     {
       "stage": 125,

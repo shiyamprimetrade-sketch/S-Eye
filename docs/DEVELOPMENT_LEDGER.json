@@ -2387,6 +2387,29 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 124"
+    },
+    {
+      "id": "stage124-memory-engineering",
+      "objective": "Persistent explicit caller-linked target histories separate session occurrence from observation identity and verify event provenance; no automatic cross-session object identity is claimed.",
+      "files_changed": [
+        "src/seye/memory/history.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage124.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage124_tests.txt and benchmark_stage121_130.py --stage 124",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "caller_asserted": true,
+        "cases": 2,
+        "passed": true,
+        "persisted_events": 2
+      },
+      "commit_sha": "Commit subject Stage 124; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 125"
     }
   ]
 }
