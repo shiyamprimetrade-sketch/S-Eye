@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+"""Generated scene/video engineering experiments, not representative UI understanding."""
+import argparse,json,sys,tempfile
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT),str(ROOT/'src')]
+from PIL import Image,ImageDraw
+from seye.core.storage import atomic_json
+
+
+def view(boxes,size=(100,80)):
+    return {'source_size':list(size) if size else None,'objects':[{'class':'interface_region','box':b} for b in boxes]}
+
+
+def stage131():
+    from seye.scenes.spatial import relationships
+    actual=[relationships(view([[0,0,30,30],b]))['relations'][0]['topology'] for b in ([10,10,20,20],[25,25,50,50],[30,0,50,30],[40,0,60,20])]
+    return {'cases':4,'topologies':actual,'passed':actual==['first_contains_second','overlap','touching','disjoint']}
+
+# STAGE_CASES
+if __name__=='__main__':
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(131,141),required=True);p.add_argument('--output',type=Path,required=True)
+    args=p.parse_args();result=globals()['stage'+str(args.stage)]();report={'schema_version':1,'stage':args.stage,'scope':'controlled generated scene/video experiment','result':result,'representative_application_accuracy':None}
+    atomic_json(args.output,report);print(json.dumps(report))
+    if not result['passed']:raise SystemExit(1)

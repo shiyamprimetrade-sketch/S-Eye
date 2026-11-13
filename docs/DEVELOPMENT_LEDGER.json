@@ -2702,6 +2702,32 @@
       "next_task": "Stop and wait for Continue",
       "verified_commit_sha": "a1e7ba72fbf58875ce526af9fbd6e2ef7598c954",
       "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525"
+    },
+    {
+      "id": "stage131-scene-engineering",
+      "objective": "Bounded frame-local topology distinguishes disjoint, touching, overlapping and contained boxes with explicit edge gaps; no semantic identity inference.",
+      "files_changed": [
+        "src/seye/scenes/spatial.py",
+        "tests/test_stage131.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage131_tests.txt and benchmark_stage121_130.py --stage 131",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 4,
+        "passed": true,
+        "topologies": [
+          "first_contains_second",
+          "overlap",
+          "touching",
+          "disjoint"
+        ]
+      },
+      "commit_sha": "Commit subject Stage 131; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 132"
     }
   ]
 }
