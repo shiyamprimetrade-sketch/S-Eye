@@ -117,3 +117,13 @@ Private pixels stay outside git. Physical lighting/angles are unmeasured, review
 labels/boxes are absent and these are different views/scenes rather than a controlled
 same-object sweep. Execution and proposal counts cannot establish recognition
 accuracy. Report the remaining physical validation gate explicitly before Stage 89.
+
+Stage 88 capture gate is now executable in core/capture_protocol.py. It checks
+review declarations, supported labels, distinct source hashes, at least three
+same-target captures and two documented lighting/angle conditions. Declared coverage
+is not recognition validation or authenticated annotation proof. The four supplied
+photos lack reviewed shape labels and same-target capture metadata; no labels or
+physical conditions were invented. See benchmarks/stage88_capture_gate.json.
+Continue Stage 88; do not advance to 89 until its evidence gate is met. Required
+input: reviewed circle/quadrilateral/triangle labels and three photographs of the
+same targets across documented physical lighting and viewpoints.
