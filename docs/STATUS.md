@@ -172,3 +172,5 @@ is complete; exact-head CI must be checked independently.
 Next Continue: Stage 91 independent edge-based interface-region proposals with
 negative/overlap checks. OCR/code comprehension and live host interaction are
 unfinished; no human-review prerequisite is imposed on engineering continuation.
+
+Stage 90 implementation published at `492c0146766999b5544f6a3e81a3a73385708ce1` in PR #1. Exact-head CI is tracked separately from the 117 passing local tests.
