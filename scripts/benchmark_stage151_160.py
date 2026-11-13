@@ -114,6 +114,24 @@ def stage155():
             'passed':equal and inserted_equal and batch['successful_items']==6 and batch['failed_items']==1}
 
 
+def stage156():
+    from seye.recognition.packet_cache import PacketCache
+    from seye.recognition.pipeline import FeaturePipeline
+    from seye.image.ingestion import load_image
+    with tempfile.TemporaryDirectory() as directory:
+        paths=[fixture(directory,i) for i in range(4)];order=[0,0,1,0,2,3,0,1,2,3,0,0]
+        cache=PacketCache(max_entries=3);pipeline=FeaturePipeline();baseline=[]
+        before=time.perf_counter()
+        for i in order:
+            image,_=load_image(paths[i]);baseline.append(pipeline.extract(image,['appearance','shape']))
+        uncached=time.perf_counter()-before;before=time.perf_counter()
+        actual=[cache.from_file(paths[i],['appearance','shape'])[0] for i in order];cached=time.perf_counter()-before
+        stats=cache.statistics()
+    return {'requests':len(order),'packets_identical':actual==baseline,'statistics':stats,'uncached_seconds':uncached,'cached_seconds':cached,
+            'scope':'generated mixed repeated/evicting images; file read/hash/decode included; no device workload validation',
+            'passed':actual==baseline and stats['hits']+stats['misses']==len(order) and stats['entries']<=3}
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--stage',required=True,type=int,choices=range(151,161));p.add_argument('--output',required=True)
     a=p.parse_args();r=globals()[f'stage{a.stage}']();atomic_json(a.output,r,overwrite=True);print(json.dumps(r,sort_keys=True))

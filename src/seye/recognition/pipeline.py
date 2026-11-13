@@ -40,6 +40,14 @@ class FeaturePipeline:
         if sum(self._components[n][1] for n in components)>4096:raise ValueError('Combined feature budget exceeded')
         return list(components)
 
+    def schema(self,components=('interface',)):
+        selected=self._selection(components);parts=[];offset=0
+        for name in selected:
+            version,dimension,_=self._components[name]
+            parts.append({'name':name,'version':version,'dimension':dimension,'offset':offset});offset+=dimension
+        contract={'version':'seye-feature-pipeline-v1','components':parts,'dimension':offset}
+        return {'schema':contract,'schema_sha256':checksum(contract)}
+
     def extract(self,image,components=('interface',)):
         components=self._selection(components)
         vector=[];schema=[]
