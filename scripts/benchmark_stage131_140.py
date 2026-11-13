@@ -52,6 +52,11 @@ def stage138():
     value=view([[10,10,30,30]]);value.update(complete=False,source_sha256='a'*64);r=assess(value,{'comparable':True,'ambiguous_correspondence':True})
     return {'cases':1,'state':r['state'],'flags':r['flags'],'action_authorized':r['automatic_action_authorized'],'passed':r['state']=='partial_geometry' and 'correspondence_ambiguous' in r['flags'] and not r['automatic_action_authorized']}
 
+def stage139():
+    from benchmark_scene_validation import run
+    r=run()
+    return {'cases':r['pairs'],'frames':r['frames'],'event_matches':r['event_count_contract_matches'],'localization':r['localization'],'full_validation':r,'passed':r['pairs']==32 and r['frames']==64 and not r['representative_application_validation']}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(131,141),required=True);p.add_argument('--output',type=Path,required=True)
