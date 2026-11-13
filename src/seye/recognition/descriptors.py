@@ -23,3 +23,12 @@ def appearance(image):
     vertical=sum(abs(p[x,y]-p[x,y-1]) for y in range(1,h) for x in range(w))/max(1,w*(h-1))/255
     layout=[v/255 for v in gray.resize((4,4),Image.Resampling.BOX).get_flattened_data()]
     return histogram+[horizontal,vertical]+layout
+
+
+def shape(image):
+    """Center/crop observed edge support; separate schema from screen layout."""
+    from PIL import Image
+    image=image.convert('RGB');image.thumbnail((256,256));mask=edge_mask(image);box=mask.getbbox()
+    if box is None:return [0.0]*257
+    crop=mask.crop(box);w,h=crop.size
+    return [v/255 for v in crop.resize((16,16),Image.Resampling.BOX).get_flattened_data()]+[w/(w+h)]
