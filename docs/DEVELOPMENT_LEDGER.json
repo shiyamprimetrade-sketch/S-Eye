@@ -1198,6 +1198,29 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 115"
+    },
+    {
+      "id": "stage115-learning-engineering",
+      "objective": "Data/config/source fingerprints and repeated seeded full-model reproduction on one host; different seeds alter initialization, cross-platform byte identity is not promised.",
+      "files_changed": [
+        "src/seye/learning/reproducibility.py",
+        "tests/test_stage115.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage115_tests.txt and benchmark_stage101_110.py --stage 115",
+      "test_results": "Focused tests passed; final regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 2,
+        "identical": true,
+        "model_sha256": "f5aeab3b218c1a6b383bbc3d2b5d708a06252350b7e9c9ab97b25809ab120c7e",
+        "passed": true,
+        "source_sha256": "14a04e0903a70ae10b4f73aedcd8c54c79a85f0eed21ba91105a75c69777fd06"
+      },
+      "commit_sha": "Commit subject Stage 115; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 116"
     }
   ]
 }

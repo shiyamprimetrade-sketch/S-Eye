@@ -36,6 +36,12 @@ def stage114():
         p=Path(directory)/'model.json';save(p,m);same=scores(m,d['validation'][0]['packet'])==scores(load(p),d['validation'][0]['packet'])
     return {'cases':1,'restored_scores_identical':same,'optimizer_resume_claimed':False,'passed':same}
 
+def stage115():
+    from learning_batch_data import dataset
+    from seye.learning.reproducibility import reproduce
+    d=dataset();r=reproduce(d['train'],d['validation'],{'epochs':8,'seed':113,'learning_rate':.2})
+    return {'cases':2,'identical':r['identical'],'source_sha256':r['algorithm_source_sha256'],'model_sha256':r['first_model_sha256'],'passed':r['identical']}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(111,121),required=True);p.add_argument('--output',type=Path,required=True)
