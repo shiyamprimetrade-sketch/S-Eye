@@ -338,3 +338,5 @@ continuity, bounded motion/tracking evaluation and performance instrumentation.
 Do not start those stages before the next Continue. Release v1.0 remains incomplete.
 
 Local verification: 231 tests passed (benchmarks/stages131_140_full_tests.txt); all ten experiment reports reproduced exactly; Stage 84 preservation/source syntax audit passed. Remote CI pending publication.
+
+Implementation GitHub checkpoint 3f55d6a8fc3a1ba0061a79db9eff8ec18d90a035; individual stage SHAs recorded in benchmarks/stages131_140_publication.json and ledger. 231 local tests passed; exact-head CI pending. Stop at 140.

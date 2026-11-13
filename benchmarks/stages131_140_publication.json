@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "stages": [
+    131,
+    140
+  ],
+  "implementation_head": "3f55d6a8fc3a1ba0061a79db9eff8ec18d90a035",
+  "commits": [
+    {
+      "local_sha": "3a05a5b3e976bbf5df3090b78138e1c364328e62",
+      "sha": "e86ac5ed2c919429c62b7eb04c7bcf2b774edb5e",
+      "message": "Stage 131: bounded explicit spatial topology and source-grid evidence"
+    },
+    {
+      "local_sha": "c75989741290a4f0ddd6f8b8e0e99b2051107bc6",
+      "sha": "13b4bd823bc8500620dd8df12717aa7aabbacbaa",
+      "message": "Stage 132: explicit normalized relative position evidence"
+    },
+    {
+      "local_sha": "198dc63ecc1214f906bfc90242e5e4beaaed1c8b",
+      "sha": "51437ca313e8da4d5c185d83f2ee2db1eb4d0b36",
+      "message": "Stage 133: alignment-aware visual grouping with auditable links"
+    },
+    {
+      "local_sha": "ac693affdcb3ec36b81f2886893289177237e0a2",
+      "sha": "4210109d62ee13e6027db12502ce2bebdfde9b9e",
+      "message": "Stage 134: explicit geometric scene similarity and ambiguous correspondences"
+    },
+    {
+      "local_sha": "b4bc4ad1a99c063c64b6a3fdb35fda438a813e3c",
+      "sha": "7c7f0e1057cf3a53840463976d251e27cacd46d6",
+      "message": "Stage 135: registered-residual change evidence without invented identities"
+    },
+    {
+      "local_sha": "adfcf29a5c6b03b5ae17c67e9af3fc0a38a38e51",
+      "sha": "dd38ac1898c6e76580b554f0dc4394d86ae00787",
+      "message": "Stage 136: temporal missing-evidence records with occlusion and grid abstention"
+    },
+    {
+      "local_sha": "145627b0a2f3cf8a0012f130abeb5c3af14d54f9",
+      "sha": "e76c334795531025238cc4e3c85d6c3921fab4ed",
+      "message": "Stage 137: evidence-referenced scene descriptions without invented semantics"
+    },
+    {
+      "local_sha": "88b3884fc5ad1f86da7d63f6544b49284357762c",
+      "sha": "1166e8b3a89ef52a133172f6c6f60e061fed2f14",
+      "message": "Stage 138: evidence-bound scene uncertainty and scoped analysis APIs"
+    },
+    {
+      "local_sha": "4a37cc1477f1ad536adba3cae7bb5d475fcb4aa1",
+      "sha": "9031f24a8e02726ad4a515042bd220d84c65786e",
+      "message": "Stage 139: reproducible scene oracle matrix with preserved failure accounting"
+    },
+    {
+      "local_sha": "89a83ea961efaf9c10b068b28c77bada5ca57ea4",
+      "sha": "1cbb2c71712d3d9743044e62df99ea4935039d1a",
+      "message": "Stage 140: bounded prerecorded interface frames with permission and timing contracts"
+    },
+    {
+      "local_sha": "745119fa8609c0d8eb2eee91af395125e8b0cda5",
+      "sha": "3f55d6a8fc3a1ba0061a79db9eff8ec18d90a035",
+      "message": "Verify Stage 131\u2013140 regression, integration, experiments and continuation boundary"
+    }
+  ],
+  "local_tests": 231,
+  "experiment_reports_reproduced": 10,
+  "representative_scene_validation": false,
+  "remote_ci": "pending",
+  "next_task": "Wait for Continue; then Stage 141\u2013150"
+}
