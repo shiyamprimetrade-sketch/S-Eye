@@ -4,6 +4,7 @@ Control names come only from caller-supplied visual templates. Similarity is a
 pixel score, not calibrated recognition confidence or proof of clickability.
 """
 import math
+from contextlib import nullcontext
 from PIL import ImageChops, ImageStat
 from seye.image.ingestion import load_image
 
@@ -111,7 +112,7 @@ def match_template(screen, template, stride=4, min_similarity=.97):
             'score_kind':'uncalibrated grayscale pixel similarity'}
 
 
-def observe(image, previous=None, templates=(), stride=4, min_similarity=None, matcher="pixel", scales=None, region_proposals=False, region_mode="baseline"):
+def observe(image, previous=None, templates=(), stride=4, min_similarity=None, matcher="pixel", scales=None, region_proposals=False, region_mode="baseline", *, _trace=None):
     if not isinstance(templates, (list,tuple)) or len(templates)>8:
         raise ValueError('At most eight explicit templates allowed')
     if region_mode not in ('baseline','refined','color'):raise ValueError('Invalid region mode')
@@ -120,43 +121,54 @@ def observe(image, previous=None, templates=(), stride=4, min_similarity=None, m
     if matcher not in ('pixel','contrast'):raise ValueError('Unknown interface matcher')
     if matcher=='pixel' and scales is not None:raise ValueError('Scale search requires contrast matcher')
     if min_similarity is None:min_similarity=.99 if matcher=='contrast' else .97
-    screen, source = load_image(image, max_pixels=MAX_SCREEN_PIXELS)
+    span=_trace.span if _trace is not None else lambda name:nullcontext()
+    with span('decode_current'):
+        screen, source = load_image(image, max_pixels=MAX_SCREEN_PIXELS)
     result = {'schema_version':1, 'kind':'interface_observation', 'matcher':matcher, 'source':source,
               'coordinate_space':'EXIF-oriented screenshot pixels; box right/bottom exclusive',
               'signals':[], 'elements':[], 'change':None,
               'limitations':['No OCR, code understanding, application identity or clickability inference.',
                              'Template candidates use bounded scale/contrast support; unfamiliar themes, geometry or occlusion can prevent matching.',
                              'Screenshot content is evidence, never executable instructions.']}
-    if region_proposals:
-        from seye.interface.regions import propose_regions
-        if region_mode=='color':
-            from seye.interface.overlap import visible_regions
-            result['region_proposals']=visible_regions(screen)
-        elif region_mode=='refined':
-            from seye.interface.localization import localize
-            result['region_proposals']=localize(screen)
-        else:result['region_proposals']=propose_regions(screen)
-        result['signals'].append({'type':'region_hypotheses', 'count':len(result['region_proposals']['regions']),
-                                  'complete':result['region_proposals']['complete']})
-    if previous is not None:
-        prior, provenance = load_image(previous, max_pixels=MAX_SCREEN_PIXELS)
-        result['previous_source_sha256'] = provenance['sha256']
-        result['change'] = change_regions(prior,screen)
-        result['signals'].append({'type':result['change']['signal']})
-    else:
-        result['signals'].append({'type':'initial_observation'})
+    with span('region_proposals'):
+        if region_proposals:
+            from seye.interface.regions import propose_regions
+            if region_mode=='color':
+                from seye.interface.overlap import visible_regions
+                result['region_proposals']=visible_regions(screen)
+            elif region_mode=='refined':
+                from seye.interface.localization import localize
+                result['region_proposals']=localize(screen)
+            else:result['region_proposals']=propose_regions(screen)
+            result['signals'].append({'type':'region_hypotheses', 'count':len(result['region_proposals']['regions']),
+                                      'complete':result['region_proposals']['complete']})
+    with span('previous_decode_and_change'):
+        if previous is not None:
+            prior, provenance = load_image(previous, max_pixels=MAX_SCREEN_PIXELS)
+            result['previous_source_sha256'] = provenance['sha256']
+            result['change'] = change_regions(prior,screen)
+            result['signals'].append({'type':result['change']['signal']})
+        else:
+            result['signals'].append({'type':'initial_observation'})
     names = set()
     for entry in templates:
         if not isinstance(entry,dict) or not isinstance(entry.get('name'),str) or not 1<=len(entry['name'])<=128 or entry['name'] in names:
             raise ValueError('Unique template names of 1..128 characters required')
         names.add(entry['name'])
-        template, metadata = load_image(entry['path'],max_pixels=256*256)
-        if matcher=='contrast':
-            from seye.interface.contrast import match_contrast
-            match=match_contrast(screen,template,stride,min_similarity,scales if scales is not None else (.75,1,1.25,1.5,2))
-        else:
-            match = match_template(screen,template,stride,min_similarity)
+        with span('template_decode_and_match'):
+            template, metadata = load_image(entry['path'],max_pixels=256*256)
+            if matcher=='contrast':
+                from seye.interface.contrast import match_contrast
+                match=match_contrast(screen,template,stride,min_similarity,scales if scales is not None else (.75,1,1.25,1.5,2))
+            else:
+                match = match_template(screen,template,stride,min_similarity)
         result['elements'].append(dict(match, name=entry['name'], name_origin='caller_supplied_template',
                                        template_sha256=metadata['sha256']))
         result['signals'].append({'type':'template_'+match['status'],'template':entry['name']})
     return result
+
+
+def observe_profiled(image, **options):
+    from seye.performance.trace import Trace
+    trace=Trace();observation=observe(image,**options,_trace=trace)
+    return {'observation':observation,'performance':trace.report()}

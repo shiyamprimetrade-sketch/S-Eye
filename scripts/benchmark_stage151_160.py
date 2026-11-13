@@ -37,6 +37,17 @@ def stage151():
             'passed':all(c['pixel_equal'] for c in cases)}
 
 
+def stage152():
+    from seye.interface.observer import observe,observe_profiled
+    cases=[]
+    with tempfile.TemporaryDirectory() as directory:
+        a=fixture(directory,0);b=fixture(directory,4)
+        for region in (False,True):
+            r=observe_profiled(b,previous=a,region_proposals=region,region_mode='refined' if region else 'baseline')
+            cases.append({'region_proposals':region,'evidence_equal':r['observation']==observe(b,previous=a,region_proposals=region,region_mode='refined' if region else 'baseline'), 'performance':r['performance']})
+    return {'cases':cases,'passed':all(c['evidence_equal'] for c in cases)}
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--stage',required=True,type=int,choices=range(151,161));p.add_argument('--output',required=True)
     a=p.parse_args();r=globals()[f'stage{a.stage}']();atomic_json(a.output,r,overwrite=True);print(json.dumps(r,sort_keys=True))
