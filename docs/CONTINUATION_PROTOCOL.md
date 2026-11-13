@@ -78,3 +78,11 @@ validation-frequency pooling, strict finite inputs and support counts. It is not
 wired into inference and does not establish representative confidence. Next fit it
 only on validation predictions and assess a new locked test; never calibrate on test
 outcomes. Existing recognition failures and release gates remain open.
+
+Validation-only calibration experiment: 8 validation predictions fitted the map;
+6 previously inspected generated test predictions scored it. Brier decreased from
+0.437149 to 0.333333; recognition labels were unchanged. 92 local tests pass,
+including a test proving test outcomes cannot alter the fitted map. This is not
+a new locked or representative evaluation. Next: create a separately locked,
+group-audited evaluation protocol and assess calibrated rejection without tuning
+against these six test outcomes. See benchmarks/calibration_experiment.json.
