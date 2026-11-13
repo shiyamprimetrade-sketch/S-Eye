@@ -164,6 +164,20 @@ def stage159():
             'passed':latency['passed'] and features['passed'] and not host['device_performance_validated']}
 
 
+def stage160():
+    from seye.api import Client,Permissions,capabilities
+    with tempfile.TemporaryDirectory() as directory:
+        path=fixture(directory);client=Client(Permissions(read_roots=(directory,)),isolated=False)
+        direct=client.call('observe_interface','direct',image=str(path),region_proposals=True)
+        profile=client.call('profile_interface','profile',image=str(path),region_proposals=True)
+        batch=client.call('extract_feature_batch','batch',images=[str(path)]*4,components=['shape'])
+        denied=Client(isolated=False).call('observe_interface','denied',image=str(path))
+    equal=direct['result']==profile['result']['observation']
+    return {'api_version':capabilities()['python_api_version'],'profile_evidence_equal':equal,'cache':batch['result']['cache'],
+            'default_denial':not denied['success'],'v1_release':False,
+            'passed':equal and batch['success'] and batch['result']['cache']['hits']==3 and not denied['success']}
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--stage',required=True,type=int,choices=range(151,161));p.add_argument('--output',required=True)
     a=p.parse_args();r=globals()[f'stage{a.stage}']();atomic_json(a.output,r,overwrite=True);print(json.dumps(r,sort_keys=True))

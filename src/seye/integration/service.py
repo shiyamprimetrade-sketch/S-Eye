@@ -135,6 +135,50 @@ def execute(request, permissions):
                 result['observation_id'] = memory.put(record)
             finally:
                 memory.close()
+    elif action == 'profile_interface':
+        from seye.interface.observer import observe_profiled
+        if request.get('memory') is not None:raise ValueError('Profile observations do not persist memory')
+        image=permissions.require(request['image'])
+        previous=permissions.require(request['previous']) if request.get('previous') is not None else None
+        templates=request.get('templates',[])
+        if not isinstance(templates,list) or len(templates)>8:raise ValueError('At most eight explicit templates allowed')
+        validated=[]
+        for entry in templates:
+            if not isinstance(entry,dict):raise ValueError('Template object required')
+            validated.append({'name':entry['name'],'path':permissions.require(entry['path'])})
+        result=observe_profiled(image,previous=previous,templates=validated,stride=request.get('stride',4),
+            min_similarity=request.get('min_similarity'),matcher=request.get('matcher','pixel'),scales=request.get('scales'),
+            region_proposals=request.get('region_proposals',False),region_mode=request.get('region_mode','baseline'))
+    elif action == 'extract_feature_sets':
+        from seye.recognition.pipeline import FeaturePipeline
+        image,source=load_image(permissions.require(request['image']),max_pixels=4_000_000)
+        result=FeaturePipeline().extract_many(image,request['selections']);result['source']=source
+    elif action == 'extract_feature_batch':
+        from seye.recognition.packet_cache import PacketCache
+        paths=request.get('images')
+        if not isinstance(paths,list) or not 1<=len(paths)<=32:raise ValueError('1..32 explicit image paths required')
+        paths=[permissions.require(path) for path in paths];cache=PacketCache()
+        outputs=[]
+        for path in paths:
+            packet,source=cache.from_file(path,request.get('components',['shape']))
+            outputs.append({'packet':packet,'source':source})
+        result={'items':outputs,'cache':cache.statistics(),
+                'scope':'sequential bounded per-image extraction; cache lifetime is this request; no cross-request data retention'}
+    elif action in ('memory_packet_query_many','memory_storage','memory_snapshot'):
+        if not permissions.memory:raise PermissionError('Explicit memory permission required')
+        output=permissions.require(request['output'],write=True) if action=='memory_snapshot' else None
+        memory=Memory(permissions.require(request['memory']),read_only=True)
+        try:
+            if action=='memory_packet_query_many':
+                from seye.memory.packet_index import query_many
+                result=query_many(memory,request['packets'],request.get('limit',5),request.get('exclude_sources',[]),request.get('maximum_distance'))
+            elif action=='memory_storage':
+                from seye.memory.footprint import storage_report
+                result=storage_report(memory)
+            else:
+                from seye.memory.footprint import snapshot
+                result=snapshot(memory,output,request.get('backup_timeout',10))
+        finally:memory.close()
     elif action == 'extract_features':
         from seye.recognition.pipeline import FeaturePipeline
         decoded,source=load_image(permissions.require(request['image']),max_pixels=4_000_000)
