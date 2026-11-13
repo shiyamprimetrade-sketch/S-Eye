@@ -341,7 +341,7 @@
       "tests_executed": "117-test baseline; 124-test local suite; 33 generated localization cases; four uploaded screenshot execution probes; Stage 90 cross-platform baseline repair",
       "test_results": "124 tests passed locally; exact-head CI pending",
       "benchmark_results": "33/33 completed; 37 target regions: TP25 FP8 FN12 at IoU>=0.5. Four screenshots completed, proposals19/15/11/18; no real localization accuracy measured.",
-      "commit_sha": "Publication receipt follows in this branch",
+      "commit_sha": "8924553c93f6f6c64e5cf36c0af4622e9f68a67a",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Unlabeled hypotheses, not controls",

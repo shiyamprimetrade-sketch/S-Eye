@@ -195,3 +195,5 @@ Cross-platform check: prior Stage 90 run 43404599506 failed on Windows at frozen
 report acceptance while both Ubuntu jobs passed. Stage 91 includes canonical
 RGB/dimension identity checks plus semantic equality to repair this gate; encoded
 file hashes remain provenance. Local regression passes; new Windows CI is pending.
+
+Stage 91 implementation published at `8924553c93f6f6c64e5cf36c0af4622e9f68a67a` in PR #1. Exact-head CI is tracked separately from the 124 passing local tests.
