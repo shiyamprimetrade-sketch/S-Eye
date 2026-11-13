@@ -1,0 +1,7 @@
+test_corruption_wrong_source_and_rehashed_invalid_state_rejected (test_stage146.PersistenceTests.test_corruption_wrong_source_and_rehashed_invalid_state_rejected) ... ok
+test_resumed_sequence_exactly_matches_uninterrupted (test_stage146.PersistenceTests.test_resumed_sequence_exactly_matches_uninterrupted) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK

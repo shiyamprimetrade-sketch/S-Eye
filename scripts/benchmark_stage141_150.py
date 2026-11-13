@@ -52,6 +52,17 @@ def stage145():
             'passed':recovered['visible'][0]['association']=='tentative_reacquisition'}
 
 
+def stage146():
+    from seye.video.continuity import ContinuityTracker
+    from seye.video.checkpoint import snapshot,restore
+    t=ContinuityTracker(session_id='resume-benchmark')
+    row=lambda x:{'class':'region','box':[x,10,x+20,30]}
+    t.update([row(10)],0,[100,80]);t.update([], .5,[100,80])
+    other=restore(snapshot(t,'a'*64),'a'*64)
+    same=t.update([row(12)],1,[100,80])==other.update([row(12)],1,[100,80])
+    return {'uninterrupted_equals_resumed':same,'source_bound':True,'passed':same}
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--stage',type=int,required=True,choices=range(141,151))
