@@ -7,6 +7,6 @@ test_session_limit_numeric_edges_and_failed_update_preserve_state (test_stage150
 test_source_stream_read_is_bounded_and_snapshot_identical (test_stage150.VideoLimitsTests.test_source_stream_read_is_bounded_and_snapshot_identical) ... ok
 
 ----------------------------------------------------------------------
-Ran 7 tests in 1.878s
+Ran 7 tests in 1.659s
 
 OK

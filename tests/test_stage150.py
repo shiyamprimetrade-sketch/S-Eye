@@ -34,6 +34,10 @@ class VideoLimitsTests(unittest.TestCase):
         for stamp in (1e10,5e-324):
             t=ContinuityTracker();t.update([],0,[100,80])
             with self.assertRaises(ValueError):t.update([],stamp,[100,80])
+        from seye.video.motion import motion
+        from seye.video.performance import latency_report
+        with self.assertRaises(ValueError):motion([-1e308,0,1e308,2],[-1e308,0,1e308,2],1)
+        with self.assertRaises(ValueError):latency_report([0],5e-324)
         samples=[{'detections':[],'timestamp':0,'source_size':[100,80]}]
         with self.assertRaises(ValueError):observe_sequence(samples*301,'a'*64)
         with self.assertRaises(ValueError):observe_sequence([{'detections':[{'class':'x','box':[0,0,1,1]}]*65,'timestamp':0,'source_size':[100,80]}],'a'*64)

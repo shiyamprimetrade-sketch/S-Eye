@@ -20,12 +20,13 @@ def motion(first, second, elapsed, registration=None):
                 raise ValueError('Finite registration required')
         correction=list(registration)
     residual=[shift[i]-correction[i] for i in (0,1)]
+    size_delta=[second[i+2]-second[i]-(first[i+2]-first[i]) for i in (0,1)]
     velocity=[v/elapsed for v in shift]
-    if any(not isfinite(v) for v in shift+residual+velocity) or not isfinite(hypot(*velocity)):
+    if any(not isfinite(v) for v in shift+residual+velocity+size_delta) or not isfinite(hypot(*velocity)):
         raise ValueError('Motion arithmetic exceeds finite bounds')
     return {'observed_displacement':shift, 'velocity':velocity, 'elapsed_seconds':elapsed,
             'speed_pixels_per_second':hypot(*velocity),
-            'size_delta':[second[i+2]-second[i]-(first[i+2]-first[i]) for i in (0,1)],
+            'size_delta':size_delta,
             'caller_registration':None if registration is None else correction,
             'residual_displacement':None if registration is None else residual,
             'scope':'same decoded grid; geometric correspondence assumed; no physical/semantic motion proof'}

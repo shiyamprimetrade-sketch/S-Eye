@@ -257,6 +257,6 @@ test_workflow_cli_has_explicit_roots_and_atomic_response (test_system_reliabilit
 test_granted_scoped_inference_persists_and_denies_ungranted_memory (test_trained_observation_integration.TrainedObservationIntegrationTests.test_granted_scoped_inference_persists_and_denies_ungranted_memory) ... ok
 
 ----------------------------------------------------------------------
-Ran 257 tests in 26.522s
+Ran 257 tests in 25.820s
 
 OK

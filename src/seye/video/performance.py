@@ -10,10 +10,12 @@ def latency_report(durations, total_seconds):
         raise ValueError('1..300 durations required')
     values=durations+[total_seconds]
     if any(type(v) not in (int,float) or not math.isfinite(v) or v<0 for v in values):raise ValueError('Finite nonnegative timings required')
+    throughput=len(durations)/total_seconds if total_seconds else None
+    if throughput is not None and not math.isfinite(throughput):raise ValueError('Timing ratio exceeds finite bounds')
     ordered=sorted(durations)
     percentile=lambda q:ordered[max(0,math.ceil(q*len(ordered))-1)]
     return {'sampled_frames':len(durations),'tracking_wall_seconds':total_seconds,
-            'tracking_frames_per_second':len(durations)/total_seconds if total_seconds else None,
+            'tracking_frames_per_second':throughput,
             'frame_latency_seconds':{'minimum':ordered[0],'p50':percentile(.5),'p95':percentile(.95),'maximum':ordered[-1]},
             'scope':'box association only; excludes decode, segmentation, disk, and live capture',
             'portable_speed_claim':False}

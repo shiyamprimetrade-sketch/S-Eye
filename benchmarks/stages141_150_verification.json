@@ -30,5 +30,19 @@
     "README.md"
   ],
   "release_ready": false,
-  "remote_ci": "pending exact-head publication"
+  "remote_ci": "numeric-hardening exact-head CI pending publication",
+  "historical_benchmarks_passed": "All existing scripts and Stage 92\u2013140 experiments",
+  "installed_temporal_workflow": {
+    "installed_temporal_workflow_passed": true,
+    "executed_outside_checkout": true,
+    "spawned_worker_passed": true,
+    "explicit_video_and_persistence_grants": true,
+    "exclusive_checkpoint_written": true
+  },
+  "numeric_overflow_rejection_tested": true,
+  "earlier_verified_ci": {
+    "commit": "ddccef1852934aaed02b030a7d99d20daff66f2c",
+    "run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43462827706",
+    "four_jobs": "success"
+  }
 }
