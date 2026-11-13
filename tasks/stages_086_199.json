@@ -142,14 +142,17 @@
       "stage": 94,
       "objective": "Region splitting",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/detection/annotations.py",
-        "src/seye/segmentation/experimental.py"
+        "src/seye/interface/masks.py",
+        "tests/test_stage094.py",
+        "benchmarks/stage094_experiment.json",
+        "benchmarks/stage094_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Axis projection splitting separates sparse bridges with explicit removed-pixel counts; solid touching/overlapping regions abstain. It is not general object separation."
     },
     {
       "stage": 95,

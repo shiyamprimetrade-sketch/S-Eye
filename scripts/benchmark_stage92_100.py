@@ -28,6 +28,13 @@ def stage93():
         for key in totals:totals[key]+=metrics[key]
     return {'cases':33,'baseline':{'tp':25,'fp':8,'fn':12},'paired':totals,'passed':totals=={'tp':25,'fp':0,'fn':12}}
 
+def stage94():
+    from seye.interface.masks import split_projection
+    image=Image.new('L',(70,40));d=ImageDraw.Draw(image)
+    d.rectangle((10,10,24,29),fill=255);d.rectangle((40,10,54,29),fill=255);d.line((25,20,39,20),fill=255)
+    r=split_projection(image)
+    return {'cases':1,'parts':len(r['parts']),'removed_bridge_pixels':r['discarded_pixels'],'passed':len(r['parts'])==2 and r['discarded_pixels']==15}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(92,101),required=True);p.add_argument('--output',type=Path,required=True)
