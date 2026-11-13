@@ -308,14 +308,18 @@
       "stage": 104,
       "objective": "Category prototype fitting",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/recognition/features.py",
-        "src/seye/learning/prototypes.py"
+        "src/seye/learning/packet_prototypes.py",
+        "tests/test_stage104.py",
+        "tests/packet_fixtures.py",
+        "benchmarks/stage104_experiment.json",
+        "benchmarks/stage104_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Schema-bound category means, validation-only radii, split identity/content/group guards and verified checkpoints; independently fitted prototypes, not neural training."
     },
     {
       "stage": 105,

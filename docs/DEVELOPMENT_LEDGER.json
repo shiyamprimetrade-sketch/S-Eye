@@ -672,6 +672,32 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 104"
+    },
+    {
+      "id": "stage104-recognition-engineering",
+      "objective": "Schema-bound category means, validation-only radii, split identity/content/group guards and verified checkpoints; independently fitted prototypes, not neural training.",
+      "files_changed": [
+        "src/seye/learning/packet_prototypes.py",
+        "tests/test_stage104.py",
+        "tests/packet_fixtures.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage104_tests.txt and benchmark_stage101_110.py --stage 104",
+      "test_results": "Focused tests passed; final regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 2,
+        "labels": [
+          "a",
+          "b"
+        ],
+        "passed": true,
+        "scope": "numeric algorithm fixture, not photographs"
+      },
+      "commit_sha": "Commit subject Stage 104; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 105"
     }
   ]
 }

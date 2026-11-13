@@ -25,6 +25,22 @@ def stage103():
     same=compare(a,a)['distance'];different=compare(a,b)['distance']
     return {'cases':2,'same_distance':same,'different_distance':different,'passed':same==0 and different>0}
 
+def numeric_packet(value):
+    from seye.core.storage import checksum
+    schema={'version':'seye-feature-pipeline-v1','components':[{'name':'scalar','version':'numeric-fixture-v1','dimension':1,'offset':0}],'dimension':1}
+    return {'schema':schema,'schema_sha256':checksum(schema),'features':[value]}
+
+def numeric_row(identifier,value,label):
+    from seye.core.storage import checksum
+    return {'id':identifier,'group':identifier,'label':label,'packet':numeric_packet(value),'content_sha256':checksum({'numeric_fixture':value,'capture':identifier}),'source_kind':'numeric_fixture'}
+
+def numeric_data():return [numeric_row('ta',0,'a'),numeric_row('tb',1,'b')],[numeric_row('va',.01,'a'),numeric_row('vb',1.01,'b')]
+
+def stage104():
+    from seye.learning.packet_prototypes import fit,nearest
+    train,val=numeric_data();model=fit(train,val);labels=[nearest(model,row['packet'])[0]['label'] for row in val]
+    return {'cases':2,'scope':'numeric algorithm fixture, not photographs','labels':labels,'passed':labels==['a','b']}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(101,111),required=True);p.add_argument('--output',type=Path,required=True)

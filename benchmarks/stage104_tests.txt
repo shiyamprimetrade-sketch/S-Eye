@@ -1,0 +1,7 @@
+test_fit_restore_and_schema_bound_predictions (test_stage104.PrototypeTests.test_fit_restore_and_schema_bound_predictions) ... ok
+test_group_content_and_identity_leakage_blocked (test_stage104.PrototypeTests.test_group_content_and_identity_leakage_blocked) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK
