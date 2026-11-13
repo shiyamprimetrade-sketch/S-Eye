@@ -261,7 +261,7 @@
       "tests_executed": "python -m unittest discover -s tests -q; benchmark_interface.py; four uploaded same-frame screenshot probes; capture-only ALOI gate",
       "test_results": "106 tests passed locally; exact-head CI pending",
       "benchmark_results": "5/5 generated expected status matches; four screenshot repeatability probes with zero changed pixels; no accuracy or expert equivalence claim",
-      "commit_sha": "Publication receipt follows in this branch",
+      "commit_sha": "bbf28e40549466183763bbcaada0a2adb86b2710",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "No OCR or code comprehension",

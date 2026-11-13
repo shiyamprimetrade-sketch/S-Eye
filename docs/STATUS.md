@@ -133,3 +133,5 @@ cases match expected statuses; four supplied screenshot same-frame probes show z
 change. See INTERFACE_OBSERVATION.md and benchmarks/interface_* evidence.
 Stop after this stage checkpoint. Next Continue: Stage 89 interface-condition
 diagnostics and automatic fixture ground truth, without a human-review dependency.
+
+Revised Stage 88/interface implementation published at `bbf28e40549466183763bbcaada0a2adb86b2710` in PR #1. Exact-head CI remains separately checkable.
