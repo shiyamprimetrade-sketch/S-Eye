@@ -47,6 +47,11 @@ def stage137():
     r=describe(view([[0,0,30,30],[10,10,20,20]]))
     return {'cases':1,'facts':len(r['facts']),'semantic_description':r['semantic_description'],'passed':len(r['facts'])==2 and r['facts'][1]['evidence_ref']=='/relations/0' and r['semantic_description'] is None}
 
+def stage138():
+    from seye.scenes.uncertainty import assess
+    value=view([[10,10,30,30]]);value.update(complete=False,source_sha256='a'*64);r=assess(value,{'comparable':True,'ambiguous_correspondence':True})
+    return {'cases':1,'state':r['state'],'flags':r['flags'],'action_authorized':r['automatic_action_authorized'],'passed':r['state']=='partial_geometry' and 'correspondence_ambiguous' in r['flags'] and not r['automatic_action_authorized']}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(131,141),required=True);p.add_argument('--output',type=Path,required=True)

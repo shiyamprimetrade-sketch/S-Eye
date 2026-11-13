@@ -874,13 +874,19 @@
       "stage": 138,
       "objective": "Ambiguity and uncertainty records",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/scenes/relations.py"
+        "src/seye/scenes/uncertainty.py",
+        "src/seye/scenes/contract.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage138.py",
+        "benchmarks/stage138_experiment.json",
+        "benchmarks/stage138_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Scene-bound uncertainty records distinguish incomplete inventories, missing source identity, ambiguous correspondence and incomparable grids; scoped read-only scene APIs never infer truth probabilities or action authority."
     },
     {
       "stage": 139,

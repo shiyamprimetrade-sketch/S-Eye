@@ -218,6 +218,39 @@ def execute(request, permissions):
                     from seye.memory.retention import apply as apply_retention
                     result=apply_retention(memory,request['plan'])
             finally:memory.close()
+    elif action in ('scene_analyze','scene_compare','scene_changes','scene_absence'):
+        if not permissions.memory:raise PermissionError('Explicit memory permission required')
+        from seye.scenes.contract import from_record
+        memory=Memory(permissions.require(request['memory']),read_only=True)
+        try:
+            def stored_scene(observation_id):
+                record=memory.get(observation_id)
+                if record is None:raise ValueError('Scene observation not found')
+                return from_record(record)
+            if action=='scene_analyze':
+                from seye.scenes.spatial import relationships,relative_positions
+                from seye.scenes.grouping import aligned_groups
+                from seye.scenes.description import describe
+                from seye.scenes.uncertainty import assess
+                value=stored_scene(request['observation_id'])
+                result={'spatial':relationships(value),'relative':relative_positions(value),'rows':aligned_groups(value,'row'),
+                        'columns':aligned_groups(value,'column'),'description':describe(value),'uncertainty':assess(value)}
+            elif action=='scene_absence':
+                from seye.scenes.absence import missing_evidence
+                ids=request.get('observations')
+                if not isinstance(ids,list) or not 1<=len(ids)<=30:raise ValueError('Bounded explicit scene sequence required')
+                result=missing_evidence(stored_scene(request['reference']),[stored_scene(i) for i in ids],request.get('minimum_consecutive',2))
+            else:
+                before,after=stored_scene(request['before']),stored_scene(request['after'])
+                if action=='scene_compare':
+                    from seye.scenes.comparison import compare_layout
+                    result=compare_layout(before,after,request.get('normalize',False))
+                else:
+                    from seye.scenes.changes import changes as scene_changes
+                    result=scene_changes(before,after,request.get('registration'),request.get('movement_tolerance',2))
+                from seye.scenes.uncertainty import assess
+                result['uncertainty']=assess(after,result)
+        finally:memory.close()
     elif action == 'recognize_batch':
         from seye.recognition.cache import FeatureCache
         paths = request.get('images')

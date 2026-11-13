@@ -1,0 +1,1 @@
+{"representative_application_accuracy":null,"result":{"action_authorized":false,"cases":1,"flags":["semantic_identity_unknown","clickability_unknown","registration_not_inferred","proposal_inventory_truncated","correspondence_ambiguous"],"passed":true,"state":"partial_geometry"},"schema_version":1,"scope":"controlled generated scene/video experiment","stage":138}

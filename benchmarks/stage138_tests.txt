@@ -1,0 +1,7 @@
+test_incomplete_and_ambiguous_inputs_keep_explicit_limits (test_stage138.UncertaintyTests.test_incomplete_and_ambiguous_inputs_keep_explicit_limits) ... ok
+test_missing_source_and_viewport_comparison_are_not_confidence (test_stage138.UncertaintyTests.test_missing_source_and_viewport_comparison_are_not_confidence) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

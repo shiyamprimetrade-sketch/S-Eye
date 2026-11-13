@@ -2868,6 +2868,37 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 138"
+    },
+    {
+      "id": "stage138-scene-engineering",
+      "objective": "Scene-bound uncertainty records distinguish incomplete inventories, missing source identity, ambiguous correspondence and incomparable grids; scoped read-only scene APIs never infer truth probabilities or action authority.",
+      "files_changed": [
+        "src/seye/scenes/uncertainty.py",
+        "src/seye/scenes/contract.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage138.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage138_tests.txt and benchmark_stage121_130.py --stage 138",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "action_authorized": false,
+        "cases": 1,
+        "flags": [
+          "semantic_identity_unknown",
+          "clickability_unknown",
+          "registration_not_inferred",
+          "proposal_inventory_truncated",
+          "correspondence_ambiguous"
+        ],
+        "passed": true,
+        "state": "partial_geometry"
+      },
+      "commit_sha": "Commit subject Stage 138; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 139"
     }
   ]
 }
