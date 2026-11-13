@@ -89,6 +89,28 @@ class Memory:
                             (identifier, canonical(record).decode(), identifier))
         return identifier
 
+    def put_many(self,records):
+        """One verified, all-or-nothing insertion, preserving a caller transaction."""
+        if self.read_only:raise PermissionError('Read-only memory cannot be modified')
+        if not isinstance(records,list) or not 1<=len(records)<=128:raise ValueError('1..128 observations required')
+        prepared=[];total=0
+        for record in records:
+            validate_record(record);encoded=canonical(record);total+=len(encoded)
+            if total>4*1024*1024:raise ValueError('Observation batch exceeds 4 MiB')
+            identifier=__import__('hashlib').sha256(encoded).hexdigest()
+            prepared.append((identifier,encoded.decode(),identifier))
+        self.verify();before=self.db.total_changes
+        self.db.execute('SAVEPOINT seye_observation_batch')
+        try:
+            self.db.executemany('INSERT OR IGNORE INTO observations(id,payload,sha256) VALUES (?,?,?)',prepared)
+        except BaseException:
+            self.db.execute('ROLLBACK TO SAVEPOINT seye_observation_batch')
+            raise
+        finally:self.db.execute('RELEASE SAVEPOINT seye_observation_batch')
+        inserted=self.db.total_changes-before
+        return {'observation_ids':[p[0] for p in prepared],'inserted':inserted,'duplicates':len(prepared)-inserted,
+                'scope':'atomic batch; participates in any existing caller transaction'}
+
     def get(self, identifier):
         self.verify()
         row = self.db.execute('SELECT payload FROM observations WHERE id=?', (identifier,)).fetchone()

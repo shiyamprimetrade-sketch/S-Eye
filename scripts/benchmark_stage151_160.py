@@ -96,6 +96,24 @@ def stage154():
             'passed':all(c['results_identical'] and c['matches_exhaustive'] for c in cases)}
 
 
+def stage155():
+    from seye.interface.batch import observe_batch
+    from seye.interface.observer import observe
+    from seye.memory.store import Memory
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);paths=[fixture(root,i) for i in range(6)];bad=root/'broken.png';bad.write_bytes(b'broken')
+        batch=observe_batch(paths+[bad]);equal=[r['observation'] for r in batch['items'] if r['success']]==[observe(p) for p in paths]
+        records=[numeric_record(i,64) for i in range(64)];a=Memory(root/'single.sqlite3');b=Memory(root/'batch.sqlite3')
+        try:
+            before=time.perf_counter();single=[a.put(r) for r in records];separate=time.perf_counter()-before
+            before=time.perf_counter();many=b.put_many(records);grouped=time.perf_counter()-before
+            inserted_equal=single==many['observation_ids'] and a.verify()==b.verify()
+        finally:a.close();b.close()
+    return {'image_successes':batch['successful_items'],'image_failures':batch['failed_items'],'evidence_equal':equal,
+            'observation_ids_equal':inserted_equal,'records':64,'single_insert_seconds':separate,'batch_insert_seconds':grouped,
+            'passed':equal and inserted_equal and batch['successful_items']==6 and batch['failed_items']==1}
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--stage',required=True,type=int,choices=range(151,161));p.add_argument('--output',required=True)
     a=p.parse_args();r=globals()[f'stage{a.stage}']();atomic_json(a.output,r,overwrite=True);print(json.dumps(r,sort_keys=True))

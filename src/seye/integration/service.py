@@ -96,6 +96,12 @@ def execute(request, permissions):
             raise PermissionError('Explicit video permission required')
         video = permissions.require(request['video'])
         result = observe_video(video, video.parent, fps=request.get('fps', 2), max_seconds=request.get('max_seconds', 4), tracking_mode=request.get('tracking_mode','legacy'))
+    elif action == 'observe_interface_batch':
+        from seye.interface.batch import observe_batch
+        paths=request.get('images')
+        if not isinstance(paths,list) or not 1<=len(paths)<=32:raise ValueError('1..32 explicit image paths required')
+        paths=[permissions.require(path) for path in paths]
+        result=observe_batch(paths,request.get('options'))
     elif action == 'observe_interface':
         from seye.interface.observer import observe
         image = permissions.require(request['image'])

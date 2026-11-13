@@ -112,7 +112,7 @@ def match_template(screen, template, stride=4, min_similarity=.97):
             'score_kind':'uncalibrated grayscale pixel similarity'}
 
 
-def observe(image, previous=None, templates=(), stride=4, min_similarity=None, matcher="pixel", scales=None, region_proposals=False, region_mode="baseline", *, _trace=None):
+def observe(image, previous=None, templates=(), stride=4, min_similarity=None, matcher="pixel", scales=None, region_proposals=False, region_mode="baseline", *, _trace=None, _decoded=None):
     if not isinstance(templates, (list,tuple)) or len(templates)>8:
         raise ValueError('At most eight explicit templates allowed')
     if region_mode not in ('baseline','refined','color'):raise ValueError('Invalid region mode')
@@ -123,7 +123,7 @@ def observe(image, previous=None, templates=(), stride=4, min_similarity=None, m
     if min_similarity is None:min_similarity=.99 if matcher=='contrast' else .97
     span=_trace.span if _trace is not None else lambda name:nullcontext()
     with span('decode_current'):
-        screen, source = load_image(image, max_pixels=MAX_SCREEN_PIXELS)
+        screen,source=load_image(image,max_pixels=MAX_SCREEN_PIXELS) if _decoded is None else _decoded
     result = {'schema_version':1, 'kind':'interface_observation', 'matcher':matcher, 'source':source,
               'coordinate_space':'EXIF-oriented screenshot pixels; box right/bottom exclusive',
               'signals':[], 'elements':[], 'change':None,
