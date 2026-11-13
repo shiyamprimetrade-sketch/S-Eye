@@ -362,7 +362,7 @@
         "scripts/benchmark_stage92_100.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage092_tests.txt and benchmark_stage92_100.py --stage 92",
-      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
+      "test_results": "Focused tests and full 143-test regression passed locally and all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "expected_area": 65,
@@ -377,7 +377,9 @@
         "Generated bounded evidence; no representative application accuracy",
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
-      "next_task": "Stage 93"
+      "next_task": "Stage 93",
+      "verified_commit_sha": "38062303cdc055e2cd5401d075892797e3680f70",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43407859586"
     },
     {
       "id": "stage93-interface-engineering",
@@ -387,7 +389,7 @@
         "tests/test_stage093.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage093_tests.txt and benchmark_stage92_100.py --stage 93",
-      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
+      "test_results": "Focused tests and full 143-test regression passed locally and all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "baseline": {
           "fn": 12,
@@ -408,7 +410,9 @@
         "Generated bounded evidence; no representative application accuracy",
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
-      "next_task": "Stage 94"
+      "next_task": "Stage 94",
+      "verified_commit_sha": "38062303cdc055e2cd5401d075892797e3680f70",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43407859586"
     },
     {
       "id": "stage94-interface-engineering",
@@ -418,7 +422,7 @@
         "tests/test_stage094.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage094_tests.txt and benchmark_stage92_100.py --stage 94",
-      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
+      "test_results": "Focused tests and full 143-test regression passed locally and all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "parts": 2,
@@ -431,7 +435,9 @@
         "Generated bounded evidence; no representative application accuracy",
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
-      "next_task": "Stage 95"
+      "next_task": "Stage 95",
+      "verified_commit_sha": "38062303cdc055e2cd5401d075892797e3680f70",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43407859586"
     },
     {
       "id": "stage95-interface-engineering",
@@ -441,7 +447,7 @@
         "tests/test_stage095.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage095_tests.txt and benchmark_stage92_100.py --stage 95",
-      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
+      "test_results": "Focused tests and full 143-test regression passed locally and all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "passed": true,
@@ -454,7 +460,9 @@
         "Generated bounded evidence; no representative application accuracy",
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
-      "next_task": "Stage 96"
+      "next_task": "Stage 96",
+      "verified_commit_sha": "38062303cdc055e2cd5401d075892797e3680f70",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43407859586"
     },
     {
       "id": "stage96-interface-engineering",
@@ -464,7 +472,7 @@
         "tests/test_stage096.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage096_tests.txt and benchmark_stage92_100.py --stage 96",
-      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
+      "test_results": "Focused tests and full 143-test regression passed locally and all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "introduced_pixels": 1,
@@ -477,7 +485,9 @@
         "Generated bounded evidence; no representative application accuracy",
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
-      "next_task": "Stage 97"
+      "next_task": "Stage 97",
+      "verified_commit_sha": "38062303cdc055e2cd5401d075892797e3680f70",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43407859586"
     },
     {
       "id": "stage97-interface-engineering",
@@ -489,7 +499,7 @@
         "tests/test_stage097.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage097_tests.txt and benchmark_stage92_100.py --stage 97",
-      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
+      "test_results": "Focused tests and full 143-test regression passed locally and all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "observed_stroke_mask_iou": 1.0,
@@ -502,7 +512,9 @@
         "Generated bounded evidence; no representative application accuracy",
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
-      "next_task": "Stage 98"
+      "next_task": "Stage 98",
+      "verified_commit_sha": "38062303cdc055e2cd5401d075892797e3680f70",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43407859586"
     },
     {
       "id": "stage98-interface-engineering",
@@ -513,7 +525,7 @@
         "tests/test_stage098.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage098_tests.txt and benchmark_stage92_100.py --stage 98",
-      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
+      "test_results": "Focused tests and full 143-test regression passed locally and all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "box_overlap_pairs": 1,
         "cases": 1,
@@ -530,7 +542,9 @@
         "Generated bounded evidence; no representative application accuracy",
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
-      "next_task": "Stage 99"
+      "next_task": "Stage 99",
+      "verified_commit_sha": "38062303cdc055e2cd5401d075892797e3680f70",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43407859586"
     },
     {
       "id": "stage99-interface-engineering",
@@ -540,7 +554,7 @@
         "tests/test_stage099.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage099_tests.txt and benchmark_stage92_100.py --stage 99",
-      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
+      "test_results": "Focused tests and full 143-test regression passed locally and all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "max_corner_reprojection_error": 1.4210854715202004e-14,
@@ -556,7 +570,9 @@
         "Generated bounded evidence; no representative application accuracy",
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
-      "next_task": "Stage 100"
+      "next_task": "Stage 100",
+      "verified_commit_sha": "38062303cdc055e2cd5401d075892797e3680f70",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43407859586"
     },
     {
       "id": "stage100-interface-engineering",
@@ -567,7 +583,7 @@
         "tests/test_stage100.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage100_tests.txt and benchmark_stage92_100.py --stage 100",
-      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
+      "test_results": "Focused tests and full 143-test regression passed locally and all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "dimension": 114,
@@ -581,7 +597,9 @@
         "Generated bounded evidence; no representative application accuracy",
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
-      "next_task": "Stop; wait for Continue"
+      "next_task": "Stop; wait for Continue",
+      "verified_commit_sha": "38062303cdc055e2cd5401d075892797e3680f70",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43407859586"
     }
   ]
 }

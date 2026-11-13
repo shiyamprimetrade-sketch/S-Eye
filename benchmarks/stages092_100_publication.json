@@ -49,5 +49,9 @@
     }
   ],
   "local_full_suite": "143 tests passed",
-  "remote_ci": "pending"
+  "remote_ci": {
+    "verified_commit": "38062303cdc055e2cd5401d075892797e3680f70",
+    "run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43407859586",
+    "result": "all four Ubuntu/Windows Python 3.12/3.13 jobs passed, 143 tests and nine experiments"
+  }
 }
