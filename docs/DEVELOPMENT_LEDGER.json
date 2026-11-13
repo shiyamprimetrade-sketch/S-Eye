@@ -2846,6 +2846,28 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 137"
+    },
+    {
+      "id": "stage137-scene-engineering",
+      "objective": "Bounded deterministic geometric descriptions link every assertion to supplied evidence and do not echo arbitrary stored label instructions or invent semantic objects.",
+      "files_changed": [
+        "src/seye/scenes/description.py",
+        "tests/test_stage137.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage137_tests.txt and benchmark_stage121_130.py --stage 137",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 1,
+        "facts": 2,
+        "passed": true,
+        "semantic_description": null
+      },
+      "commit_sha": "Commit subject Stage 137; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 138"
     }
   ]
 }
