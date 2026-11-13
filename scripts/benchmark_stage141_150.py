@@ -73,6 +73,15 @@ def stage147():
     return dict(result,passed=result['tracks'][0]['visible_samples']==2 and result['tracks'][0]['unobserved_samples']==1)
 
 
+def stage148():
+    from seye.video.performance import track_samples
+    samples=[{'detections':[{'class':'region','box':[10+i%20,10,30+i%20,30]}],
+              'timestamp':i/10,'source_size':[100,80], 'discontinuity':i%20==0} for i in range(100)]
+    report=track_samples(samples,{'session_id':'throughput'})
+    return {'generated_frames':len(samples),'performance':report['performance'],
+            'candidate_edges':report['candidate_edges'],'passed':len(report['frames'])==100}
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--stage',type=int,required=True,choices=range(141,151))
