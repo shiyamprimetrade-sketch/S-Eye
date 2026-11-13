@@ -2711,7 +2711,7 @@
         "tests/test_stage131.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage131_tests.txt and benchmark_stage131_140.py --stage 131",
-      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
+      "test_results": "231 local tests passed; all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including all ten new experiments, historical checks, installation, audits and wheel artifacts",
       "benchmark_results": {
         "cases": 4,
         "passed": true,
@@ -2728,7 +2728,9 @@
         "Generated/oracle evidence only; representative application scene validation remains open",
         "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
-      "next_task": "Stage 132"
+      "next_task": "Stage 132",
+      "verified_commit_sha": "614027a94f9bed342b261bc57eef86caa1ffe9f5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022"
     },
     {
       "id": "stage132-scene-engineering",
@@ -2738,7 +2740,7 @@
         "tests/test_stage132.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage132_tests.txt and benchmark_stage131_140.py --stage 132",
-      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
+      "test_results": "231 local tests passed; all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including all ten new experiments, historical checks, installation, audits and wheel artifacts",
       "benchmark_results": {
         "cases": 2,
         "normalized_geometry_identical": true,
@@ -2750,7 +2752,9 @@
         "Generated/oracle evidence only; representative application scene validation remains open",
         "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
-      "next_task": "Stage 133"
+      "next_task": "Stage 133",
+      "verified_commit_sha": "614027a94f9bed342b261bc57eef86caa1ffe9f5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022"
     },
     {
       "id": "stage133-scene-engineering",
@@ -2760,7 +2764,7 @@
         "tests/test_stage133.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage133_tests.txt and benchmark_stage131_140.py --stage 133",
-      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
+      "test_results": "231 local tests passed; all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including all ten new experiments, historical checks, installation, audits and wheel artifacts",
       "benchmark_results": {
         "cases": 1,
         "groups": [
@@ -2782,7 +2786,9 @@
         "Generated/oracle evidence only; representative application scene validation remains open",
         "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
-      "next_task": "Stage 134"
+      "next_task": "Stage 134",
+      "verified_commit_sha": "614027a94f9bed342b261bc57eef86caa1ffe9f5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022"
     },
     {
       "id": "stage134-scene-engineering",
@@ -2792,7 +2798,7 @@
         "tests/test_stage134.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage134_tests.txt and benchmark_stage131_140.py --stage 134",
-      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
+      "test_results": "231 local tests passed; all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including all ten new experiments, historical checks, installation, audits and wheel artifacts",
       "benchmark_results": {
         "cases": 2,
         "explicit_normalized_similarity": 1.0,
@@ -2805,7 +2811,9 @@
         "Generated/oracle evidence only; representative application scene validation remains open",
         "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
-      "next_task": "Stage 135"
+      "next_task": "Stage 135",
+      "verified_commit_sha": "614027a94f9bed342b261bc57eef86caa1ffe9f5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022"
     },
     {
       "id": "stage135-scene-engineering",
@@ -2815,7 +2823,7 @@
         "tests/test_stage135.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage135_tests.txt and benchmark_stage131_140.py --stage 135",
-      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
+      "test_results": "231 local tests passed; all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including all ten new experiments, historical checks, installation, audits and wheel artifacts",
       "benchmark_results": {
         "caller_registered_event": "stable",
         "cases": 2,
@@ -2828,7 +2836,9 @@
         "Generated/oracle evidence only; representative application scene validation remains open",
         "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
-      "next_task": "Stage 136"
+      "next_task": "Stage 136",
+      "verified_commit_sha": "614027a94f9bed342b261bc57eef86caa1ffe9f5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022"
     },
     {
       "id": "stage136-scene-engineering",
@@ -2838,7 +2848,7 @@
         "tests/test_stage136.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage136_tests.txt and benchmark_stage131_140.py --stage 136",
-      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
+      "test_results": "231 local tests passed; all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including all ten new experiments, historical checks, installation, audits and wheel artifacts",
       "benchmark_results": {
         "cases": 2,
         "cover_events": 0,
@@ -2851,7 +2861,9 @@
         "Generated/oracle evidence only; representative application scene validation remains open",
         "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
-      "next_task": "Stage 137"
+      "next_task": "Stage 137",
+      "verified_commit_sha": "614027a94f9bed342b261bc57eef86caa1ffe9f5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022"
     },
     {
       "id": "stage137-scene-engineering",
@@ -2861,7 +2873,7 @@
         "tests/test_stage137.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage137_tests.txt and benchmark_stage131_140.py --stage 137",
-      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
+      "test_results": "231 local tests passed; all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including all ten new experiments, historical checks, installation, audits and wheel artifacts",
       "benchmark_results": {
         "cases": 1,
         "facts": 2,
@@ -2874,7 +2886,9 @@
         "Generated/oracle evidence only; representative application scene validation remains open",
         "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
-      "next_task": "Stage 138"
+      "next_task": "Stage 138",
+      "verified_commit_sha": "614027a94f9bed342b261bc57eef86caa1ffe9f5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022"
     },
     {
       "id": "stage138-scene-engineering",
@@ -2886,7 +2900,7 @@
         "tests/test_stage138.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage138_tests.txt and benchmark_stage131_140.py --stage 138",
-      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
+      "test_results": "231 local tests passed; all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including all ten new experiments, historical checks, installation, audits and wheel artifacts",
       "benchmark_results": {
         "action_authorized": false,
         "cases": 1,
@@ -2906,7 +2920,9 @@
         "Generated/oracle evidence only; representative application scene validation remains open",
         "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
-      "next_task": "Stage 139"
+      "next_task": "Stage 139",
+      "verified_commit_sha": "614027a94f9bed342b261bc57eef86caa1ffe9f5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022"
     },
     {
       "id": "stage139-scene-engineering",
@@ -2916,7 +2932,7 @@
         "tests/test_stage139.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage139_tests.txt and benchmark_stage131_140.py --stage 139",
-      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
+      "test_results": "231 local tests passed; all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including all ten new experiments, historical checks, installation, audits and wheel artifacts",
       "benchmark_results": {
         "cases": 32,
         "event_matches": 28,
@@ -7114,7 +7130,9 @@
         "Generated/oracle evidence only; representative application scene validation remains open",
         "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
-      "next_task": "Stage 140"
+      "next_task": "Stage 140",
+      "verified_commit_sha": "614027a94f9bed342b261bc57eef86caa1ffe9f5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022"
     },
     {
       "id": "stage140-scene-engineering",
@@ -7125,7 +7143,7 @@
         "tests/test_stage140.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage140_tests.txt and benchmark_stage131_140.py --stage 140",
-      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
+      "test_results": "231 local tests passed; all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including all ten new experiments, historical checks, installation, audits and wheel artifacts",
       "benchmark_results": {
         "automatic_action_authorized": false,
         "frames": 4,
@@ -7145,7 +7163,9 @@
         "Generated/oracle evidence only; representative application scene validation remains open",
         "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
-      "next_task": "Stop and wait for Continue"
+      "next_task": "Stop and wait for Continue",
+      "verified_commit_sha": "614027a94f9bed342b261bc57eef86caa1ffe9f5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022"
     }
   ]
 }

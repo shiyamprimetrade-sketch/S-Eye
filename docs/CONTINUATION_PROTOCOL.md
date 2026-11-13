@@ -340,3 +340,5 @@ Do not start those stages before the next Continue. Release v1.0 remains incompl
 Local verification: 231 tests passed (benchmarks/stages131_140_full_tests.txt); all ten experiment reports reproduced exactly; Stage 84 preservation/source syntax audit passed. Remote CI pending publication.
 
 Implementation GitHub checkpoint 3f55d6a8fc3a1ba0061a79db9eff8ec18d90a035; individual stage SHAs recorded in benchmarks/stages131_140_publication.json and ledger. 231 local tests passed; exact-head CI pending. Stop at 140.
+
+Verified 131–140 checkpoint `614027a94f9bed342b261bc57eef86caa1ffe9f5`: all four Ubuntu/Windows Python 3.12/3.13 jobs passed, including 231 tests, all ten experiments, historical checks, installation, audits and artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022 . Generated scene event contracts matched 28/32; overlapping-region cases failed 0/4. Representative application validation remains open. This later documentation-only receipt cites CI for that exact source checkpoint. Stop at 140; next Continue starts 141–150.

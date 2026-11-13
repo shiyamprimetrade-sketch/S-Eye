@@ -65,6 +65,29 @@
   "local_tests": 231,
   "experiment_reports_reproduced": 10,
   "representative_scene_validation": false,
-  "remote_ci": "pending",
-  "next_task": "Wait for Continue; then Stage 141\u2013150"
+  "remote_ci": {
+    "run_id": 43449069022,
+    "url": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "vision (ubuntu-latest, 3.12)",
+        "conclusion": "success"
+      },
+      {
+        "name": "vision (windows-latest, 3.13)",
+        "conclusion": "success"
+      },
+      {
+        "name": "vision (ubuntu-latest, 3.13)",
+        "conclusion": "success"
+      },
+      {
+        "name": "vision (windows-latest, 3.12)",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "next_task": "Wait for Continue; then Stage 141\u2013150",
+  "verified_commit_sha": "614027a94f9bed342b261bc57eef86caa1ffe9f5"
 }
