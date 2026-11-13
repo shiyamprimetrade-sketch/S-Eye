@@ -1221,6 +1221,37 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 116"
+    },
+    {
+      "id": "stage116-learning-engineering",
+      "objective": "Strict ordered-history diagnostics flag fixed train/validation accuracy gaps and rising validation loss without touching test data; absence of a warning is not validated generalization.",
+      "files_changed": [
+        "src/seye/learning/diagnostics.py",
+        "tests/test_stage116.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage116_tests.txt and benchmark_stage101_110.py --stage 116",
+      "test_results": "Focused tests passed; final regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 1,
+        "diagnostics": {
+          "accuracy_gap": 0.0,
+          "overfit_warning": false,
+          "scope": "fixed heuristic warnings; no warning is not evidence of broad generalization",
+          "test_data_used": false,
+          "thresholds": {
+            "accuracy_gap": 0.2,
+            "validation_loss_rise": 0.1
+          },
+          "validation_loss_rise": 0.0
+        },
+        "passed": true
+      },
+      "commit_sha": "Commit subject Stage 116; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 117"
     }
   ]
 }

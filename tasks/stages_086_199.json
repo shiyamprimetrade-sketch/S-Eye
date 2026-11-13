@@ -507,14 +507,17 @@
       "stage": 116,
       "objective": "Overfitting detection",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/learning/dataset.py",
-        "src/seye/learning/prototypes.py"
+        "src/seye/learning/diagnostics.py",
+        "tests/test_stage116.py",
+        "benchmarks/stage116_experiment.json",
+        "benchmarks/stage116_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Strict ordered-history diagnostics flag fixed train/validation accuracy gaps and rising validation loss without touching test data; absence of a warning is not validated generalization."
     },
     {
       "stage": 117,
