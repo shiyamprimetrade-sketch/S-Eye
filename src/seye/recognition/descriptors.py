@@ -12,3 +12,14 @@ def geometry(image):
              sum((y-cy)**2 for x,y in points)/max(mass,1)/h**2,
              sum((x-cx)*(y-cy) for x,y in points)/max(mass,1)/(w*h)]
     return [w/(w+h),area,mass/(w*h),cx/w,cy/h]+quadrants+moments
+
+
+def appearance(image):
+    from PIL import Image
+    image=image.convert('RGB');image.thumbnail((128,128));pixels=list(image.get_flattened_data());n=len(pixels)
+    histogram=[sum(min(p[c]//64,3)==b for p in pixels)/n for c in range(3) for b in range(4)]
+    gray=image.convert('L');w,h=gray.size;p=gray.load()
+    horizontal=sum(abs(p[x,y]-p[x-1,y]) for y in range(h) for x in range(1,w))/max(1,(w-1)*h)/255
+    vertical=sum(abs(p[x,y]-p[x,y-1]) for y in range(1,h) for x in range(w))/max(1,w*(h-1))/255
+    layout=[v/255 for v in gray.resize((4,4),Image.Resampling.BOX).get_flattened_data()]
+    return histogram+[horizontal,vertical]+layout
