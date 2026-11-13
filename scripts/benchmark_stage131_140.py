@@ -57,6 +57,11 @@ def stage139():
     r=run()
     return {'cases':r['pairs'],'frames':r['frames'],'event_matches':r['event_count_contract_matches'],'localization':r['localization'],'full_validation':r,'passed':r['pairs']==32 and r['frames']==64 and not r['representative_application_validation']}
 
+def stage140():
+    from seye.video.interface import generated_probe
+    r=generated_probe()
+    return dict(r, passed=r['frames']==4 and r['timestamps']==[0.0,0.5,1.0,1.5] and r['source_preserved'] and not r['automatic_action_authorized'])
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(131,141),required=True);p.add_argument('--output',type=Path,required=True)

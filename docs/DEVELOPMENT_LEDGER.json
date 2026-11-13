@@ -7106,6 +7106,36 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 140"
+    },
+    {
+      "id": "stage140-scene-engineering",
+      "objective": "Bounded prerecorded frame adapter with explicit sampling-grid timestamps, source integrity and read permission; no semantic UI tracking claim.",
+      "files_changed": [
+        "src/seye/video/interface.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage140.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage140_tests.txt and benchmark_stage121_130.py --stage 140",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "automatic_action_authorized": false,
+        "frames": 4,
+        "passed": true,
+        "source_preserved": true,
+        "timestamp_scope": "resampled constant-rate grid; not original presentation timestamps",
+        "timestamps": [
+          0.0,
+          0.5,
+          1.0,
+          1.5
+        ]
+      },
+      "commit_sha": "Commit subject Stage 140; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stop and wait for Continue"
     }
   ]
 }
