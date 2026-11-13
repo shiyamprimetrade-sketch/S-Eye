@@ -60,6 +60,42 @@ def stage153():
             'scope':'generated image; feature extraction only; no decode or portable acceleration claim','passed':old==new['packets'] and new['component_extractions']==3}
 
 
+def numeric_record(index,count):
+    from seye.core.storage import checksum
+    schema={'version':'seye-feature-pipeline-v1','components':[{'name':'scalar','version':'numeric-fixture-v1','dimension':1,'offset':0}],'dimension':1}
+    packet={'schema':schema,'schema_sha256':checksum(schema),'features':[index/count]}
+    return {'schema_version':1,'features':None,'packet':packet,'provenance':{'kind':'numeric_fixture','source_sha256':checksum({'index':index,'count':count})}}
+
+
+def stage154():
+    from seye.memory.store import Memory
+    from seye.memory.packet_index import rebuild,query,query_many
+    from seye.core.storage import checksum
+    cases=[]
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory)
+        for n in (64,512,2048):
+            records=[numeric_record(i,n) for i in range(n)];payload={'schema_version':1,'observations':records}
+            path=root/f'{n}.json';atomic_json(path,{'payload':payload,'sha256':checksum(payload)})
+            m=Memory(root/f'{n}.sqlite3')
+            try:
+                m.import_file(path);before=time.perf_counter();rebuild(m);build=time.perf_counter()-before
+                packets=[numeric_record(i,n)['packet'] for i in (1,n//2,n-2)]
+                before=time.perf_counter();single=[query(m,p,3) for p in packets];single_seconds=time.perf_counter()-before
+                before=time.perf_counter();group=query_many(m,packets,3);group_seconds=time.perf_counter()-before
+                exact=[]
+                for p,r in zip(packets,group['queries']):
+                    expected=sorted([(abs(row['packet']['features'][0]-p['features'][0]),checksum(row)) for row in records])[:3]
+                    exact.append([v['id'] for v in r['matches']]==[v[1] for v in expected])
+                cases.append({'observations':n,'build_seconds':build,'single_query_seconds':single_seconds,'grouped_seconds':group_seconds,
+                              'results_identical':single==group['queries'],'matches_exhaustive':all(exact),
+                              'distance_evaluations':[q['distance_evaluations'] for q in group['queries']],
+                              'authoritative_inventory_verifications':group['authoritative_inventory_verifications']})
+            finally:m.close()
+    return {'cases':cases,'scope':'1-D generated descriptors up to 2048 observations; not large-scale/high-dimensional representative memory',
+            'passed':all(c['results_identical'] and c['matches_exhaustive'] for c in cases)}
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--stage',required=True,type=int,choices=range(151,161));p.add_argument('--output',required=True)
     a=p.parse_args();r=globals()[f'stage{a.stage}']();atomic_json(a.output,r,overwrite=True);print(json.dumps(r,sort_keys=True))

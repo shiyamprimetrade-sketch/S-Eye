@@ -55,8 +55,7 @@ def rebuild(memory):
     return {'indexed_observations':indexed,'schemas':len(trees),'source_snapshot':snapshot,'method':'exact balanced KD trees; derived cache, not authoritative memory'}
 
 
-def load_tree(memory,schema):
-    snapshot=_snapshot(memory)
+def _load_tree(memory,schema,snapshot):
     exists=memory.db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='seye_packet_trees'").fetchone()
     if not exists:raise ValueError('Packet index absent; explicit rebuild required')
     if not memory.db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='seye_packet_index_state'").fetchone():raise ValueError('Packet index format requires explicit rebuild')
@@ -71,13 +70,17 @@ def load_tree(memory,schema):
     return payload
 
 
-def query(memory,packet,limit=5,exclude_sources=(),maximum_distance=None):
+def load_tree(memory,schema):
+    return _load_tree(memory,schema,_snapshot(memory))
+
+
+def _query_loaded(memory,packet,payload,limit=5,exclude_sources=(),maximum_distance=None):
     validate_packet(packet)
     if type(limit) is not int or not 1<=limit<=100:raise ValueError('Query limit must be 1..100')
     if not isinstance(exclude_sources,(list,tuple)) or len(exclude_sources)>100 or any(not isinstance(v,str) or len(v)!=64 or any(c not in '0123456789abcdef' for c in v) for v in exclude_sources):raise ValueError('Bounded explicit source digests required')
     if maximum_distance is not None and (type(maximum_distance) not in (int,float) or not math.isfinite(maximum_distance) or not 0<=maximum_distance<=1e6):raise ValueError('Finite nonnegative maximum distance required')
     search_limit=max(2,limit);cap=maximum_distance if maximum_distance is not None else math.inf
-    payload=load_tree(memory,packet['schema_sha256']);vector=project(packet);best=[];visited=evaluated=0;seen=set()
+    vector=project(packet);best=[];visited=evaluated=0;seen=set()
     def visit(node):
         nonlocal visited,evaluated
         if node is None:return
@@ -104,3 +107,39 @@ def query(memory,packet,limit=5,exclude_sources=(),maximum_distance=None):
             'indexed_points':payload['count'] if payload else 0,'schema_sha256':packet['schema_sha256'],
             'scope':'exact component-balanced feature distance; same source exclusion is explicit; similarity is not semantic identity',
             'integrity_cost':'authoritative verification and snapshot scan remain linear'}
+
+
+def query(memory,packet,limit=5,exclude_sources=(),maximum_distance=None):
+    _validate_query(packet,limit,exclude_sources,maximum_distance)
+    return _query_loaded(memory,packet,load_tree(memory,packet['schema_sha256']),limit,exclude_sources,maximum_distance)
+
+
+def _validate_query(packet,limit,exclude_sources,maximum_distance):
+    validate_packet(packet)
+    if type(limit) is not int or not 1<=limit<=100:raise ValueError('Query limit must be 1..100')
+    if not isinstance(exclude_sources,(list,tuple)) or len(exclude_sources)>100 or any(not isinstance(v,str) or len(v)!=64 or any(c not in '0123456789abcdef' for c in v) for v in exclude_sources):raise ValueError('Bounded explicit source digests required')
+    if maximum_distance is not None and (type(maximum_distance) not in (int,float) or not math.isfinite(maximum_distance) or not 0<=maximum_distance<=1e6):raise ValueError('Finite nonnegative maximum distance required')
+
+
+def query_many(memory,packets,limit=5,exclude_sources=(),maximum_distance=None):
+    """One pinned SQLite read snapshot, one authoritative integrity scan.
+
+    The grouped operation remains linear in inventory size for verification.
+    No caller-accessible skip-verification flag or persistent trusted cache exists.
+    """
+    if not isinstance(packets,list) or not 1<=len(packets)<=32:raise ValueError('1..32 packets required')
+    for packet in packets:_validate_query(packet,limit,exclude_sources,maximum_distance)
+    if sum(len(p['features']) for p in packets)>32768:raise ValueError('Query feature budget exceeded')
+    memory.db.execute('SAVEPOINT seye_grouped_packet_query')
+    try:
+        snapshot=_snapshot(memory)
+        schemas=list(dict.fromkeys(p['schema_sha256'] for p in packets))
+        trees={schema:_load_tree(memory,schema,snapshot) for schema in schemas}
+        results=[_query_loaded(memory,p,trees[p['schema_sha256']],limit,exclude_sources,maximum_distance) for p in packets]
+    except BaseException:
+        memory.db.execute('ROLLBACK TO SAVEPOINT seye_grouped_packet_query')
+        raise
+    finally:
+        memory.db.execute('RELEASE SAVEPOINT seye_grouped_packet_query')
+    return {'queries':results,'source_snapshot':snapshot,'authoritative_inventory_verifications':1,
+            'scope':'consistent grouped read; authoritative scan remains O(N), KD distance work is data-dependent'}
