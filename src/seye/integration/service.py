@@ -116,6 +116,18 @@ def execute(request, permissions):
         result=FeaturePipeline().extract(decoded,request.get('components',['interface']))
         result['source']=source
         if normalization is not None:result['normalization']=normalization
+    elif action == 'recognize_packet':
+        from seye.learning.packet_prototypes import load
+        from seye.recognition.pipeline import FeaturePipeline
+        from seye.recognition.explanation import explain
+        from seye.core.storage import read_json
+        model=load(permissions.require(request['model']))
+        image,source=load_image(permissions.require(request['image']),max_pixels=4_000_000)
+        schema=model['prototypes'][model['classes'][0]]['schema']
+        packet=FeaturePipeline().extract(image,[row['name'] for row in schema['components']])
+        calibration=read_json(permissions.require(request['calibration'])) if request.get('calibration') is not None else None
+        result=explain(model,packet,request.get('top_k',3),request.get('min_margin',.005),calibration)
+        result['source']=source
     elif action == 'recognize_batch':
         from seye.recognition.cache import FeatureCache
         paths = request.get('images')

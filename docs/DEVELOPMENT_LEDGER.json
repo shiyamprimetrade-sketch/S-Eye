@@ -765,6 +765,29 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 108"
+    },
+    {
+      "id": "stage108-recognition-engineering",
+      "objective": "Descriptor-difference and component-distance explanations, original source/model/schema hashes and scoped image recognition; labels originate from training, not independently understood semantics.",
+      "files_changed": [
+        "src/seye/recognition/explanation.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage108.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage108_tests.txt and benchmark_stage101_110.py --stage 108",
+      "test_results": "Focused tests passed; final regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 1,
+        "largest_difference": 0.01,
+        "passed": true,
+        "reason": "nearest_within_validation_radius"
+      },
+      "commit_sha": "Commit subject Stage 108; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 109"
     }
   ]
 }

@@ -59,6 +59,13 @@ def stage107():
     train,val=numeric_data();r=candidates(fit(train,val),numeric_packet(3),top_k=1)
     return {'cases':1,'returned':len(r['candidates']),'total':r['total_candidates'],'accepted':r['selection']['accepted'],'passed':len(r['candidates'])==1 and not r['selection']['accepted'] and r['truncated']}
 
+def stage108():
+    from seye.learning.packet_prototypes import fit
+    from seye.recognition.explanation import explain
+    train,val=numeric_data();r=explain(fit(train,val),numeric_packet(.01))
+    difference=r['explanation']['largest_descriptor_differences'][0]['absolute_difference']
+    return {'cases':1,'largest_difference':difference,'reason':r['selection']['reason'],'passed':abs(difference-.01)<1e-12 and r['selection']['accepted']}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(101,111),required=True);p.add_argument('--output',type=Path,required=True)
