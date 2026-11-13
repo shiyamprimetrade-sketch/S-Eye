@@ -63,6 +63,16 @@ def stage146():
     return {'uninterrupted_equals_resumed':same,'source_bound':True,'passed':same}
 
 
+def stage147():
+    from seye.video.continuity import ContinuityTracker
+    from seye.video.summary import summarize
+    t=ContinuityTracker(session_id='summary-benchmark')
+    row=lambda x:{'class':'region','box':[x,10,x+20,30]}
+    frames=[t.update([row(10)],0,[100,80]),t.update([], .5,[100,80]),t.update([row(14)],1,[100,80])]
+    result=summarize(frames,'a'*64)
+    return dict(result,passed=result['tracks'][0]['visible_samples']==2 and result['tracks'][0]['unobserved_samples']==1)
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--stage',type=int,required=True,choices=range(141,151))
