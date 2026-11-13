@@ -285,7 +285,7 @@
       "tests_executed": "106-test baseline; 112-test final suite; two identical full generated benchmark runs",
       "test_results": "112 tests passed locally; exact-head CI pending",
       "benchmark_results": "75 completed; 45 status matches; 3/18 unique localized, 15 missed, 0 false accepts; 3/18 duplicates ambiguous, 0 unsafe choices; 75 exact change oracles",
-      "commit_sha": "Publication receipt follows in this branch",
+      "commit_sha": "25d61622558dc7f2c8da9b3e11e27a081541b924",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Generated design matrix only",

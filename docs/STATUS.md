@@ -152,3 +152,5 @@ No Stage 84/88 recognition algorithm, checkpoint or main-S code changed.
 Next Continue: Stage 90 independent contrast/edge processing and bounded scale
 search, measured against the frozen matcher; do not skip negative/safety cases.
 Version 1.0 and expert-programmer-level interface understanding remain incomplete.
+
+Stage 89 implementation published at `25d61622558dc7f2c8da9b3e11e27a081541b924` in PR #1. Exact-head CI is tracked separately from the passing local suite.
