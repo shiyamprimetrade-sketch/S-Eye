@@ -192,3 +192,19 @@ STOP at Stage 130. Wait for Continue before 131–140. Future scene relationship
 must preserve coordinate/semantic uncertainty and cannot promote caller links,
 feature matches or proximity into proven object identity. Release v1.0, OCR and
 expert programmer vision remain incomplete; human review does not block engineering.
+
+## Scene API additions (schema version 1)
+
+All requests require request_id and schema_version=1. `scene_analyze` accepts
+memory and observation_id. `scene_compare` / `scene_changes` accept memory,
+before and after IDs; optional normalize applies only to compare; optional
+registration={dx,dy} and movement_tolerance apply only to changes.
+`scene_absence` accepts memory, reference ID, observations (1..30 IDs), and
+minimum_consecutive (2..30). All require memory permission and a read-root grant;
+stored records are integrity checked and opened read-only.
+
+`interface_video` accepts video path, fps (1..4), max_seconds (1..6), video
+permission and a read-root grant. It reuses the historical local FFmpeg decoder,
+returns at most 24 frames, and preserves its geometric tracker. Coordinates are
+in frames scaled to fit 300x400; timestamps are resampled grid positions, not
+original PTS. No live camera, semantic UI identity, or action authority is inferred.

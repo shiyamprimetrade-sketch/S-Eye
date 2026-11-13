@@ -246,3 +246,29 @@ STOP at Stage 130. Wait for Continue before 131–140. Future scene relationship
 must preserve coordinate/semantic uncertainty and cannot promote caller links,
 feature matches or proximity into proven object identity. Release v1.0, OCR and
 expert programmer vision remain incomplete; human review does not block engineering.
+
+## Stages 131–140: scene evidence and prerecorded frames
+
+Implemented spatial topology, normalized relative positions, bounded alignment
+clusters, one-to-one layout comparison with alternatives, registered change
+hypotheses, persistent non-observation, evidence-referenced descriptions,
+uncertainty records and read-only S scene APIs. Stage 140 adds a bounded local
+prerecorded adapter with explicit video/read grants and sampling-grid times.
+Existing algorithms and Stage 84 checkpoint remain preserved.
+
+Measured generated scene matrix: 32 pairs / 64 frames, 28 exact event-count
+contracts matched; localization at IoU 0.5: 80 TP, 0 FP, 8 FN. All four overlap
+cases failed. The failures remain in the denominators. Representative real-world
+scene validation is unfulfilled; Stage 139 completes its executable validation
+harness only. No OCR, semantic UI identity, clickability, or expert vision claim.
+Actual generated MPEG4 decode produced four frames at 0, .5, 1, 1.5 sampling-grid
+seconds with unchanged source SHA-256. These are not original presentation times.
+
+Run `python -m unittest discover -s tests -v` and
+`python scripts/benchmark_stage131_140.py --stage N --output report.json`
+for N=131..140. See STAGES_131_140.md and per-stage benchmark JSON/test logs.
+No independently labeled new real-world scene corpus was available in this batch.
+
+STOP at Stage 140. Next Continue authorizes 141–150: prerecorded temporal
+continuity, bounded motion/tracking evaluation and performance instrumentation.
+Do not start those stages before the next Continue. Release v1.0 remains incomplete.

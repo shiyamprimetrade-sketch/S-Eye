@@ -310,3 +310,31 @@ feature matches or proximity into proven object identity. Release v1.0, OCR and
 expert programmer vision remain incomplete; human review does not block engineering.
 
 Verified 121–130 checkpoint `a1e7ba72fbf58875ce526af9fbd6e2ef7598c954`: all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including 210 tests, all ten new experiments, historical checks, installation, audits and artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525 . Generated category retrieval remains tied/ambiguous and is not representative application or object-identity validation. This later receipt changes documentation only; the cited run belongs to that exact SHA. Stop at 130 and wait for Continue before 131–140.
+
+## Stages 131–140: scene evidence and prerecorded frames
+
+Implemented spatial topology, normalized relative positions, bounded alignment
+clusters, one-to-one layout comparison with alternatives, registered change
+hypotheses, persistent non-observation, evidence-referenced descriptions,
+uncertainty records and read-only S scene APIs. Stage 140 adds a bounded local
+prerecorded adapter with explicit video/read grants and sampling-grid times.
+Existing algorithms and Stage 84 checkpoint remain preserved.
+
+Measured generated scene matrix: 32 pairs / 64 frames, 28 exact event-count
+contracts matched; localization at IoU 0.5: 80 TP, 0 FP, 8 FN. All four overlap
+cases failed. The failures remain in the denominators. Representative real-world
+scene validation is unfulfilled; Stage 139 completes its executable validation
+harness only. No OCR, semantic UI identity, clickability, or expert vision claim.
+Actual generated MPEG4 decode produced four frames at 0, .5, 1, 1.5 sampling-grid
+seconds with unchanged source SHA-256. These are not original presentation times.
+
+Run `python -m unittest discover -s tests -v` and
+`python scripts/benchmark_stage131_140.py --stage N --output report.json`
+for N=131..140. See STAGES_131_140.md and per-stage benchmark JSON/test logs.
+No independently labeled new real-world scene corpus was available in this batch.
+
+STOP at Stage 140. Next Continue authorizes 141–150: prerecorded temporal
+continuity, bounded motion/tracking evaluation and performance instrumentation.
+Do not start those stages before the next Continue. Release v1.0 remains incomplete.
+
+Local verification: 231 tests passed (benchmarks/stages131_140_full_tests.txt); all ten experiment reports reproduced exactly; Stage 84 preservation/source syntax audit passed. Remote CI pending publication.

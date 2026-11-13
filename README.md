@@ -62,5 +62,7 @@ No pretrained recognition model replaces S-Eye's independent algorithms.
 - [Architecture](docs/ARCHITECTURE.md), [integration](docs/INTEGRATION.md), [limitations](docs/LIMITATIONS.md)
 - [Historical Stage 84 audit](docs/STAGE84_AUDIT.md) and [release criteria](docs/RELEASE_CRITERIA.md)
 
-Version 1.0 remains unfinished. The current authorized batch ends at Stage 130;
+Version 1.0 remains unfinished. The current authorized batch ends at Stage 140;
 wait for the owner’s next Continue before advancing.
+
+Stages 131–140 evidence: [scene and prerecorded-frame scopes](docs/STAGES_131_140.md).

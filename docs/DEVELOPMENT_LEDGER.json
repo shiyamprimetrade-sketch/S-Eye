@@ -2685,7 +2685,7 @@
         "src/seye/integration/service.py",
         "tests/test_stage130.py"
       ],
-      "tests_executed": "Focused tests in benchmarks/stage130_tests.txt and benchmark_stage121_130.py --stage 130",
+      "tests_executed": "Focused tests in benchmarks/stage130_tests.txt and benchmark_stage131_140.py --stage 130",
       "test_results": "Focused tests and full 210-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
@@ -2710,8 +2710,8 @@
         "src/seye/scenes/spatial.py",
         "tests/test_stage131.py"
       ],
-      "tests_executed": "Focused tests in benchmarks/stage131_tests.txt and benchmark_stage121_130.py --stage 131",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "tests_executed": "Focused tests in benchmarks/stage131_tests.txt and benchmark_stage131_140.py --stage 131",
+      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
       "benchmark_results": {
         "cases": 4,
         "passed": true,
@@ -2725,7 +2725,8 @@
       "commit_sha": "Commit subject Stage 131; remote publication mapping follows",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
-        "Controlled generated evidence; no representative application accuracy"
+        "Generated/oracle evidence only; representative application scene validation remains open",
+        "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
       "next_task": "Stage 132"
     },
@@ -2736,8 +2737,8 @@
         "src/seye/scenes/spatial.py",
         "tests/test_stage132.py"
       ],
-      "tests_executed": "Focused tests in benchmarks/stage132_tests.txt and benchmark_stage121_130.py --stage 132",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "tests_executed": "Focused tests in benchmarks/stage132_tests.txt and benchmark_stage131_140.py --stage 132",
+      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
       "benchmark_results": {
         "cases": 2,
         "normalized_geometry_identical": true,
@@ -2746,7 +2747,8 @@
       "commit_sha": "Commit subject Stage 132; remote publication mapping follows",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
-        "Controlled generated evidence; no representative application accuracy"
+        "Generated/oracle evidence only; representative application scene validation remains open",
+        "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
       "next_task": "Stage 133"
     },
@@ -2757,8 +2759,8 @@
         "src/seye/scenes/grouping.py",
         "tests/test_stage133.py"
       ],
-      "tests_executed": "Focused tests in benchmarks/stage133_tests.txt and benchmark_stage121_130.py --stage 133",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "tests_executed": "Focused tests in benchmarks/stage133_tests.txt and benchmark_stage131_140.py --stage 133",
+      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
       "benchmark_results": {
         "cases": 1,
         "groups": [
@@ -2777,7 +2779,8 @@
       "commit_sha": "Commit subject Stage 133; remote publication mapping follows",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
-        "Controlled generated evidence; no representative application accuracy"
+        "Generated/oracle evidence only; representative application scene validation remains open",
+        "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
       "next_task": "Stage 134"
     },
@@ -2788,8 +2791,8 @@
         "src/seye/scenes/comparison.py",
         "tests/test_stage134.py"
       ],
-      "tests_executed": "Focused tests in benchmarks/stage134_tests.txt and benchmark_stage121_130.py --stage 134",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "tests_executed": "Focused tests in benchmarks/stage134_tests.txt and benchmark_stage131_140.py --stage 134",
+      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
       "benchmark_results": {
         "cases": 2,
         "explicit_normalized_similarity": 1.0,
@@ -2799,7 +2802,8 @@
       "commit_sha": "Commit subject Stage 134; remote publication mapping follows",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
-        "Controlled generated evidence; no representative application accuracy"
+        "Generated/oracle evidence only; representative application scene validation remains open",
+        "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
       "next_task": "Stage 135"
     },
@@ -2810,8 +2814,8 @@
         "src/seye/scenes/changes.py",
         "tests/test_stage135.py"
       ],
-      "tests_executed": "Focused tests in benchmarks/stage135_tests.txt and benchmark_stage121_130.py --stage 135",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "tests_executed": "Focused tests in benchmarks/stage135_tests.txt and benchmark_stage131_140.py --stage 135",
+      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
       "benchmark_results": {
         "caller_registered_event": "stable",
         "cases": 2,
@@ -2821,7 +2825,8 @@
       "commit_sha": "Commit subject Stage 135; remote publication mapping follows",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
-        "Controlled generated evidence; no representative application accuracy"
+        "Generated/oracle evidence only; representative application scene validation remains open",
+        "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
       "next_task": "Stage 136"
     },
@@ -2832,8 +2837,8 @@
         "src/seye/scenes/absence.py",
         "tests/test_stage136.py"
       ],
-      "tests_executed": "Focused tests in benchmarks/stage136_tests.txt and benchmark_stage121_130.py --stage 136",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "tests_executed": "Focused tests in benchmarks/stage136_tests.txt and benchmark_stage131_140.py --stage 136",
+      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
       "benchmark_results": {
         "cases": 2,
         "cover_events": 0,
@@ -2843,7 +2848,8 @@
       "commit_sha": "Commit subject Stage 136; remote publication mapping follows",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
-        "Controlled generated evidence; no representative application accuracy"
+        "Generated/oracle evidence only; representative application scene validation remains open",
+        "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
       "next_task": "Stage 137"
     },
@@ -2854,8 +2860,8 @@
         "src/seye/scenes/description.py",
         "tests/test_stage137.py"
       ],
-      "tests_executed": "Focused tests in benchmarks/stage137_tests.txt and benchmark_stage121_130.py --stage 137",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "tests_executed": "Focused tests in benchmarks/stage137_tests.txt and benchmark_stage131_140.py --stage 137",
+      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
       "benchmark_results": {
         "cases": 1,
         "facts": 2,
@@ -2865,7 +2871,8 @@
       "commit_sha": "Commit subject Stage 137; remote publication mapping follows",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
-        "Controlled generated evidence; no representative application accuracy"
+        "Generated/oracle evidence only; representative application scene validation remains open",
+        "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
       "next_task": "Stage 138"
     },
@@ -2878,8 +2885,8 @@
         "src/seye/integration/service.py",
         "tests/test_stage138.py"
       ],
-      "tests_executed": "Focused tests in benchmarks/stage138_tests.txt and benchmark_stage121_130.py --stage 138",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "tests_executed": "Focused tests in benchmarks/stage138_tests.txt and benchmark_stage131_140.py --stage 138",
+      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
       "benchmark_results": {
         "action_authorized": false,
         "cases": 1,
@@ -2896,7 +2903,8 @@
       "commit_sha": "Commit subject Stage 138; remote publication mapping follows",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
-        "Controlled generated evidence; no representative application accuracy"
+        "Generated/oracle evidence only; representative application scene validation remains open",
+        "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
       "next_task": "Stage 139"
     },
@@ -2907,8 +2915,8 @@
         "scripts/benchmark_scene_validation.py",
         "tests/test_stage139.py"
       ],
-      "tests_executed": "Focused tests in benchmarks/stage139_tests.txt and benchmark_stage121_130.py --stage 139",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "tests_executed": "Focused tests in benchmarks/stage139_tests.txt and benchmark_stage131_140.py --stage 139",
+      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
       "benchmark_results": {
         "cases": 32,
         "event_matches": 28,
@@ -7103,7 +7111,8 @@
       "commit_sha": "Commit subject Stage 139; remote publication mapping follows",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
-        "Controlled generated evidence; no representative application accuracy"
+        "Generated/oracle evidence only; representative application scene validation remains open",
+        "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
       "next_task": "Stage 140"
     },
@@ -7115,8 +7124,8 @@
         "src/seye/integration/service.py",
         "tests/test_stage140.py"
       ],
-      "tests_executed": "Focused tests in benchmarks/stage140_tests.txt and benchmark_stage121_130.py --stage 140",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "tests_executed": "Focused tests in benchmarks/stage140_tests.txt and benchmark_stage131_140.py --stage 140",
+      "test_results": "231 full regression tests passed; all ten experiment reports reproduced exactly locally; remote CI pending",
       "benchmark_results": {
         "automatic_action_authorized": false,
         "frames": 4,
@@ -7133,7 +7142,8 @@
       "commit_sha": "Commit subject Stage 140; remote publication mapping follows",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
-        "Controlled generated evidence; no representative application accuracy"
+        "Generated/oracle evidence only; representative application scene validation remains open",
+        "Overlapping region segmentation remains unreliable; no semantic identity or action authority"
       ],
       "next_task": "Stop and wait for Continue"
     }
