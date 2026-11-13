@@ -1,0 +1,14 @@
+"""Independent bounded geometric descriptors; no learned parameters."""
+from seye.interface.regions import edge_mask
+
+
+def geometry(image):
+    image=image.convert('RGB');image.thumbnail((128,128));w,h=image.size
+    mask=edge_mask(image);points=[(x,y) for y in range(h) for x in range(w) if mask.getpixel((x,y))]
+    mass=len(points);cx=sum(x for x,y in points)/mass if mass else 0;cy=sum(y for x,y in points)/mass if mass else 0
+    box=mask.getbbox();area=((box[2]-box[0])*(box[3]-box[1]))/(w*h) if box else 0
+    quadrants=[sum((x>=w/2)==bool(i%2) and (y>=h/2)==bool(i//2) for x,y in points)/max(mass,1) for i in range(4)]
+    moments=[sum((x-cx)**2 for x,y in points)/max(mass,1)/w**2,
+             sum((y-cy)**2 for x,y in points)/max(mass,1)/h**2,
+             sum((x-cx)*(y-cy) for x,y in points)/max(mass,1)/(w*h)]
+    return [w/(w+h),area,mass/(w*h),cx/w,cy/h]+quadrants+moments

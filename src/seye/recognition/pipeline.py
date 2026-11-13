@@ -21,6 +21,8 @@ class FeaturePipeline:
         self._components={}
         self.register('legacy',FEATURE_VERSION,91,extract)
         self.register('interface','interface-structure-v1',23,interface_features)
+        from seye.recognition.descriptors import geometry
+        self.register('geometry','geometry-v1',12,geometry)
 
     def register(self,name,version,dimension,function):
         if not isinstance(name,str) or not re.fullmatch('[a-z][a-z0-9_.-]{0,63}',name) or name in self._components:
