@@ -20,6 +20,12 @@ def stage112():
     r=validate_partitions(dataset())
     return {'cases':25,'partition_counts':r['counts'],'near_duplicate_scene_independence_certified':False,'passed':r['counts']=={'train':9,'validation':6,'test':10}}
 
+def stage113():
+    from learning_batch_data import dataset,protocol
+    from seye.learning.packet_linear import fit
+    d=dataset();m=fit(d['train'],d['validation'],**protocol()['sgd']);initial=m['initial_training']['cross_entropy'];final=m['history'][-1]['training']['cross_entropy']
+    return {'cases':9,'initial_training_cross_entropy':initial,'final_training_cross_entropy':final,'best_epoch':m['best_epoch'],'passed':final<initial and not m['pretrained_weights_used']}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(111,121),required=True);p.add_argument('--output',type=Path,required=True)
