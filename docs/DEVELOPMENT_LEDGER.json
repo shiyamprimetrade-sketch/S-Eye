@@ -2363,6 +2363,30 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 123"
+    },
+    {
+      "id": "stage123-memory-engineering",
+      "objective": "Schema-aware exact neighbor retrieval with explicit source exclusion, tie reporting and authoritative candidate checks; KD distance pruning does not remove linear integrity scans or prove object identity.",
+      "files_changed": [
+        "src/seye/memory/packet_index.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage123.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage123_tests.txt and benchmark_stage121_130.py --stage 123",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 64,
+        "distance_evaluations": 7,
+        "exhaustive_distance_evaluations": 64,
+        "passed": true,
+        "top3_exact": true
+      },
+      "commit_sha": "Commit subject Stage 123; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 124"
     }
   ]
 }

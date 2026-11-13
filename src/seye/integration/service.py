@@ -145,6 +145,20 @@ def execute(request, permissions):
         if memory_path is not None:
             from seye.memory.packet_observations import remember
             result.update(remember(memory_path,identifier,packet,result))
+    elif action in ('memory_index_build','memory_packet_query'):
+        if not permissions.memory:raise PermissionError('Explicit memory permission required')
+        write=action=='memory_index_build'
+        memory_path=permissions.require(request['memory'],write=write)
+        packet=None
+        if not write:
+            from seye.recognition.pipeline import FeaturePipeline
+            image,_=load_image(permissions.require(request['image']),max_pixels=4_000_000)
+            packet=FeaturePipeline().extract(image,request.get('components',['shape']))
+        memory=Memory(memory_path,read_only=not write)
+        try:
+            from seye.memory.packet_index import rebuild,query
+            result=rebuild(memory) if write else query(memory,packet,request.get('limit',5),request.get('exclude_sources',[]))
+        finally:memory.close()
     elif action == 'recognize_batch':
         from seye.recognition.cache import FeatureCache
         paths = request.get('images')

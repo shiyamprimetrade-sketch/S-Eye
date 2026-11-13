@@ -28,6 +28,21 @@ def stage122():
         finally:m.close()
     return {'cases':16,'indexed_observations':r['indexed_observations'],'tree_count':tree['count'],'passed':r['indexed_observations']==16 and tree['count']==16}
 
+def stage123():
+    from seye.memory.store import Memory
+    from seye.memory.packet_index import rebuild,query
+    from seye.recognition.similarity import compare
+    with tempfile.TemporaryDirectory() as directory:
+        m=Memory(Path(directory)/'m.sqlite3');items=[]
+        try:
+            for i in range(64):
+                row=numeric_record(i/64);items.append((m.put(row),row))
+            rebuild(m);packet=numeric_record(.41)['packet'];r=query(m,packet,limit=3)
+            expected=sorted(items,key=lambda item:(compare(packet,item[1]['packet'])['distance'],item[0]))[:3]
+            same=[x['id'] for x in r['matches']]==[x[0] for x in expected]
+        finally:m.close()
+    return {'cases':64,'top3_exact':same,'distance_evaluations':r['distance_evaluations'],'exhaustive_distance_evaluations':64,'passed':same and r['distance_evaluations']<64}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(121,131),required=True);p.add_argument('--output',type=Path,required=True)
