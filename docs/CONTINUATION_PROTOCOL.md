@@ -259,3 +259,5 @@ Owner now requests ten-stage batches: STOP at 110; wait for Continue before
 sensitivity. Do not tune on the inspected test and present it as new held-out proof.
 Version 1.0/expert vision is not complete; reaching Stage 199 is not itself release
 acceptance. Human review is not required for ordinary engineering continuation.
+
+Verified 101–110 framework checkpoint `6417eb9305e1e18a404fa0ccb3641b9ac9146f1b`: all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including 166 tests, ten experiments, historical checks, installation, audits and artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43410582280 . The known-glyph result remains 0/6 and representative recognition is not validated. This later receipt changes documentation only; the cited CI run belongs to that exact SHA. Stop at 110 and wait for Continue.

@@ -610,7 +610,7 @@
         "tests/test_stage101.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage101_tests.txt and benchmark_stage101_110.py --stage 101",
-      "test_results": "Focused tests and 166-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 166-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "dimension": 12,
@@ -622,7 +622,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 102"
+      "next_task": "Stage 102",
+      "verified_commit_sha": "6417eb9305e1e18a404fa0ccb3641b9ac9146f1b",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43410582280"
     },
     {
       "id": "stage102-recognition-engineering",
@@ -633,7 +635,7 @@
         "tests/test_stage102.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage102_tests.txt and benchmark_stage101_110.py --stage 102",
-      "test_results": "Focused tests and 166-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 166-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "dimension": 30,
@@ -649,7 +651,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 103"
+      "next_task": "Stage 103",
+      "verified_commit_sha": "6417eb9305e1e18a404fa0ccb3641b9ac9146f1b",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43410582280"
     },
     {
       "id": "stage103-recognition-engineering",
@@ -659,7 +663,7 @@
         "tests/test_stage103.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage103_tests.txt and benchmark_stage101_110.py --stage 103",
-      "test_results": "Focused tests and 166-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 166-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 2,
         "different_distance": 0.38916769266667917,
@@ -671,7 +675,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 104"
+      "next_task": "Stage 104",
+      "verified_commit_sha": "6417eb9305e1e18a404fa0ccb3641b9ac9146f1b",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43410582280"
     },
     {
       "id": "stage104-recognition-engineering",
@@ -682,7 +688,7 @@
         "tests/packet_fixtures.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage104_tests.txt and benchmark_stage101_110.py --stage 104",
-      "test_results": "Focused tests and 166-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 166-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 2,
         "labels": [
@@ -697,7 +703,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 105"
+      "next_task": "Stage 105",
+      "verified_commit_sha": "6417eb9305e1e18a404fa0ccb3641b9ac9146f1b",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43410582280"
     },
     {
       "id": "stage105-recognition-engineering",
@@ -707,7 +715,7 @@
         "tests/test_stage105.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage105_tests.txt and benchmark_stage101_110.py --stage 105",
-      "test_results": "Focused tests and 166-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 166-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "confidence_probability": null,
@@ -719,7 +727,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 106"
+      "next_task": "Stage 106",
+      "verified_commit_sha": "6417eb9305e1e18a404fa0ccb3641b9ac9146f1b",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43410582280"
     },
     {
       "id": "stage106-recognition-engineering",
@@ -729,7 +739,7 @@
         "tests/test_stage106.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage106_tests.txt and benchmark_stage101_110.py --stage 106",
-      "test_results": "Focused tests and 166-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 166-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 2,
         "distant_rejected": true,
@@ -741,7 +751,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 107"
+      "next_task": "Stage 107",
+      "verified_commit_sha": "6417eb9305e1e18a404fa0ccb3641b9ac9146f1b",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43410582280"
     },
     {
       "id": "stage107-recognition-engineering",
@@ -751,7 +763,7 @@
         "tests/test_stage107.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage107_tests.txt and benchmark_stage101_110.py --stage 107",
-      "test_results": "Focused tests and 166-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 166-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "accepted": false,
         "cases": 1,
@@ -764,7 +776,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 108"
+      "next_task": "Stage 108",
+      "verified_commit_sha": "6417eb9305e1e18a404fa0ccb3641b9ac9146f1b",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43410582280"
     },
     {
       "id": "stage108-recognition-engineering",
@@ -775,7 +789,7 @@
         "tests/test_stage108.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage108_tests.txt and benchmark_stage101_110.py --stage 108",
-      "test_results": "Focused tests and 166-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 166-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "largest_difference": 0.01,
@@ -787,7 +801,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 109"
+      "next_task": "Stage 109",
+      "verified_commit_sha": "6417eb9305e1e18a404fa0ccb3641b9ac9146f1b",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43410582280"
     },
     {
       "id": "stage109-recognition-engineering",
@@ -798,7 +814,7 @@
         "tests/test_stage109.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage109_tests.txt and benchmark_stage101_110.py --stage 109",
-      "test_results": "Focused tests and 166-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 166-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 10,
         "full_experiment": {
@@ -1058,7 +1074,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 110"
+      "next_task": "Stage 110",
+      "verified_commit_sha": "6417eb9305e1e18a404fa0ccb3641b9ac9146f1b",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43410582280"
     },
     {
       "id": "stage110-recognition-engineering",
@@ -1068,7 +1086,7 @@
         "tests/test_stage110.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage110_tests.txt and benchmark_stage101_110.py --stage 110",
-      "test_results": "Focused tests and 166-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 166-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "passed": true,
@@ -1080,7 +1098,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stop and wait for Continue"
+      "next_task": "Stop and wait for Continue",
+      "verified_commit_sha": "6417eb9305e1e18a404fa0ccb3641b9ac9146f1b",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43410582280"
     }
   ]
 }
