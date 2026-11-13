@@ -197,3 +197,5 @@ RGB/dimension identity checks plus semantic equality to repair this gate; encode
 file hashes remain provenance. Local regression passes; new Windows CI is pending.
 
 Stage 91 implementation published at `8924553c93f6f6c64e5cf36c0af4622e9f68a67a` in PR #1. Exact-head CI is tracked separately from the 124 passing local tests.
+
+Stage 91 verified remote checkpoint: `165ab1d663354cce045ec690df4705d66c716e43`. All four Ubuntu/Windows Python 3.12/3.13 jobs passed, including 124 tests, the repaired Stage 90 portability gate, Stage 91 benchmark, installation, audits and artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43405604944 . This publication receipt changes documentation only; do not attribute the earlier CI run to a later SHA.

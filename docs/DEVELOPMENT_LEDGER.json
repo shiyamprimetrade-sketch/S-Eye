@@ -339,7 +339,7 @@
         "benchmarks/stage91_portability_regression.json"
       ],
       "tests_executed": "117-test baseline; 124-test local suite; 33 generated localization cases; four uploaded screenshot execution probes; Stage 90 cross-platform baseline repair",
-      "test_results": "124 tests passed locally; exact-head CI pending",
+      "test_results": "124 tests passed locally and in all four Ubuntu/Windows Python 3.12/3.13 jobs at 165ab1d663354cce045ec690df4705d66c716e43",
       "benchmark_results": "33/33 completed; 37 target regions: TP25 FP8 FN12 at IoU>=0.5. Four screenshots completed, proposals19/15/11/18; no real localization accuracy measured.",
       "commit_sha": "8924553c93f6f6c64e5cf36c0af4622e9f68a67a",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
@@ -349,7 +349,9 @@
         "Overlapping and low-contrast misses",
         "No real-application localization validation"
       ],
-      "next_task": "Stage 92 ordered contours and inner/outer boundary pairing against frozen benchmark"
+      "next_task": "Stage 92 ordered contours and inner/outer boundary pairing against frozen benchmark",
+      "verified_commit_sha": "165ab1d663354cce045ec690df4705d66c716e43",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43405604944"
     }
   ]
 }

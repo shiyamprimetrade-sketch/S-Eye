@@ -217,3 +217,5 @@ Canonical mode/dimension/RGB identities are now pinned, encoded hashes retained,
 and semantic results still required. See tests/test_benchmark_portability.py and
 benchmarks/stage91_portability_regression.json. Inspect new Windows CI before
 claiming remote success. Do not revert to encoded-file equality or drop pixel checks.
+
+Stage 91 verified remote checkpoint: `165ab1d663354cce045ec690df4705d66c716e43`. All four Ubuntu/Windows Python 3.12/3.13 jobs passed, including 124 tests, the repaired Stage 90 portability gate, Stage 91 benchmark, installation, audits and artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43405604944 . This publication receipt changes documentation only; do not attribute the earlier CI run to a later SHA.
