@@ -87,6 +87,16 @@ def stage127():
         finally:m.close()
     return {'cases':1,'audit':r,'passed':r['missing_source_identity']==1 and not r['confidence_probabilities_inferred']}
 
+def stage128():
+    from seye.memory.store import Memory
+    from seye.memory.history import link,read
+    from seye.memory.transfer import export_bundle,restore_bundle
+    from seye.memory.retention import plan,apply
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);m=Memory(root/'m.sqlite3');a=m.put(numeric_record(.1));b=m.put(numeric_record(.2));link(m,'target',b,'s',0)
+        export_bundle(m,root/'bundle.json');restored=restore_bundle(root/'bundle.json',root/'restored.sqlite3');retained=apply(m,plan(m,1,[a]));remaining=m.verify()['verified_observations'];m.close()
+    return {'cases':2,'restored_observations':restored['verified_observations'],'restored_history_events':restored['history_events'],'retained_observations':remaining,'deleted_history_events':retained['deleted_history_events'],'passed':restored['verified_observations']==2 and remaining==1 and retained['deleted_history_events']==1}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(121,131),required=True);p.add_argument('--output',type=Path,required=True)

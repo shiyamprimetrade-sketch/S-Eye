@@ -709,13 +709,19 @@
       "stage": 128,
       "objective": "Retention corruption recovery import and export",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/memory/store.py"
+        "src/seye/memory/transfer.py",
+        "src/seye/memory/retention.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage128.py",
+        "benchmarks/stage128_experiment.json",
+        "benchmarks/stage128_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Verified portable observation/history bundles restore atomically only to new destinations; explicit snapshot-bound retention protects pinned observations and removes dependent links transactionally. No in-place repair or rollback of arbitrary physical corruption is claimed."
     },
     {
       "stage": 129,

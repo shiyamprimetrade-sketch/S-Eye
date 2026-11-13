@@ -188,6 +188,25 @@ def execute(request, permissions):
                 if before is None or after is None:raise ValueError('Comparison observations not found')
                 result=compare_observations(before,after)
         finally:memory.close()
+    elif action in ('memory_bundle_export','memory_bundle_restore','memory_retention_plan','memory_retention_apply'):
+        if not permissions.memory:raise PermissionError('Explicit memory permission required')
+        if action=='memory_bundle_restore':
+            from seye.memory.transfer import restore_bundle
+            result=restore_bundle(permissions.require(request['bundle']),permissions.require(request['memory'],write=True))
+        else:
+            write=action=='memory_retention_apply'
+            memory=Memory(permissions.require(request['memory'],write=write),read_only=not write)
+            try:
+                if action=='memory_bundle_export':
+                    from seye.memory.transfer import export_bundle
+                    result=export_bundle(memory,permissions.require(request['output'],write=True))
+                elif action=='memory_retention_plan':
+                    from seye.memory.retention import plan
+                    result=plan(memory,request['maximum'],request.get('protected',[]))
+                else:
+                    from seye.memory.retention import apply as apply_retention
+                    result=apply_retention(memory,request['plan'])
+            finally:memory.close()
     elif action == 'recognize_batch':
         from seye.recognition.cache import FeatureCache
         paths = request.get('images')

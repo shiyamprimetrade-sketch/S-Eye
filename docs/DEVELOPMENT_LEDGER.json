@@ -2486,6 +2486,32 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 128"
+    },
+    {
+      "id": "stage128-memory-engineering",
+      "objective": "Verified portable observation/history bundles restore atomically only to new destinations; explicit snapshot-bound retention protects pinned observations and removes dependent links transactionally. No in-place repair or rollback of arbitrary physical corruption is claimed.",
+      "files_changed": [
+        "src/seye/memory/transfer.py",
+        "src/seye/memory/retention.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage128.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage128_tests.txt and benchmark_stage121_130.py --stage 128",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 2,
+        "deleted_history_events": 1,
+        "passed": true,
+        "restored_history_events": 1,
+        "restored_observations": 2,
+        "retained_observations": 1
+      },
+      "commit_sha": "Commit subject Stage 128; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 129"
     }
   ]
 }
