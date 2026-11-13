@@ -97,6 +97,11 @@ def stage128():
         export_bundle(m,root/'bundle.json');restored=restore_bundle(root/'bundle.json',root/'restored.sqlite3');retained=apply(m,plan(m,1,[a]));remaining=m.verify()['verified_observations'];m.close()
     return {'cases':2,'restored_observations':restored['verified_observations'],'restored_history_events':restored['history_events'],'retained_observations':remaining,'deleted_history_events':retained['deleted_history_events'],'passed':restored['verified_observations']==2 and remaining==1 and retained['deleted_history_events']==1}
 
+def stage129():
+    from benchmark_memory_quality import run
+    r=run()
+    return {'cases':10,'retrieval_quality':r,'passed':r['top1_category_correct']==6 and r['category_recall_at3']==6 and r['unknown_queries_without_match']==4 and r['ambiguous_known_queries']==6}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(121,131),required=True);p.add_argument('--output',type=Path,required=True)

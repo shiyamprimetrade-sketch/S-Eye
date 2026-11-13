@@ -157,7 +157,7 @@ def execute(request, permissions):
         memory=Memory(memory_path,read_only=not write)
         try:
             from seye.memory.packet_index import rebuild,query
-            result=rebuild(memory) if write else query(memory,packet,request.get('limit',5),request.get('exclude_sources',[]))
+            result=rebuild(memory) if write else query(memory,packet,request.get('limit',5),request.get('exclude_sources',[]),request.get('maximum_distance'))
         finally:memory.close()
     elif action in ('memory_history_link','memory_history'):
         if not permissions.memory:raise PermissionError('Explicit memory permission required')

@@ -727,13 +727,19 @@
       "stage": 129,
       "objective": "Measured retrieval quality",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/memory/store.py"
+        "scripts/benchmark_memory_quality.py",
+        "src/seye/memory/packet_index.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage129.py",
+        "benchmarks/stage129_experiment.json",
+        "benchmarks/stage129_tests.txt"
       ],
-      "open_requirement": "Retrieval quality measured only on tiny generated data",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Generated labeled retrieval measures top1/category recall, unknown cutoff rejection and top-distance ambiguity separately. Category agreement does not identify a unique object; representative retrieval validation remains absent."
     },
     {
       "stage": 130,

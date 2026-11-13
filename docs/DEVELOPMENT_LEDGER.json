@@ -2512,6 +2512,152 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 129"
+    },
+    {
+      "id": "stage129-memory-engineering",
+      "objective": "Generated labeled retrieval measures top1/category recall, unknown cutoff rejection and top-distance ambiguity separately. Category agreement does not identify a unique object; representative retrieval validation remains absent.",
+      "files_changed": [
+        "scripts/benchmark_memory_quality.py",
+        "src/seye/memory/packet_index.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage129.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage129_tests.txt and benchmark_stage121_130.py --stage 129",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 10,
+        "passed": true,
+        "retrieval_quality": {
+          "ambiguous_known_queries": 6,
+          "category_recall_at3": 6,
+          "gallery": 6,
+          "known_queries": 6,
+          "limitations": [
+            "Shared renderer and centered glyphs, not independent applications.",
+            "Same-category top-distance ties do not establish a unique persistent object.",
+            "Distance cutoff inherited before querying; no test fitting."
+          ],
+          "maximum_distance": 0.015,
+          "representative_retrieval_quality_validated": false,
+          "results": [
+            {
+              "ambiguous_top_distance": true,
+              "distances": [
+                0.0,
+                0.0
+              ],
+              "expected_category": "run",
+              "id": "run-0",
+              "returned_oracle_labels": [
+                "run",
+                "run"
+              ]
+            },
+            {
+              "ambiguous_top_distance": true,
+              "distances": [
+                0.0,
+                0.0
+              ],
+              "expected_category": "run",
+              "id": "run-1",
+              "returned_oracle_labels": [
+                "run",
+                "run"
+              ]
+            },
+            {
+              "ambiguous_top_distance": true,
+              "distances": [
+                0.0,
+                0.0
+              ],
+              "expected_category": "stop",
+              "id": "stop-0",
+              "returned_oracle_labels": [
+                "stop",
+                "stop"
+              ]
+            },
+            {
+              "ambiguous_top_distance": true,
+              "distances": [
+                0.0,
+                0.0
+              ],
+              "expected_category": "stop",
+              "id": "stop-1",
+              "returned_oracle_labels": [
+                "stop",
+                "stop"
+              ]
+            },
+            {
+              "ambiguous_top_distance": true,
+              "distances": [
+                0.0,
+                0.0
+              ],
+              "expected_category": "menu",
+              "id": "menu-0",
+              "returned_oracle_labels": [
+                "menu",
+                "menu"
+              ]
+            },
+            {
+              "ambiguous_top_distance": true,
+              "distances": [
+                0.0,
+                0.0
+              ],
+              "expected_category": "menu",
+              "id": "menu-1",
+              "returned_oracle_labels": [
+                "menu",
+                "menu"
+              ]
+            },
+            {
+              "ambiguous_top_distance": false,
+              "distances": [],
+              "expected_category": "__unknown__",
+              "id": "ring-0",
+              "returned_oracle_labels": []
+            },
+            {
+              "ambiguous_top_distance": false,
+              "distances": [],
+              "expected_category": "__unknown__",
+              "id": "ring-1",
+              "returned_oracle_labels": []
+            },
+            {
+              "ambiguous_top_distance": false,
+              "distances": [],
+              "expected_category": "__unknown__",
+              "id": "diamond-0",
+              "returned_oracle_labels": []
+            },
+            {
+              "ambiguous_top_distance": false,
+              "distances": [],
+              "expected_category": "__unknown__",
+              "id": "diamond-1",
+              "returned_oracle_labels": []
+            }
+          ],
+          "top1_category_correct": 6,
+          "unknown_queries": 4,
+          "unknown_queries_without_match": 4
+        }
+      },
+      "commit_sha": "Commit subject Stage 129; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 130"
     }
   ]
 }

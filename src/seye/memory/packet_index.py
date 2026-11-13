@@ -68,10 +68,12 @@ def load_tree(memory,schema):
     return payload
 
 
-def query(memory,packet,limit=5,exclude_sources=()):
+def query(memory,packet,limit=5,exclude_sources=(),maximum_distance=None):
     validate_packet(packet)
     if type(limit) is not int or not 1<=limit<=100:raise ValueError('Query limit must be 1..100')
     if not isinstance(exclude_sources,(list,tuple)) or len(exclude_sources)>100 or any(not isinstance(v,str) or len(v)!=64 or any(c not in '0123456789abcdef' for c in v) for v in exclude_sources):raise ValueError('Bounded explicit source digests required')
+    if maximum_distance is not None and (type(maximum_distance) not in (int,float) or not math.isfinite(maximum_distance) or not 0<=maximum_distance<=1e6):raise ValueError('Finite nonnegative maximum distance required')
+    search_limit=max(2,limit);cap=maximum_distance if maximum_distance is not None else math.inf
     payload=load_tree(memory,packet['schema_sha256']);vector=project(packet);best=[];visited=evaluated=0;seen=set()
     def visit(node):
         nonlocal visited,evaluated
@@ -84,17 +86,18 @@ def query(memory,packet,limit=5,exclude_sources=()):
         near,far=('left','right') if delta<0 else ('right','left')
         if point.get('source_sha256') not in exclude_sources and point.get('pixel_sha256') not in exclude_sources:
             evaluated+=1;distance=math.sqrt(sum((a-b)**2 for a,b in zip(vector,values)))
-            best.append({'id':identifier,'distance':distance,'source_sha256':point.get('source_sha256'),'pixel_sha256':point.get('pixel_sha256'),'packet_sha256':point['packet_sha256']})
-            best.sort(key=lambda r:(r['distance'],r['id']));del best[limit:]
+            if distance<=cap:best.append({'id':identifier,'distance':distance,'source_sha256':point.get('source_sha256'),'pixel_sha256':point.get('pixel_sha256'),'packet_sha256':point['packet_sha256']})
+            best.sort(key=lambda r:(r['distance'],r['id']));del best[search_limit:]
         visit(node.get(near))
-        if len(best)<limit or delta*delta<=best[-1]['distance']**2+1e-15:visit(node.get(far))
+        bound=min(cap,best[-1]['distance'] if len(best)>=search_limit else math.inf)
+        if delta*delta<=bound**2+1e-15:visit(node.get(far))
     if payload is not None:visit(payload['tree'])
     # Returned candidates must still agree with authoritative packet contents.
     for item in best:
         row=memory.db.execute('SELECT payload FROM observations WHERE id=?',(item['id'],)).fetchone()
         if row is None or checksum(json.loads(row[0]).get('packet'))!=item['packet_sha256']:raise ValueError('Indexed candidate/source mismatch')
     ambiguous=len(best)>1 and abs(best[0]['distance']-best[1]['distance'])<=1e-12
-    return {'matches':best,'ambiguous_top_distance':ambiguous,'visited_nodes':visited,'distance_evaluations':evaluated,
+    return {'matches':best[:limit],'ambiguous_top_distance':ambiguous,'visited_nodes':visited,'distance_evaluations':evaluated,
             'indexed_points':payload['count'] if payload else 0,'schema_sha256':packet['schema_sha256'],
             'scope':'exact component-balanced feature distance; same source exclusion is explicit; similarity is not semantic identity',
             'integrity_cost':'authoritative verification and snapshot scan remain linear'}
