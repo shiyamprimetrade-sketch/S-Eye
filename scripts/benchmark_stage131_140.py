@@ -16,6 +16,12 @@ def stage131():
     actual=[relationships(view([[0,0,30,30],b]))['relations'][0]['topology'] for b in ([10,10,20,20],[25,25,50,50],[30,0,50,30],[40,0,60,20])]
     return {'cases':4,'topologies':actual,'passed':actual==['first_contains_second','overlap','touching','disjoint']}
 
+def stage132():
+    from seye.scenes.spatial import relative_positions
+    a=relative_positions(view([[10,10,30,30],[60,40,80,60]]));b=relative_positions(view([[20,20,60,60],[120,80,160,120]],(200,160)))
+    same=a['objects']==b['objects'] and a['offsets']==b['offsets']
+    return {'cases':2,'normalized_geometry_identical':same,'passed':same}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(131,141),required=True);p.add_argument('--output',type=Path,required=True)

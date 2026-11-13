@@ -30,3 +30,16 @@ def relationships(value):
             pairs.append({'first':i,'second':j,'topology':topology,'horizontal':horizontal,'vertical':vertical,
                           'box_iou':overlap,'edge_gap_pixels':[gap_x,gap_y]})
     return {'objects':len(rows),'relations':pairs,'identity_scope':'frame-local geometric evidence, not persistent or semantic identity'}
+
+
+def relative_positions(value):
+    frame(value);size=value.get('source_size')
+    if size is None:return {'comparable':False,'reason':'source_grid_unknown','objects':[],'offsets':[]}
+    w,h=size;objects=[{'id':i,'normalized_box':[r['box'][0]/w,r['box'][1]/h,r['box'][2]/w,r['box'][3]/h]} for i,r in enumerate(value['objects'])]
+    offsets=[]
+    for i,a in enumerate(objects):
+        x=a['normalized_box']
+        for b in objects[i+1:]:
+            y=b['normalized_box'];dx=(y[0]+y[2]-x[0]-x[2])/2;dy=(y[1]+y[3]-x[1]-x[3])/2
+            offsets.append({'first':a['id'],'second':b['id'],'center_offset':[dx,dy],'normalized_distance':math.hypot(dx,dy)})
+    return {'comparable':True,'objects':objects,'offsets':offsets,'scope':'per-frame relative geometry; normalization is not cross-frame registration'}

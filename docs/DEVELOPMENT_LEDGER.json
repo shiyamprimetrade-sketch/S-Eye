@@ -2728,6 +2728,27 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 132"
+    },
+    {
+      "id": "stage132-scene-engineering",
+      "objective": "Source-normalized boxes, center offsets and distances preserve equivalent scaled layouts while explicitly abstaining without dimensions; not physical perspective invariance or cross-frame registration.",
+      "files_changed": [
+        "src/seye/scenes/spatial.py",
+        "tests/test_stage132.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage132_tests.txt and benchmark_stage121_130.py --stage 132",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 2,
+        "normalized_geometry_identical": true,
+        "passed": true
+      },
+      "commit_sha": "Commit subject Stage 132; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 133"
     }
   ]
 }
