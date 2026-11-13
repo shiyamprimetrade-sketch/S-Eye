@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "implementation_checkpoint": "995f699358077f2ab53e036cfe82b223add7a1a5",
+  "stages": [
+    {
+      "stage": 101,
+      "sha": "98f81d17fc1dfe568ef9fb94c2a469dc82fd16ab",
+      "message": "Stage 101: versioned independent geometric descriptors"
+    },
+    {
+      "stage": 102,
+      "sha": "2e7064b571db1e9412cdbeb0017a2da72acdd032",
+      "message": "Stage 102: color texture and spatial appearance descriptors"
+    },
+    {
+      "stage": 103,
+      "sha": "c64da6e6b947bd91dbaba2cea1b6597da9c6a660",
+      "message": "Stage 103: schema-safe feature similarity and component evidence"
+    },
+    {
+      "stage": 104,
+      "sha": "0a113b98a712c25fe2e4e825d9cb3e8166bed669",
+      "message": "Stage 104: schema-bound prototype learning with leakage guards"
+    },
+    {
+      "stage": 105,
+      "sha": "d8f521ffdbdf10d897e2074fb19b7d4f28242ef2",
+      "message": "Stage 105: validation-only model-bound empirical calibration"
+    },
+    {
+      "stage": 106,
+      "sha": "64ca24477a9c7ec7d5cc6e6132c557a972f429b6",
+      "message": "Stage 106: explicit known-radius and ambiguous-category rejection"
+    },
+    {
+      "stage": 107,
+      "sha": "c67b5056ffb64482dd4ad634f08d0258bddbef79",
+      "message": "Stage 107: multiple grounded category candidates with abstention"
+    },
+    {
+      "stage": 108,
+      "sha": "2c0cc4676ea4f8203701af1131c7ba50ac56c84c",
+      "message": "Stage 108: evidence-grounded recognition explanations and S adapter"
+    },
+    {
+      "stage": 109,
+      "sha": "45671b8c18b9298e2ddec476f567d9f48f859cd1",
+      "message": "Stage 109: independent generated category and unknown error evaluation"
+    },
+    {
+      "stage": 110,
+      "sha": "896f6f6d34cc91b28dd3018eabea2ef99d442303",
+      "message": "Stage 110: immutable dataset revisions and source integrity verification"
+    }
+  ],
+  "local_full_suite": "166 tests passed",
+  "known_test_correct": "0/6",
+  "unknown_test_rejected": "4/4",
+  "recognition_reliability_established": false,
+  "remote_ci": "pending"
+}

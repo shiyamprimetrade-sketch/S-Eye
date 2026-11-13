@@ -241,3 +241,5 @@ Owner now requests ten-stage batches: STOP at 110; wait for Continue before
 sensitivity. Do not tune on the inspected test and present it as new held-out proof.
 Version 1.0/expert vision is not complete; reaching Stage 199 is not itself release
 acceptance. Human review is not required for ordinary engineering continuation.
+
+Stages 101–110 implementation checkpoint `995f699358077f2ab53e036cfe82b223add7a1a5`; exact published stage SHAs are in the ledger and benchmarks/stages101_110_publication.json. 166 tests pass locally. Known recognition remains 0/6 on the generated held-out test. Stop at 110; exact-head CI pending.
