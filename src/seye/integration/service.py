@@ -128,6 +128,14 @@ def execute(request, permissions):
         calibration=read_json(permissions.require(request['calibration'])) if request.get('calibration') is not None else None
         result=explain(model,packet,request.get('top_k',3),request.get('min_margin',.005),calibration)
         result['source']=source
+    elif action == 'recognize_trained':
+        from seye.learning.training_checkpoint import load
+        from seye.recognition.pipeline import FeaturePipeline
+        from seye.recognition.trained import predict
+        model=load(permissions.require(request['model']))
+        image,source=load_image(permissions.require(request['image']),max_pixels=4_000_000)
+        packet=FeaturePipeline().extract(image,[component['name'] for component in model['schema']['components']])
+        result=predict(model,packet);result['source']=source
     elif action == 'recognize_batch':
         from seye.recognition.cache import FeatureCache
         paths = request.get('images')

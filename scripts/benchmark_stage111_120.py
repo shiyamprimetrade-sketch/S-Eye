@@ -55,6 +55,11 @@ def stage117():
     d=dataset();r=learning_curve(d['train'],d['validation'],config={'epochs':20,'seed':113,'learning_rate':.2})
     return {'cases':3,'curve':r,'passed':[p['training_samples'] for p in r['points']]==[3,6,9] and not r['test_data_used']}
 
+def stage118():
+    from compare_learning_batch import run
+    r=run();counts={name:{key:m[key] for key in ('known_samples','known_correct','unknown_samples','unknown_rejected')} for name,m in r['methods'].items()}
+    return {'cases':30,'methods':counts,'full_comparison':r,'passed':all(m['samples']==10 for m in r['methods'].values())}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(111,121),required=True);p.add_argument('--output',type=Path,required=True)
