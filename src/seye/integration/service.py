@@ -139,6 +139,8 @@ def execute(request, permissions):
         model=load(permissions.require(request['model']))
         image,source=load_image(permissions.require(request['image']),max_pixels=4_000_000)
         packet=FeaturePipeline().extract(image,[component['name'] for component in model['schema']['components']])
+        from seye.memory.identity import pixel_identity
+        source['pixel_sha256']=pixel_identity(image)
         result=predict_trained(model,packet);result['source']=source
         if memory_path is not None:
             from seye.memory.packet_observations import remember

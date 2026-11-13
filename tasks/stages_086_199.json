@@ -592,13 +592,18 @@
       "stage": 121,
       "objective": "Image and observation identity",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/memory/store.py"
+        "src/seye/memory/identity.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage121.py",
+        "benchmarks/stage121_experiment.json",
+        "benchmarks/stage121_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Separate encoded source, decoded pixels, feature schema, model, observation and explicit session occurrence identities; hashes do not assert persistent real-object identity."
     },
     {
       "stage": 122,
