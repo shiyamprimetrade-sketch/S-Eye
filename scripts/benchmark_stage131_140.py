@@ -27,6 +27,11 @@ def stage133():
     r=aligned_groups(view([[5,10,20,30],[25,10,40,30],[45,10,60,30],[70,50,90,70]]),maximum_gap=8)
     return {'cases':1,'groups':r['groups'],'links':len(r['links']),'passed':r['groups']==[[0,1,2],[3]] and len(r['links'])==2}
 
+def stage134():
+    from seye.scenes.comparison import compare_layout
+    a=view([[10,10,30,30]]);b=view([[20,20,60,60]],(200,160));strict=compare_layout(a,b);normalized=compare_layout(a,b,normalize=True)
+    return {'cases':2,'strict_abstention':not strict['comparable'],'explicit_normalized_similarity':normalized['geometric_similarity'],'passed':not strict['comparable'] and normalized['geometric_similarity']==1}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(131,141),required=True);p.add_argument('--output',type=Path,required=True)

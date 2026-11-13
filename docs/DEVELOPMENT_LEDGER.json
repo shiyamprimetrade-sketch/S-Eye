@@ -2780,6 +2780,28 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 134"
+    },
+    {
+      "id": "stage134-scene-engineering",
+      "objective": "One-to-one class/box layout similarity exposes alternatives and ambiguity; viewport changes require explicit normalization, which does not prove scene registration or identity.",
+      "files_changed": [
+        "src/seye/scenes/comparison.py",
+        "tests/test_stage134.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage134_tests.txt and benchmark_stage121_130.py --stage 134",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 2,
+        "explicit_normalized_similarity": 1.0,
+        "passed": true,
+        "strict_abstention": true
+      },
+      "commit_sha": "Commit subject Stage 134; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 135"
     }
   ]
 }

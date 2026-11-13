@@ -810,13 +810,17 @@
       "stage": 134,
       "objective": "Scene similarity",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/scenes/relations.py"
+        "src/seye/scenes/comparison.py",
+        "tests/test_stage134.py",
+        "benchmarks/stage134_experiment.json",
+        "benchmarks/stage134_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "One-to-one class/box layout similarity exposes alternatives and ambiguity; viewport changes require explicit normalization, which does not prove scene registration or identity."
     },
     {
       "stage": 135,
