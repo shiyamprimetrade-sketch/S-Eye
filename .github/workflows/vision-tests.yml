@@ -33,6 +33,7 @@ jobs:
       - run: python scripts/benchmark_localization.py --output "${{ runner.temp }}/localization-report.json"
       - run: python scripts/benchmark_independent_system.py --output "${{ runner.temp }}/independent-system-report.json"
       - run: python scripts/benchmark_cache.py --output "${{ runner.temp }}/cache-report.json"
+      - run: python scripts/benchmark_interface.py --output "${{ runner.temp }}/interface-report.json"
       - run: python scripts/audit_source.py --output "${{ runner.temp }}/current-source-audit.json"
       - run: python scripts/release_audit.py --output "${{ runner.temp }}/release-readiness.json"
       - run: python -m pip wheel --no-deps . --wheel-dir "${{ runner.temp }}/seye-dist"
@@ -48,4 +49,5 @@ jobs:
             ${{ runner.temp }}/release-readiness.json
             ${{ runner.temp }}/current-source-audit.json
             ${{ runner.temp }}/cache-report.json
+            ${{ runner.temp }}/interface-report.json
             ${{ runner.temp }}/seye-dist/*.whl

@@ -246,6 +246,30 @@
         "No permissive redistribution license asserted"
       ],
       "next_task": "Review geometric labels and visibility, lock grouped evaluation, run per-condition recognition errors; do not advance Stage 89 before Stage 88 gate."
+    },
+    {
+      "id": "stage88-owner-interface-priority",
+      "objective": "Complete revised Stage 88 engineering acceptance and implement interface observation for S",
+      "files_changed": [
+        "src/seye/interface/observer.py",
+        "src/seye/integration/service.py",
+        "src/seye/core/capture_protocol.py",
+        "tests/test_interface_observer.py",
+        "scripts/benchmark_interface.py",
+        "docs/INTERFACE_OBSERVATION.md"
+      ],
+      "tests_executed": "python -m unittest discover -s tests -q; benchmark_interface.py; four uploaded same-frame screenshot probes; capture-only ALOI gate",
+      "test_results": "106 tests passed locally; exact-head CI pending",
+      "benchmark_results": "5/5 generated expected status matches; four screenshot repeatability probes with zero changed pixels; no accuracy or expert equivalence claim",
+      "commit_sha": "Publication receipt follows in this branch",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "No OCR or code comprehension",
+        "Fixed-scale template matching with uncalibrated similarity",
+        "No host capture or input automation",
+        "Representative UI validation absent"
+      ],
+      "next_task": "Stage 89 automatic UI-condition fixture evaluation and localization/change diagnostics"
     }
   ]
 }

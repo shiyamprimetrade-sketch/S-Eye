@@ -25,3 +25,22 @@ evidence and explicit limits; representative independent data is required for va
 
 This roadmap supplements existing instructions. It is not a declaration that
 future features work. Preserve code, evidence and exact next steps before limits.
+
+
+## Owner scope correction — 13 November 2026
+
+The primary mission is visual observation of software interfaces for S: observe,
+locate known visual controls, compare screens, record evidence and emit structured
+signals. Human review is no longer a prerequisite for engineering continuation.
+Earlier Stage 88 human-review continuation blocks are superseded by this instruction.
+Stage 88 engineering acceptance is complete under the revised capture-only policy
+(benchmarks/stage88_owner_acceptance.json). No labels or accuracy were invented;
+representative generalization remains unvalidated and v1.0 remains incomplete.
+
+Implemented the independent screenshot observer and scoped observe_interface action,
+optional verified observation persistence, change-region signals, fixed-scale known
+template matching and ambiguity rejection. 106 local tests pass; five generated UI
+cases match expected statuses; four supplied screenshot same-frame probes show zero
+change. See INTERFACE_OBSERVATION.md and benchmarks/interface_* evidence.
+Stop after this stage checkpoint. Next Continue: Stage 89 interface-condition
+diagnostics and automatic fixture ground truth, without a human-review dependency.

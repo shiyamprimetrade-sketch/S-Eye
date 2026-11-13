@@ -36,18 +36,22 @@
       "stage": 88,
       "objective": "Lighting rotation perspective scale and background stress conditions",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
         "src/seye/core/datasets.py",
         "generalization.py",
         "scripts/stage88_aloi.py",
         "datasets/manifests/stage88_aloi.json",
         "benchmarks/stage88_aloi_stress.json",
-        "benchmarks/stage88_aloi_capture_gate.json"
+        "benchmarks/stage88_aloi_capture_gate.json",
+        "benchmarks/stage88_owner_acceptance.json",
+        "src/seye/interface/observer.py",
+        "benchmarks/interface_observation.json"
       ],
-      "open_requirement": "Reviewed supported geometric labels and independent representative evaluation remain absent. ALOI supplies 18 same-object physical captures across lighting and orientations; no factorial design, triangle examples or representative background coverage.",
+      "open_requirement": "No remaining revised Stage 88 engineering acceptance requirement. Photographic accuracy remains unmeasured; interface recognition remains experimental.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Owner-revised physical capture and executable stress engineering; no mandatory human review; not representative recognition validation"
     },
     {
       "stage": 89,

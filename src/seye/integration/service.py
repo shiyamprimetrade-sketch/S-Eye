@@ -77,6 +77,33 @@ def execute(request, permissions):
                     result = {'matches': memory.search(extract(decoded), request.get('limit', 5))}
             finally:
                 memory.close()
+    elif action == 'observe_interface':
+        from seye.interface.observer import observe
+        image = permissions.require(request['image'])
+        previous = permissions.require(request['previous']) if request.get('previous') is not None else None
+        templates = request.get('templates', [])
+        if not isinstance(templates, list) or len(templates) > 8:
+            raise ValueError('At most eight explicit templates allowed')
+        validated = []
+        for entry in templates:
+            if not isinstance(entry, dict):
+                raise ValueError('Template entry must be an object')
+            validated.append({'name': entry['name'], 'path': permissions.require(entry['path'])})
+        memory_path = None
+        if request.get('memory') is not None:
+            if not permissions.memory:
+                raise PermissionError('Explicit memory permission required')
+            memory_path = permissions.require(request['memory'], write=True)
+        result = observe(image, previous, validated, request.get('stride', 4), request.get('min_similarity', .97))
+        if memory_path is not None:
+            memory = Memory(memory_path)
+            try:
+                record = {'schema_version': 1, 'features': None, 'analysis': result,
+                          'provenance': {'source_sha256': result['source']['sha256'],
+                                         'request_id': identifier, 'kind': 'interface_observation'}}
+                result['observation_id'] = memory.put(record)
+            finally:
+                memory.close()
     elif action == 'recognize_batch':
         from seye.recognition.cache import FeatureCache
         paths = request.get('images')
