@@ -147,3 +147,25 @@ Owner now requests ten-stage batches: STOP at 110; wait for Continue before
 sensitivity. Do not tune on the inspected test and present it as new held-out proof.
 Version 1.0/expert vision is not complete; reaching Stage 199 is not itself release
 acceptance. Human review is not required for ordinary engineering continuation.
+
+
+## Stages 111–120 learning and persistence checkpoint
+
+Implemented annotation/provenance checks, explicit partitions, independently
+seeded schema-bound SGD, verified inference checkpoints, reproducibility records,
+overfit diagnostics, sample-count curves, baseline/ablation comparisons, separate
+known/unknown regression gates and optional verified trained-observation memory.
+187 local tests pass, including the legacy batch-recognition path. A predictor
+import-shadowing regression caught by the full suite has been corrected.
+
+New precommitted generated protocol: layout comparator 0/6 known and 4/4 unknown;
+centered prototype 6/6 and 4/4; centered SGD 6/6 and 4/4. The representation change
+accounts for the observed gain; SGD does not outperform centered prototypes here.
+These are correlated synthetic captures, not representative application accuracy.
+The original Stage 109 failure is preserved. See STAGES_111_120.md and
+benchmarks/stage118_experiment.json. No pretrained weights, old-model replacement
+or main-S change. Exact-head CI is tracked separately.
+
+STOP at Stage 120. Wait for Continue before 121–130, beginning with observation
+identity and schema-aware memory retrieval. OCR/expert vision and v1.0 remain
+unfulfilled. Human review does not block ordinary engineering continuation.

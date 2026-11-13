@@ -31,7 +31,9 @@ def validate_record(record):
         for key in ('source_sha256','model_sha256'):
             value=record['provenance'].get(key)
             if not isinstance(value,str) or len(value)!=64 or any(c not in '0123456789abcdef' for c in value):raise ValueError('Stored observation identity invalid')
-        if analysis.get('model_sha256')!=record['provenance']['model_sha256'] or analysis.get('source',{}).get('sha256')!=record['provenance']['source_sha256']:raise ValueError('Stored observation provenance mismatch')
+        source=analysis.get('source')
+        if not isinstance(source,dict):raise ValueError('Stored source object required')
+        if analysis.get('model_sha256')!=record['provenance']['model_sha256'] or source.get('sha256')!=record['provenance']['source_sha256']:raise ValueError('Stored observation provenance mismatch')
     canonical(record)
 
 

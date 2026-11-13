@@ -135,11 +135,11 @@ def execute(request, permissions):
             memory_path=permissions.require(request['memory'],write=True)
         from seye.learning.training_checkpoint import load
         from seye.recognition.pipeline import FeaturePipeline
-        from seye.recognition.trained import predict
+        from seye.recognition.trained import predict as predict_trained
         model=load(permissions.require(request['model']))
         image,source=load_image(permissions.require(request['image']),max_pixels=4_000_000)
         packet=FeaturePipeline().extract(image,[component['name'] for component in model['schema']['components']])
-        result=predict(model,packet);result['source']=source
+        result=predict_trained(model,packet);result['source']=source
         if memory_path is not None:
             from seye.memory.packet_observations import remember
             result.update(remember(memory_path,identifier,packet,result))

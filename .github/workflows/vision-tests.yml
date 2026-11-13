@@ -50,6 +50,12 @@ jobs:
           import os, subprocess, sys
           for stage in range(101, 111):
               subprocess.run([sys.executable, 'scripts/benchmark_stage101_110.py', '--stage', str(stage), '--output', os.path.join(os.environ['RUNNER_TEMP'], f'stage{stage}-report.json')], check=True)
+      - name: Stage 111 through 120 experiments
+        shell: python
+        run: |
+          import os, subprocess, sys
+          for stage in range(111, 121):
+              subprocess.run([sys.executable, 'scripts/benchmark_stage111_120.py', '--stage', str(stage), '--output', os.path.join(os.environ['RUNNER_TEMP'], f'stage{stage}-report.json')], check=True)
       - run: python scripts/audit_source.py --output "${{ runner.temp }}/current-source-audit.json"
       - run: python scripts/release_audit.py --output "${{ runner.temp }}/release-readiness.json"
       - run: python -m pip wheel --no-deps . --wheel-dir "${{ runner.temp }}/seye-dist"
@@ -73,4 +79,6 @@ jobs:
             ${{ runner.temp }}/stage100-report.json
             ${{ runner.temp }}/stage10*-report.json
             ${{ runner.temp }}/stage110-report.json
+            ${{ runner.temp }}/stage11*-report.json
+            ${{ runner.temp }}/stage120-report.json
             ${{ runner.temp }}/seye-dist/*.whl

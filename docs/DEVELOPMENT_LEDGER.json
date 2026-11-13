@@ -1510,6 +1510,7 @@
                 }
               ],
               "samples": 10,
+              "test_capture_sha256": "0c6d3ac02884bd25bc18d0e9a15c2a00459f71c7c4662bc9de58dbfe5e922beb",
               "unknown_rejected": 4,
               "unknown_samples": 4
             },
@@ -1934,6 +1935,7 @@
                 }
               ],
               "samples": 10,
+              "test_capture_sha256": "0c6d3ac02884bd25bc18d0e9a15c2a00459f71c7c4662bc9de58dbfe5e922beb",
               "unknown_rejected": 4,
               "unknown_samples": 4
             },
@@ -2098,6 +2100,7 @@
                 }
               ],
               "samples": 10,
+              "test_capture_sha256": "0c6d3ac02884bd25bc18d0e9a15c2a00459f71c7c4662bc9de58dbfe5e922beb",
               "unknown_rejected": 4,
               "unknown_samples": 4
             }

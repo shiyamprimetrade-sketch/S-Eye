@@ -57,8 +57,9 @@ No pretrained recognition model replaces S-Eye's independent algorithms.
 - [Stage 91 template-free regions](docs/STAGE91_INTERFACE_REGIONS.md)
 - [Stages 92–100 scopes, measurements and API](docs/STAGES_092_100.md)
 - [Stages 101–110 recognition framework and measured failures](docs/STAGES_101_110.md)
+- [Stages 111–120 learning, ablation and persistent observations](docs/STAGES_111_120.md)
 - [Architecture](docs/ARCHITECTURE.md), [integration](docs/INTEGRATION.md), [limitations](docs/LIMITATIONS.md)
 - [Historical Stage 84 audit](docs/STAGE84_AUDIT.md) and [release criteria](docs/RELEASE_CRITERIA.md)
 
-Version 1.0 remains unfinished. The current authorized batch ends at Stage 110;
+Version 1.0 remains unfinished. The current authorized batch ends at Stage 120;
 wait for the owner’s next Continue before advancing.

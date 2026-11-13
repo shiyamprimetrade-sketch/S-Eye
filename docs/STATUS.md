@@ -245,3 +245,25 @@ acceptance. Human review is not required for ordinary engineering continuation.
 Stages 101–110 implementation checkpoint `995f699358077f2ab53e036cfe82b223add7a1a5`; exact published stage SHAs are in the ledger and benchmarks/stages101_110_publication.json. 166 tests pass locally. Known recognition remains 0/6 on the generated held-out test. Stop at 110; exact-head CI pending.
 
 Verified 101–110 framework checkpoint `6417eb9305e1e18a404fa0ccb3641b9ac9146f1b`: all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including 166 tests, ten experiments, historical checks, installation, audits and artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43410582280 . The known-glyph result remains 0/6 and representative recognition is not validated. This later receipt changes documentation only; the cited CI run belongs to that exact SHA. Stop at 110 and wait for Continue.
+
+
+## Stages 111–120 learning and persistence checkpoint
+
+Implemented annotation/provenance checks, explicit partitions, independently
+seeded schema-bound SGD, verified inference checkpoints, reproducibility records,
+overfit diagnostics, sample-count curves, baseline/ablation comparisons, separate
+known/unknown regression gates and optional verified trained-observation memory.
+187 local tests pass, including the legacy batch-recognition path. A predictor
+import-shadowing regression caught by the full suite has been corrected.
+
+New precommitted generated protocol: layout comparator 0/6 known and 4/4 unknown;
+centered prototype 6/6 and 4/4; centered SGD 6/6 and 4/4. The representation change
+accounts for the observed gain; SGD does not outperform centered prototypes here.
+These are correlated synthetic captures, not representative application accuracy.
+The original Stage 109 failure is preserved. See STAGES_111_120.md and
+benchmarks/stage118_experiment.json. No pretrained weights, old-model replacement
+or main-S change. Exact-head CI is tracked separately.
+
+STOP at Stage 120. Wait for Continue before 121–130, beginning with observation
+identity and schema-aware memory retrieval. OCR/expert vision and v1.0 remain
+unfulfilled. Human review does not block ordinary engineering continuation.
