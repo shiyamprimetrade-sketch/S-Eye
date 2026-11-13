@@ -142,6 +142,20 @@ def stage157():
             'resources':report,'passed':report['wall_seconds']>=0 and report['process_cpu_seconds']>=0}
 
 
+def stage158():
+    from seye.memory.store import Memory
+    from seye.memory.packet_index import rebuild
+    from seye.memory.footprint import storage_report,snapshot,verify_snapshot
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);m=Memory(root/'memory.sqlite3')
+        try:
+            m.put_many([numeric_record(i,128) for i in range(128)]);before=storage_report(m);rebuild(m);indexed=storage_report(m)
+            backup=snapshot(m,root/'snapshot.sqlite3');recovered=verify_snapshot(root/'snapshot.sqlite3',backup['snapshot_sha256'])
+        finally:m.close()
+    return {'before_index':before,'after_index':indexed,'backup':backup,'recovered_observations':recovered['verified_observations'],
+            'passed':recovered['verified_observations']==128 and indexed['derived_index_payload_bytes']>0}
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--stage',required=True,type=int,choices=range(151,161));p.add_argument('--output',required=True)
     a=p.parse_args();r=globals()[f'stage{a.stage}']();atomic_json(a.output,r,overwrite=True);print(json.dumps(r,sort_keys=True))

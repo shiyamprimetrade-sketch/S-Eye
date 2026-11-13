@@ -44,10 +44,13 @@ class Memory:
         if read_only:
             from urllib.parse import quote
             self.db = sqlite3.connect('file:' + quote(str(self.path.resolve())) + '?mode=ro', uri=True)
-            if self.db.execute('PRAGMA application_id').fetchone()[0] != APPLICATION_ID:
+            try:
+                if self.db.execute('PRAGMA application_id').fetchone()[0] != APPLICATION_ID:
+                    raise ValueError('Not an S-Eye memory database')
+                self.verify()
+            except BaseException:
                 self.db.close()
-                raise ValueError('Not an S-Eye memory database')
-            self.verify()
+                raise
             return
         self.path.parent.mkdir(parents=True, exist_ok=True)
         existed = self.path.exists()

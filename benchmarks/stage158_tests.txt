@@ -1,0 +1,7 @@
+test_snapshot_reopens_with_records_index_and_source_unchanged (test_stage158.StorageRecoveryTests.test_snapshot_reopens_with_records_index_and_source_unchanged) ... ok
+test_unfinished_transaction_and_corrupt_source_do_not_publish (test_stage158.StorageRecoveryTests.test_unfinished_transaction_and_corrupt_source_do_not_publish) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.005s
+
+OK
