@@ -49,3 +49,5 @@ model, classifier replacement or private-memory migration has been introduced.
 - Repair Stage 90 cross-platform frozen-report acceptance: retain encoded provenance and require canonical decoded image identities plus unchanged semantic results.
 
 - Stages 92–100: ordered contours/holes, explicit boundary pairing, projection splitting, bounded denoising/gap reconstruction, stroke RLE transport, visible-color overlaps, caller-grounded perspective normalization and versioned feature composition. Each has focused tests and experiment evidence.
+
+- Stages 101–110: independently versioned geometry/appearance, schema-safe similarity, packet prototypes, validation-only empirical support, unknown rejection, top-k explanations, scoped recognition, explicit negative generalization evidence and immutable dataset revisions.

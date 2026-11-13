@@ -219,3 +219,25 @@ Owner requested stopping at Stage 100: wait for Continue before Stage 101.
 Stages 92–100 implementation checkpoint: `d5bee7bba6e5c36cebea2551148eb0177cb01240`. Individual published stage SHAs are recorded in the development ledger and benchmarks/stages092_100_publication.json. Stop at Stage 100; exact-head CI pending.
 
 Verified Stages 92–100 checkpoint: `38062303cdc055e2cd5401d075892797e3680f70`. All four Ubuntu/Windows Python 3.12/3.13 jobs passed: 143 tests, every stage experiment, historical benchmarks, installation, audits and artifacts. https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43407859586 . Later publication receipts change documentation only; the cited run belongs to this exact SHA. Stop at Stage 100 and wait for owner Continue.
+
+
+## Stages 101–110 recognition-framework checkpoint
+
+Implemented scoped geometric/appearance descriptors, schema-safe similarity,
+prototype fitting, model-bound validation-only empirical support, unknown rejection,
+ranked candidates, evidence explanations, generated evaluation and immutable dataset
+revisions. Each stage has focused tests, a reproducible experiment and a commit.
+163 local tests pass; exact-head CI is tracked separately. Existing models remain
+compatible; no pretrained model or main-S modification is introduced.
+
+Critical measured limit: generated held-out known recognition is 0/6, unknown
+rejection 4/4; all ten decisions exceed validation radii. This is a failed
+generalization result, not reliable recognition. The engineering framework is
+implemented/tested; representative Stage 100–109 recognition validation remains
+unfulfilled. See STAGES_101_110.md and benchmarks/stage109_experiment.json.
+
+Owner now requests ten-stage batches: STOP at 110; wait for Continue before
+111–120. Stage 111 should validate annotations/preprocessing and diagnose shift
+sensitivity. Do not tune on the inspected test and present it as new held-out proof.
+Version 1.0/expert vision is not complete; reaching Stage 199 is not itself release
+acceptance. Human review is not required for ordinary engineering continuation.

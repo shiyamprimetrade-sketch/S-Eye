@@ -111,3 +111,25 @@ application accuracy or expert equivalence. Every stage has focused tests, a
 reproducible experiment and its own implementation commit. Original comparators
 and descriptor compatibility are preserved. Exact-head CI is tracked separately.
 Owner requested stopping at Stage 100: wait for Continue before Stage 101.
+
+
+## Stages 101–110 recognition-framework checkpoint
+
+Implemented scoped geometric/appearance descriptors, schema-safe similarity,
+prototype fitting, model-bound validation-only empirical support, unknown rejection,
+ranked candidates, evidence explanations, generated evaluation and immutable dataset
+revisions. Each stage has focused tests, a reproducible experiment and a commit.
+163 local tests pass; exact-head CI is tracked separately. Existing models remain
+compatible; no pretrained model or main-S modification is introduced.
+
+Critical measured limit: generated held-out known recognition is 0/6, unknown
+rejection 4/4; all ten decisions exceed validation radii. This is a failed
+generalization result, not reliable recognition. The engineering framework is
+implemented/tested; representative Stage 100–109 recognition validation remains
+unfulfilled. See STAGES_101_110.md and benchmarks/stage109_experiment.json.
+
+Owner now requests ten-stage batches: STOP at 110; wait for Continue before
+111–120. Stage 111 should validate annotations/preprocessing and diagnose shift
+sensitivity. Do not tune on the inspected test and present it as new held-out proof.
+Version 1.0/expert vision is not complete; reaching Stage 199 is not itself release
+acceptance. Human review is not required for ordinary engineering continuation.
