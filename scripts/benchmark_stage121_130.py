@@ -60,6 +60,24 @@ def stage125():
     r=compare_observations(scene_record([[10,10,30,30],[60,10,80,30]]),scene_record([[10,10,30,30]]))
     return {'cases':1,'matched':len(r['matched']),'missing':len(r['missing']),'passed':len(r['matched'])==1 and len(r['missing'])==1 and r['comparable']}
 
+def stage126():
+    import io,hashlib
+    from seye.memory.store import Memory
+    from seye.memory.identity import pixel_identity
+    from seye.memory.duplicates import groups
+    from seye.recognition.pipeline import FeaturePipeline
+    image=Image.new('RGB',(40,30),'black');ImageDraw.Draw(image).rectangle((10,8,29,21),fill='white');packet=FeaturePipeline().extract(image,['shape'])
+    with tempfile.TemporaryDirectory() as directory:
+        m=Memory(Path(directory)/'m.sqlite3')
+        try:
+            for compression in (0,9):
+                encoded=io.BytesIO();image.save(encoded,format='PNG',compress_level=compression)
+                m.put({'schema_version':1,'features':None,'packet':packet,'analysis':{'source':{'pixel_sha256':pixel_identity(image)}},'provenance':{'kind':'generated_duplicate_fixture','source_sha256':hashlib.sha256(encoded.getvalue()).hexdigest()}})
+            r=groups(m)
+        finally:m.close()
+    counts={k:len(v) for k,v in r['groups'].items()}
+    return {'cases':2,'group_counts':counts,'passed':counts=={'source_content':0,'decoded_pixels':1,'feature_equivalence':1} and not r['automatic_deletion']}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(121,131),required=True);p.add_argument('--output',type=Path,required=True)

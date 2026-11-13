@@ -2432,6 +2432,31 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 126"
+    },
+    {
+      "id": "stage126-memory-engineering",
+      "objective": "Exact source-content, decoded-pixel and feature-equivalence groups remain separate, including differently encoded identical PNG pixels; no automatic deletion or real-object identity inference.",
+      "files_changed": [
+        "src/seye/memory/duplicates.py",
+        "tests/test_stage126.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage126_tests.txt and benchmark_stage121_130.py --stage 126",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 2,
+        "group_counts": {
+          "decoded_pixels": 1,
+          "feature_equivalence": 1,
+          "source_content": 0
+        },
+        "passed": true
+      },
+      "commit_sha": "Commit subject Stage 126; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 127"
     }
   ]
 }
