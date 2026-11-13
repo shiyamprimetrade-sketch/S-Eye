@@ -167,6 +167,27 @@ def execute(request, permissions):
             from seye.memory.history import link,read as read_history
             result=link(memory,request['entity'],request['observation_id'],request['session'],request['event_index'],request.get('reason','caller_asserted_same_target')) if write else read_history(memory,request['entity'],request.get('limit',50))
         finally:memory.close()
+    elif action in ('memory_inspect','memory_provenance','memory_duplicates','memory_compare'):
+        if not permissions.memory:raise PermissionError('Explicit memory permission required')
+        memory=Memory(permissions.require(request['memory']),read_only=True)
+        try:
+            if action=='memory_inspect':
+                from seye.memory.provenance import summarize
+                record=memory.get(request['observation_id'])
+                if record is None:raise ValueError('Observation not found')
+                result=summarize(record)
+            elif action=='memory_provenance':
+                from seye.memory.provenance import audit
+                result=audit(memory)
+            elif action=='memory_duplicates':
+                from seye.memory.duplicates import groups
+                result=groups(memory)
+            else:
+                from seye.memory.scenes import compare_observations
+                before=memory.get(request['before']);after=memory.get(request['after'])
+                if before is None or after is None:raise ValueError('Comparison observations not found')
+                result=compare_observations(before,after)
+        finally:memory.close()
     elif action == 'recognize_batch':
         from seye.recognition.cache import FeatureCache
         paths = request.get('images')

@@ -78,6 +78,15 @@ def stage126():
     counts={k:len(v) for k,v in r['groups'].items()}
     return {'cases':2,'group_counts':counts,'passed':counts=={'source_content':0,'decoded_pixels':1,'feature_equivalence':1} and not r['automatic_deletion']}
 
+def stage127():
+    from seye.memory.store import Memory
+    from seye.memory.provenance import audit
+    with tempfile.TemporaryDirectory() as directory:
+        m=Memory(Path(directory)/'m.sqlite3')
+        try:m.put({'schema_version':1,'features':None,'provenance':{}});r=audit(m)
+        finally:m.close()
+    return {'cases':1,'audit':r,'passed':r['missing_source_identity']==1 and not r['confidence_probabilities_inferred']}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(121,131),required=True);p.add_argument('--output',type=Path,required=True)
