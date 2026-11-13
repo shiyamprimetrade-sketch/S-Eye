@@ -7504,6 +7504,342 @@
         "Representative tracking and v1.0 gates remain open"
       ],
       "next_task": "Stop at 150; next Continue starts 151\u2013160"
+    },
+    {
+      "id": "stage151-performance-engineering",
+      "objective": "Bounded image decoding with reduced no-orientation copies; RGB equivalence across modes/EXIF and generated host timing.",
+      "files_changed": [
+        "benchmarks/stage151_experiment.json",
+        "benchmarks/stage151_tests.txt",
+        "scripts/benchmark_stage151_160.py",
+        "src/seye/image/ingestion.py",
+        "src/seye/performance/__init__.py",
+        "tests/test_stage151.py"
+      ],
+      "tests_executed": "benchmarks/stage151_tests.txt; benchmark_stage151_160.py --stage 151; full regression",
+      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "passed": true
+      },
+      "commit_sha": "ca4fea2ded0ead9be44552ad08fcfc0163bf22bd",
+      "local_equivalent_sha": "1bcb5df6f2d7d8ac2def5efbfad518c64c425f47",
+      "tree_sha": "ac94942bef8f4c6960b219d158efe18f87fa73fd",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated host controls only; representative application/device workloads remain unvalidated",
+        "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
+        "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
+      ],
+      "next_task": "Stage 152"
+    },
+    {
+      "id": "stage152-performance-engineering",
+      "objective": "Opt-in full-observation stage wall/process-CPU tracing with identical visual evidence.",
+      "files_changed": [
+        "benchmarks/stage152_experiment.json",
+        "benchmarks/stage152_tests.txt",
+        "scripts/benchmark_stage151_160.py",
+        "src/seye/interface/observer.py",
+        "src/seye/performance/trace.py",
+        "tests/test_stage152.py"
+      ],
+      "tests_executed": "benchmarks/stage152_tests.txt; benchmark_stage151_160.py --stage 152; full regression",
+      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "passed": true
+      },
+      "commit_sha": "e7e4137a9188c818b7c2c69b5a1702c4f29e822d",
+      "local_equivalent_sha": "62407c99b39ee03498f678adaa0f960ba01fd339",
+      "tree_sha": "3c66f64ed906ffbc291e665ffa1976d695a5896e",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated host controls only; representative application/device workloads remain unvalidated",
+        "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
+        "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
+      ],
+      "next_task": "Stage 153"
+    },
+    {
+      "id": "stage153-performance-engineering",
+      "objective": "Within-image reuse of deterministic feature components across ordered schema selections.",
+      "files_changed": [
+        "benchmarks/stage153_experiment.json",
+        "benchmarks/stage153_tests.txt",
+        "scripts/benchmark_stage151_160.py",
+        "src/seye/recognition/pipeline.py",
+        "tests/test_stage153.py"
+      ],
+      "tests_executed": "benchmarks/stage153_tests.txt; benchmark_stage151_160.py --stage 153; full regression",
+      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "passed": true,
+        "component_extractions": 3,
+        "reused_component_requests": 3
+      },
+      "commit_sha": "445fffd2e14a03fb26a27aec5bea0c98be1d4b7d",
+      "local_equivalent_sha": "0984889e92a01c3d3ee891a5597015b7a6e9ec69",
+      "tree_sha": "e69cd2ab5f68d0cfd6ef54b97ec61ae864958712",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated host controls only; representative application/device workloads remain unvalidated",
+        "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
+        "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
+      ],
+      "next_task": "Stage 154"
+    },
+    {
+      "id": "stage154-performance-engineering",
+      "objective": "Grouped exact packet queries under one pinned SQLite snapshot and authoritative scan; generated 1-D and 257-D scaling harness.",
+      "files_changed": [
+        "benchmarks/stage154_experiment.json",
+        "benchmarks/stage154_tests.txt",
+        "scripts/benchmark_stage151_160.py",
+        "src/seye/memory/packet_index.py",
+        "tests/test_stage154.py"
+      ],
+      "tests_executed": "benchmarks/stage154_tests.txt; benchmark_stage151_160.py --stage 154; full regression",
+      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "passed": true,
+        "index_controls": [
+          {
+            "observations": 64,
+            "feature_dimension": 1,
+            "matches_exhaustive": true,
+            "results_identical": true,
+            "distance_evaluations": [
+              8,
+              12,
+              7
+            ],
+            "authoritative_inventory_verifications": 1
+          },
+          {
+            "observations": 512,
+            "feature_dimension": 1,
+            "matches_exhaustive": true,
+            "results_identical": true,
+            "distance_evaluations": [
+              11,
+              18,
+              10
+            ],
+            "authoritative_inventory_verifications": 1
+          },
+          {
+            "observations": 2048,
+            "feature_dimension": 1,
+            "matches_exhaustive": true,
+            "results_identical": true,
+            "distance_evaluations": [
+              13,
+              22,
+              12
+            ],
+            "authoritative_inventory_verifications": 1
+          },
+          {
+            "observations": 256,
+            "feature_dimension": 257,
+            "matches_exhaustive": true,
+            "results_identical": true,
+            "distance_evaluations": [
+              256,
+              256,
+              256
+            ],
+            "authoritative_inventory_verifications": 1
+          }
+        ]
+      },
+      "commit_sha": "d701b27d74af320ead06155326bd52a51ccd68b6",
+      "local_equivalent_sha": "877dc21cf257baf9c9a4f07d041db54a7fdeede8",
+      "tree_sha": "93b0a1d2b204d15dca31a81ff84e5e6891b22cee",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated host controls only; representative application/device workloads remain unvalidated",
+        "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
+        "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
+      ],
+      "next_task": "Stage 155"
+    },
+    {
+      "id": "stage155-performance-engineering",
+      "objective": "Atomic bounded memory insertion with caller-transaction preservation, and ordered per-image batch receipts.",
+      "files_changed": [
+        "benchmarks/stage155_experiment.json",
+        "benchmarks/stage155_tests.txt",
+        "scripts/benchmark_stage151_160.py",
+        "src/seye/integration/service.py",
+        "src/seye/interface/batch.py",
+        "src/seye/interface/observer.py",
+        "src/seye/memory/store.py",
+        "tests/test_stage155.py"
+      ],
+      "tests_executed": "benchmarks/stage155_tests.txt; benchmark_stage151_160.py --stage 155; full regression",
+      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "passed": true,
+        "records": 64,
+        "image_successes": 6,
+        "image_failures": 1
+      },
+      "commit_sha": "f4b64f2254189a9a306cc7c764e089b6156e8e92",
+      "local_equivalent_sha": "ca04d13a82ce803bebf17307cc78b46c67617849",
+      "tree_sha": "ab2c1a47990e8aef1f88a4a787478556aee84a87",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated host controls only; representative application/device workloads remain unvalidated",
+        "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
+        "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
+      ],
+      "next_task": "Stage 156"
+    },
+    {
+      "id": "stage156-performance-engineering",
+      "objective": "Explicit-lifetime schema/source-keyed packet LRU with fresh read/hash/decode, eviction and mutation-isolation tests.",
+      "files_changed": [
+        "benchmarks/stage156_experiment.json",
+        "benchmarks/stage156_tests.txt",
+        "scripts/benchmark_stage151_160.py",
+        "src/seye/recognition/packet_cache.py",
+        "src/seye/recognition/pipeline.py",
+        "tests/test_stage156.py"
+      ],
+      "tests_executed": "benchmarks/stage156_tests.txt; benchmark_stage151_160.py --stage 156; full regression",
+      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "passed": true,
+        "statistics": {
+          "entries": 3,
+          "evictions": 5,
+          "hits": 4,
+          "misses": 8,
+          "scope": "retained key/serialized-packet estimate; excludes LRU container, transient decode allocations and process RSS; fresh decode on every lookup",
+          "tracked_entry_bytes": 8107
+        }
+      },
+      "commit_sha": "0d4a3c6f0499d86a21e8494b888bcc10ddca0ce2",
+      "local_equivalent_sha": "53fe39535525bd133431cf336fcc6a03f43fb274",
+      "tree_sha": "4b12a80acf176a54a4d15f0c25046f778032431f",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated host controls only; representative application/device workloads remain unvalidated",
+        "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
+        "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
+      ],
+      "next_task": "Stage 157"
+    },
+    {
+      "id": "stage157-performance-engineering",
+      "objective": "Scoped process CPU/Python allocation observations preserving pre-existing tracing; no host-wide utilization claim.",
+      "files_changed": [
+        "benchmarks/stage157_experiment.json",
+        "benchmarks/stage157_tests.txt",
+        "scripts/benchmark_stage151_160.py",
+        "src/seye/performance/resources.py",
+        "src/seye/performance/trace.py",
+        "tests/test_stage157.py"
+      ],
+      "tests_executed": "benchmarks/stage157_tests.txt; benchmark_stage151_160.py --stage 157; full regression",
+      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "passed": true
+      },
+      "commit_sha": "d282dca48f772bac69949c02cf5c2e85e510bd41",
+      "local_equivalent_sha": "2cc8afd67b5af4d385eeefe3c48bbe0398bca43a",
+      "tree_sha": "ff9ede07326750fe3ba51edaf4861ce0e9ef3162",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated host controls only; representative application/device workloads remain unvalidated",
+        "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
+        "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
+      ],
+      "next_task": "Stage 158"
+    },
+    {
+      "id": "stage158-performance-engineering",
+      "objective": "Read-only storage/page/index accounting and exclusive verified SQLite snapshot/reopen recovery.",
+      "files_changed": [
+        "benchmarks/stage158_experiment.json",
+        "benchmarks/stage158_tests.txt",
+        "scripts/benchmark_stage151_160.py",
+        "src/seye/memory/footprint.py",
+        "src/seye/memory/store.py",
+        "tests/test_stage158.py"
+      ],
+      "tests_executed": "benchmarks/stage158_tests.txt; benchmark_stage151_160.py --stage 158; full regression",
+      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "passed": true,
+        "recovered_observations": 128
+      },
+      "commit_sha": "e91ee30d04073742fcdc07a6c613f12390e2660c",
+      "local_equivalent_sha": "f81e8782bffad43655c7265868879b3597816e4d",
+      "tree_sha": "61f738b5b8aea7dc19e69bed03d9b1ac729e3d41",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated host controls only; representative application/device workloads remain unvalidated",
+        "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
+        "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
+      ],
+      "next_task": "Stage 159"
+    },
+    {
+      "id": "stage159-performance-engineering",
+      "objective": "Portable executable host/CI measurement harness; Android clues never certify hardware and actual Android validation remains open.",
+      "files_changed": [
+        "benchmarks/stage159_experiment.json",
+        "benchmarks/stage159_tests.txt",
+        "scripts/benchmark_stage151_160.py",
+        "src/seye/performance/platforms.py",
+        "tests/test_stage159.py"
+      ],
+      "tests_executed": "benchmarks/stage159_tests.txt; benchmark_stage151_160.py --stage 159; full regression",
+      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "passed": true
+      },
+      "commit_sha": "7de3c95b46f243dd0cdc485436bd780fb9c9231b",
+      "local_equivalent_sha": "c9a342f598129a5047940585bd4434aa6ce439a3",
+      "tree_sha": "ab6c334795a74396ab8df606e1302af890b2651e",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated host controls only; representative application/device workloads remain unvalidated",
+        "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
+        "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
+      ],
+      "next_task": "Stage 160"
+    },
+    {
+      "id": "stage160-performance-engineering",
+      "objective": "Stable permission-scoped Python Client, killable default worker, profiled/batch/feature/query/storage/snapshot API extensions.",
+      "files_changed": [
+        "benchmarks/stage160_experiment.json",
+        "benchmarks/stage160_tests.txt",
+        "scripts/benchmark_stage151_160.py",
+        "src/seye/api/__init__.py",
+        "src/seye/api/client.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage160.py"
+      ],
+      "tests_executed": "benchmarks/stage160_tests.txt; benchmark_stage151_160.py --stage 160; full regression",
+      "test_results": "278 local tests passed; all ten experiments reran successfully; installed CLI/Python API worker smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "passed": true,
+        "api_version": "seye-request-v1",
+        "profile_evidence_equal": true
+      },
+      "commit_sha": "f910f87e8d781f76c1f7bc79586c2db7376abb95",
+      "local_equivalent_sha": "792adcd666b5d8c7cb9379ef9e87b354bac37407",
+      "tree_sha": "0945d6b07922d33239be3533fc9a7241c292f3b4",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated host controls only; representative application/device workloads remain unvalidated",
+        "KD pruning visited all 256 vectors in the 257-D control; no global speedup claim",
+        "Actual Android ARM64 hardware unavailable; conservative tracking negative results and v1.0 gates unchanged"
+      ],
+      "next_task": "Stop at 160; next Continue starts 161\u2013170"
     }
   ]
 }

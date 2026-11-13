@@ -1,3 +1,27 @@
+## Latest checkpoint: Stages 151–160
+
+Implemented bounded decoding, optional full-observation latency/CPU tracing,
+within-image feature reuse, grouped verified memory queries, atomic observation
+batches, explicit-lifetime packet cache, process allocation profiling, verified
+SQLite recovery snapshots and a stable permission-scoped Python Client. See
+[STAGES_151_160.md](STAGES_151_160.md) and the development ledger.
+
+278 local tests passed; all ten experiments passed twice; installed CLI/Python
+worker/default-denial/cache smokes outside the checkout and a wheel build passed.
+Exact-head Linux/Windows CI is pending publication. Generated index controls match
+exhaustive retrieval at up to 2048 scalar records and 256 x 257-D vectors. The
+257-D case visits every vector: no universal indexing speedup is claimed. A
+128-record SQLite snapshot recovers with its index. Timing/allocation measurements
+are host observations. Stage 159 completes its portable harness; actual Android
+ARM64 device measurements remain unavailable. Representative application accuracy,
+conservative-tracker negative results, native security and v1.0 gates stay open.
+
+STOP at 160. Wait for Continue before 161–170: extend versioned S integration
+contracts, memory/tools boundaries, requests, evidence questions, deadlines and
+installed-client requirements while preserving existing paths and checkpoints.
+
+---
+
 ## Latest checkpoint: Stages 141–150
 
 Implemented opt-in conservative temporal association, explicit sampling/motion

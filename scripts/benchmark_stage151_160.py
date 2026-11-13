@@ -60,10 +60,12 @@ def stage153():
             'scope':'generated image; feature extraction only; no decode or portable acceleration claim','passed':old==new['packets'] and new['component_extractions']==3}
 
 
-def numeric_record(index,count):
+def numeric_record(index,count,dimension=1):
     from seye.core.storage import checksum
-    schema={'version':'seye-feature-pipeline-v1','components':[{'name':'scalar','version':'numeric-fixture-v1','dimension':1,'offset':0}],'dimension':1}
-    packet={'schema':schema,'schema_sha256':checksum(schema),'features':[index/count]}
+    schema={'version':'seye-feature-pipeline-v1','components':[{'name':'scalar' if dimension==1 else 'numeric257','version':'numeric-fixture-v1','dimension':dimension,'offset':0}],'dimension':dimension}
+    import random
+    generator=random.Random(index)
+    packet={'schema':schema,'schema_sha256':checksum(schema),'features':[index/count] if dimension==1 else [generator.random() for _ in range(dimension)]}
     return {'schema_version':1,'features':None,'packet':packet,'provenance':{'kind':'numeric_fixture','source_sha256':checksum({'index':index,'count':count})}}
 
 
@@ -74,25 +76,25 @@ def stage154():
     cases=[]
     with tempfile.TemporaryDirectory() as directory:
         root=Path(directory)
-        for n in (64,512,2048):
-            records=[numeric_record(i,n) for i in range(n)];payload={'schema_version':1,'observations':records}
+        for n,dimension in ((64,1),(512,1),(2048,1),(256,257)):
+            records=[numeric_record(i,n,dimension) for i in range(n)];payload={'schema_version':1,'observations':records}
             path=root/f'{n}.json';atomic_json(path,{'payload':payload,'sha256':checksum(payload)})
             m=Memory(root/f'{n}.sqlite3')
             try:
                 m.import_file(path);before=time.perf_counter();rebuild(m);build=time.perf_counter()-before
-                packets=[numeric_record(i,n)['packet'] for i in (1,n//2,n-2)]
+                packets=[numeric_record(i,n,dimension)['packet'] for i in (1,n//2,n-2)]
                 before=time.perf_counter();single=[query(m,p,3) for p in packets];single_seconds=time.perf_counter()-before
                 before=time.perf_counter();group=query_many(m,packets,3);group_seconds=time.perf_counter()-before
                 exact=[]
                 for p,r in zip(packets,group['queries']):
-                    expected=sorted([(abs(row['packet']['features'][0]-p['features'][0]),checksum(row)) for row in records])[:3]
+                    expected=sorted([(sum((a-b)**2 for a,b in zip(row['packet']['features'],p['features'])),checksum(row)) for row in records])[:3]
                     exact.append([v['id'] for v in r['matches']]==[v[1] for v in expected])
-                cases.append({'observations':n,'build_seconds':build,'single_query_seconds':single_seconds,'grouped_seconds':group_seconds,
+                cases.append({'observations':n,'feature_dimension':dimension,'build_seconds':build,'single_query_seconds':single_seconds,'grouped_seconds':group_seconds,
                               'results_identical':single==group['queries'],'matches_exhaustive':all(exact),
                               'distance_evaluations':[q['distance_evaluations'] for q in group['queries']],
                               'authoritative_inventory_verifications':group['authoritative_inventory_verifications']})
             finally:m.close()
-    return {'cases':cases,'scope':'1-D generated descriptors up to 2048 observations; not large-scale/high-dimensional representative memory',
+    return {'cases':cases,'scope':'Generated descriptors up to 2048 scalar observations plus 256 x 257-D vectors; not representative application or large-scale memory',
             'passed':all(c['results_identical'] and c['matches_exhaustive'] for c in cases)}
 
 

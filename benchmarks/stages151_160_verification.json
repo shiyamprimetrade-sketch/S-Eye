@@ -1,0 +1,29 @@
+{
+  "local_tests": 278,
+  "all_ten_experiments_passed_twice": true,
+  "installed_cli": {
+    "installed_module": "/tmp/seye150-venv/lib/python3.12/site-packages/seye/__init__.py",
+    "class": "triangle",
+    "overlay_created": true,
+    "source_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+    "executed_outside_checkout": true,
+    "versioned_workflow_passed": true
+  },
+  "installed_python_api": {
+    "installed_python_api_passed": true,
+    "spawned_worker_passed": true,
+    "default_denial_passed": true,
+    "packet_cache_hits": 2,
+    "api_version": "seye-request-v1",
+    "executed_outside_checkout": true
+  },
+  "wheel_built": true,
+  "source_syntax": "all parsed successfully",
+  "changed_baseline_files": [
+    ".gitignore",
+    "README.md"
+  ],
+  "release_ready": false,
+  "android_hardware_measured": false,
+  "remote_ci": "pending exact-head publication"
+}

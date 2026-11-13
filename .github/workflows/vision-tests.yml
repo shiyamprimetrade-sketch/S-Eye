@@ -28,6 +28,7 @@ jobs:
       - run: seye --help
       - run: seye-workflow --help
       - run: python scripts/smoke_installed.py
+      - run: python scripts/smoke_python_api.py
       - run: python -m unittest discover -s tests -v
       - run: python scripts/benchmark_stage86.py --output "${{ runner.temp }}/stage86-report.json"
       - run: python scripts/benchmark_localization.py --output "${{ runner.temp }}/localization-report.json"
@@ -74,6 +75,12 @@ jobs:
           import os, subprocess, sys
           for stage in range(141, 151):
               subprocess.run([sys.executable, 'scripts/benchmark_stage141_150.py', '--stage', str(stage), '--output', os.path.join(os.environ['RUNNER_TEMP'], f'stage{stage}-report.json')], check=True)
+      - name: Stage 151 through 160 experiments
+        shell: python
+        run: |
+          import os, subprocess, sys
+          for stage in range(151, 161):
+              subprocess.run([sys.executable, 'scripts/benchmark_stage151_160.py', '--stage', str(stage), '--output', os.path.join(os.environ['RUNNER_TEMP'], f'stage{stage}-report.json')], check=True)
       - run: python scripts/audit_source.py --output "${{ runner.temp }}/current-source-audit.json"
       - run: python scripts/release_audit.py --output "${{ runner.temp }}/release-readiness.json"
       - run: python -m pip wheel --no-deps . --wheel-dir "${{ runner.temp }}/seye-dist"
@@ -105,4 +112,6 @@ jobs:
             ${{ runner.temp }}/stage140-report.json
             ${{ runner.temp }}/stage14*-report.json
             ${{ runner.temp }}/stage150-report.json
+            ${{ runner.temp }}/stage15*-report.json
+            ${{ runner.temp }}/stage160-report.json
             ${{ runner.temp }}/seye-dist/*.whl

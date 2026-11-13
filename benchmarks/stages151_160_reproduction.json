@@ -1,0 +1,65 @@
+{
+  "experiments": [
+    {
+      "stage": 151,
+      "passed": true,
+      "exact_report_match": false,
+      "host_timing_or_platform_fields_variable": true
+    },
+    {
+      "stage": 152,
+      "passed": true,
+      "exact_report_match": false,
+      "host_timing_or_platform_fields_variable": true
+    },
+    {
+      "stage": 153,
+      "passed": true,
+      "exact_report_match": false,
+      "host_timing_or_platform_fields_variable": true
+    },
+    {
+      "stage": 154,
+      "passed": true,
+      "exact_report_match": false,
+      "host_timing_or_platform_fields_variable": true
+    },
+    {
+      "stage": 155,
+      "passed": true,
+      "exact_report_match": false,
+      "host_timing_or_platform_fields_variable": true
+    },
+    {
+      "stage": 156,
+      "passed": true,
+      "exact_report_match": false,
+      "host_timing_or_platform_fields_variable": true
+    },
+    {
+      "stage": 157,
+      "passed": true,
+      "exact_report_match": false,
+      "host_timing_or_platform_fields_variable": true
+    },
+    {
+      "stage": 158,
+      "passed": true,
+      "exact_report_match": true,
+      "host_timing_or_platform_fields_variable": false
+    },
+    {
+      "stage": 159,
+      "passed": true,
+      "exact_report_match": false,
+      "host_timing_or_platform_fields_variable": true
+    },
+    {
+      "stage": 160,
+      "passed": true,
+      "exact_report_match": true,
+      "host_timing_or_platform_fields_variable": false
+    }
+  ],
+  "scope": "All ten experiments rerun; timing/platform/allocation fields are observations, not frozen portable contracts"
+}

@@ -1085,130 +1085,161 @@
       "stage": 151,
       "objective": "Bounded image decoding",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/image/ingestion.py",
-        "scripts/benchmark_independent_system.py"
+        "docs/STAGES_151_160.md",
+        "tests/test_stage151.py",
+        "benchmarks/stage151_experiment.json",
+        "benchmarks/stage151_tests.txt"
       ],
-      "open_requirement": "Bounded decoding exists; decode optimization benchmark still incomplete",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device/resource validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Bounded image decoding with reduced no-orientation copies; RGB equivalence across modes/EXIF and generated host timing."
     },
     {
       "stage": 152,
       "objective": "Processing latency",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/image/ingestion.py",
-        "scripts/benchmark_independent_system.py"
+        "docs/STAGES_151_160.md",
+        "tests/test_stage152.py",
+        "benchmarks/stage152_experiment.json",
+        "benchmarks/stage152_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device/resource validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Opt-in full-observation stage wall/process-CPU tracing with identical visual evidence."
     },
     {
       "stage": 153,
       "objective": "Feature extraction performance",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/image/ingestion.py",
-        "scripts/benchmark_independent_system.py"
+        "docs/STAGES_151_160.md",
+        "tests/test_stage153.py",
+        "benchmarks/stage153_experiment.json",
+        "benchmarks/stage153_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device/resource validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Within-image reuse of deterministic feature components across ordered schema selections."
     },
     {
       "stage": 154,
       "objective": "Memory indexing performance",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/image/ingestion.py",
-        "scripts/benchmark_independent_system.py"
+        "docs/STAGES_151_160.md",
+        "tests/test_stage154.py",
+        "benchmarks/stage154_experiment.json",
+        "benchmarks/stage154_tests.txt"
       ],
-      "open_requirement": "No large-scale memory-index performance experiment",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device/resource validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Grouped exact packet queries under one pinned SQLite snapshot and authoritative scan; generated 1-D and 257-D scaling harness."
     },
     {
       "stage": 155,
       "objective": "Batch processing",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/image/ingestion.py",
-        "scripts/benchmark_independent_system.py"
+        "docs/STAGES_151_160.md",
+        "tests/test_stage155.py",
+        "benchmarks/stage155_experiment.json",
+        "benchmarks/stage155_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device/resource validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Atomic bounded memory insertion with caller-transaction preservation, and ordered per-image batch receipts."
     },
     {
       "stage": 156,
       "objective": "Cache behavior",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/image/ingestion.py",
-        "scripts/benchmark_independent_system.py"
+        "docs/STAGES_151_160.md",
+        "tests/test_stage156.py",
+        "benchmarks/stage156_experiment.json",
+        "benchmarks/stage156_tests.txt"
       ],
-      "open_requirement": "Bounded opt-in cache measured on one repeated generated image; realistic device workloads unvalidated",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device/resource validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Explicit-lifetime schema/source-keyed packet LRU with fresh read/hash/decode, eviction and mutation-isolation tests."
     },
     {
       "stage": 157,
       "objective": "CPU utilization",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/image/ingestion.py",
-        "scripts/benchmark_independent_system.py"
+        "docs/STAGES_151_160.md",
+        "tests/test_stage157.py",
+        "benchmarks/stage157_experiment.json",
+        "benchmarks/stage157_tests.txt"
       ],
-      "open_requirement": "Python process CPU/wall times measured for descriptor cache; full system profiling pending",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device/resource validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Scoped process CPU/Python allocation observations preserving pre-existing tracing; no host-wide utilization claim."
     },
     {
       "stage": 158,
       "objective": "Storage consumption and recovery",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/image/ingestion.py",
-        "scripts/benchmark_independent_system.py"
+        "docs/STAGES_151_160.md",
+        "tests/test_stage158.py",
+        "benchmarks/stage158_experiment.json",
+        "benchmarks/stage158_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device/resource validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Read-only storage/page/index accounting and exclusive verified SQLite snapshot/reopen recovery."
     },
     {
       "stage": 159,
       "objective": "Android ARM64 Linux and Windows measurements",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/image/ingestion.py",
-        "scripts/benchmark_independent_system.py"
+        "docs/STAGES_151_160.md",
+        "tests/test_stage159.py",
+        "benchmarks/stage159_experiment.json",
+        "benchmarks/stage159_tests.txt"
       ],
-      "open_requirement": "Windows/Linux CI verified on Python 3.12/3.13; actual Android hardware measurements unavailable",
+      "open_requirement": "Actual Android ARM64 device measurements unavailable; Linux/Windows current-head CI recorded separately; portable host harness complete.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Portable executable host/CI measurement harness; Android clues never certify hardware and actual Android validation remains open."
     },
     {
       "stage": 160,
       "objective": "Stable Python request API",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/integration/service.py"
+        "docs/STAGES_151_160.md",
+        "tests/test_stage160.py",
+        "benchmarks/stage160_experiment.json",
+        "benchmarks/stage160_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device/resource validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Stable permission-scoped Python Client, killable default worker, profiled/batch/feature/query/storage/snapshot API extensions."
     },
     {
       "stage": 161,

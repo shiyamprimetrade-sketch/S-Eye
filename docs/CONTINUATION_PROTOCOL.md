@@ -375,3 +375,29 @@ Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43463514
 checkpoint; it does not attribute its CI to a later documentation SHA. The
 conservative negative result and representative-validation gaps remain unchanged.
 Stop at 150; next Continue starts 151–160.
+
+
+## Stages 151–160: bounded performance and Python API checkpoint
+
+The scoped engineering contracts in STAGES_151_160.md are implemented/tested/
+measured. 278 local tests pass; all ten experiments pass again, plus installed
+CLI/Python-client worker/default-denial/cache smoke and development wheel build.
+Timings, allocations and platform metadata vary. Storage/API control reports
+reproduce exactly on this host. Current-head remote CI is pending publication.
+
+Generated grouped queries equal exhaustive top-3 at 64/512/2048 scalar records and
+256 records x 257 dimensions. The high-dimensional case visits all vectors;
+authoritative verification is still linear. No universal indexing/decode speedup,
+representative recognition or real-device performance improvement is established.
+128-record backup/reopen recovery preserves the derived index. The conservative
+tracker stays opt-in with its prior negative aggregate result unchanged.
+
+Stage 159 completes the executable host measurement harness only. Linux/Windows
+CI evidence is recorded separately; actual Android ARM64 hardware measurements
+remain unavailable. Do not fabricate them or equate host clues with attestation.
+Release readiness remains false. Main S is not modified or deployed by this batch.
+
+STOP at 160. Next Continue authorizes 161–170: versioned JSON contracts, S-Memory/
+S-Tools adapters, permission-controlled file/camera boundaries, image/retrieval/
+evidence-question requests, errors/deadlines/cancellation, integration requirements
+and installed CLI. Preserve all source/data checkpoints and truthful open gates.
