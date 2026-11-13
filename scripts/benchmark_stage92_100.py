@@ -56,6 +56,13 @@ def stage97():
     r=localize(image);m=r['regions'][0]['mask'];score=mask_iou(decode_runs(m['source_size'],m['runs']),edge_mask(image))
     return {'cases':1,'regions':len(r['regions']),'observed_stroke_mask_iou':score,'passed':score==1 and len(r['regions'])==1}
 
+def stage98():
+    from seye.interface.overlap import visible_regions
+    image=Image.new('RGB',(100,70),'black');d=ImageDraw.Draw(image)
+    d.rectangle((10,10,49,39),fill='red');d.rectangle((30,20,69,49),fill='blue')
+    r=visible_regions(image);counts=sorted(x['visible_pixels'] for x in r['regions'])
+    return {'cases':1,'visible_components':len(r['regions']),'visible_pixels':counts,'box_overlap_pairs':len(r['overlaps']),'passed':counts==[800,1200] and len(r['overlaps'])==1}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(92,101),required=True);p.add_argument('--output',type=Path,required=True)

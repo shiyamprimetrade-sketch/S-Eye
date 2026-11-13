@@ -503,6 +503,34 @@
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
       "next_task": "Stage 98"
+    },
+    {
+      "id": "stage98-interface-engineering",
+      "objective": "Experimental color-component masks recover visible portions of differently colored overlapping regions and report box-overlap ambiguity; same-color overlaps and hidden instance extent remain unsupported.",
+      "files_changed": [
+        "src/seye/interface/overlap.py",
+        "src/seye/interface/observer.py",
+        "tests/test_stage098.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage098_tests.txt and benchmark_stage92_100.py --stage 98",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "box_overlap_pairs": 1,
+        "cases": 1,
+        "passed": true,
+        "visible_components": 2,
+        "visible_pixels": [
+          800,
+          1200
+        ]
+      },
+      "commit_sha": "Git commit with subject Stage 98; remote publication mapping recorded after batch",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated bounded evidence; no representative application accuracy",
+        "See STAGES_092_100.md for scope and unsupported cases"
+      ],
+      "next_task": "Stage 99"
     }
   ]
 }

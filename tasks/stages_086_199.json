@@ -208,14 +208,18 @@
       "stage": 98,
       "objective": "Overlapping and multi-object analysis",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/detection/annotations.py",
-        "src/seye/segmentation/experimental.py"
+        "src/seye/interface/overlap.py",
+        "src/seye/interface/observer.py",
+        "tests/test_stage098.py",
+        "benchmarks/stage098_experiment.json",
+        "benchmarks/stage098_tests.txt"
       ],
-      "open_requirement": "No general separation of overlapping objects; projection splitting is limited",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Experimental color-component masks recover visible portions of differently colored overlapping regions and report box-overlap ambiguity; same-color overlaps and hidden instance extent remain unsupported."
     },
     {
       "stage": 99,
