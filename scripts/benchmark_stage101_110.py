@@ -41,6 +41,12 @@ def stage104():
     train,val=numeric_data();model=fit(train,val);labels=[nearest(model,row['packet'])[0]['label'] for row in val]
     return {'cases':2,'scope':'numeric algorithm fixture, not photographs','labels':labels,'passed':labels==['a','b']}
 
+def stage105():
+    from seye.learning.packet_prototypes import fit
+    from seye.learning.packet_calibration import bind,support
+    train,val=numeric_data();model=fit(train,val);r=support(model,bind(model,val),numeric_packet(.01))
+    return {'cases':1,'empirical_support':r['validation_support_estimate'],'confidence_probability':r['confidence_probability'],'passed':r['validation_support_estimate']==1 and r['confidence_probability'] is None}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(101,111),required=True);p.add_argument('--output',type=Path,required=True)

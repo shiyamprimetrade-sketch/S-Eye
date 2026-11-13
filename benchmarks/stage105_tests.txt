@@ -1,0 +1,7 @@
+test_model_bound_empirical_support_is_not_probability (test_stage105.CalibrationTests.test_model_bound_empirical_support_is_not_probability) ... ok
+test_training_rows_or_modified_model_are_rejected (test_stage105.CalibrationTests.test_training_rows_or_modified_model_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK
