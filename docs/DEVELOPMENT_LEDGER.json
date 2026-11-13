@@ -352,6 +352,32 @@
       "next_task": "Stage 92 ordered contours and inner/outer boundary pairing against frozen benchmark",
       "verified_commit_sha": "165ab1d663354cce045ec690df4705d66c716e43",
       "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43405604944"
+    },
+    {
+      "id": "stage92-interface-engineering",
+      "objective": "Ordered pixel-cell contours preserve concavity, holes, diagonal separation and signed area; bounded to 200000 boundary edges. Not subpixel/antialiased contour recovery.",
+      "files_changed": [
+        "src/seye/interface/boundaries.py",
+        "tests/test_stage092.py",
+        "scripts/benchmark_stage92_100.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage092_tests.txt and benchmark_stage92_100.py --stage 92",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 1,
+        "expected_area": 65,
+        "holes": 1,
+        "loops": 2,
+        "net_area": 65.0,
+        "passed": true
+      },
+      "commit_sha": "Git commit with subject Stage 92; remote publication mapping recorded after batch",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated bounded evidence; no representative application accuracy",
+        "See STAGES_092_100.md for scope and unsupported cases"
+      ],
+      "next_task": "Stage 93"
     }
   ]
 }

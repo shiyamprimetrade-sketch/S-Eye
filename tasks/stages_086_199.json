@@ -109,14 +109,18 @@
       "stage": 92,
       "objective": "Contour and boundary extraction",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/detection/annotations.py",
-        "src/seye/segmentation/experimental.py"
+        "src/seye/interface/boundaries.py",
+        "tests/test_stage092.py",
+        "scripts/benchmark_stage92_100.py",
+        "benchmarks/stage092_experiment.json",
+        "benchmarks/stage092_tests.txt"
       ],
-      "open_requirement": "Only convex boundaries; concave contour topology/holes are not implemented",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Ordered pixel-cell contours preserve concavity, holes, diagonal separation and signed area; bounded to 200000 boundary edges. Not subpixel/antialiased contour recovery."
     },
     {
       "stage": 93,
