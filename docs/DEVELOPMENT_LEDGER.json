@@ -2410,6 +2410,28 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 125"
+    },
+    {
+      "id": "stage125-memory-engineering",
+      "objective": "Stored scene comparison requires matching known source grids, reports missing/appeared visual evidence and ambiguity, and abstains on viewport changes; no registered semantic identity inference.",
+      "files_changed": [
+        "src/seye/memory/scenes.py",
+        "tests/test_stage125.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage125_tests.txt and benchmark_stage121_130.py --stage 125",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 1,
+        "matched": 1,
+        "missing": 1,
+        "passed": true
+      },
+      "commit_sha": "Commit subject Stage 125; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 126"
     }
   ]
 }

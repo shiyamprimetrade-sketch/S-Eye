@@ -52,6 +52,14 @@ def stage124():
         finally:m.close()
     return {'cases':2,'persisted_events':r['total'],'caller_asserted':all(e['identity_origin']=='caller_asserted' for e in r['events']),'passed':r['total']==2}
 
+def scene_record(boxes,size=(100,80)):
+    return {'schema_version':1,'features':None,'provenance':{},'analysis':{'source':{'size':list(size)},'objects':[{'class':'interface_region','box':b} for b in boxes]}}
+
+def stage125():
+    from seye.memory.scenes import compare_observations
+    r=compare_observations(scene_record([[10,10,30,30],[60,10,80,30]]),scene_record([[10,10,30,30]]))
+    return {'cases':1,'matched':len(r['matched']),'missing':len(r['missing']),'passed':len(r['matched'])==1 and len(r['missing'])==1 and r['comparable']}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(121,131),required=True);p.add_argument('--output',type=Path,required=True)
