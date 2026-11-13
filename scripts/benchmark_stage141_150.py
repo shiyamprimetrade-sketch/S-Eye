@@ -22,6 +22,16 @@ def stage142():
     return {'elapsed':[.25,1,2],'velocities':[r['velocity'] for r in rows], 'passed':all(r['velocity']==[4,2] for r in rows)}
 
 
+def stage143():
+    from seye.video.continuity import ContinuityTracker
+    t=ContinuityTracker(); frames=[]
+    for i in range(8):
+        rows=[{'class':'region','box':[10+3*i,10,30+3*i,30]},{'class':'region','box':[90-2*i,45,110-2*i,65]}]
+        frames.append(t.update(rows[::-1] if i%2 else rows,i/2,[140,80]))
+    return {'frames':8,'track_ids':[[r['track_id'] for r in f['visible']] for f in frames],
+            'passed':all([r['track_id'] for r in f['visible']]==[1,2] for f in frames)}
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--stage',type=int,required=True,choices=range(141,151))
