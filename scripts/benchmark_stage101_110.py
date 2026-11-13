@@ -53,6 +53,12 @@ def stage106():
     train,val=numeric_data();model=fit(train,val);known=decide(model,numeric_packet(.01));unknown=decide(model,numeric_packet(3))
     return {'cases':2,'known_accepted':known['accepted'],'distant_rejected':not unknown['accepted'],'passed':known['accepted'] and not unknown['accepted']}
 
+def stage107():
+    from seye.learning.packet_prototypes import fit
+    from seye.recognition.packet_decision import candidates
+    train,val=numeric_data();r=candidates(fit(train,val),numeric_packet(3),top_k=1)
+    return {'cases':1,'returned':len(r['candidates']),'total':r['total_candidates'],'accepted':r['selection']['accepted'],'passed':len(r['candidates'])==1 and not r['selection']['accepted'] and r['truncated']}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(101,111),required=True);p.add_argument('--output',type=Path,required=True)

@@ -13,3 +13,11 @@ def decide(model,packet,min_margin=.005):
     return {'label':first['label'] if accepted else UNKNOWN,'accepted':accepted,'reason':reason,
             'nearest_distance':first['distance'],'rejection_radius':first['radius'],'candidate_margin':gap,
             'minimum_margin':min_margin,'confidence_probability':None}
+
+
+def candidates(model,packet,top_k=3,min_margin=.005):
+    if type(top_k) is not int or not 1<=top_k<=10:raise ValueError('top_k must be in [1,10]')
+    ranked=nearest(model,packet);selection=decide(model,packet,min_margin)
+    return {'selection':selection,'candidates':[dict(r,within_radius=r['distance']<=r['radius'],
+            label_origin='training_records') for r in ranked[:top_k]],
+            'total_candidates':len(ranked),'truncated':len(ranked)>top_k,'confidence_probability':None}

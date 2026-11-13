@@ -742,6 +742,29 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 107"
+    },
+    {
+      "id": "stage107-recognition-engineering",
+      "objective": "Bounded deterministic candidate ranking exposes alternatives and radius evidence without forcing acceptance of unknowns.",
+      "files_changed": [
+        "src/seye/recognition/packet_decision.py",
+        "tests/test_stage107.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage107_tests.txt and benchmark_stage101_110.py --stage 107",
+      "test_results": "Focused tests passed; final regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "accepted": false,
+        "cases": 1,
+        "passed": true,
+        "returned": 1,
+        "total": 2
+      },
+      "commit_sha": "Commit subject Stage 107; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 108"
     }
   ]
 }
