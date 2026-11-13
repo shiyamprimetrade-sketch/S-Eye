@@ -5,16 +5,18 @@ import math,time
 
 class Trace:
     def __init__(self):
-        self.rows=[];self.wall_start=time.perf_counter();self.cpu_start=time.process_time()
+        self.rows=[];self._active=0;self.wall_start=time.perf_counter();self.cpu_start=time.process_time()
 
     @contextmanager
     def span(self,name):
-        if not isinstance(name,str) or not 1<=len(name)<=64 or len(self.rows)>=128:raise ValueError('Bounded profiling span required')
+        if not isinstance(name,str) or not 1<=len(name)<=64 or len(self.rows)+self._active>=128:raise ValueError('Bounded profiling span required')
+        self._active+=1
         wall=time.perf_counter();cpu=time.process_time();success=False
         try:
             yield
             success=True
         finally:
+            self._active-=1
             self.rows.append({'name':name,'wall_seconds':time.perf_counter()-wall,
                               'process_cpu_seconds':time.process_time()-cpu,'success':success})
 

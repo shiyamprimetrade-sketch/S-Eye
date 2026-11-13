@@ -132,6 +132,16 @@ def stage156():
             'passed':actual==baseline and stats['hits']+stats['misses']==len(order) and stats['entries']<=3}
 
 
+def stage157():
+    from seye.performance.resources import measure
+    from seye.interface.observer import observe
+    with tempfile.TemporaryDirectory() as directory:
+        path=fixture(directory)
+        result,report=measure(lambda:observe(path,region_proposals=True,region_mode='refined'),allocations=True)
+    return {'generated_image_size':[160,120],'region_count':len(result['region_proposals']['regions']),
+            'resources':report,'passed':report['wall_seconds']>=0 and report['process_cpu_seconds']>=0}
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--stage',required=True,type=int,choices=range(151,161));p.add_argument('--output',required=True)
     a=p.parse_args();r=globals()[f'stage{a.stage}']();atomic_json(a.output,r,overwrite=True);print(json.dumps(r,sort_keys=True))
