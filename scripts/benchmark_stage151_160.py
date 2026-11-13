@@ -48,6 +48,18 @@ def stage152():
     return {'cases':cases,'passed':all(c['evidence_equal'] for c in cases)}
 
 
+def stage153():
+    from seye.recognition.pipeline import FeaturePipeline
+    from seye.image.ingestion import load_image
+    with tempfile.TemporaryDirectory() as directory:
+        image,_=load_image(fixture(directory));p=FeaturePipeline();selections=[['shape'],['appearance','shape'],['interface','shape'],['shape']]
+        before=time.perf_counter();old=[p.extract(image,s) for s in selections];separate=time.perf_counter()-before
+        before=time.perf_counter();new=p.extract_many(image,selections);shared=time.perf_counter()-before
+    return {'packets':len(old),'identical':old==new['packets'],'component_extractions':new['component_extractions'],
+            'reused_component_requests':new['reused_component_requests'],'separate_seconds':separate,'shared_seconds':shared,
+            'scope':'generated image; feature extraction only; no decode or portable acceleration claim','passed':old==new['packets'] and new['component_extractions']==3}
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--stage',required=True,type=int,choices=range(151,161));p.add_argument('--output',required=True)
     a=p.parse_args();r=globals()[f'stage{a.stage}']();atomic_json(a.output,r,overwrite=True);print(json.dumps(r,sort_keys=True))
