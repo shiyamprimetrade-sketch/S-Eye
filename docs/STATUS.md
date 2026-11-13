@@ -294,3 +294,5 @@ STOP at Stage 130. Wait for Continue before 131–140. Future scene relationship
 must preserve coordinate/semantic uncertainty and cannot promote caller links,
 feature matches or proximity into proven object identity. Release v1.0, OCR and
 expert programmer vision remain incomplete; human review does not block engineering.
+
+Stages 121–130 implementation checkpoint `39b8baf7f327d9f4a64bb082ca02480690e5a623`; individual SHAs are recorded in the ledger and benchmarks/stages121_130_publication.json. 210 local tests pass. Retrieval ties remain explicit; no unique-object identity is inferred. Stop at 130; exact-head CI pending.

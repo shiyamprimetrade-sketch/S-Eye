@@ -2327,14 +2327,14 @@
         "tests/test_stage121.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage121_tests.txt and benchmark_stage121_130.py --stage 121",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
       "benchmark_results": {
         "cases": 1,
         "missing_model_identity": null,
         "passed": true,
         "pixel_identity_preserved": true
       },
-      "commit_sha": "Commit subject Stage 121; remote publication mapping follows",
+      "commit_sha": "1b35293a3240d9618312e4861d8e19c36635331e",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
@@ -2350,14 +2350,14 @@
         "tests/memory_fixtures.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage122_tests.txt and benchmark_stage121_130.py --stage 122",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
       "benchmark_results": {
         "cases": 16,
         "indexed_observations": 16,
         "passed": true,
         "tree_count": 16
       },
-      "commit_sha": "Commit subject Stage 122; remote publication mapping follows",
+      "commit_sha": "176ed598528951700b5494d45d1fe180a650d963",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
@@ -2373,7 +2373,7 @@
         "tests/test_stage123.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage123_tests.txt and benchmark_stage121_130.py --stage 123",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
       "benchmark_results": {
         "cases": 64,
         "distance_evaluations": 7,
@@ -2381,7 +2381,7 @@
         "passed": true,
         "top3_exact": true
       },
-      "commit_sha": "Commit subject Stage 123; remote publication mapping follows",
+      "commit_sha": "db1920a2be5a9f7887e13c50c0ba55ab4c550925",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
@@ -2397,14 +2397,14 @@
         "tests/test_stage124.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage124_tests.txt and benchmark_stage121_130.py --stage 124",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
       "benchmark_results": {
         "caller_asserted": true,
         "cases": 2,
         "passed": true,
         "persisted_events": 2
       },
-      "commit_sha": "Commit subject Stage 124; remote publication mapping follows",
+      "commit_sha": "58ae7138012c77cb4e8aa55b6160075dad66730b",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
@@ -2419,14 +2419,14 @@
         "tests/test_stage125.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage125_tests.txt and benchmark_stage121_130.py --stage 125",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
       "benchmark_results": {
         "cases": 1,
         "matched": 1,
         "missing": 1,
         "passed": true
       },
-      "commit_sha": "Commit subject Stage 125; remote publication mapping follows",
+      "commit_sha": "d9f47dee86ab5e98ec4d31bad0a72e4cd8df9fbf",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
@@ -2441,7 +2441,7 @@
         "tests/test_stage126.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage126_tests.txt and benchmark_stage121_130.py --stage 126",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
       "benchmark_results": {
         "cases": 2,
         "group_counts": {
@@ -2451,7 +2451,7 @@
         },
         "passed": true
       },
-      "commit_sha": "Commit subject Stage 126; remote publication mapping follows",
+      "commit_sha": "fed9cd8fc6ae9d5cc10a579ea5210623558e1b8d",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
@@ -2467,7 +2467,7 @@
         "tests/test_stage127.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage127_tests.txt and benchmark_stage121_130.py --stage 127",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
       "benchmark_results": {
         "audit": {
           "confidence_probabilities_inferred": false,
@@ -2480,7 +2480,7 @@
         "cases": 1,
         "passed": true
       },
-      "commit_sha": "Commit subject Stage 127; remote publication mapping follows",
+      "commit_sha": "99f09b36c89d1e30217004d26a8adf1a1f9b2383",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
@@ -2497,7 +2497,7 @@
         "tests/test_stage128.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage128_tests.txt and benchmark_stage121_130.py --stage 128",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
       "benchmark_results": {
         "cases": 2,
         "deleted_history_events": 1,
@@ -2506,7 +2506,7 @@
         "restored_observations": 2,
         "retained_observations": 1
       },
-      "commit_sha": "Commit subject Stage 128; remote publication mapping follows",
+      "commit_sha": "474f5c2283ef33ba990d2a1161b36f4fb3ff44b8",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
@@ -2523,7 +2523,7 @@
         "tests/test_stage129.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage129_tests.txt and benchmark_stage121_130.py --stage 129",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
       "benchmark_results": {
         "cases": 10,
         "passed": true,
@@ -2652,7 +2652,7 @@
           "unknown_queries_without_match": 4
         }
       },
-      "commit_sha": "Commit subject Stage 129; remote publication mapping follows",
+      "commit_sha": "4a8b641f57f5bd34a3dc3f7d517d6333bac2ed11",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
@@ -2668,7 +2668,7 @@
         "tests/test_stage130.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage130_tests.txt and benchmark_stage121_130.py --stage 130",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
       "benchmark_results": {
         "cases": 1,
         "containment": "first_contains_second",
@@ -2676,7 +2676,7 @@
         "semantic_object_count": null,
         "visual_hypotheses": 2
       },
-      "commit_sha": "Commit subject Stage 130; remote publication mapping follows",
+      "commit_sha": "e6581a491f59b07dc9e37bd095e272cc8d38d6fa",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"

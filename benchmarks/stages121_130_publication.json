@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "implementation_checkpoint": "39b8baf7f327d9f4a64bb082ca02480690e5a623",
+  "stages": [
+    {
+      "stage": 121,
+      "sha": "1b35293a3240d9618312e4861d8e19c36635331e",
+      "message": "Stage 121: separate image observation and session occurrence identities"
+    },
+    {
+      "stage": 122,
+      "sha": "176ed598528951700b5494d45d1fe180a650d963",
+      "message": "Stage 122: persistent schema-specific exact vector indexes"
+    },
+    {
+      "stage": 123,
+      "sha": "db1920a2be5a9f7887e13c50c0ba55ab4c550925",
+      "message": "Stage 123: exact schema-aware visual retrieval and scoped S adapter"
+    },
+    {
+      "stage": 124,
+      "sha": "58ae7138012c77cb4e8aa55b6160075dad66730b",
+      "message": "Stage 124: persistent caller-linked target histories with provenance"
+    },
+    {
+      "stage": 125,
+      "sha": "d9f47dee86ab5e98ec4d31bad0a72e4cd8df9fbf",
+      "message": "Stage 125: evidence-grounded stored scene comparison on common grids"
+    },
+    {
+      "stage": 126,
+      "sha": "fed9cd8fc6ae9d5cc10a579ea5210623558e1b8d",
+      "message": "Stage 126: distinguish source pixel and feature duplicate evidence"
+    },
+    {
+      "stage": 127,
+      "sha": "99f09b36c89d1e30217004d26a8adf1a1f9b2383",
+      "message": "Stage 127: auditable memory provenance and explicit uncertainty"
+    },
+    {
+      "stage": 128,
+      "sha": "474f5c2283ef33ba990d2a1161b36f4fb3ff44b8",
+      "message": "Stage 128: verified memory recovery bundles and atomic dependency-aware retention"
+    },
+    {
+      "stage": 129,
+      "sha": "4a8b641f57f5bd34a3dc3f7d517d6333bac2ed11",
+      "message": "Stage 129: measured generated retrieval quality with explicit ambiguity"
+    },
+    {
+      "stage": 130,
+      "sha": "e6581a491f59b07dc9e37bd095e272cc8d38d6fa",
+      "message": "Stage 130: source-grounded stored scene inventories with explicit unknown semantics"
+    }
+  ],
+  "local_full_suite": "210 tests passed",
+  "generated_retrieval": {
+    "top1_category_correct": "6/6",
+    "unknown_without_match": "4/4",
+    "ambiguous_known_queries": "6/6"
+  },
+  "representative_application_accuracy": null,
+  "remote_ci": "pending"
+}
