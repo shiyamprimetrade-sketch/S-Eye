@@ -378,6 +378,37 @@
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
       "next_task": "Stage 93"
+    },
+    {
+      "id": "stage93-interface-engineering",
+      "objective": "Conservative inner/outer rectangular boundary pairing with explicit links and source indices; preserves separated/nested regions outside the small-gap rule. Close true nested controls remain ambiguous.",
+      "files_changed": [
+        "src/seye/interface/grouping.py",
+        "tests/test_stage093.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage093_tests.txt and benchmark_stage92_100.py --stage 93",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "baseline": {
+          "fn": 12,
+          "fp": 8,
+          "tp": 25
+        },
+        "cases": 33,
+        "paired": {
+          "fn": 12,
+          "fp": 0,
+          "tp": 25
+        },
+        "passed": true
+      },
+      "commit_sha": "Git commit with subject Stage 93; remote publication mapping recorded after batch",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated bounded evidence; no representative application accuracy",
+        "See STAGES_092_100.md for scope and unsupported cases"
+      ],
+      "next_task": "Stage 94"
     }
   ]
 }

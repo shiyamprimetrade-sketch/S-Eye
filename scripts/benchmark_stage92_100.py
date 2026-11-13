@@ -16,6 +16,18 @@ def stage92():
     return {'cases':1,'loops':len(r['loops']),'holes':sum(x['role']=='hole' for x in r['loops']),
             'net_area':r['net_area'],'expected_area':65,'passed':r['net_area']==65 and len(r['loops'])==2}
 
+def stage93():
+    from benchmark_stage91 import fixtures
+    from seye.interface.regions import propose_regions
+    from seye.interface.grouping import pair_boundaries
+    from seye.detection.metrics import detection_metrics
+    totals={'tp':0,'fp':0,'fn':0}
+    for metadata,image in fixtures():
+        regions=pair_boundaries(propose_regions(image)['regions'])['regions']
+        metrics=detection_metrics(metadata['expected'],regions)
+        for key in totals:totals[key]+=metrics[key]
+    return {'cases':33,'baseline':{'tp':25,'fp':8,'fn':12},'paired':totals,'passed':totals=={'tp':25,'fp':0,'fn':12}}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(92,101),required=True);p.add_argument('--output',type=Path,required=True)

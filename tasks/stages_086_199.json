@@ -126,14 +126,17 @@
       "stage": 93,
       "objective": "Region merging",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/detection/annotations.py",
-        "src/seye/segmentation/experimental.py"
+        "src/seye/interface/grouping.py",
+        "tests/test_stage093.py",
+        "benchmarks/stage093_experiment.json",
+        "benchmarks/stage093_tests.txt"
       ],
-      "open_requirement": "Morphological grouping exists; explicit region-merge analysis remains incomplete",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Conservative inner/outer rectangular boundary pairing with explicit links and source indices; preserves separated/nested regions outside the small-gap rule. Close true nested controls remain ambiguous."
     },
     {
       "stage": 94,
