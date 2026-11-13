@@ -1176,6 +1176,28 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 114"
+    },
+    {
+      "id": "stage114-learning-engineering",
+      "objective": "Exclusive integrity-verified selected-weight checkpoints restore exact inference and training metadata; mid-optimizer continuation is explicitly not implemented.",
+      "files_changed": [
+        "src/seye/learning/training_checkpoint.py",
+        "tests/test_stage114.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage114_tests.txt and benchmark_stage101_110.py --stage 114",
+      "test_results": "Focused tests passed; final regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 1,
+        "optimizer_resume_claimed": false,
+        "passed": true,
+        "restored_scores_identical": true
+      },
+      "commit_sha": "Commit subject Stage 114; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 115"
     }
   ]
 }

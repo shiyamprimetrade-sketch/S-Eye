@@ -26,6 +26,16 @@ def stage113():
     d=dataset();m=fit(d['train'],d['validation'],**protocol()['sgd']);initial=m['initial_training']['cross_entropy'];final=m['history'][-1]['training']['cross_entropy']
     return {'cases':9,'initial_training_cross_entropy':initial,'final_training_cross_entropy':final,'best_epoch':m['best_epoch'],'passed':final<initial and not m['pretrained_weights_used']}
 
+def stage114():
+    import tempfile
+    from learning_batch_data import dataset
+    from seye.learning.packet_linear import fit,scores
+    from seye.learning.training_checkpoint import save,load
+    d=dataset();m=fit(d['train'],d['validation'],epochs=5)
+    with tempfile.TemporaryDirectory() as directory:
+        p=Path(directory)/'model.json';save(p,m);same=scores(m,d['validation'][0]['packet'])==scores(load(p),d['validation'][0]['packet'])
+    return {'cases':1,'restored_scores_identical':same,'optimizer_resume_claimed':False,'passed':same}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(111,121),required=True);p.add_argument('--output',type=Path,required=True)
