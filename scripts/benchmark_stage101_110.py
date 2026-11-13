@@ -47,6 +47,12 @@ def stage105():
     train,val=numeric_data();model=fit(train,val);r=support(model,bind(model,val),numeric_packet(.01))
     return {'cases':1,'empirical_support':r['validation_support_estimate'],'confidence_probability':r['confidence_probability'],'passed':r['validation_support_estimate']==1 and r['confidence_probability'] is None}
 
+def stage106():
+    from seye.learning.packet_prototypes import fit
+    from seye.recognition.packet_decision import decide
+    train,val=numeric_data();model=fit(train,val);known=decide(model,numeric_packet(.01));unknown=decide(model,numeric_packet(3))
+    return {'cases':2,'known_accepted':known['accepted'],'distant_rejected':not unknown['accepted'],'passed':known['accepted'] and not unknown['accepted']}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(101,111),required=True);p.add_argument('--output',type=Path,required=True)
