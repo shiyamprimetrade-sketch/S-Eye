@@ -215,3 +215,5 @@ application accuracy or expert equivalence. Every stage has focused tests, a
 reproducible experiment and its own implementation commit. Original comparators
 and descriptor compatibility are preserved. Exact-head CI is tracked separately.
 Owner requested stopping at Stage 100: wait for Continue before Stage 101.
+
+Stages 92–100 implementation checkpoint: `d5bee7bba6e5c36cebea2551148eb0177cb01240`. Individual published stage SHAs are recorded in the development ledger and benchmarks/stages092_100_publication.json. Stop at Stage 100; exact-head CI pending.

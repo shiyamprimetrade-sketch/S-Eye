@@ -362,7 +362,7 @@
         "scripts/benchmark_stage92_100.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage092_tests.txt and benchmark_stage92_100.py --stage 92",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
       "benchmark_results": {
         "cases": 1,
         "expected_area": 65,
@@ -371,7 +371,7 @@
         "net_area": 65.0,
         "passed": true
       },
-      "commit_sha": "Git commit with subject Stage 92; remote publication mapping recorded after batch",
+      "commit_sha": "477843f3cafe352e850bf6fdba0890991869b660",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Generated bounded evidence; no representative application accuracy",
@@ -387,7 +387,7 @@
         "tests/test_stage093.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage093_tests.txt and benchmark_stage92_100.py --stage 93",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
       "benchmark_results": {
         "baseline": {
           "fn": 12,
@@ -402,7 +402,7 @@
         },
         "passed": true
       },
-      "commit_sha": "Git commit with subject Stage 93; remote publication mapping recorded after batch",
+      "commit_sha": "843ad2fda43629108e7f856dbf1d3130cfcab9fa",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Generated bounded evidence; no representative application accuracy",
@@ -418,14 +418,14 @@
         "tests/test_stage094.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage094_tests.txt and benchmark_stage92_100.py --stage 94",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
       "benchmark_results": {
         "cases": 1,
         "parts": 2,
         "passed": true,
         "removed_bridge_pixels": 15
       },
-      "commit_sha": "Git commit with subject Stage 94; remote publication mapping recorded after batch",
+      "commit_sha": "6657e3030636b169b710f857d541b7b418adb22f",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Generated bounded evidence; no representative application accuracy",
@@ -441,14 +441,14 @@
         "tests/test_stage095.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage095_tests.txt and benchmark_stage92_100.py --stage 95",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
       "benchmark_results": {
         "cases": 1,
         "passed": true,
         "removed_pixels": 2,
         "retained_pixels": 100
       },
-      "commit_sha": "Git commit with subject Stage 95; remote publication mapping recorded after batch",
+      "commit_sha": "1bd1dfe9e54ce7b19d825f47076acc1c9e3ce842",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Generated bounded evidence; no representative application accuracy",
@@ -464,14 +464,14 @@
         "tests/test_stage096.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage096_tests.txt and benchmark_stage92_100.py --stage 96",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
       "benchmark_results": {
         "cases": 1,
         "introduced_pixels": 1,
         "passed": true,
         "retained_pixels": 18
       },
-      "commit_sha": "Git commit with subject Stage 96; remote publication mapping recorded after batch",
+      "commit_sha": "9cd5d7646504c263e4fc7a6be0ff7de6d09f466d",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Generated bounded evidence; no representative application accuracy",
@@ -489,14 +489,14 @@
         "tests/test_stage097.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage097_tests.txt and benchmark_stage92_100.py --stage 97",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
       "benchmark_results": {
         "cases": 1,
         "observed_stroke_mask_iou": 1.0,
         "passed": true,
         "regions": 1
       },
-      "commit_sha": "Git commit with subject Stage 97; remote publication mapping recorded after batch",
+      "commit_sha": "e3dc76ff1e85c229a5fe7ba5298c575163347e33",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Generated bounded evidence; no representative application accuracy",
@@ -513,7 +513,7 @@
         "tests/test_stage098.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage098_tests.txt and benchmark_stage92_100.py --stage 98",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
       "benchmark_results": {
         "box_overlap_pairs": 1,
         "cases": 1,
@@ -524,7 +524,7 @@
           1200
         ]
       },
-      "commit_sha": "Git commit with subject Stage 98; remote publication mapping recorded after batch",
+      "commit_sha": "120e3400750c127e0e3cb9f4b801aca2f7bc26a7",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Generated bounded evidence; no representative application accuracy",
@@ -540,7 +540,7 @@
         "tests/test_stage099.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage099_tests.txt and benchmark_stage92_100.py --stage 99",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
       "benchmark_results": {
         "cases": 1,
         "max_corner_reprojection_error": 1.4210854715202004e-14,
@@ -550,7 +550,7 @@
         ],
         "passed": true
       },
-      "commit_sha": "Git commit with subject Stage 99; remote publication mapping recorded after batch",
+      "commit_sha": "39aab4249003189ce8222cd515938b655fffac91",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Generated bounded evidence; no representative application accuracy",
@@ -567,7 +567,7 @@
         "tests/test_stage100.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage100_tests.txt and benchmark_stage92_100.py --stage 100",
-      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "test_results": "Focused stage tests and full 143-test local regression passed; final exact-head CI pending",
       "benchmark_results": {
         "cases": 1,
         "dimension": 114,
@@ -575,7 +575,7 @@
         "passed": true,
         "schema_sha256": "b35fde7a3d821d789fd34bb0ff8caa90fd1e729c532526fc13c32007bd48c1ca"
       },
-      "commit_sha": "Git commit with subject Stage 100; remote publication mapping recorded after batch",
+      "commit_sha": "105a08863c3a23c555403e16a3cfd754aa3d9672",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "Generated bounded evidence; no representative application accuracy",
