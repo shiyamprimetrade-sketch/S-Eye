@@ -104,6 +104,18 @@ def execute(request, permissions):
                 result['observation_id'] = memory.put(record)
             finally:
                 memory.close()
+    elif action == 'extract_features':
+        from seye.recognition.pipeline import FeaturePipeline
+        decoded,source=load_image(permissions.require(request['image']),max_pixels=4_000_000)
+        normalization=None
+        if request.get('perspective_quad') is not None:
+            from seye.interface.perspective import rectify
+            decoded,normalization=rectify(decoded,request['perspective_quad'],request.get('canonical_size',[64,64]))
+        elif 'canonical_size' in request:
+            raise ValueError('canonical_size requires perspective_quad')
+        result=FeaturePipeline().extract(decoded,request.get('components',['interface']))
+        result['source']=source
+        if normalization is not None:result['normalization']=normalization
     elif action == 'recognize_batch':
         from seye.recognition.cache import FeatureCache
         paths = request.get('images')

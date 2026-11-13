@@ -69,6 +69,12 @@ def stage99():
     output,r=rectify(image,quad,(40,30))
     return {'cases':1,'max_corner_reprojection_error':r['max_corner_reprojection_error'],'output_size':list(output.size),'passed':r['max_corner_reprojection_error']<1e-8}
 
+def stage100():
+    from seye.recognition.pipeline import FeaturePipeline
+    from seye.recognition.features import extract
+    image=Image.new('RGB',(80,60),'gray');r=FeaturePipeline().extract(image,['legacy','interface'])
+    return {'cases':1,'dimension':len(r['features']),'legacy_parity':r['features'][:91]==extract(image),'schema_sha256':r['schema_sha256'],'passed':len(r['features'])==114 and r['features'][:91]==extract(image)}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(92,101),required=True);p.add_argument('--output',type=Path,required=True)
