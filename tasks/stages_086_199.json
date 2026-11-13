@@ -557,14 +557,18 @@
       "stage": 119,
       "objective": "Learning regression protection",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/learning/dataset.py",
-        "src/seye/learning/prototypes.py"
+        "src/seye/learning/regression.py",
+        "scripts/compare_learning_batch.py",
+        "tests/test_stage119.py",
+        "benchmarks/stage119_experiment.json",
+        "benchmarks/stage119_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Matched-capture regression gates recompute known/unknown outcomes and prevent a gain in one masking a loss in the other; fixed generated floors are not release validation."
     },
     {
       "stage": 120,

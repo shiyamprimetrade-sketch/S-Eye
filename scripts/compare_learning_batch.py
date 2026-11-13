@@ -16,7 +16,7 @@ def evaluate(testing,function):
         else:known+=1;correct+=expected==label
         confusion.setdefault(expected,{})[label]=confusion.setdefault(expected,{}).get(label,0)+1
         results.append({'id':row['id'],'expected':expected,'prediction':output})
-    return {'samples':len(testing),'known_samples':known,'known_correct':correct,'unknown_samples':unknown,'unknown_rejected':rejected,
+    return {'test_capture_sha256':checksum([{k:r[k] for k in ('id','label','content_sha256')} for r in testing]),'samples':len(testing),'known_samples':known,'known_correct':correct,'unknown_samples':unknown,'unknown_rejected':rejected,
             'confusion':confusion,'results':results,'representative_application_accuracy':None}
 
 

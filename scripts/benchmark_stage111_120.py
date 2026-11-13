@@ -60,6 +60,12 @@ def stage118():
     r=run();counts={name:{key:m[key] for key in ('known_samples','known_correct','unknown_samples','unknown_rejected')} for name,m in r['methods'].items()}
     return {'cases':30,'methods':counts,'full_comparison':r,'passed':all(m['samples']==10 for m in r['methods'].values())}
 
+def stage119():
+    from compare_learning_batch import run
+    from seye.learning.regression import guard
+    r=run()['methods'];g=guard(r['layout_prototype'],r['centered_sgd'])
+    return {'cases':10,'gate':g,'passed':g['passed'] and r['centered_sgd']['known_correct']==6 and r['centered_sgd']['unknown_rejected']==4}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(111,121),required=True);p.add_argument('--output',type=Path,required=True)

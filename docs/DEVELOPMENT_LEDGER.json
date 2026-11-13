@@ -2230,6 +2230,46 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 119"
+    },
+    {
+      "id": "stage119-learning-engineering",
+      "objective": "Matched-capture regression gates recompute known/unknown outcomes and prevent a gain in one masking a loss in the other; fixed generated floors are not release validation.",
+      "files_changed": [
+        "src/seye/learning/regression.py",
+        "scripts/compare_learning_batch.py",
+        "tests/test_stage119.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage119_tests.txt and benchmark_stage101_110.py --stage 119",
+      "test_results": "Focused tests passed; final regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 10,
+        "gate": {
+          "candidate": {
+            "known_correct": 6,
+            "known_samples": 6,
+            "samples": 10,
+            "unknown_rejected": 4,
+            "unknown_samples": 4
+          },
+          "passed": true,
+          "reasons": [],
+          "reference": {
+            "known_correct": 0,
+            "known_samples": 6,
+            "samples": 10,
+            "unknown_rejected": 4,
+            "unknown_samples": 4
+          },
+          "scope": "fixed generated capture regression only; not real-application release readiness"
+        },
+        "passed": true
+      },
+      "commit_sha": "Commit subject Stage 119; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 120"
     }
   ]
 }
