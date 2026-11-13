@@ -156,6 +156,14 @@ def stage158():
             'passed':recovered['verified_observations']==128 and indexed['derived_index_payload_bytes']>0}
 
 
+def stage159():
+    from seye.performance.platforms import host_report,coverage
+    host=host_report();latency=stage152();features=stage153()
+    return {'host':host,'coverage':coverage([host]),'observation_probe':latency,'feature_probe':features,
+            'android_hardware_measurements':'unavailable on this host; not fabricated',
+            'passed':latency['passed'] and features['passed'] and not host['device_performance_validated']}
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--stage',required=True,type=int,choices=range(151,161));p.add_argument('--output',required=True)
     a=p.parse_args();r=globals()[f'stage{a.stage}']();atomic_json(a.output,r,overwrite=True);print(json.dumps(r,sort_keys=True))
