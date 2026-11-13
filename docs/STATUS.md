@@ -199,3 +199,19 @@ file hashes remain provenance. Local regression passes; new Windows CI is pendin
 Stage 91 implementation published at `8924553c93f6f6c64e5cf36c0af4622e9f68a67a` in PR #1. Exact-head CI is tracked separately from the 124 passing local tests.
 
 Stage 91 verified remote checkpoint: `165ab1d663354cce045ec690df4705d66c716e43`. All four Ubuntu/Windows Python 3.12/3.13 jobs passed, including 124 tests, the repaired Stage 90 portability gate, Stage 91 benchmark, installation, audits and artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43405604944 . This publication receipt changes documentation only; do not attribute the earlier CI run to a later SHA.
+
+
+## Stages 92–100 batch checkpoint
+
+Implemented and tested the bounded engineering scopes in STAGES_092_100.md:
+ordered concave/hole contours; outline pairing; projection splitting; noise
+suppression; explicit gap repair; source-grid boxes/stroke masks; visible-color
+overlap analysis; caller-corner projective normalization; modular feature extraction.
+143 local tests pass. Frozen region errors improve from TP25/FP8/FN12 to
+TP25/FP0/FN12, preserving the 12 remaining misses. Four supplied screenshots
+execute refined observation and 114-value feature extraction; proposal counts do
+not improve. These are implementation/generated measurements, not representative
+application accuracy or expert equivalence. Every stage has focused tests, a
+reproducible experiment and its own implementation commit. Original comparators
+and descriptor compatibility are preserved. Exact-head CI is tracked separately.
+Owner requested stopping at Stage 100: wait for Continue before Stage 101.

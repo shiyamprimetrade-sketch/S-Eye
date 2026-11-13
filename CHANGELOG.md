@@ -47,3 +47,5 @@ model, classifier replacement or private-memory migration has been introduced.
 - Stage 91: independent RGB edge/connected-region hypotheses without templates; optional structured observation signals and memory, bounded processing/truncation, generated box scoring and supplied-screenshot probes.
 
 - Repair Stage 90 cross-platform frozen-report acceptance: retain encoded provenance and require canonical decoded image identities plus unchanged semantic results.
+
+- Stages 92–100: ordered contours/holes, explicit boundary pairing, projection splitting, bounded denoising/gap reconstruction, stroke RLE transport, visible-color overlaps, caller-grounded perspective normalization and versioned feature composition. Each has focused tests and experiment evidence.

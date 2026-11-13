@@ -55,7 +55,9 @@ No pretrained recognition model replaces S-Eye's independent algorithms.
 - [Stage 89 diagnostic baseline](docs/STAGE89_INTERFACE_DIAGNOSTICS.md)
 - [Stage 90 measured comparison](docs/STAGE90_INTERFACE_MATCHING.md)
 - [Stage 91 template-free regions](docs/STAGE91_INTERFACE_REGIONS.md)
+- [Stages 92–100 scopes, measurements and API](docs/STAGES_092_100.md)
 - [Architecture](docs/ARCHITECTURE.md), [integration](docs/INTEGRATION.md), [limitations](docs/LIMITATIONS.md)
 - [Historical Stage 84 audit](docs/STAGE84_AUDIT.md) and [release criteria](docs/RELEASE_CRITERIA.md)
 
-Version 1.0 remains unfinished. Work proceeds one stage per owner Continue.
+Version 1.0 remains unfinished. The current authorized batch ends at Stage 100;
+wait for the owner’s next Continue before advancing.
