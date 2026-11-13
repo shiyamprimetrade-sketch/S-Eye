@@ -269,3 +269,5 @@ identity and schema-aware memory retrieval. OCR/expert vision and v1.0 remain
 unfulfilled. Human review does not block ordinary engineering continuation.
 
 Stages 111–120 implementation checkpoint `ff13e94e8224ac257b89cfb76f16dde0ecb58c3a`; individual stage SHAs are recorded in the ledger and benchmarks/stages111_120_publication.json. 187 local tests pass. The centered-descriptor gain is generated evidence only. Stop at 120; exact-head CI pending.
+
+Verified 111–120 checkpoint `fae018ae9ed9d96568c3334fe53d611b45d53010`: all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including 187 tests, all ten new experiments, historical checks, installation, audits and artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43437615904 . The 6/6 known and 4/4 unknown centered-descriptor result remains generated evidence, not real-application validation. This later receipt changes documentation only; the cited CI run belongs to that exact SHA. Stop at 120 and wait for Continue before 121–130.

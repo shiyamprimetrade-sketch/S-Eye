@@ -61,5 +61,9 @@
     "unknown_rejected": "4/4 per method"
   },
   "representative_application_accuracy": null,
-  "remote_ci": "pending"
+  "remote_ci": {
+    "verified_commit": "fae018ae9ed9d96568c3334fe53d611b45d53010",
+    "run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43437615904",
+    "result": "all four Ubuntu/Windows Python 3.12/3.13 jobs passed, 187 tests and ten experiments"
+  }
 }
