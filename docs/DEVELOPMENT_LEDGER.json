@@ -2327,7 +2327,7 @@
         "tests/test_stage121.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage121_tests.txt and benchmark_stage121_130.py --stage 121",
-      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 210-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "missing_model_identity": null,
@@ -2339,7 +2339,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 122"
+      "next_task": "Stage 122",
+      "verified_commit_sha": "a1e7ba72fbf58875ce526af9fbd6e2ef7598c954",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525"
     },
     {
       "id": "stage122-memory-engineering",
@@ -2350,7 +2352,7 @@
         "tests/memory_fixtures.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage122_tests.txt and benchmark_stage121_130.py --stage 122",
-      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 210-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 16,
         "indexed_observations": 16,
@@ -2362,7 +2364,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 123"
+      "next_task": "Stage 123",
+      "verified_commit_sha": "a1e7ba72fbf58875ce526af9fbd6e2ef7598c954",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525"
     },
     {
       "id": "stage123-memory-engineering",
@@ -2373,7 +2377,7 @@
         "tests/test_stage123.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage123_tests.txt and benchmark_stage121_130.py --stage 123",
-      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 210-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 64,
         "distance_evaluations": 7,
@@ -2386,7 +2390,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 124"
+      "next_task": "Stage 124",
+      "verified_commit_sha": "a1e7ba72fbf58875ce526af9fbd6e2ef7598c954",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525"
     },
     {
       "id": "stage124-memory-engineering",
@@ -2397,7 +2403,7 @@
         "tests/test_stage124.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage124_tests.txt and benchmark_stage121_130.py --stage 124",
-      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 210-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "caller_asserted": true,
         "cases": 2,
@@ -2409,7 +2415,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 125"
+      "next_task": "Stage 125",
+      "verified_commit_sha": "a1e7ba72fbf58875ce526af9fbd6e2ef7598c954",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525"
     },
     {
       "id": "stage125-memory-engineering",
@@ -2419,7 +2427,7 @@
         "tests/test_stage125.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage125_tests.txt and benchmark_stage121_130.py --stage 125",
-      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 210-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "matched": 1,
@@ -2431,7 +2439,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 126"
+      "next_task": "Stage 126",
+      "verified_commit_sha": "a1e7ba72fbf58875ce526af9fbd6e2ef7598c954",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525"
     },
     {
       "id": "stage126-memory-engineering",
@@ -2441,7 +2451,7 @@
         "tests/test_stage126.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage126_tests.txt and benchmark_stage121_130.py --stage 126",
-      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 210-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 2,
         "group_counts": {
@@ -2456,7 +2466,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 127"
+      "next_task": "Stage 127",
+      "verified_commit_sha": "a1e7ba72fbf58875ce526af9fbd6e2ef7598c954",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525"
     },
     {
       "id": "stage127-memory-engineering",
@@ -2467,7 +2479,7 @@
         "tests/test_stage127.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage127_tests.txt and benchmark_stage121_130.py --stage 127",
-      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 210-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "audit": {
           "confidence_probabilities_inferred": false,
@@ -2485,7 +2497,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 128"
+      "next_task": "Stage 128",
+      "verified_commit_sha": "a1e7ba72fbf58875ce526af9fbd6e2ef7598c954",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525"
     },
     {
       "id": "stage128-memory-engineering",
@@ -2497,7 +2511,7 @@
         "tests/test_stage128.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage128_tests.txt and benchmark_stage121_130.py --stage 128",
-      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 210-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 2,
         "deleted_history_events": 1,
@@ -2511,7 +2525,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 129"
+      "next_task": "Stage 129",
+      "verified_commit_sha": "a1e7ba72fbf58875ce526af9fbd6e2ef7598c954",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525"
     },
     {
       "id": "stage129-memory-engineering",
@@ -2523,7 +2539,7 @@
         "tests/test_stage129.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage129_tests.txt and benchmark_stage121_130.py --stage 129",
-      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 210-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 10,
         "passed": true,
@@ -2657,7 +2673,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stage 130"
+      "next_task": "Stage 130",
+      "verified_commit_sha": "a1e7ba72fbf58875ce526af9fbd6e2ef7598c954",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525"
     },
     {
       "id": "stage130-memory-engineering",
@@ -2668,7 +2686,7 @@
         "tests/test_stage130.py"
       ],
       "tests_executed": "Focused tests in benchmarks/stage130_tests.txt and benchmark_stage121_130.py --stage 130",
-      "test_results": "Focused tests and 210-test full local regression passed; exact-head CI pending",
+      "test_results": "Focused tests and full 210-test local regression passed; all four Linux/Windows Python 3.12/3.13 CI jobs passed",
       "benchmark_results": {
         "cases": 1,
         "containment": "first_contains_second",
@@ -2681,7 +2699,9 @@
       "limitations": [
         "Controlled generated evidence; no representative application accuracy"
       ],
-      "next_task": "Stop and wait for Continue"
+      "next_task": "Stop and wait for Continue",
+      "verified_commit_sha": "a1e7ba72fbf58875ce526af9fbd6e2ef7598c954",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525"
     }
   ]
 }

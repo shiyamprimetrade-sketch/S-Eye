@@ -296,3 +296,5 @@ feature matches or proximity into proven object identity. Release v1.0, OCR and
 expert programmer vision remain incomplete; human review does not block engineering.
 
 Stages 121–130 implementation checkpoint `39b8baf7f327d9f4a64bb082ca02480690e5a623`; individual SHAs are recorded in the ledger and benchmarks/stages121_130_publication.json. 210 local tests pass. Retrieval ties remain explicit; no unique-object identity is inferred. Stop at 130; exact-head CI pending.
+
+Verified 121–130 checkpoint `a1e7ba72fbf58875ce526af9fbd6e2ef7598c954`: all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed, including 210 tests, all ten new experiments, historical checks, installation, audits and artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525 . Generated category retrieval remains tied/ambiguous and is not representative application or object-identity validation. This later receipt changes documentation only; the cited run belongs to that exact SHA. Stop at 130 and wait for Continue before 131–140.

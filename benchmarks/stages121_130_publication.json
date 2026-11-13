@@ -60,5 +60,9 @@
     "ambiguous_known_queries": "6/6"
   },
   "representative_application_accuracy": null,
-  "remote_ci": "pending"
+  "remote_ci": {
+    "verified_commit": "a1e7ba72fbf58875ce526af9fbd6e2ef7598c954",
+    "run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43442188525",
+    "result": "all four Ubuntu/Windows Python 3.12/3.13 jobs passed, 210 tests and ten experiments"
+  }
 }
