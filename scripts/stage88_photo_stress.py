@@ -37,7 +37,7 @@ def run(manifest):
     return {'stage':88,'experiment':'unlabelled_photograph_stress','source_count':len(data['images']),
             'variants':list(VARIANTS+EXTRA_VARIANTS),'attempted_runs':len(results),'successful_runs':sum(r['success'] for r in results),
             'recognition_accuracy':None,'representative_generalization_validated':False,'original_bytes_preserved':True,
-            'physical_capture_conditions':'not measured; photographs show different views/scenes, not a controlled same-object sweep',
+            'physical_capture_conditions':data.get('physical_capture_conditions', 'not measured; photographs show different views/scenes, not a controlled same-object sweep'),
             'limitations':['Generated perturbations are correlated, not additional photographs.','No reviewed shape labels or boxes; proposal counts are not recognized object counts.','Grid overlays may occlude foreground.','Projective warps do not prove physical viewpoint invariance.'],
             'results':results}
 

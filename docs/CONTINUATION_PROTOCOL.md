@@ -127,3 +127,16 @@ physical conditions were invented. See benchmarks/stage88_capture_gate.json.
 Continue Stage 88; do not advance to 89 until its evidence gate is met. Required
 input: reviewed circle/quadrilateral/triangle labels and three photographs of the
 same targets across documented physical lighting and viewpoints.
+
+
+Stage 88 internet-data checkpoint (2026-11-13): acquired 18 ALOI physical photos
+from three objects across documented lighting and relative orientations; 396/396
+unlabelled stress executions completed, 100 local tests passed. Capture availability
+is addressed for this narrow subset. Stage 88 remains open because geometric labels
+are not human-reviewed; no accuracy is claimed and Stage 89 has not started.
+See STAGE88_INTERNET_DATA.md, datasets/manifests/stage88_aloi.json and
+benchmarks/stage88_aloi_{stress,capture_gate,tests} evidence. Export contains images,
+contact sheet, review template, provenance and reports; pixels stay out of git.
+Next: review labels/visibility independently of predictions, lock grouped target
+splits, then evaluate per-condition errors. Do not substitute object names for
+shape truth or mark human review on behalf of a person.

@@ -39,9 +39,13 @@
       "engineering_state": "partial",
       "evidence_paths": [
         "src/seye/core/datasets.py",
-        "generalization.py"
+        "generalization.py",
+        "scripts/stage88_aloi.py",
+        "datasets/manifests/stage88_aloi.json",
+        "benchmarks/stage88_aloi_stress.json",
+        "benchmarks/stage88_aloi_capture_gate.json"
       ],
-      "open_requirement": "Perturbations remain incomplete and physical angle/lighting data is missing",
+      "open_requirement": "Reviewed supported geometric labels and independent representative evaluation remain absent. ALOI supplies 18 same-object physical captures across lighting and orientations; no factorial design, triangle examples or representative background coverage.",
       "validated": false,
       "completion_declared": false
     },

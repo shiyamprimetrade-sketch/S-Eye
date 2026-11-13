@@ -35,3 +35,5 @@ model, classifier replacement or private-memory migration has been introduced.
 - Verified Windows and Linux CI on Python 3.12/3.13; added strict versioned policy
   configuration, granted batch recognition, bounded source-verified descriptor LRU,
   scoped CPU/cache measurements and transitive geometric proximity groups.
+
+- Stage 88: bounded, hash-pinned ALOI photograph acquisition; 18 documented physical captures, 396 unlabelled executions, safe archive tests and explicit pending-label gate.

@@ -224,6 +224,28 @@
       ],
       "next_task": "Validation-only uncertainty/rejection development and remaining explicit stage gaps",
       "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43265760507"
+    },
+    {
+      "id": "stage88-aloi-physical-captures",
+      "objective": "Acquire real same-target physical lighting/orientation photos without fabricated shape labels",
+      "files_changed": [
+        "scripts/stage88_aloi.py",
+        "tests/test_aloi_import.py",
+        "datasets/manifests/stage88_aloi.json",
+        "benchmarks/stage88_aloi_stress.json",
+        "docs/STAGE88_INTERNET_DATA.md"
+      ],
+      "tests_executed": "python -m unittest discover -s tests -q; stage88_photo_stress.py on ALOI subset",
+      "test_results": "100 tests passed locally; exact-head CI pending",
+      "benchmark_results": "18 photos, 3 objects, 11 variants, 2 modes; 396/396 execution completions; recognition accuracy null",
+      "commit_sha": "Resolve commit containing this ledger entry; publication receipt in PR #1",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "No reviewed geometric labels",
+        "Black-background object subset; not representative generalization",
+        "No permissive redistribution license asserted"
+      ],
+      "next_task": "Review geometric labels and visibility, lock grouped evaluation, run per-condition recognition errors; do not advance Stage 89 before Stage 88 gate."
     }
   ]
 }
