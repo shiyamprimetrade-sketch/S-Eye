@@ -7166,6 +7166,311 @@
       "next_task": "Stop and wait for Continue",
       "verified_commit_sha": "614027a94f9bed342b261bc57eef86caa1ffe9f5",
       "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022"
+    },
+    {
+      "id": "stage141-temporal-engineering",
+      "objective": "Explicit bounded resampling grids and whole-frame validation; times are sample-grid times, not original PTS.",
+      "files_changed": [
+        "benchmarks/stage141_experiment.json",
+        "benchmarks/stage141_tests.txt",
+        "scripts/benchmark_stage141_150.py",
+        "src/seye/video/temporal.py",
+        "tests/test_stage141.py"
+      ],
+      "tests_executed": "Focused transcript benchmarks/stage141_tests.txt; benchmark_stage141_150.py --stage 141; full 257-test regression",
+      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "benchmark_results": {
+        "passed": true,
+        "frames": 6
+      },
+      "commit_sha": "c65f80d0c4529e49b3fc57e2245e04a1ee1c3a5f",
+      "local_equivalent_sha": "93b32585a6108afe7737587b6e1dadcf5057a979",
+      "tree_sha": "4e9a50fabd5b3286c616a52e1e76eb90efe245b2",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated evidence only; representative scene/tracking validation remains open",
+        "Conservative association has worse aggregate metrics than legacy; remains opt-in",
+        "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
+      ],
+      "next_task": "Stage 142"
+    },
+    {
+      "id": "stage142-temporal-engineering",
+      "objective": "Finite same-grid velocity/size evidence and optional caller translation; no inferred camera/semantic motion.",
+      "files_changed": [
+        "benchmarks/stage142_experiment.json",
+        "benchmarks/stage142_tests.txt",
+        "scripts/benchmark_stage141_150.py",
+        "src/seye/video/motion.py",
+        "tests/test_stage142.py"
+      ],
+      "tests_executed": "Focused transcript benchmarks/stage142_tests.txt; benchmark_stage141_150.py --stage 142; full 257-test regression",
+      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "benchmark_results": {
+        "passed": true
+      },
+      "commit_sha": "47f2011108810c0ebaec22309e6664bf5b254a08",
+      "local_equivalent_sha": "0fc799d0ded9d84388b5ca3535830c2719fea71d",
+      "tree_sha": "932dc39388277700fcf08c5d110c0e9c7164fa92",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated evidence only; representative scene/tracking validation remains open",
+        "Conservative association has worse aggregate metrics than legacy; remains opt-in",
+        "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
+      ],
+      "next_task": "Stage 143"
+    },
+    {
+      "id": "stage143-temporal-engineering",
+      "objective": "Independent opt-in candidate tracker accepting only isolated geometric correspondences; ambiguity abstains.",
+      "files_changed": [
+        "benchmarks/stage143_experiment.json",
+        "benchmarks/stage143_tests.txt",
+        "scripts/benchmark_stage141_150.py",
+        "src/seye/video/continuity.py",
+        "tests/test_stage143.py"
+      ],
+      "tests_executed": "Focused transcript benchmarks/stage143_tests.txt; benchmark_stage141_150.py --stage 143; full 257-test regression",
+      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "benchmark_results": {
+        "passed": true,
+        "frames": 8
+      },
+      "commit_sha": "787ca5e3bb21723e24a30a211bce38f17eb29d72",
+      "local_equivalent_sha": "0e8372d451ad9d945d263a8ab7d5332b727b2428",
+      "tree_sha": "4f60c967afab9d6fa7a1424bf9d1ac780d685025",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated evidence only; representative scene/tracking validation remains open",
+        "Conservative association has worse aggregate metrics than legacy; remains opt-in",
+        "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
+      ],
+      "next_task": "Stage 144"
+    },
+    {
+      "id": "stage144-temporal-engineering",
+      "objective": "Session-scoped monotonic track IDs, explicit caller scene-cut/grid resets and elapsed-gap retirement.",
+      "files_changed": [
+        "benchmarks/stage144_experiment.json",
+        "benchmarks/stage144_tests.txt",
+        "scripts/benchmark_stage141_150.py",
+        "src/seye/video/continuity.py",
+        "tests/test_stage144.py"
+      ],
+      "tests_executed": "Focused transcript benchmarks/stage144_tests.txt; benchmark_stage141_150.py --stage 144; full 257-test regression",
+      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "benchmark_results": {
+        "passed": true
+      },
+      "commit_sha": "d7f9e486a15e593dccf0efd1ca5e27620ce23787",
+      "local_equivalent_sha": "3ed1660cb0634caf0d79e53645db963bbbe20adc",
+      "tree_sha": "fcb9f17e87c8234d5b584dae7854e5e42831a8aa",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated evidence only; representative scene/tracking validation remains open",
+        "Conservative association has worse aggregate metrics than legacy; remains opt-in",
+        "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
+      ],
+      "next_task": "Stage 145"
+    },
+    {
+      "id": "stage145-temporal-engineering",
+      "objective": "Bounded non-observation, possible covering-region evidence and explicitly tentative short-gap reacquisition.",
+      "files_changed": [
+        "benchmarks/stage145_experiment.json",
+        "benchmarks/stage145_tests.txt",
+        "scripts/benchmark_stage141_150.py",
+        "src/seye/video/continuity.py",
+        "tests/test_stage145.py"
+      ],
+      "tests_executed": "Focused transcript benchmarks/stage145_tests.txt; benchmark_stage141_150.py --stage 145; full 257-test regression",
+      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "benchmark_results": {
+        "passed": true,
+        "same_geometric_track": true
+      },
+      "commit_sha": "f111b1f544edcf3e25a34e820893bedb750da7f4",
+      "local_equivalent_sha": "ecbcb6ed73a783052cf585138a7cdc303ab5811f",
+      "tree_sha": "12ae1d88e460b075443710b9a0b32ac3d554b546",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated evidence only; representative scene/tracking validation remains open",
+        "Conservative association has worse aggregate metrics than legacy; remains opt-in",
+        "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
+      ],
+      "next_task": "Stage 146"
+    },
+    {
+      "id": "stage146-temporal-engineering",
+      "objective": "Source-bound checksummed state, strict structural restore, exclusive atomic files and identical resume evidence.",
+      "files_changed": [
+        "benchmarks/stage146_experiment.json",
+        "benchmarks/stage146_tests.txt",
+        "scripts/benchmark_stage141_150.py",
+        "src/seye/video/checkpoint.py",
+        "tests/test_stage146.py"
+      ],
+      "tests_executed": "Focused transcript benchmarks/stage146_tests.txt; benchmark_stage141_150.py --stage 146; full 257-test regression",
+      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "benchmark_results": {
+        "passed": true,
+        "uninterrupted_equals_resumed": true
+      },
+      "commit_sha": "741319c2b3878bd80d06a0725ebcb7ff7ead7857",
+      "local_equivalent_sha": "f9335ded77d67adeb1b147fc2d979d2e7dc9470d",
+      "tree_sha": "3e2bc85a6dc5e6487a132cebdf940f5347ac3635",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated evidence only; representative scene/tracking validation remains open",
+        "Conservative association has worse aggregate metrics than legacy; remains opt-in",
+        "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
+      ],
+      "next_task": "Stage 147"
+    },
+    {
+      "id": "stage147-temporal-engineering",
+      "objective": "Source/frame-linked bounded summaries with sampled endpoints, gaps and retirement evidence; not continuous visibility.",
+      "files_changed": [
+        "benchmarks/stage147_experiment.json",
+        "benchmarks/stage147_tests.txt",
+        "scripts/benchmark_stage141_150.py",
+        "src/seye/video/summary.py",
+        "tests/test_stage147.py"
+      ],
+      "tests_executed": "Focused transcript benchmarks/stage147_tests.txt; benchmark_stage141_150.py --stage 147; full 257-test regression",
+      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "benchmark_results": {
+        "passed": true
+      },
+      "commit_sha": "f81a1b00e6cb81072e10446d640f6e5591403349",
+      "local_equivalent_sha": "b73f1ae4504cbeb797287fcdeaea7b76e3f3c42f",
+      "tree_sha": "f2a6097899bae5b42e7a15ba4604676d4c300a94",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated evidence only; representative scene/tracking validation remains open",
+        "Conservative association has worse aggregate metrics than legacy; remains opt-in",
+        "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
+      ],
+      "next_task": "Stage 148"
+    },
+    {
+      "id": "stage148-temporal-engineering",
+      "objective": "Bounded per-frame box-association timing with p50/p95 and separately scoped decode/analysis measurements.",
+      "files_changed": [
+        "benchmarks/stage148_experiment.json",
+        "benchmarks/stage148_tests.txt",
+        "scripts/benchmark_stage141_150.py",
+        "src/seye/video/performance.py",
+        "tests/test_stage148.py"
+      ],
+      "tests_executed": "Focused transcript benchmarks/stage148_tests.txt; benchmark_stage141_150.py --stage 148; full 257-test regression",
+      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "benchmark_results": {
+        "passed": true
+      },
+      "commit_sha": "7d08d6b1c46d49093d9dfad49b70aa6680db690d",
+      "local_equivalent_sha": "ae05047bc638701c9fcedc9e77e8cec4a12c9b8f",
+      "tree_sha": "6b80681d4b3b30203b0171ea1ee3b2c8f77a2ba9",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated evidence only; representative scene/tracking validation remains open",
+        "Conservative association has worse aggregate metrics than legacy; remains opt-in",
+        "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
+      ],
+      "next_task": "Stage 149"
+    },
+    {
+      "id": "stage149-temporal-engineering",
+      "objective": "Executable 27-sequence generated identity-switch/fragmentation comparison retaining all errors; representative validation remains open.",
+      "files_changed": [
+        "benchmarks/stage149_experiment.json",
+        "benchmarks/stage149_tests.txt",
+        "scripts/benchmark_stage141_150.py",
+        "scripts/benchmark_tracking_validation.py",
+        "src/seye/video/evaluation.py",
+        "tests/test_stage149.py"
+      ],
+      "tests_executed": "Focused transcript benchmarks/stage149_tests.txt; benchmark_stage141_150.py --stage 149; full 257-test regression",
+      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "benchmark_results": {
+        "passed": true,
+        "frames": 324,
+        "generated_sequences": 27,
+        "totals": {
+          "conservative": {
+            "fn": 57,
+            "fp": 36,
+            "fragmentations": 21,
+            "identity_switches": 12,
+            "tp": 591,
+            "truth_observations": 648
+          },
+          "legacy": {
+            "fn": 30,
+            "fp": 36,
+            "fragmentations": 9,
+            "identity_switches": 9,
+            "tp": 618,
+            "truth_observations": 648
+          }
+        }
+      },
+      "commit_sha": "ba99d63c300b810020189d36c37565fdcb26e1ad",
+      "local_equivalent_sha": "cbc38d7171cc5c1e0dcb1282820e9d48dda88101",
+      "tree_sha": "f789fec91a023a11754b2ae1b4bf1f58eaac9738",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated evidence only; representative scene/tracking validation remains open",
+        "Conservative association has worse aggregate metrics than legacy; remains opt-in",
+        "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
+      ],
+      "next_task": "Stage 150"
+    },
+    {
+      "id": "stage150-temporal-engineering",
+      "objective": "Chunked source snapshots, monitored decoder logs/disk/time, session/work budgets, actual encoded-clip evaluation and granted temporal API.",
+      "files_changed": [
+        "benchmarks/stage150_experiment.json",
+        "benchmarks/stage150_tests.txt",
+        "scripts/benchmark_stage141_150.py",
+        "scripts/benchmark_temporal_decode.py",
+        "src/seye/integration/service.py",
+        "src/seye/video/checkpoint.py",
+        "src/seye/video/continuity.py",
+        "src/seye/video/evaluation.py",
+        "src/seye/video/ingestion.py",
+        "src/seye/video/interface.py",
+        "src/seye/video/motion.py",
+        "src/seye/video/performance.py",
+        "src/seye/video/resources.py",
+        "src/seye/video/sequence.py",
+        "src/seye/video/temporal.py",
+        "tests/test_stage150.py"
+      ],
+      "tests_executed": "Focused transcript benchmarks/stage150_tests.txt; benchmark_stage141_150.py --stage 150; full 257-test regression",
+      "test_results": "257 local tests passed; all ten experiments passed; exact-head remote CI pending publication",
+      "benchmark_results": {
+        "passed": true,
+        "decoded_frames": 24,
+        "totals": {
+          "fn": 7,
+          "fp": 0,
+          "fragmentations": 1,
+          "identity_switches": 0,
+          "tp": 41,
+          "truth_observations": 48
+        }
+      },
+      "commit_sha": "872c97a9077894e225740b558f4c068a3bccd6df",
+      "local_equivalent_sha": "046aef919f9c939e278da2379800fe2b40f7252b",
+      "tree_sha": "20e665affde47fe72b87a4927b88a96b77a9fd67",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated evidence only; representative scene/tracking validation remains open",
+        "Conservative association has worse aggregate metrics than legacy; remains opt-in",
+        "No semantic identity, action authority, native decoder total RSS guarantee or v1.0 release"
+      ],
+      "next_task": "Stop at 150; next Continue starts 151\u2013160"
     }
   ]
 }

@@ -1,0 +1,34 @@
+{
+  "local_tests": 257,
+  "all_ten_experiments_passed": true,
+  "deterministic_reports_identical": [
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    149
+  ],
+  "variable_host_measurement_reports": [
+    148,
+    150
+  ],
+  "installed_smoke": {
+    "installed_module": "/tmp/seye150-venv/lib/python3.12/site-packages/seye/__init__.py",
+    "class": "triangle",
+    "overlay_created": true,
+    "source_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+    "executed_outside_checkout": true,
+    "versioned_workflow_passed": true
+  },
+  "wheel_built": true,
+  "source_syntax": "all parsed successfully",
+  "changed_baseline_files": [
+    ".gitignore",
+    "README.md"
+  ],
+  "release_ready": false,
+  "remote_ci": "pending exact-head publication"
+}

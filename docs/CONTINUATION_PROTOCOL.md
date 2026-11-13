@@ -342,3 +342,27 @@ Local verification: 231 tests passed (benchmarks/stages131_140_full_tests.txt); 
 Implementation GitHub checkpoint 3f55d6a8fc3a1ba0061a79db9eff8ec18d90a035; individual stage SHAs recorded in benchmarks/stages131_140_publication.json and ledger. 231 local tests passed; exact-head CI pending. Stop at 140.
 
 Verified 131–140 checkpoint `614027a94f9bed342b261bc57eef86caa1ffe9f5`: all four Ubuntu/Windows Python 3.12/3.13 jobs passed, including 231 tests, all ten experiments, historical checks, installation, audits and artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43449069022 . Generated scene event contracts matched 28/32; overlapping-region cases failed 0/4. Representative application validation remains open. This later documentation-only receipt cites CI for that exact source checkpoint. Stop at 140; next Continue starts 141–150.
+
+
+## Stages 141–150: temporal engineering checkpoint
+
+Completed the scoped engineering contracts in STAGES_141_150.md, with 257 local
+tests, ten experiments, installed smoke and wheel build passing. Source state is
+preserved in individual stage commits in benchmarks/stages141_150_publication.json.
+Eight deterministic reports reproduce exactly; timing/allocation fields vary in
+Stages 148/150. Exact-head remote CI is pending publication.
+
+The 27-sequence generated oracle benchmark is a negative accuracy result:
+legacy 618 TP / 36 FP / 30 FN / 9 switches; conservative 591 / 36 / 57 / 12.
+Keep the new mode opt-in. It reports uncertainty rather than solving overlap.
+Actual generated MPEG4 -> segmentation -> conservative tracking: 24 frames,
+41 TP / 0 FP / 7 FN, 0 switches. Neither benchmark is representative application
+validation. Stage 149 closes its executable harness only; the real-world gate
+remains open. Source-bound restart state reproduces uninterrupted output exactly.
+Native decoder total RSS/security isolation, semantic identity and v1.0 are open.
+
+STOP at 150. Next Continue authorizes 151–160. Begin with bounded image decoding,
+measured full-pipeline latency/feature/index/batch/cache/CPU/storage behavior,
+platform evidence and the stable Python API. Do not invent Android hardware access.
+Do not silently make the opt-in tracker default, tune against this reported test
+and call it new held-out evidence, or claim Stage 139 overlap is solved.

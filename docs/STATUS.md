@@ -1,3 +1,27 @@
+## Latest checkpoint: Stages 141–150
+
+Implemented opt-in conservative temporal association, explicit sampling/motion
+contracts, session IDs, gap/covering evidence, source-bound tracker snapshots,
+summary/timing APIs and decoder/work limits. Each stage has focused tests,
+a generated experiment and a separate implementation commit. See
+[STAGES_141_150.md](STAGES_141_150.md) and the development ledger.
+
+257 local tests passed; installation smoke and wheel build passed; all ten new
+experiments passed. Eight deterministic reports reproduced exactly; Stages
+148/150 include variable host timings. Exact-head remote CI is pending publication.
+Generated box-oracle comparison (27 sequences / 324 frames): conservative
+591 TP / 36 FP / 57 FN / 12 switches, legacy 618 / 36 / 30 / 9. This is **not**
+an aggregate accuracy improvement; conservative mode remains opt-in. Actual
+three-clip encode/decode/segmentation test: 24 frames, 41 TP / 0 FP / 7 FN,
+zero switches. All source hashes stayed unchanged. Representative validation,
+merged-region reliability, native process isolation and v1.0 gates remain open.
+
+STOP at 150; wait for Continue before 151–160. Next work starts with bounded
+image decoding and profiling the full observation pipeline, preserving these
+comparators and all historical checkpoints.
+
+---
+
 # S-Eye current engineering status
 
 Historical baseline: Stage 84, `e92bb55`. Active development branch:
