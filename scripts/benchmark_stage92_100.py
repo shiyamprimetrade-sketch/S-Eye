@@ -42,6 +42,12 @@ def stage95():
     r=remove_specks(image)
     return {'cases':1,'retained_pixels':r['mask'].histogram()[255],'removed_pixels':r['removed_pixels'],'passed':r['removed_pixels']==2 and r['mask'].histogram()[255]==100}
 
+def stage96():
+    from seye.interface.masks import repair_gaps
+    image=Image.new('L',(25,12));ImageDraw.Draw(image).line((3,5,20,5),fill=255);image.putpixel((10,5),0)
+    r=repair_gaps(image)
+    return {'cases':1,'introduced_pixels':r['introduced_pixels'],'retained_pixels':r['mask'].histogram()[255],'passed':r['introduced_pixels']==1 and r['mask'].histogram()[255]==18}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(92,101),required=True);p.add_argument('--output',type=Path,required=True)

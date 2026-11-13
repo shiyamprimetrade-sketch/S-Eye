@@ -51,3 +51,23 @@ def remove_specks(mask,min_area=4):
             for index in group:output[index]=0
     return {'mask':Image.frombytes('L',image.size,bytes(output)),'removed_pixels':removed,'components':components,
             'policy':'8-connected area filtering; small real glyphs can be removed'}
+
+
+def repair_gaps(mask,max_gap=1):
+    if type(max_gap) is not int or not 1<=max_gap<=3:raise ValueError('Gap policy must be in [1,3]')
+    image=binary(mask);w,h=image.size;source=image.load();output=bytearray(image.tobytes());added=set()
+    for axis in ('x','y'):
+        major,minor=(w,h) if axis=='x' else (h,w)
+        for line in range(minor):
+            last=None
+            for i in range(major):
+                x,y=(i,line) if axis=='x' else (line,i)
+                if not source[x,y]:continue
+                if last is not None and 0<i-last-1<=max_gap:
+                    for gap in range(last+1,i):
+                        gx,gy=(gap,line) if axis=='x' else (line,gap)
+                        added.add(gy*w+gx)
+                last=i
+    for index in added:output[index]=255
+    return {'mask':Image.frombytes('L',image.size,bytes(output)),'introduced_pixels':len(added),
+            'may_join_distinct_regions':True,'policy':'single pass axis gap hypothesis; never proof of a missing boundary'}

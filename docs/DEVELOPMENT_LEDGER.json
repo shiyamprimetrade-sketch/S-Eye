@@ -455,6 +455,29 @@
         "See STAGES_092_100.md for scope and unsupported cases"
       ],
       "next_task": "Stage 96"
+    },
+    {
+      "id": "stage96-interface-engineering",
+      "objective": "Single-pass bounded axis gap repair records every introduced pixel and warns that distinct regions may join. Large gaps remain unsupported and unchanged.",
+      "files_changed": [
+        "src/seye/interface/masks.py",
+        "tests/test_stage096.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage096_tests.txt and benchmark_stage92_100.py --stage 96",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 1,
+        "introduced_pixels": 1,
+        "passed": true,
+        "retained_pixels": 18
+      },
+      "commit_sha": "Git commit with subject Stage 96; remote publication mapping recorded after batch",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Generated bounded evidence; no representative application accuracy",
+        "See STAGES_092_100.md for scope and unsupported cases"
+      ],
+      "next_task": "Stage 97"
     }
   ]
 }
