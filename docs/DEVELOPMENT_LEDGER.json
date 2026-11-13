@@ -238,7 +238,7 @@
       "tests_executed": "python -m unittest discover -s tests -q; stage88_photo_stress.py on ALOI subset",
       "test_results": "100 tests passed locally; exact-head CI pending",
       "benchmark_results": "18 photos, 3 objects, 11 variants, 2 modes; 396/396 execution completions; recognition accuracy null",
-      "commit_sha": "Resolve commit containing this ledger entry; publication receipt in PR #1",
+      "commit_sha": "7619851e6896645d754e20044a1257bf0b71f14d",
       "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
       "limitations": [
         "No reviewed geometric labels",

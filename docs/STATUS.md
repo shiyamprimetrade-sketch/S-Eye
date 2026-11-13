@@ -112,3 +112,5 @@ contact sheet, review template, provenance and reports; pixels stay out of git.
 Next: review labels/visibility independently of predictions, lock grouped target
 splits, then evaluate per-condition errors. Do not substitute object names for
 shape truth or mark human review on behalf of a person.
+
+Stage 88 ALOI acquisition implementation published: `7619851e6896645d754e20044a1257bf0b71f14d`, PR #1. Exact-head CI must be checked separately.
