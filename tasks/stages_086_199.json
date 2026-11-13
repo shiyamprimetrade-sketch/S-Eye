@@ -158,14 +158,17 @@
       "stage": 95,
       "objective": "Noise suppression",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/detection/annotations.py",
-        "src/seye/segmentation/experimental.py"
+        "src/seye/interface/masks.py",
+        "tests/test_stage095.py",
+        "benchmarks/stage095_experiment.json",
+        "benchmarks/stage095_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "No remaining scoped engineering check; representative application validation and documented unsupported cases remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Bounded eight-connected area filtering removes isolated specks while preserving qualifying thin strokes; optional policy can remove genuine small glyphs."
     },
     {
       "stage": 96,

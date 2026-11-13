@@ -35,6 +35,13 @@ def stage94():
     r=split_projection(image)
     return {'cases':1,'parts':len(r['parts']),'removed_bridge_pixels':r['discarded_pixels'],'passed':len(r['parts'])==2 and r['discarded_pixels']==15}
 
+def stage95():
+    from seye.interface.masks import remove_specks
+    image=Image.new('L',(30,20));d=ImageDraw.Draw(image);d.rectangle((5,5,14,14),fill=255)
+    image.putpixel((1,1),255);image.putpixel((25,17),255)
+    r=remove_specks(image)
+    return {'cases':1,'retained_pixels':r['mask'].histogram()[255],'removed_pixels':r['removed_pixels'],'passed':r['removed_pixels']==2 and r['mask'].histogram()[255]==100}
+
 # STAGE_CASES
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--stage',type=int,choices=range(92,101),required=True);p.add_argument('--output',type=Path,required=True)

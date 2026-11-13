@@ -26,3 +26,28 @@ def split_projection(mask, axis='x', max_bridge=1, min_span=4):
             parts.append({'box':actual,'mask':image.crop(actual)})
     discarded=image.histogram()[255]-sum(p['mask'].histogram()[255] for p in parts)
     return {'parts':parts,'split':True,'discarded_pixels':discarded,'reason':'low-density projection valley; thin structures may be removed'}
+
+
+def remove_specks(mask,min_area=4):
+    if type(min_area) is not int or not 1<=min_area<=4096:raise ValueError('Invalid component area policy')
+    image=binary(mask);raw=image.tobytes();active=bytearray(raw);output=bytearray(raw);w,h=image.size
+    if image.histogram()[255]>200_000:raise ValueError('Noise foreground budget exceeded')
+    removed=components=0
+    for seed in range(len(active)):
+        if not active[seed]:continue
+        components+=1
+        if components>10_000:raise ValueError('Noise component budget exceeded')
+        pending=[seed];active[seed]=0;group=[]
+        while pending:
+            index=pending.pop();group.append(index);x=index%w;y=index//w
+            for dy in (-1,0,1):
+                for dx in (-1,0,1):
+                    nx,ny=x+dx,y+dy
+                    if (dx or dy) and 0<=nx<w and 0<=ny<h:
+                        next_index=ny*w+nx
+                        if active[next_index]:active[next_index]=0;pending.append(next_index)
+        if len(group)<min_area:
+            removed+=len(group)
+            for index in group:output[index]=0
+    return {'mask':Image.frombytes('L',image.size,bytes(output)),'removed_pixels':removed,'components':components,
+            'policy':'8-connected area filtering; small real glyphs can be removed'}
