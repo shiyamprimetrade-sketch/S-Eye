@@ -2340,6 +2340,29 @@
         "Controlled generated evidence; no representative application accuracy"
       ],
       "next_task": "Stage 122"
+    },
+    {
+      "id": "stage122-memory-engineering",
+      "objective": "Persistent schema-specific balanced exact KD trees bind to authoritative observation snapshots and fail on stale/corrupt caches. Integrity/freshness checks remain linear, so end-to-end sublinear performance is not claimed.",
+      "files_changed": [
+        "src/seye/memory/packet_index.py",
+        "tests/test_stage122.py",
+        "tests/memory_fixtures.py"
+      ],
+      "tests_executed": "Focused tests in benchmarks/stage122_tests.txt and benchmark_stage121_130.py --stage 122",
+      "test_results": "Focused tests passed; final full regression and exact-head CI tracked separately",
+      "benchmark_results": {
+        "cases": 16,
+        "indexed_observations": 16,
+        "passed": true,
+        "tree_count": 16
+      },
+      "commit_sha": "Commit subject Stage 122; remote publication mapping follows",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated evidence; no representative application accuracy"
+      ],
+      "next_task": "Stage 123"
     }
   ]
 }
