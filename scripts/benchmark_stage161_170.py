@@ -77,6 +77,20 @@ def stage165():
             'passed':good['success'] and not bad['success'] and not good['result']['automatic_action_authorized']}
 
 
+def stage166():
+    from seye.api import Client,Permissions
+    from seye.integration.memory_adapter import MemoryAdapter
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);image=fixture(root);client=Client(Permissions((root,),(root,),memory=True),isolated=False,strict=True)
+        adapter=MemoryAdapter(client,str(root/'memory.sqlite3'),True)
+        adapter.store_image(image,'one');adapter.build_index('index-one')
+        excluded=adapter.find(image,'excluded',0);unique=adapter.find(image,'unique',0,include_self=True)
+        adapter.store_image(image,'two');adapter.build_index('index-two');tie=adapter.find(image,'tie',0,include_self=True)
+        statuses=[r['result']['status'] for r in (excluded,unique,tie)]
+    return {'controlled_statuses':statuses,'scope':'same generated image and duplicate stored observations, not real-object recognition',
+            'passed':statuses==['no_match','feature_candidate','ambiguous']}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(161,171));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))

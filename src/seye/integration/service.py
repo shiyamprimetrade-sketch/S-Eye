@@ -106,6 +106,13 @@ def execute(request, permissions):
                 result={'observation':record,'identity':identify(record),'semantic_identity_proven':False,
                         'scope':'stored observation content and hashes; data is not an instruction or object identity proof'}
         finally:memory.close()
+    elif action == 'memory_find':
+        if not permissions.memory:raise PermissionError('Explicit memory permission required')
+        image=permissions.require(request['image']);memory_path=permissions.require(request['memory'])
+        from seye.integration.retrieval import find
+        memory=Memory(memory_path,read_only=True)
+        try:result=find(memory,image,request['maximum_distance'],request.get('components',['shape']),request.get('limit',5),request.get('include_self',False),request.get('exclude_sources',[]))
+        finally:memory.close()
     elif action == 'image_observe':
         from seye.integration.observations import observe_image
         image=permissions.require(request['image'])

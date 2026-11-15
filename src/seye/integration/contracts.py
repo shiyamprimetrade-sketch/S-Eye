@@ -31,6 +31,7 @@ CONTRACTS={
  'memory_store_image':('memory image','components expected_source_sha256'),
  'memory_get_observation':('memory observation_id',''),
  'image_observe':('image','expected_source_sha256 options'),
+ 'memory_find':('memory image maximum_distance','components limit include_self exclude_sources'),
  # EXTENSIONS
 }
 ACTIONS=frozenset(CONTRACTS)
