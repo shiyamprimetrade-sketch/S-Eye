@@ -92,6 +92,14 @@ def stage177():
             'in_place':receipt['in_place'],'passed':unchanged and not delta['enabled_capabilities'] and not delta['added_write_roots']}
 
 
+def stage178():
+    from seye.local.doctor import doctor
+    report=doctor(True)
+    return {'code_version':report['code_version'],'local_workflow_requirements_present':report['local_workflow_requirements_present'],
+            'generated_self_test':report['self_test'],'hardware_validation':False,
+            'passed':report['self_test']['workspace_verified'] and report['self_test']['offline_report_created'] and report['local_workflow_requirements_present']}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(171,181));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))

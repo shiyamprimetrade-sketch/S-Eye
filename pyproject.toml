@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "seye-independent"
-version = "0.1.0.dev90"
+version = "0.1.0.dev180"
 description = "Experimental independent S-Eye geometric image analysis"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -13,6 +13,7 @@ dependencies = ["Pillow==13.0.0"]
 [project.scripts]
 seye = "seye.api.cli:main"
 seye-workflow = "seye.api.workflow:main"
+seye-local = "seye.local.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
