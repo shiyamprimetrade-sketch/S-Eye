@@ -12,7 +12,7 @@ from seye.detection.metrics import valid_box, detection_metrics, mask_iou
 def validate_annotations(manifest):
     manifest = Path(manifest).resolve()
     data = read_json(manifest)
-    if not isinstance(data, dict) or data.get('schema_version') != 1 or data.get('coordinate_space') != 'exif_oriented_source':
+    if not isinstance(data, dict) or type(data.get('schema_version')) is not int or data['schema_version'] != 1 or data.get('coordinate_space') != 'exif_oriented_source':
         raise ValueError('Expected schema-1 annotations in EXIF-oriented source coordinates')
     if data.get('template_unscored') is True:
         raise ValueError('Annotation template must be reviewed before scoring')

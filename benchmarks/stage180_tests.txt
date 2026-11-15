@@ -1,0 +1,7 @@
+test_boolean_annotation_schema_and_manifest_traversal_cannot_pass (test_stage180.WorkflowInputValidationTests.test_boolean_annotation_schema_and_manifest_traversal_cannot_pass) ... ok
+test_duplicate_nonfinite_encoding_surrogate_depth_and_byte_bombs_refused (test_stage180.WorkflowInputValidationTests.test_duplicate_nonfinite_encoding_surrogate_depth_and_byte_bombs_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.011s
+
+OK

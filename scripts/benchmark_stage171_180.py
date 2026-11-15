@@ -115,6 +115,18 @@ def stage179():
             'passed':codes==[0,0,0,0]}
 
 
+def stage180():
+    from seye.core.storage import decode_json
+    cases=[b'{"x":1,"x":2}',b'{"x":NaN}',b'{"x":1e999}',b'{"x":"\\ud800"}',b'['*80+b'0'+b']'*80]
+    rejected=0
+    for raw in cases:
+        try:decode_json(raw)
+        except ValueError:rejected+=1
+    valid=decode_json(b'{"schema_version":1,"items":[]}')
+    return {'malformed_cases':len(cases),'rejected_cases':rejected,'valid_control_accepted':valid['schema_version']==1,
+            'passed':rejected==len(cases) and valid['schema_version']==1}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(171,181));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))

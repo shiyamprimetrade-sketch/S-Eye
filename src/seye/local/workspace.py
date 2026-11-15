@@ -69,6 +69,10 @@ def open_workspace(path,allowed_root):
         if item.get('source_kind') not in ('screenshot','photograph','synthetic') or item.get('annotation_status')!='unlabelled':raise ValueError('Invalid workspace source declaration')
         image,source=load_image(root/relative,allowed_root=root,max_pixels=4_000_000)
         expected=item.get('source',{})
+        if not isinstance(expected,dict) or not isinstance(item.get('source_filename'),str) or not 1<=len(item['source_filename'])<=255:raise ValueError('Bounded source filename and metadata required')
+        size=expected.get('size')
+        if not isinstance(size,list) or len(size)!=2 or any(type(v) is not int or v<=0 for v in size):raise ValueError('Integer source grid required')
+        if type(expected.get('bytes')) is not int or expected['bytes']<=0:raise ValueError('Integer encoded source bytes required')
         if any(source[k]!=expected.get(k) for k in ('sha256','bytes','size')):raise ValueError('Workspace source identity mismatch')
         total_bytes+=source['bytes'];total_pixels+=image.width*image.height
     if total_bytes>64*1024*1024 or total_pixels>32_000_000 or total_bytes!=data.get('encoded_bytes') or total_pixels!=data.get('decoded_pixels'):raise ValueError('Workspace resource accounting mismatch')
