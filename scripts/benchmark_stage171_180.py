@@ -45,6 +45,17 @@ def stage173():
             'passed':status=='not_requested' and exists and not report['semantic_recognition_validated']}
 
 
+def stage174():
+    from seye.memory.store import Memory
+    from seye.local.memory_browser import page
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);path=root/'memory.sqlite3';memory=Memory(path)
+        memory.put_many([{'schema_version':1,'features':None,'provenance':{'kind':'generated_fixture','index':i}} for i in range(5)]);memory.close()
+        first=page(path,root,limit=2);second=page(path,root,first['next_after'],2,first['inventory_sha256']);last=page(path,root,second['next_after'],2,first['inventory_sha256'])
+        sequences=[r['sequence'] for p in (first,second,last) for r in p['items']]
+    return {'paged_sequences':sequences,'last_next_after':last['next_after'],'passed':sequences==[1,2,3,4,5] and last['next_after'] is None}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(171,181));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))
