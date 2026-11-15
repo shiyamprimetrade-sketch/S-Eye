@@ -1,5 +1,5 @@
 """Explicit observe/store/query/question composition for a future main-S caller."""
-import re
+import re,math
 from seye.api import Client
 from seye.integration.memory_adapter import MemoryAdapter
 from seye.integration.tools_adapter import manifest as tool_manifest
@@ -21,7 +21,10 @@ class EyeSession:
     def run(self,image,persist=False,maximum_distance=None,include_self=False,question='count_proposed_regions',expected_source_sha256=None):
         if type(persist) is not bool or type(include_self) is not bool:raise ValueError('Explicit boolean workflow policies required')
         if persist and (self.memory is None or not self.memory.writable):raise PermissionError('Workflow persistence needs an explicit writable memory adapter')
-        if maximum_distance is not None and self.memory is None:raise ValueError('Retrieval requires a memory adapter')
+        if maximum_distance is not None:
+            if type(maximum_distance) not in (int,float) or not math.isfinite(maximum_distance) or not 0<=maximum_distance<=1e6:raise ValueError('Explicit finite nonnegative feature cutoff required')
+            if self.memory is None:raise ValueError('Retrieval requires a memory adapter')
+        if question is not None and (not isinstance(question,str) or not 1<=len(question)<=256):raise ValueError('Bounded question string required')
         steps=[];writes=[]
         def record(operation,response):
             steps.append({'operation':operation,'response':response})

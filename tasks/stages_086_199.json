@@ -1245,123 +1245,161 @@
       "stage": 161,
       "objective": "Versioned JSON contracts",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/integration/service.py"
+        "docs/STAGES_161_170.md",
+        "tests/test_stage161.py",
+        "benchmarks/stage161_experiment.json",
+        "benchmarks/stage161_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Machine-readable finite version-1 request/response contracts, optional strict fields, required fields and response identity."
     },
     {
       "stage": 162,
       "objective": "S-Memory adapter",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/integration/service.py"
+        "docs/STAGES_161_170.md",
+        "tests/test_stage162.py",
+        "benchmarks/stage162_experiment.json",
+        "benchmarks/stage162_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Typed read-only/default memory adapter and explicit single-capture source-bound persistence/index calls."
     },
     {
       "stage": 163,
       "objective": "S-Tools adapter",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/integration/service.py"
+        "docs/STAGES_161_170.md",
+        "tests/test_stage163.py",
+        "benchmarks/stage163_experiment.json",
+        "benchmarks/stage163_tests.txt"
       ],
-      "open_requirement": "Test adapter exists; registration in the main S tool registry is not deployed",
+      "open_requirement": "Executable adapters/session and installed smoke complete; registration/deployment in main S is not performed in this repository.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Fixed observation-only tool specifications and output authority boundary; main-S registration remains undeployed."
     },
     {
       "stage": 164,
       "objective": "Permission-controlled file and camera boundaries",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/integration/service.py"
+        "docs/STAGES_161_170.md",
+        "tests/test_stage164.py",
+        "benchmarks/stage164_experiment.json",
+        "benchmarks/stage164_tests.txt"
       ],
-      "open_requirement": "File roots are permission-scoped; live camera capability remains disabled",
+      "open_requirement": "Live camera remains disabled; captures are caller-supplied files; no race-free filesystem/native sandbox or hardware validation claim.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Strict normalized/frozen grants, regular operation files, traversal/symlink/root-replacement checks; camera disabled and OS races not certified."
     },
     {
       "stage": 165,
       "objective": "Image analysis requests",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/integration/service.py"
+        "docs/STAGES_161_170.md",
+        "tests/test_stage165.py",
+        "benchmarks/stage165_experiment.json",
+        "benchmarks/stage165_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Expected-source image requests with captured byte/pixel/observation identities and no current-frame re-decode."
     },
     {
       "stage": 166,
       "objective": "Visual memory retrieval requests",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/integration/service.py"
+        "docs/STAGES_161_170.md",
+        "tests/test_stage166.py",
+        "benchmarks/stage166_experiment.json",
+        "benchmarks/stage166_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Read-only indexed retrieval with explicit cutoff, default self-source exclusion, expected source and ambiguous tied matches."
     },
     {
       "stage": 167,
       "objective": "Evidence-grounded visual questions",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/integration/service.py"
+        "docs/STAGES_161_170.md",
+        "tests/test_stage167.py",
+        "benchmarks/stage167_experiment.json",
+        "benchmarks/stage167_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Finite geometric question answers with source-linked evidence and unsupported/incomparable abstention."
     },
     {
       "stage": 168,
       "objective": "Errors deadlines and cancellation",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/integration/service.py"
+        "docs/STAGES_161_170.md",
+        "tests/test_stage168.py",
+        "benchmarks/stage168_experiment.json",
+        "benchmarks/stage168_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Killable worker cancellation/deadline/crash/response checks with bounded cleanup and explicit remaining side effects."
     },
     {
       "stage": 169,
       "objective": "End-to-end integration client and main-S requirements",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/integration/service.py"
+        "docs/STAGES_161_170.md",
+        "tests/test_stage169.py",
+        "benchmarks/stage169_experiment.json",
+        "benchmarks/stage169_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Executable adapters/session and installed smoke complete; registration/deployment in main S is not performed in this repository.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "End-to-end source-bound observe/store/index/find/question session and main-S requirements; main-S not deployed."
     },
     {
       "stage": 170,
       "objective": "Documented installable CLI",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/api/cli.py",
-        "src/seye/api/workflow.py",
-        "scripts/create_annotations.py"
+        "docs/STAGES_161_170.md",
+        "tests/test_stage170.py",
+        "benchmarks/stage170_experiment.json",
+        "benchmarks/stage170_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative application/device validation and v1.0 gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Installable strict workflow CLI, UTF-8 duplicate-safe requests, contract discovery and installed spawned-session smoke."
     },
     {
       "stage": 171,

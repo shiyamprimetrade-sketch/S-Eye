@@ -100,5 +100,5 @@ def decode_request(raw,strict=False):
             if key in result:raise ValueError('Duplicate JSON field')
             result[key]=value
         return result
-    request=json.loads(raw,object_pairs_hook=unique,parse_constant=lambda x:(_ for _ in ()).throw(ValueError('Nonfinite JSON')))
+    request=json.loads(raw.decode('utf-8-sig'),object_pairs_hook=unique,parse_constant=lambda x:(_ for _ in ()).throw(ValueError('Nonfinite JSON')))
     return validate_request(request,strict)

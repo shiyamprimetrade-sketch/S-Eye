@@ -26,5 +26,8 @@ class SessionIntegrationTests(unittest.TestCase):
             session=EyeSession(client,'failure',adapter)
             failure=session.run(path,persist=True,expected_source_sha256='a'*64)
             self.assertFalse(failure['success']);self.assertEqual(len(failure['steps']),1);self.assertFalse((root/'memory.sqlite3').exists())
+            for options in ({'maximum_distance':True},{'question':[]}):
+                with self.assertRaises(ValueError):session.run(path,persist=True,**options)
+                self.assertFalse((root/'memory.sqlite3').exists())
             read=session.run(path);self.assertTrue(read['success']);self.assertEqual(read['successful_write_steps'],[])
             self.assertFalse((root/'memory.sqlite3').exists())

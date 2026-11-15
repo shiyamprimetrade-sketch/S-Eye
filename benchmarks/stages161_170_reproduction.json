@@ -1,0 +1,55 @@
+{
+  "experiments": [
+    {
+      "stage": 161,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 162,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 163,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 164,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 165,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 166,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 167,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 168,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 169,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 170,
+      "passed": true,
+      "exact_report_match": true
+    }
+  ],
+  "scope": "Controlled integration reports; final catalog inventories refreshed for added actions, no accuracy tuning"
+}

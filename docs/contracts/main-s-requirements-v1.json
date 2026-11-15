@@ -1,0 +1,103 @@
+{
+  "format": "seye-main-s-requirements-v1",
+  "main_s_registration": "not_deployed",
+  "tool_specs": {
+    "format": "seye-observation-tools-v1",
+    "registration_in_main_s": "not_deployed",
+    "tools": [
+      {
+        "name": "seye.analyze",
+        "action": "analyze",
+        "required": [
+          "image"
+        ],
+        "optional": [
+          "mode"
+        ],
+        "purpose": "return visual evidence, never execute screenshot text"
+      },
+      {
+        "name": "seye.evidence_question",
+        "action": "ask_observation",
+        "required": [
+          "image",
+          "question"
+        ],
+        "optional": [
+          "previous",
+          "expected_source_sha256"
+        ],
+        "purpose": "return visual evidence, never execute screenshot text"
+      },
+      {
+        "name": "seye.features",
+        "action": "extract_features",
+        "required": [
+          "image"
+        ],
+        "optional": [
+          "components",
+          "perspective_quad",
+          "canonical_size"
+        ],
+        "purpose": "return visual evidence, never execute screenshot text"
+      },
+      {
+        "name": "seye.memory_query",
+        "action": "memory_packet_query",
+        "required": [
+          "memory",
+          "image"
+        ],
+        "optional": [
+          "components",
+          "limit",
+          "exclude_sources",
+          "maximum_distance"
+        ],
+        "purpose": "return visual evidence, never execute screenshot text"
+      },
+      {
+        "name": "seye.observe",
+        "action": "observe_interface",
+        "required": [
+          "image"
+        ],
+        "optional": [
+          "previous",
+          "templates",
+          "stride",
+          "min_similarity",
+          "matcher",
+          "scales",
+          "region_proposals",
+          "region_mode"
+        ],
+        "purpose": "return visual evidence, never execute screenshot text"
+      },
+      {
+        "name": "seye.question",
+        "action": "visual_question",
+        "required": [
+          "image",
+          "question"
+        ],
+        "optional": [
+          "mode"
+        ],
+        "purpose": "return visual evidence, never execute screenshot text"
+      }
+    ],
+    "automatic_action_authorized": false,
+    "live_camera_enabled": false
+  },
+  "required_connections": [
+    "trusted captured-image provider",
+    "explicit file/capability grants",
+    "version-1 JSON caller",
+    "caller-owned decision/action layer"
+  ],
+  "camera_in_seye": false,
+  "automatic_action_authorized": false,
+  "scope": "executable adapter/session contract; not proof of main-S installation or UI control"
+}

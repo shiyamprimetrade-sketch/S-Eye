@@ -7860,6 +7860,333 @@
       "next_task": "Stop at 160; next Continue starts 161\u2013170",
       "verified_commit_sha": "f6c560fedfcfa88c4235b9e462c8fe1f7fa4fe88",
       "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43468318574"
+    },
+    {
+      "id": "stage161-integration-engineering",
+      "objective": "Machine-readable finite version-1 request/response contracts, optional strict fields, required fields and response identity.",
+      "files_changed": [
+        "benchmarks/stage161_experiment.json",
+        "benchmarks/stage161_tests.txt",
+        "scripts/benchmark_stage161_170.py",
+        "src/seye/api/client.py",
+        "src/seye/integration/contracts.py",
+        "tests/test_stage161.py"
+      ],
+      "tests_executed": "benchmarks/stage161_tests.txt; benchmark_stage161_170.py --stage 161; full 297-test regression",
+      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "passed": true,
+        "scope": "structural contract checks, not successful execution of every action",
+        "structural_contracts_checked": 44,
+        "unknown_field_requests_rejected": 44
+      },
+      "commit_sha": "aacafa39a4e348dff26bea060ce2a7c2341d38c7",
+      "local_equivalent_sha": "a731d5c8a1689a2a9539c3112b610951d14edcaa",
+      "tree_sha": "f063da022a91eef0b0bcd0b2afa39580be52d13d",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated inputs only; no representative application accuracy or device validation",
+        "Main-S registration/deployment not performed; live camera remains disabled",
+        "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
+      ],
+      "next_task": "Stage 162"
+    },
+    {
+      "id": "stage162-integration-engineering",
+      "objective": "Typed read-only/default memory adapter and explicit single-capture source-bound persistence/index calls.",
+      "files_changed": [
+        "benchmarks/stage162_experiment.json",
+        "benchmarks/stage162_tests.txt",
+        "scripts/benchmark_stage161_170.py",
+        "src/seye/integration/contracts.py",
+        "src/seye/integration/memory_adapter.py",
+        "src/seye/integration/observations.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage162.py"
+      ],
+      "tests_executed": "benchmarks/stage162_tests.txt; benchmark_stage161_170.py --stage 162; full 297-test regression",
+      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "passed": true,
+        "same_source_query_distance": 0.0,
+        "semantic_identity_proven": false,
+        "source_identity_roundtrip": true
+      },
+      "commit_sha": "813c41c6e825f84d3ecb5e4a42e086bc05f61159",
+      "local_equivalent_sha": "28ddbf5e75f4cb1646853865ac5b3c07adb83ff1",
+      "tree_sha": "a1862b8266ec39d8c993c2d8b987bfbef0f2dc34",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated inputs only; no representative application accuracy or device validation",
+        "Main-S registration/deployment not performed; live camera remains disabled",
+        "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
+      ],
+      "next_task": "Stage 163"
+    },
+    {
+      "id": "stage163-integration-engineering",
+      "objective": "Fixed observation-only tool specifications and output authority boundary; main-S registration remains undeployed.",
+      "files_changed": [
+        "benchmarks/stage163_experiment.json",
+        "benchmarks/stage163_tests.txt",
+        "scripts/benchmark_stage161_170.py",
+        "src/seye/integration/tools_adapter.py",
+        "tests/test_stage163.py"
+      ],
+      "tests_executed": "benchmarks/stage163_tests.txt; benchmark_stage161_170.py --stage 163; full 297-test regression",
+      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "forbidden_tool_names_rejected": 3,
+        "main_s_registration": "not_deployed",
+        "passed": true,
+        "registered_observation_specs": 6
+      },
+      "commit_sha": "c8450defcc0f28cc37b70aabea026f26bbb8d50b",
+      "local_equivalent_sha": "cff0df0107e1d7c5edfa015f19f1a14a7a93b983",
+      "tree_sha": "5a3ec7512444aec0e2d44a530c693c9411d586b7",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated inputs only; no representative application accuracy or device validation",
+        "Main-S registration/deployment not performed; live camera remains disabled",
+        "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
+      ],
+      "next_task": "Stage 164"
+    },
+    {
+      "id": "stage164-integration-engineering",
+      "objective": "Strict normalized/frozen grants, regular operation files, traversal/symlink/root-replacement checks; camera disabled and OS races not certified.",
+      "files_changed": [
+        "benchmarks/stage164_experiment.json",
+        "benchmarks/stage164_tests.txt",
+        "scripts/benchmark_stage161_170.py",
+        "src/seye/integration/boundaries.py",
+        "src/seye/integration/service.py",
+        "src/seye/integration/tools_adapter.py",
+        "tests/test_stage164.py"
+      ],
+      "tests_executed": "benchmarks/stage164_tests.txt; benchmark_stage161_170.py --stage 164; full 297-test regression",
+      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "changed_source_detected": true,
+        "live_camera_enabled": false,
+        "passed": true,
+        "scope": "explicit grants and ordinary replacement checks; not a native sandbox or race-free open guarantee",
+        "unchanged_source_passed": true
+      },
+      "commit_sha": "adc705f3112f68751afd89099a72eeec7da81b47",
+      "local_equivalent_sha": "97ada6a1b21e981642470c7a225b883813e5ebd3",
+      "tree_sha": "a466517ca5dc9e55ea4e5701d0d765c2c2cc55c1",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated inputs only; no representative application accuracy or device validation",
+        "Main-S registration/deployment not performed; live camera remains disabled",
+        "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
+      ],
+      "next_task": "Stage 165"
+    },
+    {
+      "id": "stage165-integration-engineering",
+      "objective": "Expected-source image requests with captured byte/pixel/observation identities and no current-frame re-decode.",
+      "files_changed": [
+        "benchmarks/stage165_experiment.json",
+        "benchmarks/stage165_tests.txt",
+        "scripts/benchmark_stage161_170.py",
+        "src/seye/integration/contracts.py",
+        "src/seye/integration/observations.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage165.py"
+      ],
+      "tests_executed": "benchmarks/stage165_tests.txt; benchmark_stage161_170.py --stage 165; full 297-test regression",
+      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "passed": true,
+        "source_bound": true,
+        "wrong_source_refused": true
+      },
+      "commit_sha": "8794252e52b7333b75939e689ad9bf02ea9b2bd6",
+      "local_equivalent_sha": "436788a433f61e72f20852ec34b960b0dd8bde70",
+      "tree_sha": "4262d3595fcfebac572e315ff1b1d65f70bb4ee6",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated inputs only; no representative application accuracy or device validation",
+        "Main-S registration/deployment not performed; live camera remains disabled",
+        "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
+      ],
+      "next_task": "Stage 166"
+    },
+    {
+      "id": "stage166-integration-engineering",
+      "objective": "Read-only indexed retrieval with explicit cutoff, default self-source exclusion, expected source and ambiguous tied matches.",
+      "files_changed": [
+        "benchmarks/stage166_experiment.json",
+        "benchmarks/stage166_tests.txt",
+        "scripts/benchmark_stage161_170.py",
+        "src/seye/integration/contracts.py",
+        "src/seye/integration/memory_adapter.py",
+        "src/seye/integration/retrieval.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage166.py"
+      ],
+      "tests_executed": "benchmarks/stage166_tests.txt; benchmark_stage161_170.py --stage 166; full 297-test regression",
+      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "controlled_statuses": [
+          "no_match",
+          "feature_candidate",
+          "ambiguous"
+        ],
+        "passed": true,
+        "scope": "same generated image and duplicate stored observations, not real-object recognition"
+      },
+      "commit_sha": "5c19d718d899bdf5823dd794cfd15e5ea8aa4c3b",
+      "local_equivalent_sha": "fb1ce7a8a2ca704add78058308cb8b1604be3bb7",
+      "tree_sha": "4f565d260382940aade477737e6ddc8bb96130e6",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated inputs only; no representative application accuracy or device validation",
+        "Main-S registration/deployment not performed; live camera remains disabled",
+        "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
+      ],
+      "next_task": "Stage 167"
+    },
+    {
+      "id": "stage167-integration-engineering",
+      "objective": "Finite geometric question answers with source-linked evidence and unsupported/incomparable abstention.",
+      "files_changed": [
+        "benchmarks/stage167_experiment.json",
+        "benchmarks/stage167_tests.txt",
+        "scripts/benchmark_stage161_170.py",
+        "src/seye/integration/contracts.py",
+        "src/seye/integration/questions.py",
+        "src/seye/integration/service.py",
+        "src/seye/integration/tools_adapter.py",
+        "tests/test_stage167.py"
+      ],
+      "tests_executed": "benchmarks/stage167_tests.txt; benchmark_stage161_170.py --stage 167; full 297-test regression",
+      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "box_count_agrees": true,
+        "geometric_count": 1,
+        "passed": true,
+        "unchanged_fraction": 0.0,
+        "unsupported_answer": null
+      },
+      "commit_sha": "1fd8af56111f7a86419ed49172ddc0fe8af9b010",
+      "local_equivalent_sha": "0cc2923805b38f969a42f595b81e673c49d9d8ed",
+      "tree_sha": "a3e88edf6f376ce3bdd14b9cd51aff09e020ec87",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated inputs only; no representative application accuracy or device validation",
+        "Main-S registration/deployment not performed; live camera remains disabled",
+        "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
+      ],
+      "next_task": "Stage 168"
+    },
+    {
+      "id": "stage168-integration-engineering",
+      "objective": "Killable worker cancellation/deadline/crash/response checks with bounded cleanup and explicit remaining side effects.",
+      "files_changed": [
+        "benchmarks/stage168_experiment.json",
+        "benchmarks/stage168_tests.txt",
+        "scripts/benchmark_stage161_170.py",
+        "src/seye/api/client.py",
+        "src/seye/integration/contracts.py",
+        "src/seye/integration/runner.py",
+        "src/seye/integration/service.py",
+        "tests/test_stage168.py",
+        "tests/worker_fixtures.py"
+      ],
+      "tests_executed": "benchmarks/stage168_tests.txt; benchmark_stage161_170.py --stage 168; full 297-test regression",
+      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "deadline_type": "Timeout",
+        "passed": true,
+        "pre_cancel_side_effects": false,
+        "pre_cancel_type": "Cancelled"
+      },
+      "commit_sha": "ed8a9b9ee34183238c99e22c60f1b54def50f786",
+      "local_equivalent_sha": "938399699e113f341c86f168a3b88f082f6fbb21",
+      "tree_sha": "928d9d649a0dc944db8232db8dd6d3ed8c00e230",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated inputs only; no representative application accuracy or device validation",
+        "Main-S registration/deployment not performed; live camera remains disabled",
+        "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
+      ],
+      "next_task": "Stage 169"
+    },
+    {
+      "id": "stage169-integration-engineering",
+      "objective": "End-to-end source-bound observe/store/index/find/question session and main-S requirements; main-S not deployed.",
+      "files_changed": [
+        "benchmarks/stage169_experiment.json",
+        "benchmarks/stage169_tests.txt",
+        "scripts/benchmark_stage161_170.py",
+        "src/seye/integration/contracts.py",
+        "src/seye/integration/memory_adapter.py",
+        "src/seye/integration/retrieval.py",
+        "src/seye/integration/service.py",
+        "src/seye/integration/session.py",
+        "tests/test_stage169.py"
+      ],
+      "tests_executed": "benchmarks/stage169_tests.txt; benchmark_stage161_170.py --stage 169; full 297-test regression",
+      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "automatic_action_authorized": false,
+        "main_s_registration": "not_deployed",
+        "passed": true,
+        "successful_operations": [
+          "observe",
+          "store",
+          "index",
+          "find",
+          "question"
+        ],
+        "successful_write_steps": [
+          "store",
+          "index"
+        ]
+      },
+      "commit_sha": "31195b1ff6a418681ce15b2b4d4c1be297020ad3",
+      "local_equivalent_sha": "e713f9535e8e895c732eece7a28d69b8d04676de",
+      "tree_sha": "6334fca74dcd82334b8a4f5add4bcbc229e7b8e8",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated inputs only; no representative application accuracy or device validation",
+        "Main-S registration/deployment not performed; live camera remains disabled",
+        "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
+      ],
+      "next_task": "Stage 170"
+    },
+    {
+      "id": "stage170-integration-engineering",
+      "objective": "Installable strict workflow CLI, UTF-8 duplicate-safe requests, contract discovery and installed spawned-session smoke.",
+      "files_changed": [
+        "benchmarks/stage170_experiment.json",
+        "benchmarks/stage170_tests.txt",
+        "scripts/benchmark_stage161_170.py",
+        "scripts/smoke_s_integration.py",
+        "src/seye/api/workflow.py",
+        "tests/test_stage170.py"
+      ],
+      "tests_executed": "benchmarks/stage170_tests.txt; benchmark_stage161_170.py --stage 170; full 297-test regression",
+      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "benchmark_results": {
+        "advertised_actions": 44,
+        "contract_format": "seye-action-contract-v1",
+        "describe_exit_code": 0,
+        "passed": true
+      },
+      "commit_sha": "416cc2ac5cbc6016b7cc16cdb5b824b06c91a5cb",
+      "local_equivalent_sha": "e3466c3e0251242255f74fc074ab03e11ba05cd6",
+      "tree_sha": "54945f0c18ce7b905c7a8ec3c8856e259ae7527e",
+      "pull_request": "https://github.com/shiyamprimetrade-sketch/S-Eye/pull/1",
+      "limitations": [
+        "Controlled generated inputs only; no representative application accuracy or device validation",
+        "Main-S registration/deployment not performed; live camera remains disabled",
+        "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
+      ],
+      "next_task": "Stop at 170; next Continue starts 171\u2013180"
     }
   ]
 }

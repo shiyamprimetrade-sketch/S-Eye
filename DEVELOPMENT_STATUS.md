@@ -1,3 +1,28 @@
+## Latest checkpoint: Stages 161–170
+
+Implemented machine-readable request/response contracts, typed memory and fixed
+observation-tool adapters, stricter frozen file grants, source-bound image and
+retrieval requests, evidence-linked geometric questions, cancellable workers,
+a five-step integration session and strict installable workflow CLI. See
+[STAGES_161_170.md](docs/STAGES_161_170.md) and docs/contracts exports.
+
+297 local tests passed; all ten controlled reports reproduced on this host.
+Installed CLI, Python API and five-step spawned session smokes outside the
+checkout passed, together with source preservation audit and wheel build.
+Exact-head remote CI is pending publication. Controlled retrieval covers default
+self-exclusion, one feature candidate and duplicate ambiguity; geometric answers
+and unsupported abstention have source-linked evidence. Worker cancellation,
+timeout, crash and wrong-ID controls pass; no rollback/native process-tree claim.
+
+Main-S registration/deployment is not performed. Camera remains disabled;
+representative application/device validation and v1.0 gates remain open. Earlier
+negative tracking and high-dimensional index results are preserved unchanged.
+STOP at 170. Wait for Continue before 171–180: local ingestion, overlays, reports,
+memory browsing, annotations, comparisons, configuration, installation/usability
+and input validation. Do not treat a stage number as release acceptance.
+
+---
+
 ## Latest checkpoint: Stages 151–160
 
 Implemented bounded decoding, optional full-observation latency/CPU tracing,

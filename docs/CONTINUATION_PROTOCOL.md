@@ -412,3 +412,30 @@ own documentation SHA. Stage 159 has Linux/Windows CI evidence; actual Android
 ARM64 hardware and representative application/device validation remain open.
 The high-dimensional no-pruning result and prior conservative-tracking negative
 result remain unchanged. Stop at 160; next Continue starts 161–170.
+
+
+## Stages 161–170: source-bound integration checkpoint
+
+The scoped contracts in STAGES_161_170.md are implemented/tested. 297 local tests
+pass; all ten controlled reports reproduce on this host. Source-preservation,
+installed CLI/Python/five-step spawned integration smoke and wheel build passed.
+Current-head remote CI is pending publication. Machine-readable action and main-S
+requirement exports live in docs/contracts. Catalog count is 44 actions / six
+observation-tool specs, not proof of every action on representative real inputs.
+
+Memory writes are explicit, and use the same captured pixels for observation and
+features. Source mismatches and invalid workflow policy are rejected before
+opening writable memory. Frozen grants reject ordinary traversal/symlink/root
+replacement and special files; no native/race-free sandbox claim. Worker lifecycle
+has cancellation, timeout, crash and identity errors, with completed side effects
+reported rather than claimed undone. OCR/semantic/action questions abstain.
+
+Main-S registration/deployment is NOT performed. Live camera stays disabled;
+source files are supplied by the caller. Representative application/device
+validation, prior tracking/index failures and v1.0 gates remain open.
+
+STOP at 170. Next Continue authorizes 171–180: local image ingestion, overlays,
+recognition reports, memory browser, annotation tools, experiment comparison,
+configuration, installation/upgrades/usability and input validation. Preserve all
+existing source/data checkpoints and truthful limitations. Do not ask for human
+review as a prerequisite for ordinary engineering continuation.

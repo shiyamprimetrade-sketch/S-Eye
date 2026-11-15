@@ -34,9 +34,10 @@ class Permissions:
             object.__setattr__(self,name,tuple(str(Path(root).expanduser().resolve()) for root in roots))
 
     def require(self, path, write=False):
-        target = Path(path).expanduser().resolve()
+        try:target=Path(path).expanduser().resolve()
+        except (RuntimeError,OSError) as error:raise PermissionError('Operation path could not be resolved') from error
         roots = self.write_roots if write else self.read_roots
-        if not any(target.is_relative_to(Path(root).expanduser().resolve()) for root in roots):
+        if not any(target.is_relative_to(Path(root)) for root in roots):
             raise PermissionError('Requested path is outside explicit filesystem grants')
         if target.exists() and not target.is_file():raise PermissionError('Only regular files are supported at operation paths')
         return target

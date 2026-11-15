@@ -7,7 +7,7 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(validate_request(valid,True),valid)
         with self.assertRaises(ValueError):validate_request(dict(valid,unexpected=1),True)
         with self.assertRaises(ValueError):validate_request({k:v for k,v in valid.items() if k!='image'})
-        for raw in (b'{"schema_version":1,"schema_version":2}',b'{"n":NaN}'):
+        for raw in (b'{"schema_version":1,"schema_version":2}',b'{"n":NaN}',__import__('json').dumps(valid).encode('utf-16')):
             with self.assertRaises(ValueError):decode_request(raw)
         deep=[];cursor=deep
         for _ in range(40):cursor.append([]);cursor=cursor[0]

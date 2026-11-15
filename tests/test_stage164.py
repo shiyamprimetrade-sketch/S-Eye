@@ -27,3 +27,9 @@ class BoundaryTests(unittest.TestCase):
             plan=plan_reads({'image':str(path)},permissions);self.assertTrue(plan.check(permissions))
             path.write_text('changed contents')
             with self.assertRaises(PermissionError):plan.check(permissions)
+            external=Path(directory)/'external-directory';external.mkdir();(external/'input.png').write_text('outside')
+            root.rename(Path(directory)/'moved-allowed')
+            try:root.symlink_to(external,target_is_directory=True)
+            except OSError:pass
+            else:
+                with self.assertRaises(PermissionError):permissions.require(root/'input.png')
