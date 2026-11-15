@@ -7,7 +7,12 @@ from seye.integration.service import Permissions
 
 
 def inside(path,root):
-    try:target=Path(path).resolve();allowed=Path(root).resolve()
+    try:
+        # Python 3.13 non-strict resolution can retain symlink loops. Probe
+        # strictly first while still permitting a new, absent output path.
+        try:target=Path(path).resolve(strict=True)
+        except FileNotFoundError:target=Path(path).resolve()
+        allowed=Path(root).resolve(strict=True)
     except (OSError,RuntimeError) as error:raise PermissionError('Workflow path could not be resolved') from error
     if not target.is_relative_to(allowed):raise PermissionError('Workflow path outside explicit allowed root')
     return target
