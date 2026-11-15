@@ -91,6 +91,16 @@ def stage166():
             'passed':statuses==['no_match','feature_candidate','ambiguous']}
 
 
+def stage167():
+    from seye.integration.questions import ask
+    with tempfile.TemporaryDirectory() as directory:
+        image=fixture(directory);count=ask(image,'count_proposed_regions');boxes=ask(image,'list_region_boxes')
+        unchanged=ask(image,'changed_pixel_fraction',image);unsupported=ask(image,'read the code')
+    return {'geometric_count':count['answer'],'box_count_agrees':count['answer']==len(boxes['answer']),
+            'unchanged_fraction':unchanged['answer'],'unsupported_answer':unsupported['answer'],
+            'passed':count['answer']==len(boxes['answer']) and unchanged['answer']==0 and unsupported['answer'] is None}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(161,171));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))

@@ -113,6 +113,11 @@ def execute(request, permissions):
         memory=Memory(memory_path,read_only=True)
         try:result=find(memory,image,request['maximum_distance'],request.get('components',['shape']),request.get('limit',5),request.get('include_self',False),request.get('exclude_sources',[]))
         finally:memory.close()
+    elif action == 'ask_observation':
+        from seye.integration.questions import ask
+        image=permissions.require(request['image'])
+        previous=permissions.require(request['previous']) if request.get('previous') is not None else None
+        result=ask(image,request['question'],previous,request.get('expected_source_sha256'))
     elif action == 'image_observe':
         from seye.integration.observations import observe_image
         image=permissions.require(request['image'])
