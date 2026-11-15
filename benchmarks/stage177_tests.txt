@@ -1,0 +1,7 @@
+test_default_profile_does_not_grant_write_training_video_or_memory (test_stage177.ConfigWorkflowTests.test_default_profile_does_not_grant_write_training_video_or_memory) ... ok
+test_version_zero_export_preserves_grants_and_original_bytes (test_stage177.ConfigWorkflowTests.test_version_zero_export_preserves_grants_and_original_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK

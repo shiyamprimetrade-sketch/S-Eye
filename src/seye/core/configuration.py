@@ -4,8 +4,7 @@ from seye.core.storage import read_json
 from seye.integration.service import Permissions
 
 
-def load_config(path):
-    data = read_json(path, max_bytes=64 * 1024)
+def parse_config(data):
     if not isinstance(data, dict):
         raise ValueError('Configuration object required')
     source_version = data.get('schema_version')
@@ -41,3 +40,7 @@ def load_config(path):
         raise ValueError('Configuration timeout must be in (0,120]')
     return {'schema_version': 1, 'source_version': source_version,
             'permissions': Permissions(roots['read_roots'], roots['write_roots'], **flags), 'timeout': timeout}
+
+
+def load_config(path):
+    return parse_config(read_json(path,max_bytes=64*1024))

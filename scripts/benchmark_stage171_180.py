@@ -80,6 +80,18 @@ def stage176():
             'passed':result['comparable_slots']==2 and result['changed_decisions']==0 and result['accuracy_change'] is None}
 
 
+def stage177():
+    from seye.local.profiles import migrate,difference
+    from seye.core.configuration import load_config
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);old=root/'old.json';new=root/'new.json'
+        atomic_json(old,{'schema_version':0,'allowed_directory':str(root),'allow_write':False,'allow_memory':True});before=old.read_bytes()
+        receipt=migrate(old,new,root);delta=difference(load_config(old),load_config(new))
+        unchanged=old.read_bytes()==before
+    return {'original_unchanged':unchanged,'enabled_capabilities':delta['enabled_capabilities'],'added_write_roots':delta['added_write_roots'],
+            'in_place':receipt['in_place'],'passed':unchanged and not delta['enabled_capabilities'] and not delta['added_write_roots']}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(171,181));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))
