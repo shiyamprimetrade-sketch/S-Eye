@@ -68,6 +68,18 @@ def stage175():
             'offline_editor_created':exists,'passed':exists and result['instances']==1 and result['unscored']}
 
 
+def stage176():
+    from seye.local.workspace import ingest
+    from seye.local.reports import build_report
+    from seye.local.comparison import load_report,compare
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);ingest([fixture(root,i) for i in (0,4)],root/'workspace',root)
+        build_report(root/'workspace',root/'first',root);build_report(root/'workspace',root/'second',root)
+        result=compare(load_report(root/'first'/'report.json',root),load_report(root/'second'/'report.json',root))
+    return {'comparable_slots':result['comparable_slots'],'changed_decisions':result['changed_decisions'],'accuracy_change':result['accuracy_change'],
+            'passed':result['comparable_slots']==2 and result['changed_decisions']==0 and result['accuracy_change'] is None}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(171,181));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))
