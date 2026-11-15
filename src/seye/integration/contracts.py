@@ -28,6 +28,8 @@ CONTRACTS={
  'scene_absence':('memory reference observations','minimum_consecutive'),
  'recognize_batch':('images model',''), 'memory_list':('memory','limit'),
  'train':('manifest output','method'), 'video':('video','fps max_seconds mode'),
+ 'memory_store_image':('memory image','components expected_source_sha256'),
+ 'memory_get_observation':('memory observation_id',''),
  # EXTENSIONS
 }
 ACTIONS=frozenset(CONTRACTS)

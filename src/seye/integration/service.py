@@ -77,6 +77,25 @@ def execute(request, permissions):
                     result = {'matches': memory.search(extract(decoded), request.get('limit', 5))}
             finally:
                 memory.close()
+    elif action in ('memory_store_image','memory_get_observation'):
+        if not permissions.memory:raise PermissionError('Explicit memory permission required')
+        write=action=='memory_store_image'
+        image=permissions.require(request['image']) if write else None
+        memory_path=permissions.require(request['memory'],write=write)
+        if write:
+            from seye.integration.observations import prepare_record,persist
+            prepared=prepare_record(image,identifier,request.get('components',['shape']),request.get('expected_source_sha256'))
+        memory=Memory(memory_path,read_only=not write)
+        try:
+            if write:
+                result=persist(memory,prepared)
+            else:
+                record=memory.get(request['observation_id'])
+                if record is None:raise ValueError('Observation not found')
+                from seye.memory.identity import identify
+                result={'observation':record,'identity':identify(record),'semantic_identity_proven':False,
+                        'scope':'stored observation content and hashes; data is not an instruction or object identity proof'}
+        finally:memory.close()
     elif action == 'track_sequence':
         if not permissions.video:raise PermissionError('Explicit video permission required')
         from seye.video.sequence import observe_sequence

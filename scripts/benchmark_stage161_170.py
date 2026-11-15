@@ -24,6 +24,18 @@ def stage161():
             'scope':'structural contract checks, not successful execution of every action','passed':accepted==rejected and accepted>=39}
 
 
+def stage162():
+    from seye.api import Client,Permissions
+    from seye.integration.memory_adapter import MemoryAdapter
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);image=fixture(root);client=Client(Permissions((root,),(root,),memory=True),isolated=False,strict=True)
+        adapter=MemoryAdapter(client,str(root/'memory.sqlite3'),True);saved=adapter.store_image(image,'store')
+        read=adapter.observation(saved['result']['observation_id'],'read');adapter.build_index('index');query=adapter.query_image(image,'query')
+        same=read['result']['identity']['source_sha256']==saved['result']['source']['sha256']
+    return {'source_identity_roundtrip':same,'same_source_query_distance':query['result']['matches'][0]['distance'],
+            'semantic_identity_proven':False,'passed':same and query['result']['matches'][0]['distance']==0}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(161,171));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))
