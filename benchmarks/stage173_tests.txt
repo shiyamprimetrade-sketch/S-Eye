@@ -1,0 +1,7 @@
+test_labels_never_become_probabilities_or_executable_title_markup (test_stage173.EvidenceReportTests.test_labels_never_become_probabilities_or_executable_title_markup) ... ok
+test_offline_report_preserves_count_source_and_no_model_status (test_stage173.EvidenceReportTests.test_offline_report_preserves_count_source_and_no_model_status) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.016s
+
+OK

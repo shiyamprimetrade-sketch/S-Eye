@@ -33,6 +33,18 @@ def stage172():
             'passed':size==row['source_size'] and len(row['regions'])>=1}
 
 
+def stage173():
+    from seye.local.workspace import ingest
+    from seye.local.reports import build_report
+    from seye.core.storage import read_json
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);ingest([fixture(root)],root/'workspace',root);build_report(root/'workspace',root/'report',root)
+        report=read_json(root/'report'/'report.json');status=report['items'][0]['decision']['status']
+        exists=(root/'report'/'report.html').is_file()
+    return {'decision_status':status,'offline_html_created':exists,'semantic_recognition_validated':False,
+            'passed':status=='not_requested' and exists and not report['semantic_recognition_validated']}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(171,181));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))
