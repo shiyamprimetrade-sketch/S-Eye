@@ -101,6 +101,18 @@ def stage167():
             'passed':count['answer']==len(boxes['answer']) and unchanged['answer']==0 and unsupported['answer'] is None}
 
 
+def stage168():
+    import threading
+    from seye.api import Client
+    event=threading.Event();event.set();client=Client()
+    request={'schema_version':1,'request_id':'cancelled','action':'analyze','image':'missing.png'}
+    cancelled=client.request(request,cancel=event)
+    timed=Client(timeout=.000001).request(dict(request,request_id='deadline'))
+    return {'pre_cancel_type':cancelled['error']['type'],'deadline_type':timed['error']['type'],
+            'pre_cancel_side_effects':cancelled['error']['partial_side_effects_possible'],
+            'passed':cancelled['error']['type']=='Cancelled' and timed['error']['type']=='Timeout'}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(161,171));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))

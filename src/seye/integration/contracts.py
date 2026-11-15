@@ -40,11 +40,11 @@ ENVELOPE={'schema_version','request_id','action'}
 
 
 def json_value(value,maximum=1024*1024):
-    nodes=0;strings=0
+    nodes=0;strings=0;node_budget=100000 if maximum<=1024*1024 else 1000000
     def visit(item,depth):
         nonlocal nodes,strings
         nodes+=1
-        if nodes>100000 or depth>32:raise ValueError('JSON depth/node budget exceeded')
+        if nodes>node_budget or depth>32:raise ValueError('JSON depth/node budget exceeded')
         if type(item) is dict:
             for key,child in item.items():
                 if not isinstance(key,str):raise ValueError('JSON keys must be strings')

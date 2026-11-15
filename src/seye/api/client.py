@@ -32,13 +32,14 @@ class Client:
         self.permissions=Permissions(*roots,permissions.memory,permissions.training,permissions.video)
         self.timeout,self.isolated,self.strict=timeout,isolated,strict
 
-    def request(self,request):
+    def request(self,request,cancel=None):
+        if cancel is not None and not self.isolated:raise ValueError('Cancellation requires an isolated worker')
         validate_request(request,self.strict)
         identifier=request['request_id']
         encoded=canonical(request)
         if len(encoded)>1024*1024:raise ValueError('Request exceeds 1 MiB')
         copied=json.loads(encoded)
-        response=bounded_handle(copied,self.permissions,self.timeout) if self.isolated else handle(copied,self.permissions)
+        response=bounded_handle(copied,self.permissions,self.timeout,cancel=cancel) if self.isolated else handle(copied,self.permissions)
         if len(canonical(response))>16*1024*1024:
             return {'schema_version':1,'request_id':identifier,'success':False,'error':{'type':'ResponseLimit','message':'Response exceeds 16 MiB'}}
         return validate_response(response,identifier)

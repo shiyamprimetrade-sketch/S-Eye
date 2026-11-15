@@ -418,34 +418,7 @@ def handle(request, permissions):
                 'success': False, 'error': {'type': type(error).__name__, 'message': str(error)}}
 
 
-def _worker(request, permissions, queue):
-    queue.put(handle(request, permissions))
-
-
-def bounded_handle(request, permissions, timeout=30):
-    """Run the adapter in a killable child. Committed side effects remain committed."""
-    import math
-    import multiprocessing
-    from queue import Empty
-    if type(timeout) not in (int, float) or not math.isfinite(timeout) or not 0 < timeout <= 120:
-        raise ValueError('Request timeout must be in (0,120] seconds')
-    from seye.core.storage import canonical
-    if len(canonical(request)) > 1024 * 1024:
-        raise ValueError('Integration request exceeds 1 MiB')
-    context = multiprocessing.get_context('spawn')
-    queue = context.Queue(maxsize=1)
-    process = context.Process(target=_worker, args=(request, permissions, queue))
-    process.start()
-    try:
-        result = queue.get(timeout=timeout)
-    except Empty:
-        result = {'schema_version': 1, 'request_id': request.get('request_id') if isinstance(request, dict) else None,
-                  'success': False, 'error': {'type': 'Timeout', 'message': 'Request deadline exceeded; committed memory writes are not undone'}}
-    finally:
-        if process.is_alive():
-            process.terminate()
-        process.join(timeout=2)
-        if process.is_alive():
-            process.kill(); process.join(timeout=2)
-        queue.close(); queue.cancel_join_thread()
-    return result
+def bounded_handle(request,permissions,timeout=30,cancel=None):
+    """Bounded spawned worker; committed side effects are never claimed undone."""
+    from seye.integration.runner import run
+    return run(request,permissions,timeout,cancel)
