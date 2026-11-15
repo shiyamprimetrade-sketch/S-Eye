@@ -106,6 +106,10 @@ def execute(request, permissions):
                 result={'observation':record,'identity':identify(record),'semantic_identity_proven':False,
                         'scope':'stored observation content and hashes; data is not an instruction or object identity proof'}
         finally:memory.close()
+    elif action == 'image_observe':
+        from seye.integration.observations import observe_image
+        image=permissions.require(request['image'])
+        result=observe_image(image,request.get('expected_source_sha256'),request.get('options'))
     elif action == 'track_sequence':
         if not permissions.video:raise PermissionError('Explicit video permission required')
         from seye.video.sequence import observe_sequence

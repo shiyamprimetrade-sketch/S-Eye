@@ -29,3 +29,15 @@ def persist(memory,record):
     identifier=memory.put(record)
     return {'observation_id':identifier,'source':source,'schema_sha256':packet['schema_sha256'],
             'semantic_identity_proven':False,'automatic_action_authorized':False}
+
+
+def observe_image(path,expected_source_sha256=None,options=None):
+    from seye.core.storage import checksum
+    image,source=capture(path,expected_source_sha256)
+    options={'region_proposals':True,'region_mode':'refined'} if options is None else options
+    if not isinstance(options,dict) or set(options)-{'stride','min_similarity','matcher','scales','region_proposals','region_mode'}:raise ValueError('Unsupported image observation options')
+    result=observe(path,**options,_decoded=(image,source))
+    return {'schema_version':1,'observation':result,
+            'identity':{'source_sha256':source['sha256'],'pixel_sha256':source['pixel_sha256'],'observation_sha256':checksum(result)},
+            'semantic_identity_proven':False,'automatic_action_authorized':False,
+            'scope':'the captured file bytes and decoded pixels; does not claim the external file stayed unchanged after capture'}

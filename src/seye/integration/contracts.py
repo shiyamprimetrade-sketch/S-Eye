@@ -30,6 +30,7 @@ CONTRACTS={
  'train':('manifest output','method'), 'video':('video','fps max_seconds mode'),
  'memory_store_image':('memory image','components expected_source_sha256'),
  'memory_get_observation':('memory observation_id',''),
+ 'image_observe':('image','expected_source_sha256 options'),
  # EXTENSIONS
 }
 ACTIONS=frozenset(CONTRACTS)

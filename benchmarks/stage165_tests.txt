@@ -1,0 +1,7 @@
+test_capture_is_not_redecoded_after_external_file_changes (test_stage165.ImageRequestTests.test_capture_is_not_redecoded_after_external_file_changes) ... ok
+test_expected_source_rejects_before_proposal_computation (test_stage165.ImageRequestTests.test_expected_source_rejects_before_proposal_computation) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.021s
+
+OK

@@ -65,6 +65,18 @@ def stage164():
             'passed':unchanged and detected and not manifest()['live_camera_enabled']}
 
 
+def stage165():
+    import hashlib
+    from seye.api import Client,Permissions
+    with tempfile.TemporaryDirectory() as directory:
+        image=fixture(directory);digest=hashlib.sha256(image.read_bytes()).hexdigest()
+        client=Client(Permissions((directory,)),isolated=False,strict=True)
+        good=client.call('image_observe','bound',image=str(image),expected_source_sha256=digest)
+        bad=client.call('image_observe','wrong',image=str(image),expected_source_sha256='a'*64)
+    return {'source_bound':good['result']['identity']['source_sha256']==digest,'wrong_source_refused':not bad['success'],
+            'passed':good['success'] and not bad['success'] and not good['result']['automatic_action_authorized']}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(161,171));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))
