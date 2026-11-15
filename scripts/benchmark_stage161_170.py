@@ -36,6 +36,20 @@ def stage162():
             'semantic_identity_proven':False,'passed':same and query['result']['matches'][0]['distance']==0}
 
 
+def stage163():
+    from seye.api import Client,Permissions
+    from seye.integration.tools_adapter import ToolsAdapter,manifest
+    with tempfile.TemporaryDirectory() as directory:
+        image=fixture(directory);adapter=ToolsAdapter(Client(Permissions((directory,)),isolated=False))
+        result=adapter.invoke('seye.observe',{'image':str(image)},'tool')
+        rejected=0
+        for name in ('seye.click','shell','camera'):
+            try:adapter.invoke(name,{},'denied')
+            except ValueError:rejected+=1
+    return {'registered_observation_specs':len(manifest()['tools']),'forbidden_tool_names_rejected':rejected,
+            'main_s_registration':'not_deployed','passed':result['response']['success'] and rejected==3 and not result['automatic_action_authorized']}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(161,171));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))
