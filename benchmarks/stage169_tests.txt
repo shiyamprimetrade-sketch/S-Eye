@@ -1,0 +1,7 @@
+test_end_to_end_explicit_store_index_find_question_share_source (test_stage169.SessionIntegrationTests.test_end_to_end_explicit_store_index_find_question_share_source) ... ok
+test_wrong_source_stops_before_memory_creation_and_default_is_read_only (test_stage169.SessionIntegrationTests.test_wrong_source_stops_before_memory_creation_and_default_is_read_only) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.038s
+
+OK

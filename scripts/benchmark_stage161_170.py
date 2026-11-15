@@ -113,6 +113,20 @@ def stage168():
             'passed':cancelled['error']['type']=='Cancelled' and timed['error']['type']=='Timeout'}
 
 
+def stage169():
+    from seye.api import Client,Permissions
+    from seye.integration.memory_adapter import MemoryAdapter
+    from seye.integration.session import EyeSession
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);image=fixture(root);client=Client(Permissions((root,),(root,),memory=True),isolated=False,strict=True)
+        memory=MemoryAdapter(client,str(root/'memory.sqlite3'),True)
+        result=EyeSession(client,'generated-flow',memory).run(image,persist=True,maximum_distance=0,include_self=True)
+        steps=[s['operation'] for s in result['steps']]
+    return {'successful_operations':steps,'successful_write_steps':result['successful_write_steps'],
+            'main_s_registration':'not_deployed','automatic_action_authorized':False,
+            'passed':result['success'] and steps==['observe','store','index','find','question']}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(161,171));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))
