@@ -8,8 +8,10 @@ from seye.integration.service import Permissions, bounded_handle
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--request', type=Path, required=True)
-    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--request', type=Path)
+    parser.add_argument('--output', type=Path)
+    parser.add_argument('--describe-contract', action='store_true')
+    parser.add_argument('--strict', action='store_true')
     parser.add_argument('--config', type=Path)
     parser.add_argument('--read-root', action='append', default=[])
     parser.add_argument('--write-root', action='append', default=[])
@@ -18,6 +20,12 @@ def main():
     parser.add_argument('--allow-video', action='store_true')
     parser.add_argument('--timeout', type=float)
     args = parser.parse_args()
+    if args.describe_contract:
+        if args.request is not None or args.output is not None:parser.error('Contract description cannot be combined with request/output')
+        from seye.integration.contracts import describe
+        print(json.dumps(describe(),sort_keys=True))
+        return 0
+    if args.request is None or args.output is None:parser.error('--request and --output are required for execution')
     if args.config:
         from seye.core.configuration import load_config
         try:
@@ -33,7 +41,9 @@ def main():
     deadline = args.timeout if args.timeout is not None else config['timeout']
     try:
         output = grants.require(args.output, write=True)
-        request = read_json(grants.require(args.request))
+        from seye.integration.contracts import decode_request
+        with grants.require(args.request).open('rb') as stream:raw=stream.read(1024*1024+1)
+        request=decode_request(raw,args.strict)
         response = bounded_handle(request, grants, deadline)
         atomic_json(output, response)
     except (ValueError, OSError) as error:

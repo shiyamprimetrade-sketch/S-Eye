@@ -1,0 +1,7 @@
+test_describe_without_grants_and_strict_installed_style_workflow (test_stage170.WorkflowContractCLITests.test_describe_without_grants_and_strict_installed_style_workflow) ... ok
+test_duplicate_and_unknown_fields_fail_without_output (test_stage170.WorkflowContractCLITests.test_duplicate_and_unknown_fields_fail_without_output) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.743s
+
+OK

@@ -127,6 +127,15 @@ def stage169():
             'passed':result['success'] and steps==['observe','store','index','find','question']}
 
 
+def stage170():
+    import subprocess,os
+    environment=dict(os.environ);environment['PYTHONPATH']=str(ROOT/'src')
+    result=subprocess.run([sys.executable,'-m','seye.api.workflow','--describe-contract'],capture_output=True,text=True,env=environment,timeout=20)
+    described=json.loads(result.stdout)
+    return {'contract_format':described['format'],'advertised_actions':len(described['actions']),
+            'describe_exit_code':result.returncode,'passed':result.returncode==0 and 'ask_observation' in described['actions']}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(161,171));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))
