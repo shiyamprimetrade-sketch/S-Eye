@@ -56,6 +56,18 @@ def stage174():
     return {'paged_sequences':sequences,'last_next_after':last['next_after'],'passed':sequences==[1,2,3,4,5] and last['next_after'] is None}
 
 
+def stage175():
+    from seye.local.workspace import ingest,open_workspace
+    from seye.local.annotation_editor import build_editor,new_draft,validate_draft
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);ingest([fixture(root)],root/'workspace',root);_,data,digest=open_workspace(root/'workspace',root)
+        draft=new_draft(data,digest);draft['images'][0]['instances']=[{'id':'box-1','class':'quadrilateral','box':[15,20,51,56]}]
+        result=validate_draft(draft,data,digest);build_editor(root/'workspace',root/'editor',root,draft)
+        exists=(root/'editor'/'annotate.html').is_file()
+    return {'draft_images':result['images'],'draft_boxes':result['instances'],'unscored':result['unscored'],
+            'offline_editor_created':exists,'passed':exists and result['instances']==1 and result['unscored']}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(171,181));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))
