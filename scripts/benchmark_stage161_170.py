@@ -50,6 +50,21 @@ def stage163():
             'main_s_registration':'not_deployed','passed':result['response']['success'] and rejected==3 and not result['automatic_action_authorized']}
 
 
+def stage164():
+    from seye.api import Permissions
+    from seye.integration.boundaries import plan_reads
+    from seye.integration.tools_adapter import manifest
+    with tempfile.TemporaryDirectory() as directory:
+        image=fixture(directory);permissions=Permissions((directory,));plan=plan_reads({'image':str(image)},permissions)
+        unchanged=plan.check(permissions);image.write_bytes(b'changed')
+        try:plan.check(permissions)
+        except PermissionError:detected=True
+        else:detected=False
+    return {'unchanged_source_passed':unchanged,'changed_source_detected':detected,'live_camera_enabled':manifest()['live_camera_enabled'],
+            'scope':'explicit grants and ordinary replacement checks; not a native sandbox or race-free open guarantee',
+            'passed':unchanged and detected and not manifest()['live_camera_enabled']}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(161,171));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))

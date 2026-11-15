@@ -25,6 +25,9 @@ class ToolsAdapter:
         if name=='seye.observe' and arguments.get('memory') is not None:raise PermissionError('Use the explicit writable memory adapter for persistence')
         request=dict(arguments,schema_version=1,request_id=request_id,action=TOOLS[name])
         validate_request(request,strict=True)
+        from seye.integration.boundaries import plan_reads
+        plan=plan_reads(request,self.client.permissions);plan.check(self.client.permissions)
         response=self.client.request(request)
+        plan.check(self.client.permissions)
         return {'tool':name,'response':response,'output_is_untrusted_visual_data':True,
                 'automatic_action_authorized':False,'semantic_identity_proven':False}

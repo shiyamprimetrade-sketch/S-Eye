@@ -24,11 +24,21 @@ class Permissions:
     training: bool = False
     video: bool = False
 
+    def __post_init__(self):
+        for value in (self.memory,self.training,self.video):
+            if type(value) is not bool:raise ValueError('Permission capabilities must be booleans')
+        for name in ('read_roots','write_roots'):
+            roots=getattr(self,name)
+            if not isinstance(roots,(tuple,list)) or len(roots)>32:raise ValueError('Bounded root list required')
+            if any(not isinstance(root,(str,Path)) or not str(root) for root in roots):raise ValueError('Explicit nonempty filesystem roots required')
+            object.__setattr__(self,name,tuple(str(Path(root).expanduser().resolve()) for root in roots))
+
     def require(self, path, write=False):
         target = Path(path).expanduser().resolve()
         roots = self.write_roots if write else self.read_roots
         if not any(target.is_relative_to(Path(root).expanduser().resolve()) for root in roots):
             raise PermissionError('Requested path is outside explicit filesystem grants')
+        if target.exists() and not target.is_file():raise PermissionError('Only regular files are supported at operation paths')
         return target
 
 
