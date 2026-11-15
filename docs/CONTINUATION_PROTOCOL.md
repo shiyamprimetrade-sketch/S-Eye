@@ -450,3 +450,28 @@ its own documentation SHA. Main-S registration/deployment, live camera and
 representative application/device validation remain open. Prior negative tracking
 and high-dimensional indexing results are unchanged. Stop at 170; next Continue
 starts 171–180.
+
+
+## Stages 171–180: local workflow checkpoint
+
+Scoped contracts in STAGES_171_180.md are implemented/tested with 319 local tests,
+ten reproducible generated control reports, installed legacy/Python/S/local CLI
+smokes and a development wheel. Version is 0.1.0.dev180; seye-local is the new entry.
+Exact-head current-source remote CI is pending publication.
+
+Editor drawing/download/undo math passes three Node VM test-double cases. Actual
+browser rendering is unverified: Chromium cannot open its singleton socket, and
+the shared browser refused a file URL. No browser-policy workaround was attempted.
+Independent human usability is also unvalidated; this does not block engineering
+continuation. PNG overlays were visually inspected separately, not as browser proof.
+
+Drafts remain unscored/caller-drawn and do not assert reviewed/generator labels or
+negative images. Comparisons preserve missing/source-incomparable denominators;
+accuracy_change is null without truth. Keep supplied model labels escaped and
+uncalibrated. Local outputs are exclusive with a final completion marker, not a
+power-loss/OS sandbox guarantee. Preserve original inputs and existing outputs.
+
+STOP at 180. Next Continue authorizes 181–190: malformed-image/resource/path/
+permission handling, private memory, recovery/corruption, atomic storage,
+migration/dependency checks, CI and full repository audit. Actual Android/camera,
+representative application recognition, main-S deployment and v1.0 remain open.

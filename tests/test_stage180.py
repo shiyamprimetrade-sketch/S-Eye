@@ -24,3 +24,17 @@ class WorkflowInputValidationTests(unittest.TestCase):
             envelope['payload']['items'][0]['path']='../image.png';envelope['sha256']=checksum(envelope['payload']);atomic_json(manifest,envelope,overwrite=True)
             with self.assertRaises(ValueError):open_workspace(root/'workspace',root)
             self.assertTrue(path.is_file())
+
+    def test_dangling_output_alias_and_cyclic_input_path_do_not_publish(self):
+        from seye.local.workspace import inside
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);source=root/'image.png';Image.new('RGB',(40,30),'white').save(source)
+            alias=root/'alias';target=root/'new-target'
+            try:alias.symlink_to(target,target_is_directory=True)
+            except OSError:return
+            with self.assertRaises(FileExistsError):ingest([source],alias,root)
+            self.assertFalse(target.exists())
+            loop=root/'loop'
+            try:loop.symlink_to(loop)
+            except OSError:return
+            with self.assertRaises(PermissionError):inside(loop,root)

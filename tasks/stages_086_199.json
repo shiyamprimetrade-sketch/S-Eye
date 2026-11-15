@@ -1405,140 +1405,171 @@
       "stage": 171,
       "objective": "Local image ingestion workflow",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/api/cli.py",
-        "src/seye/api/workflow.py",
-        "scripts/create_annotations.py"
+        "docs/STAGES_171_180.md",
+        "docs/LOCAL_WORKFLOWS.md",
+        "tests/test_stage171.py",
+        "benchmarks/stage171_experiment.json",
+        "benchmarks/stage171_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative recognition/device validation and v1.0 release gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Bounded detached source snapshots and exclusive checksummed local workspace publication."
     },
     {
       "stage": 172,
       "objective": "Detection overlays",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/api/cli.py",
-        "src/seye/api/workflow.py",
-        "scripts/create_annotations.py"
+        "docs/STAGES_171_180.md",
+        "docs/LOCAL_WORKFLOWS.md",
+        "tests/test_stage172.py",
+        "benchmarks/stage172_experiment.json",
+        "benchmarks/stage172_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative recognition/device validation and v1.0 release gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Source-grid amber geometric-hypothesis overlays preserving source dimensions/pixels."
     },
     {
       "stage": 173,
       "objective": "Recognition reports",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/api/cli.py",
-        "src/seye/api/workflow.py",
-        "scripts/create_annotations.py"
+        "docs/STAGES_171_180.md",
+        "docs/LOCAL_WORKFLOWS.md",
+        "tests/test_stage173.py",
+        "benchmarks/stage173_experiment.json",
+        "benchmarks/stage173_tests.txt"
       ],
-      "open_requirement": "Geometric/prototype reports exist; broad semantic recognition is unsupported",
+      "open_requirement": "Geometric/optional prototype report implemented; broad semantic recognition remains unsupported.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Offline JSON/HTML evidence with optional actual packet-prototype decisions, bounded labels and escaped content; no semantic recognition claim."
     },
     {
       "stage": 174,
       "objective": "Visual memory browser",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/api/cli.py",
-        "src/seye/api/workflow.py",
-        "scripts/create_annotations.py"
+        "docs/STAGES_171_180.md",
+        "docs/LOCAL_WORKFLOWS.md",
+        "tests/test_stage174.py",
+        "benchmarks/stage174_experiment.json",
+        "benchmarks/stage174_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative recognition/device validation and v1.0 release gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Read-only snapshot-tagged memory pagination and escaped offline memory pages."
     },
     {
       "stage": 175,
       "objective": "Dataset annotation tools",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/api/cli.py",
-        "src/seye/api/workflow.py",
-        "scripts/create_annotations.py"
+        "docs/STAGES_171_180.md",
+        "docs/LOCAL_WORKFLOWS.md",
+        "tests/test_stage175.py",
+        "benchmarks/stage175_experiment.json",
+        "benchmarks/stage175_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Editor logic/CLI harness passed; real-browser rendering blocked by this environment and independent human usability unvalidated.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Standalone source-bound unscored annotation draft editor; drawing/download/undo logic verified, browser rendering open."
     },
     {
       "stage": 176,
       "objective": "Experiment comparison",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/api/cli.py",
-        "src/seye/api/workflow.py",
-        "scripts/create_annotations.py"
+        "docs/STAGES_171_180.md",
+        "docs/LOCAL_WORKFLOWS.md",
+        "tests/test_stage176.py",
+        "benchmarks/stage176_experiment.json",
+        "benchmarks/stage176_tests.txt"
       ],
-      "open_requirement": "Annotation templates and validation exist; interactive annotation UI remains incomplete",
+      "open_requirement": "Scoped engineering acceptance only; representative recognition/device validation and v1.0 release gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Source-cohort report comparison with missing/incomparable slots retained and no unlabeled accuracy claims."
     },
     {
       "stage": 177,
       "objective": "Configuration management",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/api/cli.py",
-        "src/seye/api/workflow.py",
-        "scripts/create_annotations.py"
+        "docs/STAGES_171_180.md",
+        "docs/LOCAL_WORKFLOWS.md",
+        "tests/test_stage177.py",
+        "benchmarks/stage177_experiment.json",
+        "benchmarks/stage177_tests.txt"
       ],
-      "open_requirement": "Strict schema-1 configuration and pure version-0 migration implemented/tested; full user migration/usability review pending",
+      "open_requirement": "Scoped engineering acceptance only; representative recognition/device validation and v1.0 release gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Explicit config inspection/initialization and grant-preserving non-destructive version migration."
     },
     {
       "stage": 178,
       "objective": "Installation and upgrade instructions",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/api/cli.py",
-        "src/seye/api/workflow.py",
-        "scripts/create_annotations.py"
+        "docs/STAGES_171_180.md",
+        "docs/LOCAL_WORKFLOWS.md",
+        "tests/test_stage178.py",
+        "benchmarks/stage178_experiment.json",
+        "benchmarks/stage178_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative recognition/device validation and v1.0 release gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Development version 0.1.0.dev180, installable seye-local command and opt-in generated doctor self-test."
     },
     {
       "stage": 179,
       "objective": "Usability and installation verification",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "partial",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/api/cli.py",
-        "src/seye/api/workflow.py",
-        "scripts/create_annotations.py"
+        "docs/STAGES_171_180.md",
+        "docs/LOCAL_WORKFLOWS.md",
+        "tests/test_stage179.py",
+        "benchmarks/stage179_experiment.json",
+        "benchmarks/stage179_tests.txt"
       ],
-      "open_requirement": "CLI tests pass; independent human usability review remains incomplete",
+      "open_requirement": "Editor logic/CLI harness passed; real-browser rendering blocked by this environment and independent human usability unvalidated.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Automated fresh/install CLI workflow harness and Node editor-logic tests; browser rendering and independent human usability remain unverified."
     },
     {
       "stage": 180,
       "objective": "Input validation",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
-        "src/seye/core/storage.py",
-        "tests/test_system_reliability.py"
+        "docs/STAGES_171_180.md",
+        "docs/LOCAL_WORKFLOWS.md",
+        "tests/test_stage180.py",
+        "benchmarks/stage180_experiment.json",
+        "benchmarks/stage180_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Scoped engineering acceptance only; representative recognition/device validation and v1.0 release gates remain open.",
       "validated": false,
-      "completion_declared": false
+      "completion_declared": true,
+      "completion_scope": "Duplicate-safe finite bounded UTF-8 JSON, strict source/annotation schemas, traversal/cyclic-path and output-alias refusal."
     },
     {
       "stage": 181,

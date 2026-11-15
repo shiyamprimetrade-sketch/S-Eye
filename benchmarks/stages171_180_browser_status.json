@@ -1,0 +1,25 @@
+{
+  "format": "seye-browser-verification-status-v1",
+  "browser_rendering_verified": false,
+  "headless_attempt": {
+    "browser": "Chromium",
+    "result": "blocked",
+    "observed_error": "Process singleton socket() failed: Operation not permitted"
+  },
+  "shared_browser_attempt": {
+    "requested_protocol": "file:",
+    "result": "blocked_by_browser_url_policy",
+    "allowed_protocols": [
+      "http:",
+      "https:"
+    ]
+  },
+  "alternative": {
+    "type": "Node VM logic checks with canvas/DOM/Blob test doubles",
+    "passed": true,
+    "cases": 3,
+    "renders_browser_ui": false
+  },
+  "independent_human_usability_validated": false,
+  "scope": "No browser-security workaround attempted; editor rendering is an explicit open verification item"
+}

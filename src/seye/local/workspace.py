@@ -7,7 +7,8 @@ from seye.integration.service import Permissions
 
 
 def inside(path,root):
-    target=Path(path).resolve();allowed=Path(root).resolve()
+    try:target=Path(path).resolve();allowed=Path(root).resolve()
+    except (OSError,RuntimeError) as error:raise PermissionError('Workflow path could not be resolved') from error
     if not target.is_relative_to(allowed):raise PermissionError('Workflow path outside explicit allowed root')
     return target
 
@@ -18,6 +19,8 @@ def publish(destination,allowed_root,builder):
     Readers require the completion manifest. This is not an atomic directory
     rename or a power-loss transaction; abrupt termination may leave a partial.
     """
+    requested=Path(destination)
+    if requested.is_symlink():raise FileExistsError('Choose a new output directory, not an existing symlink')
     destination=inside(destination,allowed_root)
     if destination.exists() or destination.is_symlink():raise FileExistsError('Choose a new output directory')
     destination.parent.mkdir(parents=True,exist_ok=True)

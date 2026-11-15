@@ -15,7 +15,7 @@ def fixture(root,index=0):
 def stage171():
     from seye.local.workspace import ingest,open_workspace
     with tempfile.TemporaryDirectory() as directory:
-        root=Path(directory);images=[fixture(root,i) for i in (0,4,8)];receipt=ingest(images,root/'workspace',root)
+        root=Path(directory);images=[fixture(root,i) for i in (0,4,8)];receipt=ingest(images,root/'workspace',root,source_kind='synthetic')
         _,data,digest=open_workspace(root/'workspace',root)
     return {'snapshot_images':len(data['items']),'completion_digest_matches':digest==receipt['manifest_sha256'],
             'passed':len(data['items'])==3 and digest==receipt['manifest_sha256']}
@@ -26,7 +26,7 @@ def stage172():
     from seye.local.overlays import overlay_workspace
     from seye.core.storage import read_json
     with tempfile.TemporaryDirectory() as directory:
-        root=Path(directory);ingest([fixture(root)],root/'workspace',root);overlay_workspace(root/'workspace',root/'overlays',root)
+        root=Path(directory);ingest([fixture(root)],root/'workspace',root,source_kind='synthetic');overlay_workspace(root/'workspace',root/'overlays',root)
         row=read_json(root/'overlays'/'manifest.json')['payload']['items'][0]
         with Image.open(root/'overlays'/row['overlay']) as image:size=list(image.size)
     return {'source_size':row['source_size'],'overlay_size':size,'region_count':len(row['regions']),
@@ -38,7 +38,7 @@ def stage173():
     from seye.local.reports import build_report
     from seye.core.storage import read_json
     with tempfile.TemporaryDirectory() as directory:
-        root=Path(directory);ingest([fixture(root)],root/'workspace',root);build_report(root/'workspace',root/'report',root)
+        root=Path(directory);ingest([fixture(root)],root/'workspace',root,source_kind='synthetic');build_report(root/'workspace',root/'report',root)
         report=read_json(root/'report'/'report.json');status=report['items'][0]['decision']['status']
         exists=(root/'report'/'report.html').is_file()
     return {'decision_status':status,'offline_html_created':exists,'semantic_recognition_validated':False,
@@ -60,7 +60,7 @@ def stage175():
     from seye.local.workspace import ingest,open_workspace
     from seye.local.annotation_editor import build_editor,new_draft,validate_draft
     with tempfile.TemporaryDirectory() as directory:
-        root=Path(directory);ingest([fixture(root)],root/'workspace',root);_,data,digest=open_workspace(root/'workspace',root)
+        root=Path(directory);ingest([fixture(root)],root/'workspace',root,source_kind='synthetic');_,data,digest=open_workspace(root/'workspace',root)
         draft=new_draft(data,digest);draft['images'][0]['instances']=[{'id':'box-1','class':'quadrilateral','box':[15,20,51,56]}]
         result=validate_draft(draft,data,digest);build_editor(root/'workspace',root/'editor',root,draft)
         exists=(root/'editor'/'annotate.html').is_file()
@@ -73,7 +73,7 @@ def stage176():
     from seye.local.reports import build_report
     from seye.local.comparison import load_report,compare
     with tempfile.TemporaryDirectory() as directory:
-        root=Path(directory);ingest([fixture(root,i) for i in (0,4)],root/'workspace',root)
+        root=Path(directory);ingest([fixture(root,i) for i in (0,4)],root/'workspace',root,source_kind='synthetic')
         build_report(root/'workspace',root/'first',root);build_report(root/'workspace',root/'second',root)
         result=compare(load_report(root/'first'/'report.json',root),load_report(root/'second'/'report.json',root))
     return {'comparable_slots':result['comparable_slots'],'changed_decisions':result['changed_decisions'],'accuracy_change':result['accuracy_change'],

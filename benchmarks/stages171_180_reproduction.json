@@ -1,0 +1,55 @@
+{
+  "experiments": [
+    {
+      "stage": 171,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 172,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 173,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 174,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 175,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 176,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 177,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 178,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 179,
+      "passed": true,
+      "exact_report_match": true
+    },
+    {
+      "stage": 180,
+      "passed": true,
+      "exact_report_match": true
+    }
+  ],
+  "scope": "Generated workflow controls explicitly tagged synthetic; no representative recognition or browser-rendering claim"
+}

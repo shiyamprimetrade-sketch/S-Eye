@@ -1,3 +1,28 @@
+## Latest checkpoint: Stages 171–180
+
+Implemented source-verified local workspaces, source-grid overlays, offline JSON/
+HTML evidence and optional prototype reports, read-only memory pages, unscored
+annotation drafts, source-cohort comparison, config export/migration, installed
+seye-local workflows/doctor and strict bounded JSON input validation. Development
+version: 0.1.0.dev180. See [STAGES_171_180.md](docs/STAGES_171_180.md) and LOCAL_WORKFLOWS.md.
+
+319 local tests pass; all ten generated workflow reports reproduce. Installed CLI/
+Python/S session and eleven local CLI commands pass outside the checkout; source
+audit and wheel build pass. Exact-head remote CI is pending publication. Editor
+logic tests pass in three Node VM coordinate/download/undo cases; **real-browser
+rendering is unverified**, blocked by Chromium socket permission and shared-browser
+local-file policy. No browser-security workaround or human review claim is made.
+
+Generated proposals/drafts are not validated labels, prototype categories are not
+semantic truth, and unlabeled changes are not accuracy gains. Main-S deployment,
+camera, Android, representative input/device validation, native security and v1.0
+remain open. Previous tracking/indexing negative results remain unchanged.
+STOP at 180. Wait for Continue before 181–190: malformed/resource/path/permission
+reliability, private memory, recovery/atomicity, migrations/dependencies, CI and
+repository audit. Do not treat stage numbers as release acceptance.
+
+---
+
 ## Latest checkpoint: Stages 161–170
 
 Implemented machine-readable request/response contracts, typed memory and fixed

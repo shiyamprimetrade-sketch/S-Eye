@@ -23,6 +23,6 @@ def doctor(self_test=False):
         from seye.local.reports import build_report
         with tempfile.TemporaryDirectory(prefix='seye_local_doctor_') as d:
             root=Path(d);path=root/'fixture.png';image=Image.new('RGB',(100,80),'white');ImageDraw.Draw(image).rectangle((10,10,30,30),fill='black');image.save(path)
-            ingest([path],root/'workspace',root);_,data,_=open_workspace(root/'workspace',root);build_report(root/'workspace',root/'report',root)
+            ingest([path],root/'workspace',root,source_kind='synthetic');_,data,_=open_workspace(root/'workspace',root);build_report(root/'workspace',root/'report',root)
             result['self_test']={'generated_images':len(data['items']),'workspace_verified':True,'offline_report_created':(root/'report'/'report.html').is_file()}
     return result
