@@ -439,3 +439,14 @@ recognition reports, memory browser, annotation tools, experiment comparison,
 configuration, installation/upgrades/usability and input validation. Preserve all
 existing source/data checkpoints and truthful limitations. Do not ask for human
 review as a prerequisite for ordinary engineering continuation.
+
+
+Verified 161–170 source checkpoint `b6d533a774e0c5430fa566025922b96fe88ee56f`: all four Ubuntu/Windows Python
+3.12/3.13 CI jobs passed, including 297 tests, all ten new controlled experiments,
+historical checks, installed CLI/Python and five-step spawned integration smoke,
+source/release audits, wheel builds and uploaded artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506 .
+This later documentation-only receipt cites that exact source checkpoint, not
+its own documentation SHA. Main-S registration/deployment, live camera and
+representative application/device validation remain open. Prior negative tracking
+and high-dimensional indexing results are unchanged. Stop at 170; next Continue
+starts 171–180.

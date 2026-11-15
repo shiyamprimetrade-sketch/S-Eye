@@ -38,5 +38,37 @@
   "release_ready": false,
   "main_s_deployed": false,
   "live_camera_enabled": false,
-  "remote_ci": "pending exact-head publication"
+  "remote_ci": "all four Ubuntu/Windows Python 3.12/3.13 jobs passed",
+  "verified_commit_sha": "b6d533a774e0c5430fa566025922b96fe88ee56f",
+  "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506",
+  "ci_jobs": [
+    {
+      "id": 132788278878,
+      "name": "vision (windows-latest, 3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43706388506
+    },
+    {
+      "id": 132788279024,
+      "name": "vision (windows-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43706388506
+    },
+    {
+      "id": 132788279066,
+      "name": "vision (ubuntu-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43706388506
+    },
+    {
+      "id": 132788279078,
+      "name": "vision (ubuntu-latest, 3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43706388506
+    }
+  ]
 }

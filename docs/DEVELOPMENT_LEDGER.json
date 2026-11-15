@@ -7873,7 +7873,7 @@
         "tests/test_stage161.py"
       ],
       "tests_executed": "benchmarks/stage161_tests.txt; benchmark_stage161_170.py --stage 161; full 297-test regression",
-      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "297 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python/five-step spawned session smoke, audits, wheels and artifacts passed",
       "benchmark_results": {
         "passed": true,
         "scope": "structural contract checks, not successful execution of every action",
@@ -7889,7 +7889,9 @@
         "Main-S registration/deployment not performed; live camera remains disabled",
         "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
       ],
-      "next_task": "Stage 162"
+      "next_task": "Stage 162",
+      "verified_commit_sha": "b6d533a774e0c5430fa566025922b96fe88ee56f",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506"
     },
     {
       "id": "stage162-integration-engineering",
@@ -7905,7 +7907,7 @@
         "tests/test_stage162.py"
       ],
       "tests_executed": "benchmarks/stage162_tests.txt; benchmark_stage161_170.py --stage 162; full 297-test regression",
-      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "297 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python/five-step spawned session smoke, audits, wheels and artifacts passed",
       "benchmark_results": {
         "passed": true,
         "same_source_query_distance": 0.0,
@@ -7921,7 +7923,9 @@
         "Main-S registration/deployment not performed; live camera remains disabled",
         "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
       ],
-      "next_task": "Stage 163"
+      "next_task": "Stage 163",
+      "verified_commit_sha": "b6d533a774e0c5430fa566025922b96fe88ee56f",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506"
     },
     {
       "id": "stage163-integration-engineering",
@@ -7934,7 +7938,7 @@
         "tests/test_stage163.py"
       ],
       "tests_executed": "benchmarks/stage163_tests.txt; benchmark_stage161_170.py --stage 163; full 297-test regression",
-      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "297 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python/five-step spawned session smoke, audits, wheels and artifacts passed",
       "benchmark_results": {
         "forbidden_tool_names_rejected": 3,
         "main_s_registration": "not_deployed",
@@ -7950,7 +7954,9 @@
         "Main-S registration/deployment not performed; live camera remains disabled",
         "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
       ],
-      "next_task": "Stage 164"
+      "next_task": "Stage 164",
+      "verified_commit_sha": "b6d533a774e0c5430fa566025922b96fe88ee56f",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506"
     },
     {
       "id": "stage164-integration-engineering",
@@ -7965,7 +7971,7 @@
         "tests/test_stage164.py"
       ],
       "tests_executed": "benchmarks/stage164_tests.txt; benchmark_stage161_170.py --stage 164; full 297-test regression",
-      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "297 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python/five-step spawned session smoke, audits, wheels and artifacts passed",
       "benchmark_results": {
         "changed_source_detected": true,
         "live_camera_enabled": false,
@@ -7982,7 +7988,9 @@
         "Main-S registration/deployment not performed; live camera remains disabled",
         "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
       ],
-      "next_task": "Stage 165"
+      "next_task": "Stage 165",
+      "verified_commit_sha": "b6d533a774e0c5430fa566025922b96fe88ee56f",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506"
     },
     {
       "id": "stage165-integration-engineering",
@@ -7997,7 +8005,7 @@
         "tests/test_stage165.py"
       ],
       "tests_executed": "benchmarks/stage165_tests.txt; benchmark_stage161_170.py --stage 165; full 297-test regression",
-      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "297 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python/five-step spawned session smoke, audits, wheels and artifacts passed",
       "benchmark_results": {
         "passed": true,
         "source_bound": true,
@@ -8012,7 +8020,9 @@
         "Main-S registration/deployment not performed; live camera remains disabled",
         "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
       ],
-      "next_task": "Stage 166"
+      "next_task": "Stage 166",
+      "verified_commit_sha": "b6d533a774e0c5430fa566025922b96fe88ee56f",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506"
     },
     {
       "id": "stage166-integration-engineering",
@@ -8028,7 +8038,7 @@
         "tests/test_stage166.py"
       ],
       "tests_executed": "benchmarks/stage166_tests.txt; benchmark_stage161_170.py --stage 166; full 297-test regression",
-      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "297 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python/five-step spawned session smoke, audits, wheels and artifacts passed",
       "benchmark_results": {
         "controlled_statuses": [
           "no_match",
@@ -8047,7 +8057,9 @@
         "Main-S registration/deployment not performed; live camera remains disabled",
         "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
       ],
-      "next_task": "Stage 167"
+      "next_task": "Stage 167",
+      "verified_commit_sha": "b6d533a774e0c5430fa566025922b96fe88ee56f",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506"
     },
     {
       "id": "stage167-integration-engineering",
@@ -8063,7 +8075,7 @@
         "tests/test_stage167.py"
       ],
       "tests_executed": "benchmarks/stage167_tests.txt; benchmark_stage161_170.py --stage 167; full 297-test regression",
-      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "297 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python/five-step spawned session smoke, audits, wheels and artifacts passed",
       "benchmark_results": {
         "box_count_agrees": true,
         "geometric_count": 1,
@@ -8080,7 +8092,9 @@
         "Main-S registration/deployment not performed; live camera remains disabled",
         "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
       ],
-      "next_task": "Stage 168"
+      "next_task": "Stage 168",
+      "verified_commit_sha": "b6d533a774e0c5430fa566025922b96fe88ee56f",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506"
     },
     {
       "id": "stage168-integration-engineering",
@@ -8097,7 +8111,7 @@
         "tests/worker_fixtures.py"
       ],
       "tests_executed": "benchmarks/stage168_tests.txt; benchmark_stage161_170.py --stage 168; full 297-test regression",
-      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "297 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python/five-step spawned session smoke, audits, wheels and artifacts passed",
       "benchmark_results": {
         "deadline_type": "Timeout",
         "passed": true,
@@ -8113,7 +8127,9 @@
         "Main-S registration/deployment not performed; live camera remains disabled",
         "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
       ],
-      "next_task": "Stage 169"
+      "next_task": "Stage 169",
+      "verified_commit_sha": "b6d533a774e0c5430fa566025922b96fe88ee56f",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506"
     },
     {
       "id": "stage169-integration-engineering",
@@ -8130,7 +8146,7 @@
         "tests/test_stage169.py"
       ],
       "tests_executed": "benchmarks/stage169_tests.txt; benchmark_stage161_170.py --stage 169; full 297-test regression",
-      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "297 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python/five-step spawned session smoke, audits, wheels and artifacts passed",
       "benchmark_results": {
         "automatic_action_authorized": false,
         "main_s_registration": "not_deployed",
@@ -8156,7 +8172,9 @@
         "Main-S registration/deployment not performed; live camera remains disabled",
         "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
       ],
-      "next_task": "Stage 170"
+      "next_task": "Stage 170",
+      "verified_commit_sha": "b6d533a774e0c5430fa566025922b96fe88ee56f",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506"
     },
     {
       "id": "stage170-integration-engineering",
@@ -8170,7 +8188,7 @@
         "tests/test_stage170.py"
       ],
       "tests_executed": "benchmarks/stage170_tests.txt; benchmark_stage161_170.py --stage 170; full 297-test regression",
-      "test_results": "297 local tests passed; ten controlled integration reports reproduced; installed CLI/Python/session smokes and wheel passed; exact-head remote CI pending",
+      "test_results": "297 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical experiments, installed CLI/Python/five-step spawned session smoke, audits, wheels and artifacts passed",
       "benchmark_results": {
         "advertised_actions": 44,
         "contract_format": "seye-action-contract-v1",
@@ -8186,7 +8204,9 @@
         "Main-S registration/deployment not performed; live camera remains disabled",
         "File checks are not a native sandbox/race-free open; cancellation is not rollback or guaranteed native process-tree termination"
       ],
-      "next_task": "Stop at 170; next Continue starts 171\u2013180"
+      "next_task": "Stop at 170; next Continue starts 171\u2013180",
+      "verified_commit_sha": "b6d533a774e0c5430fa566025922b96fe88ee56f",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506"
     }
   ]
 }

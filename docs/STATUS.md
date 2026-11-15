@@ -9,7 +9,8 @@ a five-step integration session and strict installable workflow CLI. See
 297 local tests passed; all ten controlled reports reproduced on this host.
 Installed CLI, Python API and five-step spawned session smokes outside the
 checkout passed, together with source preservation audit and wheel build.
-Exact-head remote CI is pending publication. Controlled retrieval covers default
+All four Ubuntu/Windows Python 3.12/3.13 jobs passed at `b6d533a774e0c5430fa566025922b96fe88ee56f`.
+CI evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506 . Controlled retrieval covers default
 self-exclusion, one feature candidate and duplicate ambiguity; geometric answers
 and unsupported abstention have source-linked evidence. Worker cancellation,
 timeout, crash and wrong-ID controls pass; no rollback/native process-tree claim.
@@ -425,3 +426,14 @@ own documentation SHA. Stage 159 has Linux/Windows CI evidence; actual Android
 ARM64 hardware and representative application/device validation remain open.
 The high-dimensional no-pruning result and prior conservative-tracking negative
 result remain unchanged. Stop at 160; next Continue starts 161–170.
+
+
+Verified 161–170 source checkpoint `b6d533a774e0c5430fa566025922b96fe88ee56f`: all four Ubuntu/Windows Python
+3.12/3.13 CI jobs passed, including 297 tests, all ten new controlled experiments,
+historical checks, installed CLI/Python and five-step spawned integration smoke,
+source/release audits, wheel builds and uploaded artifacts. Evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43706388506 .
+This later documentation-only receipt cites that exact source checkpoint, not
+its own documentation SHA. Main-S registration/deployment, live camera and
+representative application/device validation remain open. Prior negative tracking
+and high-dimensional indexing results are unchanged. Stop at 170; next Continue
+starts 171–180.
