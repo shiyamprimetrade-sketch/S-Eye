@@ -100,6 +100,21 @@ def stage178():
             'passed':report['self_test']['workspace_verified'] and report['self_test']['offline_report_created'] and report['local_workflow_requirements_present']}
 
 
+def stage179():
+    import io
+    from contextlib import redirect_stdout
+    from seye.local.cli import main
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);source=fixture(root);commands=[['ingest','--images',str(source),'--output',str(root/'workspace')],
+        ['report','--workspace',str(root/'workspace'),'--output',str(root/'report')],['annotate','--workspace',str(root/'workspace'),'--output',str(root/'editor')],
+        ['validate-draft','--workspace',str(root/'workspace'),'--draft',str(root/'editor'/'draft.json')]]
+        codes=[]
+        for args in commands:
+            with redirect_stdout(io.StringIO()):codes.append(main(['--root',str(root),*args]))
+    return {'fresh_workflow_commands':len(codes),'exit_codes':codes,'independent_human_usability_validated':False,
+            'passed':codes==[0,0,0,0]}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(171,181));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))

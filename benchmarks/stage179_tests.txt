@@ -1,0 +1,8 @@
+test_cli_rejects_existing_output_without_changing_sources (test_stage179.LocalWorkflowUsabilityTests.test_cli_rejects_existing_output_without_changing_sources) ... Workflow failed: Choose a new output directory
+ok
+test_fresh_local_ingest_report_annotate_validate_and_compare_flow (test_stage179.LocalWorkflowUsabilityTests.test_fresh_local_ingest_report_annotate_validate_and_compare_flow) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.031s
+
+OK
