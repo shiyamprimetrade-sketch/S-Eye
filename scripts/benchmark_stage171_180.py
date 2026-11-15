@@ -21,6 +21,18 @@ def stage171():
             'passed':len(data['items'])==3 and digest==receipt['manifest_sha256']}
 
 
+def stage172():
+    from seye.local.workspace import ingest
+    from seye.local.overlays import overlay_workspace
+    from seye.core.storage import read_json
+    with tempfile.TemporaryDirectory() as directory:
+        root=Path(directory);ingest([fixture(root)],root/'workspace',root);overlay_workspace(root/'workspace',root/'overlays',root)
+        row=read_json(root/'overlays'/'manifest.json')['payload']['items'][0]
+        with Image.open(root/'overlays'/row['overlay']) as image:size=list(image.size)
+    return {'source_size':row['source_size'],'overlay_size':size,'region_count':len(row['regions']),
+            'passed':size==row['source_size'] and len(row['regions'])>=1}
+
+
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--stage',required=True,type=int,choices=range(171,181));parser.add_argument('--output',required=True)
     args=parser.parse_args();result=globals()[f'stage{args.stage}']();atomic_json(args.output,result,overwrite=True);print(json.dumps(result,sort_keys=True))
