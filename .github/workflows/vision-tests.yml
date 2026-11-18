@@ -25,7 +25,16 @@ jobs:
         run: |
           if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) { choco install ffmpeg -y --no-progress }
       - run: python -m pip install -r requirements.txt
-      - run: python -m pip install --no-deps .
+      - run: python -m pip wheel --no-deps . --wheel-dir "${{ runner.temp }}/seye-dist"
+        env:
+          SOURCE_DATE_EPOCH: "315532800"
+      - name: Install the verification wheel
+        shell: python
+        run: |
+          import os, subprocess, sys
+          from pathlib import Path
+          wheel, = (Path(os.environ['RUNNER_TEMP']) / 'seye-dist').glob('*.whl')
+          subprocess.run([sys.executable, '-m', 'pip', 'install', '--no-deps', str(wheel)], check=True)
       - run: python -m pip check
       - run: python scripts/verify_hardening.py --output "${{ runner.temp }}/hardening-report.json"
       - run: seye --help
@@ -100,10 +109,8 @@ jobs:
           for stage in range(171, 181):
               subprocess.run([sys.executable, 'scripts/benchmark_stage171_180.py', '--stage', str(stage), '--output', os.path.join(os.environ['RUNNER_TEMP'], f'stage{stage}-report.json')], check=True)
       - run: python scripts/audit_source.py --output "${{ runner.temp }}/current-source-audit.json"
-      - run: python scripts/release_audit.py --output "${{ runner.temp }}/release-readiness.json"
-      - run: python -m pip wheel --no-deps . --wheel-dir "${{ runner.temp }}/seye-dist"
-        env:
-          SOURCE_DATE_EPOCH: "315532800"
+      - run: python scripts/verify_final_checkpoint.py --experiment "${{ runner.temp }}/independent-system-report.json" --output "${{ runner.temp }}/final-checkpoint.json"
+      - run: python scripts/release_audit.py --checkpoint "${{ runner.temp }}/final-checkpoint.json" --output "${{ runner.temp }}/release-readiness.json"
       - uses: actions/upload-artifact@v4
         with:
           name: vision-${{ matrix.os }}-python-${{ matrix.python }}
@@ -112,6 +119,7 @@ jobs:
             ${{ runner.temp }}/localization-report.json
             ${{ runner.temp }}/independent-system-report.json
             ${{ runner.temp }}/release-readiness.json
+            ${{ runner.temp }}/final-checkpoint.json
             ${{ runner.temp }}/current-source-audit.json
             ${{ runner.temp }}/cache-report.json
             ${{ runner.temp }}/interface-report.json

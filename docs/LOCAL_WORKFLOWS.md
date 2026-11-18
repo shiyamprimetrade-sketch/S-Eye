@@ -1,4 +1,4 @@
-# Local workflows · S-Eye 0.1.0.dev180
+# Local workflows · S-Eye 0.1.0.dev199
 
 These tools work on files you explicitly select. They do not capture a camera,
 operate another computer, publish data or silently replace existing outputs.
@@ -24,7 +24,7 @@ For an upgrade, preserve your existing workspaces, memories, models and profiles
 Install the reviewed new checkout/wheel into a fresh environment first, run the
 doctor/self-test, then compare source-bound reports. No command below upgrades an
 existing data/schema file in place. Config migration writes an exclusive new file.
-The development version is `0.1.0.dev180`; this is not a version 1.0 release.
+The development version is `0.1.0.dev199`; this is not a version 1.0 release.
 FFmpeg is optional for image-only local workflows and required by video features.
 Node is used only by the development editor-logic check, not by the installed CLI.
 

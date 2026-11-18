@@ -1,3 +1,16 @@
+## Stages 191–199 checkpoint
+
+The roadmap ends at Stage 199 with experimental package 0.1.0.dev199.
+Current-source checks reproduced historical recognition, memory and tracking
+counts, restored 128 observations, processed the controlled MP4, and measured
+repeated image observation. See docs/STAGES_191_199.md and the current benchmark
+and release audit in benchmarks/stages191_199_checkpoint.json and
+benchmarks/stages191_199_release.json.
+
+Stages 193, 197 and 199 retain open requirements. The v1.0 gate remains closed.
+Continue from the outstanding representative recognition and tracking, device,
+security and recovery, and main-S integration requirements.
+
 ## Stages 181–190 checkpoint
 
 S-Eye hardens image and JSON reads, path and capability checks, private memory,

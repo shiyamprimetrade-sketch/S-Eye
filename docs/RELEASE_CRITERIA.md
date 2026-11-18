@@ -35,3 +35,7 @@ verified checkpoints, memory transfer, scenes, controlled MP4 tracking and an
 installed integration CLI. Their controlled tests do not satisfy representative
 recognition/unknown/video validation, complete security review or every owner gate.
 Development wheel packaging is explicitly marked `v1_release: false`.
+For current-source measurements, pass `--checkpoint` with the output of
+`scripts/verify_final_checkpoint.py`. The audit refuses evidence from a different
+source inventory. See [Stages 191–199](STAGES_191_199.md) for the development wheel
+and reproduction commands.

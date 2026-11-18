@@ -498,3 +498,17 @@ in benchmarks/stages181_190_hardening.json.
 
 Stage 190 ends this batch. Next Continue starts Stages 191–199. Independent
 security, power loss, browser, device and representative validation remain open.
+
+
+## Stages 191–199 checkpoint
+
+The roadmap ends at Stage 199 with experimental package 0.1.0.dev199.
+Current-source checks reproduced historical recognition, memory and tracking
+counts, restored 128 observations, processed the controlled MP4, and measured
+repeated image observation. See docs/STAGES_191_199.md and the current benchmark
+and release audit in benchmarks/stages191_199_checkpoint.json and
+benchmarks/stages191_199_release.json.
+
+Stages 193, 197 and 199 retain open requirements. The v1.0 gate remains closed.
+Continue from the outstanding representative recognition and tracking, device,
+security and recovery, and main-S integration requirements.

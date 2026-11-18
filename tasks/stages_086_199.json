@@ -1715,12 +1715,13 @@
       "stage": 191,
       "objective": "Integration test suite",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "scripts/release_audit.py",
-        "benchmarks/system_verification.txt"
+        "docs/STAGES_191_199.md",
+        "benchmarks/stages191_199_checkpoint.json",
+        "benchmarks/stages191_199_tests.txt"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Representative validation and main-S deployment remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1728,12 +1729,13 @@
       "stage": 192,
       "objective": "Historical regression verification",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "scripts/release_audit.py",
-        "benchmarks/system_verification.txt"
+        "docs/STAGES_191_199.md",
+        "benchmarks/stages191_199_checkpoint.json",
+        "scripts/audit_source.py"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Representative validation and main-S deployment remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1743,10 +1745,11 @@
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
       "engineering_state": "partial",
       "evidence_paths": [
-        "scripts/release_audit.py",
-        "benchmarks/system_verification.txt"
+        "docs/STAGES_191_199.md",
+        "benchmarks/stages191_199_checkpoint.json",
+        "scripts/verify_final_checkpoint.py"
       ],
-      "open_requirement": "Generated prototype test fails to classify held-out known categories; no representative photo validation",
+      "open_requirement": "Generated prototype and linear tests show complementary failures. Representative recognition and unknown rejection remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1754,12 +1757,13 @@
       "stage": 194,
       "objective": "Visual memory verification",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "scripts/release_audit.py",
-        "benchmarks/system_verification.txt"
+        "docs/STAGES_191_199.md",
+        "benchmarks/stages191_199_checkpoint.json",
+        "scripts/benchmark_stage151_160.py"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Representative validation and main-S deployment remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1767,12 +1771,13 @@
       "stage": 195,
       "objective": "Video verification",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "scripts/release_audit.py",
-        "benchmarks/system_verification.txt"
+        "docs/STAGES_191_199.md",
+        "benchmarks/stages191_199_checkpoint.json",
+        "scripts/benchmark_tracking_validation.py"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Representative validation and main-S deployment remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1780,12 +1785,13 @@
       "stage": 196,
       "objective": "Performance benchmarking",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "scripts/release_audit.py",
-        "benchmarks/system_verification.txt"
+        "docs/STAGES_191_199.md",
+        "benchmarks/stages191_199_checkpoint.json",
+        "scripts/verify_final_checkpoint.py"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Representative validation and main-S deployment remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1795,10 +1801,11 @@
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
       "engineering_state": "partial",
       "evidence_paths": [
-        "scripts/release_audit.py",
-        "benchmarks/system_verification.txt"
+        "docs/STAGES_191_199.md",
+        "benchmarks/stages191_199_checkpoint.json",
+        "tests/test_stage197.py"
       ],
-      "open_requirement": "No full release security review; decoder/process isolation and all-path resource hardening remain incomplete",
+      "open_requirement": "Permission ordering verified. Native decoder confinement, hostile filesystem races and broader recovery review remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1806,12 +1813,13 @@
       "stage": 198,
       "objective": "Documentation installation and package verification",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "scripts/release_audit.py",
-        "benchmarks/system_verification.txt"
+        "docs/STAGES_191_199.md",
+        "benchmarks/stages191_199_checkpoint.json",
+        ".github/workflows/vision-tests.yml"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Representative validation and main-S deployment remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1821,10 +1829,11 @@
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
       "engineering_state": "partial",
       "evidence_paths": [
-        "scripts/release_audit.py",
-        "benchmarks/system_verification.txt"
+        "docs/STAGES_191_199.md",
+        "benchmarks/stages191_199_checkpoint.json",
+        "benchmarks/stages191_199_release.json"
       ],
-      "open_requirement": "Mandatory v1.0 recognition learning validation and release gates remain unmet",
+      "open_requirement": "Development wheel verified. Mandatory v1.0 criteria are still open",
       "validated": false,
       "completion_declared": false
     }

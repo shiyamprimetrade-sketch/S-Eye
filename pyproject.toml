@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "seye-independent"
-version = "0.1.0.dev180"
+version = "0.1.0.dev199"
 description = "Experimental independent S-Eye geometric image analysis"
 readme = "README.md"
 requires-python = ">=3.12"

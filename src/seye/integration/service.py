@@ -53,6 +53,10 @@ def execute(request, permissions):
         raise ValueError('Request ID required')
     action = request.get('action')
     if action in ('analyze', 'recognize', 'visual_question', 'remember', 'retrieve'):
+        if action in ('remember', 'retrieve'):
+            if not permissions.memory:
+                raise PermissionError('Explicit memory permission required')
+            memory_path = permissions.require(request['memory'], write=action == 'remember')
         image = permissions.require(request['image'])
         if action in ('analyze', 'visual_question', 'remember'):
             report, artifacts = analyze(image, mode=request.get('mode', 'baseline'))
@@ -74,9 +78,6 @@ def execute(request, permissions):
             decoded, source = load_image(image)
             result = dict(predict(model, extract(decoded)), source_sha256=source['sha256'], model_sha256=checksum(model))
         else:
-            if not permissions.memory:
-                raise PermissionError('Explicit memory permission required')
-            memory_path = permissions.require(request['memory'], write=action == 'remember')
             memory = Memory(memory_path, read_only=action == 'retrieve')
             try:
                 if action == 'remember':
