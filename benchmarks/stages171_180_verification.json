@@ -155,5 +155,42 @@
   ],
   "wheel_built": true,
   "release_ready": false,
-  "remote_ci": "pending exact-head publication"
+  "remote_ci": "all four Ubuntu/Windows Python 3.12/3.13 jobs passed",
+  "verified_commit_sha": "004a89091b8ce429b11e39b660cccc35d6f432c5",
+  "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810",
+  "ci_jobs": [
+    {
+      "id": 132850190631,
+      "name": "vision (windows-latest, 3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43726736810
+    },
+    {
+      "id": 132850190771,
+      "name": "vision (windows-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43726736810
+    },
+    {
+      "id": 132850190834,
+      "name": "vision (ubuntu-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43726736810
+    },
+    {
+      "id": 132850190915,
+      "name": "vision (ubuntu-latest, 3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43726736810
+    }
+  ],
+  "initial_ci_failure": {
+    "run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726244153",
+    "cause": "Python 3.13 non-strict Path.resolve retains cyclic symlinks; strict probe added before permitting new absent outputs",
+    "corrected_source": "004a89091b8ce429b11e39b660cccc35d6f432c5"
+  }
 }

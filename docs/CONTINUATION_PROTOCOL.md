@@ -475,3 +475,14 @@ STOP at 180. Next Continue authorizes 181–190: malformed-image/resource/path/
 permission handling, private memory, recovery/corruption, atomic storage,
 migration/dependency checks, CI and full repository audit. Actual Android/camera,
 representative application recognition, main-S deployment and v1.0 remain open.
+
+
+Verified 171–180 source checkpoint `004a89091b8ce429b11e39b660cccc35d6f432c5`: all four Ubuntu/Windows Python
+3.12/3.13 CI jobs passed, including 319 tests, all ten new workflow experiments,
+historical checks, installed legacy/Python/S/local CLI smokes, Node editor-logic
+checks, source/release audits, wheel builds and uploaded artifacts. Evidence:
+https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810 . This later documentation-only receipt cites that exact source checkpoint,
+not its own documentation SHA. Actual browser rendering remains unverified after
+the recorded environment/policy blocks; Node test doubles are not a renderer.
+Independent human/device/application validation and v1.0 remain open. Stop at 180;
+next Continue starts 181–190.

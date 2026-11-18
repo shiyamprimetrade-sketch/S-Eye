@@ -8220,7 +8220,7 @@
         "tests/test_stage171.py"
       ],
       "tests_executed": "benchmarks/stage171_tests.txt; benchmark_stage171_180.py --stage 171; full regression",
-      "test_results": "319 local tests passed; ten reports reproduced; installed CLI/Python/S/local workflows and wheel passed; editor logic passed in Node test doubles; browser rendering unverified; current-head CI pending",
+      "test_results": "319 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical reports, installed legacy/Python/S/local CLI smokes, editor Node logic, audits, wheels and artifacts passed; actual browser rendering remains unverified",
       "benchmark_results": {
         "completion_digest_matches": true,
         "passed": true,
@@ -8235,7 +8235,9 @@
         "Real-browser rendering blocked: local Chromium socket EPERM and shared-browser file URL policy; no workaround attempted",
         "Main-S deployment, camera, Android, native security/crash and v1.0 gates remain open; prior negative benchmarks preserved"
       ],
-      "next_task": "Stage 172"
+      "next_task": "Stage 172",
+      "verified_commit_sha": "004a89091b8ce429b11e39b660cccc35d6f432c5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810"
     },
     {
       "id": "stage172-local-workflow-engineering",
@@ -8248,7 +8250,7 @@
         "tests/test_stage172.py"
       ],
       "tests_executed": "benchmarks/stage172_tests.txt; benchmark_stage171_180.py --stage 172; full regression",
-      "test_results": "319 local tests passed; ten reports reproduced; installed CLI/Python/S/local workflows and wheel passed; editor logic passed in Node test doubles; browser rendering unverified; current-head CI pending",
+      "test_results": "319 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical reports, installed legacy/Python/S/local CLI smokes, editor Node logic, audits, wheels and artifacts passed; actual browser rendering remains unverified",
       "benchmark_results": {
         "overlay_size": [
           160,
@@ -8270,7 +8272,9 @@
         "Real-browser rendering blocked: local Chromium socket EPERM and shared-browser file URL policy; no workaround attempted",
         "Main-S deployment, camera, Android, native security/crash and v1.0 gates remain open; prior negative benchmarks preserved"
       ],
-      "next_task": "Stage 173"
+      "next_task": "Stage 173",
+      "verified_commit_sha": "004a89091b8ce429b11e39b660cccc35d6f432c5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810"
     },
     {
       "id": "stage173-local-workflow-engineering",
@@ -8283,7 +8287,7 @@
         "tests/test_stage173.py"
       ],
       "tests_executed": "benchmarks/stage173_tests.txt; benchmark_stage171_180.py --stage 173; full regression",
-      "test_results": "319 local tests passed; ten reports reproduced; installed CLI/Python/S/local workflows and wheel passed; editor logic passed in Node test doubles; browser rendering unverified; current-head CI pending",
+      "test_results": "319 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical reports, installed legacy/Python/S/local CLI smokes, editor Node logic, audits, wheels and artifacts passed; actual browser rendering remains unverified",
       "benchmark_results": {
         "decision_status": "not_requested",
         "offline_html_created": true,
@@ -8299,7 +8303,9 @@
         "Real-browser rendering blocked: local Chromium socket EPERM and shared-browser file URL policy; no workaround attempted",
         "Main-S deployment, camera, Android, native security/crash and v1.0 gates remain open; prior negative benchmarks preserved"
       ],
-      "next_task": "Stage 174"
+      "next_task": "Stage 174",
+      "verified_commit_sha": "004a89091b8ce429b11e39b660cccc35d6f432c5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810"
     },
     {
       "id": "stage174-local-workflow-engineering",
@@ -8312,7 +8318,7 @@
         "tests/test_stage174.py"
       ],
       "tests_executed": "benchmarks/stage174_tests.txt; benchmark_stage171_180.py --stage 174; full regression",
-      "test_results": "319 local tests passed; ten reports reproduced; installed CLI/Python/S/local workflows and wheel passed; editor logic passed in Node test doubles; browser rendering unverified; current-head CI pending",
+      "test_results": "319 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical reports, installed legacy/Python/S/local CLI smokes, editor Node logic, audits, wheels and artifacts passed; actual browser rendering remains unverified",
       "benchmark_results": {
         "last_next_after": null,
         "paged_sequences": [
@@ -8333,7 +8339,9 @@
         "Real-browser rendering blocked: local Chromium socket EPERM and shared-browser file URL policy; no workaround attempted",
         "Main-S deployment, camera, Android, native security/crash and v1.0 gates remain open; prior negative benchmarks preserved"
       ],
-      "next_task": "Stage 175"
+      "next_task": "Stage 175",
+      "verified_commit_sha": "004a89091b8ce429b11e39b660cccc35d6f432c5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810"
     },
     {
       "id": "stage175-local-workflow-engineering",
@@ -8346,7 +8354,7 @@
         "tests/test_stage175.py"
       ],
       "tests_executed": "benchmarks/stage175_tests.txt; benchmark_stage171_180.py --stage 175; full regression",
-      "test_results": "319 local tests passed; ten reports reproduced; installed CLI/Python/S/local workflows and wheel passed; editor logic passed in Node test doubles; browser rendering unverified; current-head CI pending",
+      "test_results": "319 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical reports, installed legacy/Python/S/local CLI smokes, editor Node logic, audits, wheels and artifacts passed; actual browser rendering remains unverified",
       "benchmark_results": {
         "draft_boxes": 1,
         "draft_images": 1,
@@ -8363,7 +8371,9 @@
         "Real-browser rendering blocked: local Chromium socket EPERM and shared-browser file URL policy; no workaround attempted",
         "Main-S deployment, camera, Android, native security/crash and v1.0 gates remain open; prior negative benchmarks preserved"
       ],
-      "next_task": "Stage 176"
+      "next_task": "Stage 176",
+      "verified_commit_sha": "004a89091b8ce429b11e39b660cccc35d6f432c5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810"
     },
     {
       "id": "stage176-local-workflow-engineering",
@@ -8376,7 +8386,7 @@
         "tests/test_stage176.py"
       ],
       "tests_executed": "benchmarks/stage176_tests.txt; benchmark_stage171_180.py --stage 176; full regression",
-      "test_results": "319 local tests passed; ten reports reproduced; installed CLI/Python/S/local workflows and wheel passed; editor logic passed in Node test doubles; browser rendering unverified; current-head CI pending",
+      "test_results": "319 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical reports, installed legacy/Python/S/local CLI smokes, editor Node logic, audits, wheels and artifacts passed; actual browser rendering remains unverified",
       "benchmark_results": {
         "accuracy_change": null,
         "changed_decisions": 0,
@@ -8392,7 +8402,9 @@
         "Real-browser rendering blocked: local Chromium socket EPERM and shared-browser file URL policy; no workaround attempted",
         "Main-S deployment, camera, Android, native security/crash and v1.0 gates remain open; prior negative benchmarks preserved"
       ],
-      "next_task": "Stage 177"
+      "next_task": "Stage 177",
+      "verified_commit_sha": "004a89091b8ce429b11e39b660cccc35d6f432c5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810"
     },
     {
       "id": "stage177-local-workflow-engineering",
@@ -8406,7 +8418,7 @@
         "tests/test_stage177.py"
       ],
       "tests_executed": "benchmarks/stage177_tests.txt; benchmark_stage171_180.py --stage 177; full regression",
-      "test_results": "319 local tests passed; ten reports reproduced; installed CLI/Python/S/local workflows and wheel passed; editor logic passed in Node test doubles; browser rendering unverified; current-head CI pending",
+      "test_results": "319 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical reports, installed legacy/Python/S/local CLI smokes, editor Node logic, audits, wheels and artifacts passed; actual browser rendering remains unverified",
       "benchmark_results": {
         "added_write_roots": [],
         "enabled_capabilities": [],
@@ -8423,7 +8435,9 @@
         "Real-browser rendering blocked: local Chromium socket EPERM and shared-browser file URL policy; no workaround attempted",
         "Main-S deployment, camera, Android, native security/crash and v1.0 gates remain open; prior negative benchmarks preserved"
       ],
-      "next_task": "Stage 178"
+      "next_task": "Stage 178",
+      "verified_commit_sha": "004a89091b8ce429b11e39b660cccc35d6f432c5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810"
     },
     {
       "id": "stage178-local-workflow-engineering",
@@ -8439,7 +8453,7 @@
         "tests/test_stage178.py"
       ],
       "tests_executed": "benchmarks/stage178_tests.txt; benchmark_stage171_180.py --stage 178; full regression",
-      "test_results": "319 local tests passed; ten reports reproduced; installed CLI/Python/S/local workflows and wheel passed; editor logic passed in Node test doubles; browser rendering unverified; current-head CI pending",
+      "test_results": "319 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical reports, installed legacy/Python/S/local CLI smokes, editor Node logic, audits, wheels and artifacts passed; actual browser rendering remains unverified",
       "benchmark_results": {
         "code_version": "0.1.0.dev180",
         "generated_self_test": {
@@ -8460,7 +8474,9 @@
         "Real-browser rendering blocked: local Chromium socket EPERM and shared-browser file URL policy; no workaround attempted",
         "Main-S deployment, camera, Android, native security/crash and v1.0 gates remain open; prior negative benchmarks preserved"
       ],
-      "next_task": "Stage 179"
+      "next_task": "Stage 179",
+      "verified_commit_sha": "004a89091b8ce429b11e39b660cccc35d6f432c5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810"
     },
     {
       "id": "stage179-local-workflow-engineering",
@@ -8474,7 +8490,7 @@
         "tests/test_stage179.py"
       ],
       "tests_executed": "benchmarks/stage179_tests.txt; benchmark_stage171_180.py --stage 179; full regression",
-      "test_results": "319 local tests passed; ten reports reproduced; installed CLI/Python/S/local workflows and wheel passed; editor logic passed in Node test doubles; browser rendering unverified; current-head CI pending",
+      "test_results": "319 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical reports, installed legacy/Python/S/local CLI smokes, editor Node logic, audits, wheels and artifacts passed; actual browser rendering remains unverified",
       "benchmark_results": {
         "exit_codes": [
           0,
@@ -8495,7 +8511,9 @@
         "Real-browser rendering blocked: local Chromium socket EPERM and shared-browser file URL policy; no workaround attempted",
         "Main-S deployment, camera, Android, native security/crash and v1.0 gates remain open; prior negative benchmarks preserved"
       ],
-      "next_task": "Stage 180"
+      "next_task": "Stage 180",
+      "verified_commit_sha": "004a89091b8ce429b11e39b660cccc35d6f432c5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810"
     },
     {
       "id": "stage180-local-workflow-engineering",
@@ -8510,7 +8528,7 @@
         "tests/test_stage180.py"
       ],
       "tests_executed": "benchmarks/stage180_tests.txt; benchmark_stage171_180.py --stage 180; full regression",
-      "test_results": "319 local tests passed; ten reports reproduced; installed CLI/Python/S/local workflows and wheel passed; editor logic passed in Node test doubles; browser rendering unverified; current-head CI pending",
+      "test_results": "319 local tests and all four Ubuntu/Windows Python 3.12/3.13 CI jobs passed; new/historical reports, installed legacy/Python/S/local CLI smokes, editor Node logic, audits, wheels and artifacts passed; actual browser rendering remains unverified",
       "benchmark_results": {
         "malformed_cases": 5,
         "passed": true,
@@ -8526,7 +8544,9 @@
         "Real-browser rendering blocked: local Chromium socket EPERM and shared-browser file URL policy; no workaround attempted",
         "Main-S deployment, camera, Android, native security/crash and v1.0 gates remain open; prior negative benchmarks preserved"
       ],
-      "next_task": "Stop at 180; next Continue starts 181\u2013190"
+      "next_task": "Stop at 180; next Continue starts 181\u2013190",
+      "verified_commit_sha": "004a89091b8ce429b11e39b660cccc35d6f432c5",
+      "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810"
     }
   ]
 }

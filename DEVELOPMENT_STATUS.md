@@ -8,7 +8,8 @@ version: 0.1.0.dev180. See [STAGES_171_180.md](docs/STAGES_171_180.md) and LOCAL
 
 319 local tests pass; all ten generated workflow reports reproduce. Installed CLI/
 Python/S session and eleven local CLI commands pass outside the checkout; source
-audit and wheel build pass. Exact-head remote CI is pending publication. Editor
+audit and wheel build pass. All four Ubuntu/Windows Python 3.12/3.13 CI jobs passed at `004a89091b8ce429b11e39b660cccc35d6f432c5`.
+CI evidence: https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810 . Editor
 logic tests pass in three Node VM coordinate/download/undo cases; **real-browser
 rendering is unverified**, blocked by Chromium socket permission and shared-browser
 local-file policy. No browser-security workaround or human review claim is made.
@@ -330,3 +331,14 @@ its own documentation SHA. Main-S registration/deployment, live camera and
 representative application/device validation remain open. Prior negative tracking
 and high-dimensional indexing results are unchanged. Stop at 170; next Continue
 starts 171–180.
+
+
+Verified 171–180 source checkpoint `004a89091b8ce429b11e39b660cccc35d6f432c5`: all four Ubuntu/Windows Python
+3.12/3.13 CI jobs passed, including 319 tests, all ten new workflow experiments,
+historical checks, installed legacy/Python/S/local CLI smokes, Node editor-logic
+checks, source/release audits, wheel builds and uploaded artifacts. Evidence:
+https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810 . This later documentation-only receipt cites that exact source checkpoint,
+not its own documentation SHA. Actual browser rendering remains unverified after
+the recorded environment/policy blocks; Node test doubles are not a renderer.
+Independent human/device/application validation and v1.0 remain open. Stop at 180;
+next Continue starts 181–190.
