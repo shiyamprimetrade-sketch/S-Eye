@@ -16,10 +16,16 @@ def page(path,allowed_root,after=0,limit=20,expected_snapshot=None):
     try:
         memory.db.execute('SAVEPOINT seye_browser_page')
         try:
-            inventory=list(memory.db.execute('SELECT sequence,id FROM observations ORDER BY sequence'))
+            inventory=list(memory.db.execute('SELECT sequence,id FROM observations ORDER BY sequence LIMIT 10001'))
             if len(inventory)>10000:raise ValueError('Browser inventory exceeds 10000 observations')
             memory.verify();digest=checksum(inventory)
             if expected_snapshot is not None and digest!=expected_snapshot:raise ValueError('Memory changed between pages; start a fresh browser view')
+            size = memory.db.execute(
+                'SELECT COALESCE(SUM(bytes), 0) FROM (SELECT LENGTH(CAST(payload AS BLOB)) AS bytes '
+                'FROM observations WHERE sequence>? ORDER BY sequence LIMIT ?)', (after, limit + 1)
+            ).fetchone()[0]
+            if size > 8 * 1024 * 1024:
+                raise ValueError('Browser page exceeds 8 MiB')
             records=list(memory.db.execute('SELECT sequence,id,payload FROM observations WHERE sequence>? ORDER BY sequence LIMIT ?',(after,limit+1)))
             rows=[]
             for sequence,identifier,payload in records[:limit]:

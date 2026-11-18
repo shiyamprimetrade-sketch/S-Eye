@@ -5,6 +5,7 @@ exercisable integration contract, not a deployed change to the main S repository
 """
 from dataclasses import dataclass
 from pathlib import Path
+from seye.core.files import resolve_path
 from seye.core.storage import checksum
 from seye.detection.analysis import analyze
 from seye.image.ingestion import load_image
@@ -31,11 +32,12 @@ class Permissions:
             roots=getattr(self,name)
             if not isinstance(roots,(tuple,list)) or len(roots)>32:raise ValueError('Bounded root list required')
             if any(not isinstance(root,(str,Path)) or not str(root) for root in roots):raise ValueError('Explicit nonempty filesystem roots required')
-            object.__setattr__(self,name,tuple(str(Path(root).expanduser().resolve()) for root in roots))
+            object.__setattr__(self,name,tuple(str(resolve_path(root)) for root in roots))
 
     def require(self, path, write=False):
-        try:target=Path(path).expanduser().resolve()
-        except (RuntimeError,OSError) as error:raise PermissionError('Operation path could not be resolved') from error
+        if write and Path(path).expanduser().is_symlink():
+            raise PermissionError('Write paths must not be symbolic links')
+        target = resolve_path(path)
         roots = self.write_roots if write else self.read_roots
         if not any(target.is_relative_to(Path(root)) for root in roots):
             raise PermissionError('Requested path is outside explicit filesystem grants')

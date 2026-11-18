@@ -8,6 +8,7 @@ jobs:
   vision:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: ['ubuntu-latest', 'windows-latest']
         python: ['3.12', '3.13']
@@ -25,6 +26,8 @@ jobs:
           if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) { choco install ffmpeg -y --no-progress }
       - run: python -m pip install -r requirements.txt
       - run: python -m pip install --no-deps .
+      - run: python -m pip check
+      - run: python scripts/verify_hardening.py --output "${{ runner.temp }}/hardening-report.json"
       - run: seye --help
       - run: seye-workflow --help
       - run: python scripts/smoke_installed.py
@@ -133,5 +136,6 @@ jobs:
             ${{ runner.temp }}/stage170-report.json
             ${{ runner.temp }}/stage17*-report.json
             ${{ runner.temp }}/stage180-report.json
+            ${{ runner.temp }}/hardening-report.json
             ${{ runner.temp }}/editor-logic-report.json
             ${{ runner.temp }}/seye-dist/*.whl

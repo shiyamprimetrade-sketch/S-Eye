@@ -8,8 +8,12 @@ from seye.memory.identity import occurrence
 
 def history_events(memory,ids):
     if not memory.db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='seye_history'").fetchone():return []
-    rows=list(memory.db.execute('SELECT id,payload,sha256 FROM seye_history ORDER BY id'))
-    if len(rows)>10000:raise ValueError('Bundle history budget exceeded')
+    count, size = memory.db.execute(
+        'SELECT COUNT(*), COALESCE(SUM(LENGTH(CAST(payload AS BLOB))), 0) FROM seye_history'
+    ).fetchone()
+    if count > 10000 or size > 16 * 1024 * 1024:
+        raise ValueError('Bundle history budget exceeded')
+    rows = memory.db.execute('SELECT id,payload,sha256 FROM seye_history ORDER BY id')
     events=[]
     for identifier,payload,digest in rows:
         event=json.loads(payload)
@@ -26,10 +30,20 @@ def _validate_event(event,ids):
 
 
 def export_bundle(memory,path):
-    memory.verify();rows=list(memory.db.execute('SELECT id,payload FROM observations ORDER BY sequence'))
-    if len(rows)>10000:raise ValueError('Bundle observation budget exceeded')
-    observations=[json.loads(p) for i,p in rows];ids={i for i,p in rows}
-    payload={'format':'seye-memory-bundle-v1','observations':observations,'history':history_events(memory,ids),
+    memory.db.execute('SAVEPOINT seye_bundle_export')
+    try:
+        count, size = memory.db.execute(
+            'SELECT COUNT(*), COALESCE(SUM(LENGTH(CAST(payload AS BLOB))), 0) FROM observations'
+        ).fetchone()
+        if count > 10000 or size > 16 * 1024 * 1024:
+            raise ValueError('Bundle observation budget exceeded')
+        rows = list(memory.db.execute('SELECT id,payload FROM observations ORDER BY sequence'))
+        memory.verify()
+        observations = [json.loads(payload) for _, payload in rows]
+        history = history_events(memory, {identifier for identifier, _ in rows})
+    finally:
+        memory.db.execute('RELEASE SAVEPOINT seye_bundle_export')
+    payload={'format':'seye-memory-bundle-v1','observations':observations,'history':history,
              'observation_order_sha256':checksum([i for i,p in rows]),'derived_indexes_included':False}
     envelope={'payload':payload,'sha256':checksum(payload)}
     if len(canonical(envelope))>16*1024*1024:raise ValueError('Bundle byte budget exceeded')
@@ -38,7 +52,7 @@ def export_bundle(memory,path):
 
 
 def restore_bundle(bundle,destination):
-    envelope=read_json(bundle);payload=envelope.get('payload')
+    envelope=read_json(bundle);payload=envelope.get('payload') if isinstance(envelope, dict) else None
     if not isinstance(payload,dict) or envelope.get('sha256')!=checksum(payload) or payload.get('format')!='seye-memory-bundle-v1':raise ValueError('Bundle integrity/format mismatch')
     observations=payload.get('observations');events=payload.get('history')
     if not isinstance(observations,list) or len(observations)>10000 or not isinstance(events,list) or len(events)>10000:raise ValueError('Invalid bundle inventory')
@@ -60,7 +74,9 @@ def restore_bundle(bundle,destination):
             memory.db.execute('CREATE INDEX seye_history_entity ON seye_history(entity)')
             memory.db.executemany('INSERT INTO seye_history VALUES (?,?,?,?)',[(checksum(e),e['entity'],canonical(e).decode(),checksum(e)) for e in events])
         result=memory.verify();history_events(memory,set(ids));memory.close();memory=None
-        os.link(temporary,destination) # Exclusive publication; concurrent destinations cannot be replaced.
+        with temporary.open('r+b') as stream:
+            os.fsync(stream.fileno())
+        os.link(temporary, destination)
         return dict(result,history_events=len(events),bundle_sha256=envelope['sha256'],index_rebuild_required=True)
     finally:
         if memory is not None:memory.close()

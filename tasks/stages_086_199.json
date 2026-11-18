@@ -1575,12 +1575,13 @@
       "stage": 181,
       "objective": "Malformed-image handling",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "src/seye/core/storage.py",
-        "tests/test_system_reliability.py"
+        "docs/STAGES_181_190.md",
+        "benchmarks/stages181_190_hardening.json",
+        "tests/test_stage181_190.py"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Independent security, recovery and device validation remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1588,12 +1589,13 @@
       "stage": 182,
       "objective": "File-size and resource limits",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "src/seye/core/storage.py",
-        "tests/test_system_reliability.py"
+        "docs/STAGES_181_190.md",
+        "benchmarks/stages181_190_hardening.json",
+        "tests/test_stage181_190.py"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Independent security, recovery and device validation remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1601,12 +1603,13 @@
       "stage": 183,
       "objective": "Safe path handling",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "src/seye/core/storage.py",
-        "tests/test_system_reliability.py"
+        "docs/STAGES_181_190.md",
+        "benchmarks/stages181_190_hardening.json",
+        "tests/test_stage181_190.py"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Independent security, recovery and device validation remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1614,12 +1617,13 @@
       "stage": 184,
       "objective": "Permission boundaries",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "src/seye/core/storage.py",
-        "tests/test_system_reliability.py"
+        "docs/STAGES_181_190.md",
+        "benchmarks/stages181_190_hardening.json",
+        "tests/test_stage181_190.py"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Independent security, recovery and device validation remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1627,12 +1631,13 @@
       "stage": 185,
       "objective": "Private memory controls",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "src/seye/core/storage.py",
-        "tests/test_system_reliability.py"
+        "docs/STAGES_181_190.md",
+        "benchmarks/stages181_190_hardening.json",
+        "tests/test_stage181_190.py"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Independent security, recovery and device validation remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1642,10 +1647,11 @@
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
       "engineering_state": "partial",
       "evidence_paths": [
-        "src/seye/core/storage.py",
-        "tests/test_system_reliability.py"
+        "docs/STAGES_181_190.md",
+        "benchmarks/stages181_190_hardening.json",
+        "tests/test_stage181_190.py"
       ],
-      "open_requirement": "Transactions and verified export restore exist; comprehensive crash-fault campaigns pending",
+      "open_requirement": "Abrupt process exit and standalone snapshot controls pass; broader crash and power-loss campaigns remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1653,12 +1659,13 @@
       "stage": 187,
       "objective": "Atomic storage",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "src/seye/core/storage.py",
-        "tests/test_system_reliability.py"
+        "docs/STAGES_181_190.md",
+        "benchmarks/stages181_190_hardening.json",
+        "tests/test_stage181_190.py"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Independent security, recovery and device validation remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1666,12 +1673,13 @@
       "stage": 188,
       "objective": "Migration and dependency checks",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "src/seye/core/storage.py",
-        "tests/test_system_reliability.py"
+        "docs/STAGES_181_190.md",
+        "benchmarks/stages181_190_hardening.json",
+        "tests/test_stage181_190.py"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Independent security, recovery and device validation remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1679,12 +1687,13 @@
       "stage": 189,
       "objective": "Continuous integration and regression checks",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "src/seye/core/storage.py",
-        "tests/test_system_reliability.py"
+        "docs/STAGES_181_190.md",
+        "benchmarks/stages181_190_hardening.json",
+        ".github/workflows/vision-tests.yml"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Independent security, recovery and device validation remain open",
       "validated": false,
       "completion_declared": false
     },
@@ -1692,12 +1701,13 @@
       "stage": 190,
       "objective": "Full repository audit",
       "required_evidence": "Executable implementation, relevant passing tests and reproducible measurements; representative independent validation where required by the master directive",
-      "engineering_state": "implemented_pending_final_verification",
+      "engineering_state": "scoped_engineering_verified_locally",
       "evidence_paths": [
-        "scripts/release_audit.py",
-        "benchmarks/system_verification.txt"
+        "docs/STAGES_181_190.md",
+        "benchmarks/stages181_190_hardening.json",
+        "scripts/audit_source.py"
       ],
-      "open_requirement": "Final verification and appropriate representative validation remain required",
+      "open_requirement": "Independent security, recovery and device validation remain open",
       "validated": false,
       "completion_declared": false
     },

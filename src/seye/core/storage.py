@@ -5,6 +5,7 @@ import math
 import os
 from pathlib import Path
 import tempfile
+from seye.core.files import read_bounded
 
 
 def canonical(value):
@@ -46,10 +47,7 @@ def decode_json(raw,max_bytes=16*1024*1024,max_depth=64):
 
 def read_json(path,max_bytes=16*1024*1024):
     if type(max_bytes) is not int or not 1<=max_bytes<=64*1024*1024:raise ValueError('Bounded positive JSON byte limit required')
-    path=Path(path)
-    if path.exists() and not path.is_file():raise ValueError('JSON input must be a regular file')
-    with path.open('rb') as stream:raw=stream.read(max_bytes+1)
-    return decode_json(raw,max_bytes)
+    return decode_json(read_bounded(path, max_bytes), max_bytes)
 
 
 def atomic_json(path, value, overwrite=False):

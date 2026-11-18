@@ -7,7 +7,8 @@ import json
 import os
 from pathlib import Path
 import sqlite3
-from seye.core.storage import canonical, checksum, read_json, atomic_json
+from seye.core.files import read_bounded, resolve_path
+from seye.core.storage import canonical, checksum, read_json, atomic_json, decode_json
 from seye.recognition.features import FEATURE_VERSION, distance
 
 APPLICATION_ID = 1397053765
@@ -39,31 +40,47 @@ def validate_record(record):
 
 class Memory:
     def __init__(self, path, read_only=False):
-        self.path = Path(path)
+        if type(read_only) is not bool:
+            raise ValueError('Read-only mode must be a boolean')
+        if not read_only and Path(path).expanduser().is_symlink():
+            raise PermissionError('Memory write paths must not be symbolic links')
+        self.path = resolve_path(path)
         self.read_only = read_only
         if read_only:
-            from urllib.parse import quote
-            self.db = sqlite3.connect('file:' + quote(str(self.path.resolve())) + '?mode=ro', uri=True)
+            if not self.path.is_file():
+                raise ValueError('Memory must be a regular database file')
+            self.db = sqlite3.connect(self.path.as_uri() + '?mode=ro', uri=True)
+        else:
+            self.path.parent.mkdir(parents=True, exist_ok=True)
             try:
-                if self.db.execute('PRAGMA application_id').fetchone()[0] != APPLICATION_ID:
+                descriptor = os.open(self.path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+            except FileExistsError:
+                if not self.path.is_file():
+                    raise ValueError('Memory must be a regular database file')
+            else:
+                os.close(descriptor)
+            self.db = sqlite3.connect(self.path, timeout=10)
+        try:
+            self.db.execute('PRAGMA trusted_schema=OFF')
+            application = self.db.execute('PRAGMA application_id').fetchone()[0]
+            if read_only:
+                self.db.execute('PRAGMA query_only=ON')
+                if application != APPLICATION_ID:
                     raise ValueError('Not an S-Eye memory database')
                 self.verify()
-            except BaseException:
-                self.db.close()
-                raise
-            return
-        self.path.parent.mkdir(parents=True, exist_ok=True)
-        existed = self.path.exists()
-        self.db = sqlite3.connect(self.path, timeout=10)
-        application = self.db.execute('PRAGMA application_id').fetchone()[0]
-        tables = self.db.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()
-        if application not in (0, APPLICATION_ID) or (application == 0 and tables):
+            else:
+                with self.db:
+                    self.db.execute('BEGIN IMMEDIATE')
+                    application = self.db.execute('PRAGMA application_id').fetchone()[0]
+                    tables = self.db.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()
+                    if application not in (0, APPLICATION_ID) or (application == 0 and tables):
+                        raise ValueError('Refusing to modify an unrelated database')
+                    self.db.execute(f'PRAGMA application_id={APPLICATION_ID}')
+                    self.db.execute('CREATE TABLE IF NOT EXISTS observations (sequence INTEGER PRIMARY KEY, id TEXT UNIQUE NOT NULL, payload TEXT NOT NULL, sha256 TEXT NOT NULL)')
+                os.chmod(self.path, 0o600)
+        except BaseException:
             self.db.close()
-            raise ValueError('Refusing to modify an unrelated database')
-        self.db.execute(f'PRAGMA application_id={APPLICATION_ID}')
-        self.db.execute('CREATE TABLE IF NOT EXISTS observations (sequence INTEGER PRIMARY KEY, id TEXT UNIQUE NOT NULL, payload TEXT NOT NULL, sha256 TEXT NOT NULL)')
-        self.db.commit()
-        os.chmod(self.path, 0o600)
+            raise
 
     def close(self):
         self.db.close()
@@ -152,8 +169,9 @@ class Memory:
             raise PermissionError('Read-only memory cannot be modified')
         self.verify()
         envelope = read_json(path)
-        payload = envelope['payload']
-        if checksum(payload) != envelope.get('sha256') or payload.get('schema_version') != 1:
+        payload = envelope.get('payload') if isinstance(envelope, dict) else None
+        if (not isinstance(payload, dict) or checksum(payload) != envelope.get('sha256')
+                or type(payload.get('schema_version')) is not int or payload['schema_version'] != 1):
             raise ValueError('Memory export checksum/schema mismatch')
         observations = payload.get('observations')
         if not isinstance(observations, list) or len(observations) > 100000:
@@ -171,11 +189,8 @@ class Memory:
         if self.read_only:
             raise PermissionError('Read-only memory cannot be modified')
         self.verify()
-        path = Path(path)
-        if path.stat().st_size > 16 * 1024 * 1024:
-            raise ValueError('Legacy import exceeds byte limit')
-        original = path.read_bytes()
-        records = [(number, json.loads(line)) for number, line in enumerate(original.splitlines(), 1) if line.strip()]
+        original = read_bounded(path, 16 * 1024 * 1024)
+        records = [(number, decode_json(line)) for number, line in enumerate(original.splitlines(), 1) if line.strip()]
         if any(not isinstance(record, dict) for _, record in records):
             raise ValueError('Legacy observations must be objects')
         wrapped = [{'schema_version': 1, 'features': None, 'provenance': {'kind': 'legacy_jsonl',

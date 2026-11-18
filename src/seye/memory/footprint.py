@@ -41,7 +41,13 @@ def _digest(path):
 
 def verify_snapshot(path,expected_sha256):
     if not isinstance(expected_sha256,str) or len(expected_sha256)!=64 or any(c not in '0123456789abcdef' for c in expected_sha256):raise ValueError('Snapshot SHA-256 required')
-    if _digest(path)!=expected_sha256:raise ValueError('Snapshot digest mismatch')
+    path = Path(path)
+    for suffix in ('-wal', '-shm', '-journal'):
+        sidecar = path.with_name(path.name + suffix)
+        if sidecar.exists() or sidecar.is_symlink():
+            raise ValueError('Snapshot must be a standalone SQLite file')
+    if not path.is_file() or _digest(path)!=expected_sha256:
+        raise ValueError('Snapshot digest mismatch')
     restored=Memory(path,read_only=True)
     try:
         result=restored.verify();ids={r[0] for r in restored.db.execute('SELECT id FROM observations')}
@@ -67,7 +73,9 @@ def snapshot(memory,destination,timeout=10):
         def progress(status,remaining,total):
             if time.monotonic()-start>timeout:raise TimeoutError('Snapshot backup deadline exceeded')
             if total*size>MAX_SNAPSHOT_BYTES or temporary.stat().st_size>MAX_SNAPSHOT_BYTES:raise ValueError('Snapshot exceeds 256 MiB')
-        memory.db.backup(target,pages=64,progress=progress,sleep=.01);target.close();target=None
+        memory.db.backup(target,pages=64,progress=progress,sleep=.01)
+        target.execute('PRAGMA journal_mode=DELETE')
+        target.close();target=None
         with temporary.open('r+b') as stream:os.fsync(stream.fileno())
         digest=_digest(temporary);result=verify_snapshot(temporary,digest)
         os.link(temporary,destination)

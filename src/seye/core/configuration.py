@@ -29,7 +29,7 @@ def parse_config(data):
         values = data.get(field, [])
         if not isinstance(values, list) or len(values) > 32 or any(not isinstance(v, str) or not Path(v).expanduser().is_absolute() for v in values):
             raise ValueError('Configuration roots must be absolute path lists')
-        roots[field] = tuple(str(Path(v).expanduser().resolve()) for v in values)
+        roots[field] = tuple(values)
     flags = {}
     for field in ('memory', 'training', 'video'):
         flags[field] = data.get(field, False)

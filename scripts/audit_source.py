@@ -12,20 +12,29 @@ sys.path.insert(0, str(ROOT / 'src'))
 from seye.core.storage import atomic_json, read_json
 
 
+def git_paths(*arguments):
+    raw = subprocess.check_output(['git', 'ls-files', '-z', *arguments], cwd=ROOT)
+    return [name for name in raw.decode('utf-8').split('\0') if name]
+
+
 def audit(output):
     inventory = read_json(ROOT / 'benchmarks/stage84_inventory.json')
     changed = [r['path'] for r in inventory['files'] if hashlib.sha256((ROOT/r['path']).read_bytes()).hexdigest() != r['sha256']]
     if set(changed) - {'.gitignore', 'README.md'}:
         raise ValueError('Historical algorithm/checkpoint changed: ' + str(changed))
-    paths = subprocess.check_output(['git', 'ls-files', '--cached', '--others', '--exclude-standard'], cwd=ROOT, text=True).splitlines()
+    tracked = set(git_paths('--cached'))
+    paths = tracked | set(git_paths('--others', '--exclude-standard'))
     files = []
-    for name in sorted(set(paths)):
+    for name in sorted(paths):
         path = ROOT / name
-        if not path.is_file() or name == 'benchmarks/current_source_audit.json' or path.resolve() == output.resolve():
+        if name == 'benchmarks/current_source_audit.json' or path == output.resolve():
             continue
+        if path.is_symlink() or not path.is_file():
+            raise ValueError('Audit requires a regular repository file: ' + name)
+        raw = path.read_bytes()
         if path.suffix == '.py':
-            ast.parse(path.read_text())
-        files.append({'path': name, 'bytes': path.stat().st_size, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
+            ast.parse(raw, filename=name)
+        files.append({'path': name, 'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()})
     return {'schema_version': 1, 'scope': 'working-tree snapshot relative to parent; output excludes itself',
             'parent_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
             'baseline_commit': inventory['baseline_commit'], 'changed_baseline_files': changed,

@@ -486,3 +486,15 @@ not its own documentation SHA. Actual browser rendering remains unverified after
 the recorded environment/policy blocks; Node test doubles are not a renderer.
 Independent human/device/application validation and v1.0 remain open. Stop at 180;
 next Continue starts 181–190.
+
+
+## Stages 181–190 checkpoint
+
+S-Eye hardens image and JSON reads, path and capability checks, private memory,
+snapshot recovery, atomic publication and migration. CI records installed dependency
+pins and recovery results. The repository audit checks Python syntax, file inventory
+and Stage 84 preservation. See docs/STAGES_181_190.md and the focused evidence
+in benchmarks/stages181_190_hardening.json.
+
+Stage 190 ends this batch. Next Continue starts Stages 191–199. Independent
+security, power loss, browser, device and representative validation remain open.
