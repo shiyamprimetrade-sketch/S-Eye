@@ -1,0 +1,58 @@
+{
+  "scope": "Generated original test split plus three negative controls",
+  "representative_validation": false,
+  "known_correct": 3,
+  "known_total": 3,
+  "unknown_rejected": 3,
+  "unknown_total": 3,
+  "controls_passed": 3,
+  "controls_total": 3,
+  "rows": [
+    {
+      "file": "circle-2.png",
+      "expected": "Circle",
+      "predicted": "Circle"
+    },
+    {
+      "file": "quadrilateral-2.png",
+      "expected": "Quadrilateral",
+      "predicted": "Quadrilateral"
+    },
+    {
+      "file": "triangle-3.png",
+      "expected": "Triangle",
+      "predicted": "Triangle"
+    },
+    {
+      "file": "__unknown__-2.png",
+      "expected": "Unknown",
+      "predicted": "Unknown"
+    },
+    {
+      "file": "__unknown__-3.png",
+      "expected": "Unknown",
+      "predicted": "Unknown"
+    },
+    {
+      "file": "__unknown__-5.png",
+      "expected": "Unknown",
+      "predicted": "Unknown"
+    },
+    {
+      "file": "control-blank.png",
+      "expected": "Unknown",
+      "predicted": "Unknown"
+    },
+    {
+      "file": "control-border.png",
+      "expected": "Unknown",
+      "predicted": "Unknown"
+    },
+    {
+      "file": "control-cross.png",
+      "expected": "Unknown",
+      "predicted": "Unknown"
+    }
+  ],
+  "passed": true
+}

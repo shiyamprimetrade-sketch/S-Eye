@@ -1,0 +1,58 @@
+name: S-Eye Android preview
+on:
+  pull_request:
+    paths: ['android/**', '.github/workflows/android-preview.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: python -m pip install -r requirements.txt
+      - run: sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+      - run: bash android/build-apk.sh "$RUNNER_TEMP/seye-apk"
+      - run: python android/verify/benchmark.py --output "$RUNNER_TEMP/seye-apk/recognition.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S-Eye-Android-preview
+          if-no-files-found: error
+          path: ${{ runner.temp }}/seye-apk/
+  emulator:
+    runs-on: ubuntu-latest
+    needs: apk
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: S-Eye-Android-preview
+          path: ${{ runner.temp }}/seye-apk/
+      - name: Install APK and classify the built-in sample on Android 16
+        shell: bash
+        run: |
+          test -e /dev/kvm
+          sudo chmod a+rw /dev/kvm
+          image='system-images;android-36;google_apis;x86_64'
+          sdkmanager emulator platform-tools "$image"
+          echo no | avdmanager create avd --force --name seye_api36 --package "$image"
+          emulator -avd seye_api36 -no-window -gpu swiftshader_indirect -no-audio -no-boot-anim -no-snapshot > "$RUNNER_TEMP/emulator.log" 2>&1 &
+          trap 'adb emu kill || true' EXIT
+          timeout 300 adb wait-for-device
+          timeout 300 bash -c 'until [[ "$(adb shell getprop sys.boot_completed | tr -d "\r")" == 1 ]]; do sleep 3; done'
+          adb shell input keyevent 82
+          bash android/verify/emulator-smoke.sh "$RUNNER_TEMP/seye-apk/S-Eye-0.2.0-preview.apk"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: S-Eye-emulator-log
+          path: ${{ runner.temp }}/emulator.log
