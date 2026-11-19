@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="online.slickk.seye"
-    android:versionCode="200"
-    android:versionName="0.2.0-preview">
+    android:versionCode="300"
+    android:versionName="0.3.0-preview">
     <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="36" />
     <application android:label="S-Eye" android:allowBackup="false"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">

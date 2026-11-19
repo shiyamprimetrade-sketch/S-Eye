@@ -19,11 +19,18 @@ jar cf "$work/classes.jar" -C "$work/classes" .
 zip -q -j -0 "$work/base.apk" "$work/dex/classes.dex"
 "$tools/zipalign" -f 4 "$work/base.apk" "$work/aligned.apk"
 
-# This temporary key signs an installable preview. Stable updates require an owner-controlled key.
-keytool -genkeypair -noprompt -keystore "$work/preview.p12" -storepass android \
-    -alias seye-preview -dname 'CN=S-Eye Android Preview' -keyalg RSA -keysize 2048 -validity 10000
-apk="$output/S-Eye-0.2.0-preview.apk"
-"$tools/apksigner" sign --ks "$work/preview.p12" --ks-pass pass:android --out "$apk" "$work/aligned.apk"
+apk="$output/S-Eye-0.3.0-preview.apk"
+if [[ -n "${SEYE_SIGNING_KEYSTORE:-}" ]]; then
+    : "${SEYE_SIGNING_ALIAS:?Set the signing alias}"
+    : "${SEYE_SIGNING_PASSWORD:?Set the keystore password}"
+    export SEYE_SIGNING_PASSWORD
+    "$tools/apksigner" sign --ks "$SEYE_SIGNING_KEYSTORE" --ks-key-alias "$SEYE_SIGNING_ALIAS" \
+        --ks-pass env:SEYE_SIGNING_PASSWORD --out "$apk" "$work/aligned.apk"
+else
+    keytool -genkeypair -noprompt -keystore "$work/preview.p12" -storepass android \
+        -alias seye-preview -dname 'CN=S-Eye Android Preview' -keyalg RSA -keysize 2048 -validity 10000
+    "$tools/apksigner" sign --ks "$work/preview.p12" --ks-pass pass:android --out "$apk" "$work/aligned.apk"
+fi
 "$tools/apksigner" verify --verbose --print-certs "$apk" > "$output/signature.txt"
 "$tools/aapt2" dump badging "$apk" > "$output/package.txt"
 (cd "$output" && sha256sum "$(basename "$apk")" > SHA256SUMS)

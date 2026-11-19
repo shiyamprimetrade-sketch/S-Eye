@@ -6,6 +6,8 @@ import sys
 import tempfile
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from PIL import Image
+LEGACY = ROOT / 'legacy/stage84'
+sys.path.insert(0, str(LEGACY))
 from generalization import load_manifest,digest
 
 

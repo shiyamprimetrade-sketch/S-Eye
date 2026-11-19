@@ -22,6 +22,7 @@ def parser():
     cmd=sub.add_parser('config-init');cmd.add_argument('--output',required=True);cmd.add_argument('--allow-write',action='store_true');cmd.add_argument('--allow-memory',action='store_true');cmd.add_argument('--timeout',type=float,default=30)
     cmd=sub.add_parser('config-inspect');cmd.add_argument('--path',required=True)
     cmd=sub.add_parser('config-migrate');cmd.add_argument('--source',required=True);cmd.add_argument('--output',required=True)
+    cmd=sub.add_parser('android-report');cmd.add_argument('--report',required=True);cmd.add_argument('--image')
     cmd=sub.add_parser('doctor');cmd.add_argument('--self-test',action='store_true');cmd.add_argument('--require-installed',action='store_true')
     return p
 
@@ -36,6 +37,9 @@ def main(argv=None):
             result=doctor(args.self_test)
             if args.require_installed and not (result['installed_distribution_matches_code'] and result['installed_cli_registered']):
                 print(json.dumps(result,sort_keys=True));return 1
+        elif args.command=='android-report':
+            from seye.integration.android_observation import load_observation
+            result = load_observation(inside(args.report, root), inside(args.image, root) if args.image else None)
         elif args.command=='ingest':result=ingest(args.images,args.output,root,args.source_kind)
         elif args.command=='overlays':
             from seye.local.overlays import overlay_workspace

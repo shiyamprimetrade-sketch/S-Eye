@@ -210,7 +210,7 @@ def evaluate(manifest, variants=VARIANTS, split=None):
             'runtime': {'python': platform.python_version(), 'pillow': PIL.__version__},
             'pipeline_sha256': {name: digest(ROOT / name) for name in SCRIPTS},
             'evaluator_sha256': digest(ROOT / 'generalization.py'),
-            'support_sha256': {name: digest(ROOT / name) for name in (
+            'support_sha256': {name: digest((ROOT.parents[1] if '/' in name else ROOT) / name) for name in (
                 'dataset_tools.py', 'src/seye/core/datasets.py', 'src/seye/core/evaluation.py')},
             'distinct_sources': len(selected),
             'manifest_sources': len(data['images']), 'selected_split': split,

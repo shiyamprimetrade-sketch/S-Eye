@@ -9,6 +9,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+LEGACY = ROOT / 'legacy/stage84'
+sys.path.insert(0, str(LEGACY))
 from dataset_tools import assign_splits, audit
 from generalization import evaluate
 from stage85_fixture import generate
@@ -21,7 +23,7 @@ def benchmark():
         split_manifest = manifest.parent / 'split.json'
         split_manifest.write_text(json.dumps(data, indent=2) + '\n')
         return {'milestone': 'Stage 86 grouped evaluation',
-                'fixture_generator_sha256': hashlib.sha256((ROOT / 'stage85_fixture.py').read_bytes()).hexdigest(),
+                'fixture_generator_sha256': hashlib.sha256((LEGACY / 'stage85_fixture.py').read_bytes()).hexdigest(),
                 'split_manifest': data, 'leakage_audit': audit(data['images'], manifest.parent),
                 'evaluation': evaluate(split_manifest)}
 

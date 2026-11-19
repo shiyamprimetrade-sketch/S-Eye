@@ -33,6 +33,7 @@ CONTRACTS={
  'image_observe':('image','expected_source_sha256 options'),
  'memory_find':('memory image maximum_distance','components limit include_self exclude_sources expected_source_sha256'),
  'ask_observation':('image question','previous expected_source_sha256'),
+ 'android_observation':('report','image'),
  # EXTENSIONS
 }
 ACTIONS=frozenset(CONTRACTS)

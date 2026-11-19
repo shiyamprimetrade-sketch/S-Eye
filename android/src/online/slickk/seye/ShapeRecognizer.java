@@ -19,12 +19,13 @@ public final class ShapeRecognizer {
         if (width < 16 || height < 16 || width > MAX_SIDE || height > MAX_SIDE
                 || argb.length != width * height)
             return UNKNOWN;
+        boolean invert = darkBackground(argb, width, height);
         List<Point> extremes = new ArrayList<>();
         int count = 0, top = height, bottom = -1, left = width, right = -1;
         for (int x = 0; x < width; x++) {
             int first = height, last = -1;
             for (int y = 0; y < height; y++) {
-                if (!dark(argb[y * width + x])) continue;
+                if (!foreground(argb[y * width + x], invert)) continue;
                 first = Math.min(first, y);
                 last = y;
                 count++;
@@ -55,7 +56,7 @@ public final class ShapeRecognizer {
             double tolerance = span * .15;
             for (int y = top; y <= bottom; y++) {
                 for (int x = left; x <= right; x++) {
-                    if (!dark(argb[y * width + x])) continue;
+                    if (!foreground(argb[y * width + x], invert)) continue;
                     for (int i = 0; i < hull.size(); i++) {
                         Point a = hull.get(i), b = hull.get((i + 1) % hull.size());
                         if (Math.abs(cross(a, b, x, y))
@@ -89,6 +90,23 @@ public final class ShapeRecognizer {
         if (outline.size() == 3) return "Triangle";
         if (outline.size() == 4 && circularity <= .86) return "Quadrilateral";
         return UNKNOWN;
+    }
+
+    private static boolean darkBackground(int[] argb, int width, int height) {
+        int darkEdges = 0;
+        for (int x = 0; x < width; x++) {
+            if (dark(argb[x])) darkEdges++;
+            if (dark(argb[(height - 1) * width + x])) darkEdges++;
+        }
+        for (int y = 1; y < height - 1; y++) {
+            if (dark(argb[y * width])) darkEdges++;
+            if (dark(argb[y * width + width - 1])) darkEdges++;
+        }
+        return darkEdges >= .95 * (2 * width + 2 * height - 4);
+    }
+
+    private static boolean foreground(int pixel, boolean invert) {
+        return dark(invert ? pixel ^ 0x00ffffff : pixel);
     }
 
     private static boolean dark(int pixel) {

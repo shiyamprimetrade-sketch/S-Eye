@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 # Incremental src layout; historical root commands continue to work without install.
-sys.path.insert(0, str(Path(__file__).resolve().parent / 'src'))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'src'))
 from seye.core.datasets import assign_splits, audit, validate_splits
 from seye.core.evaluation import diagnostics
 

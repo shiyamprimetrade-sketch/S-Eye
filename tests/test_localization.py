@@ -7,6 +7,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 import analyze_image  # Expose src for source-checkout compatibility.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'legacy/stage84'))
 from generalization import ROOT, run_pipeline
 from seye.detection.analysis import analyze
 from seye.detection.metrics import box_iou, mask_iou, detection_metrics
@@ -150,7 +151,7 @@ class LocalizationTests(unittest.TestCase):
 
     def test_cli_creates_private_outputs_and_preserves_existing_directory(self):
         destination = self.root / 'results'
-        command = [sys.executable, str(ROOT / 'analyze_image.py'), '--image', str(self.photo),
+        command = [sys.executable, str(ROOT.parents[1] / 'analyze_image.py'), '--image', str(self.photo),
                    '--output-dir', str(destination), '--allowed-root', str(self.root)]
         result = subprocess.run(command, capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stderr)

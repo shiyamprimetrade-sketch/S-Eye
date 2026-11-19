@@ -1,5 +1,7 @@
 # Integration status
 
+For Android observation files, see [the Android contract](ANDROID_INTEGRATION.md). Historical root-level scripts now live in [the archive](../legacy/stage84/).
+
 Current stable compatibility surface: original `s_eye.py` and historical scripts.
 New evaluation CLIs operate offline on explicit local datasets and do not modify
 S-Memory or the parent S repository. `generalization.py --manifest ... --output ...`

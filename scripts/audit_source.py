@@ -19,7 +19,16 @@ def git_paths(*arguments):
 
 def audit(output):
     inventory = read_json(ROOT / 'benchmarks/stage84_inventory.json')
-    changed = [r['path'] for r in inventory['files'] if hashlib.sha256((ROOT/r['path']).read_bytes()).hexdigest() != r['sha256']]
+    changed, relocated = [], {}
+    for row in inventory['files']:
+        name = row['path']
+        path = ROOT / name
+        archive = ROOT / 'legacy/stage84' / name
+        if not path.exists() and '/' not in name and archive.is_file():
+            path = archive
+            relocated[name] = path.relative_to(ROOT).as_posix()
+        if hashlib.sha256(path.read_bytes()).hexdigest() != row['sha256']:
+            changed.append(name)
     if set(changed) - {'.gitignore', 'README.md'}:
         raise ValueError('Historical algorithm/checkpoint changed: ' + str(changed))
     tracked = set(git_paths('--cached'))
@@ -38,6 +47,7 @@ def audit(output):
     return {'schema_version': 1, 'scope': 'working-tree snapshot relative to parent; output excludes itself',
             'parent_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
             'baseline_commit': inventory['baseline_commit'], 'changed_baseline_files': changed,
+            'relocated_baseline_files': relocated,
             'python_syntax': 'all parsed successfully', 'files': files}
 
 

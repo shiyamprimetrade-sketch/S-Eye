@@ -7,6 +7,7 @@ from pathlib import Path
 from unittest.mock import patch
 from PIL import Image, ImageEnhance, PngImagePlugin
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'legacy/stage84'))
 from dataset_tools import assign_splits, audit, diagnostics, validate_splits
 from generalization import ROOT, digest, evaluate, load_manifest
 from stage85_fixture import generate

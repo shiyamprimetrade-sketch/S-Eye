@@ -52,7 +52,12 @@ def execute(request, permissions):
     if not isinstance(identifier, str) or not 1 <= len(identifier) <= 128:
         raise ValueError('Request ID required')
     action = request.get('action')
-    if action in ('analyze', 'recognize', 'visual_question', 'remember', 'retrieve'):
+    if action == 'android_observation':
+        from seye.integration.android_observation import load_observation
+        report = permissions.require(request['report'])
+        image = permissions.require(request['image']) if 'image' in request else None
+        result = load_observation(report, image)
+    elif action in ('analyze', 'recognize', 'visual_question', 'remember', 'retrieve'):
         if action in ('remember', 'retrieve'):
             if not permissions.memory:
                 raise PermissionError('Explicit memory permission required')

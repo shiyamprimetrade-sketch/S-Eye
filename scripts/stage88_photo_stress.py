@@ -8,6 +8,8 @@ from pathlib import Path
 import sys
 import tempfile
 ROOT=Path(__file__).resolve().parents[1];sys.path[:0]=[str(ROOT),str(ROOT/'src')]
+LEGACY = ROOT / 'legacy/stage84'
+sys.path.insert(0, str(LEGACY))
 from generalization import VARIANTS, EXTRA_VARIANTS, transform
 from seye.core.probes import validate_manifest
 from seye.core.storage import atomic_json

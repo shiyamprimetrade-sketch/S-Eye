@@ -1,29 +1,37 @@
 # S-Eye Android preview
 
-This native Android app analyzes one selected image on the device. It looks
-for a single dark circle, triangle, or quadrilateral against a light background.
-An unsupported image may return Unknown. The preview has no internet or storage
-permissions and uses Android's system document picker. It also has a built-in
-circle to try without an image file.
+Version **0.3.0-preview** runs offline. Choose an image, take a photo with the
+system camera app, or tap **Try sample**. The app recognizes one high-contrast
+circle, triangle, or quadrilateral or returns Unknown. It supports both light
+and dark backgrounds. The camera supplies a thumbnail without granting S-Eye
+direct camera access or broad file permissions.
 
-Download the **S-Eye-Android-preview** artifact from a successful Android
-preview workflow run. Extract the ZIP, open **S-Eye-0.2.0-preview.apk** on the phone,
-and follow Android's installation prompt. Open S-Eye and tap **Try sample**.
-The preview supports Android 8 and later. The target is Android 16.
+Tap **Save observation JSON** to export the result and source fingerprint.
+See the [Android integration contract](../docs/ANDROID_INTEGRATION.md).
 
-For a connected test device, use `adb install path/to/S-Eye-0.2.0-preview.apk`.
-CI uses a temporary preview certificate. Builds from different runs cannot
-update one another in place. Stable updates require a persistent signing key.
+## Install
 
-Build with JDK 17 and Android SDK platform 36 and Build Tools 36.0.0:
+Download the APK from the **S-Eye-Android-preview** artifact of the Android
+workflow. Open it on your phone and confirm installation. Android 8 is the
+minimum and Android 16 is the target. From a connected computer:
 
-```sh
-bash android/build-apk.sh build/android
-python android/verify/benchmark.py --output build/android/recognition.json
-```
+    adb install path/to/S-Eye-0.3.0-preview.apk
 
-The Java recognizer is scoped to high-contrast shape geometry. The benchmark
-reuses the Stage 199 generated test split and adds blank, clipped, and cross
-controls. It does not measure representative photographs, OCR, live camera
-feeds, or general object recognition. The learned Python models and their
-historical benchmarks remain available as comparators.
+Version 0.2.0 used a temporary signing certificate. Uninstall that preview
+before installing 0.3.0 if Android rejects the update. Use the same signing
+certificate for future in-place upgrades. For an owner-controlled key, the build
+script accepts **SEYE_SIGNING_KEYSTORE**, **SEYE_SIGNING_ALIAS**, and
+**SEYE_SIGNING_PASSWORD** as local environment variables. Keep the key outside
+the repository. Unconfigured builds use a temporary preview certificate.
+
+## Build and test
+
+Use JDK 17, Android SDK platform 36, and Build Tools 36.0.0:
+
+    bash android/build-apk.sh build/android
+    python android/verify/benchmark.py --output build/android/recognition.json
+
+The benchmark checks six generated held-out images, their inverted variants,
+and three negative controls. The inverse-polarity variations come from the same
+test images. The emulator test covers installation, the built-in sample, and
+export button availability. Generalization to real photos remains unverified.

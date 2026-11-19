@@ -9,7 +9,7 @@
       "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
         "src/seye/core/datasets.py",
-        "generalization.py",
+        "legacy/stage84/generalization.py",
         "benchmarks/stage86_acceptance.json"
       ],
       "open_requirement": "No remaining loader acceptance requirement; representative recognition remains a separate phase gate",
@@ -24,7 +24,7 @@
       "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
         "src/seye/core/datasets.py",
-        "generalization.py",
+        "legacy/stage84/generalization.py",
         "benchmarks/stage87_acceptance_tests.txt"
       ],
       "open_requirement": "No remaining split/leakage acceptance requirement; perceptual heuristic limitations remain documented",
@@ -39,7 +39,7 @@
       "engineering_state": "engineering_acceptance_passed",
       "evidence_paths": [
         "src/seye/core/datasets.py",
-        "generalization.py",
+        "legacy/stage84/generalization.py",
         "scripts/stage88_aloi.py",
         "datasets/manifests/stage88_aloi.json",
         "benchmarks/stage88_aloi_stress.json",

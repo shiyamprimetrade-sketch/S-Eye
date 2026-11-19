@@ -7,6 +7,7 @@ from unittest.mock import patch
 from pathlib import Path
 from PIL import Image
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'legacy/stage84'))
 from generalization import (ROOT, VARIANTS, class_metrics, digest, evaluate,
                             load_manifest, normalize, run_pipeline, transform)
 from stage85_fixture import generate

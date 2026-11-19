@@ -1,3 +1,11 @@
+## Android 0.3.0 preview
+
+The owner reported that Android preview 0.2.0 installed on a Samsung SM-A165F
+and classified the built-in sample as Circle. Preview 0.3.0 adds camera
+thumbnail capture, inverse-polarity recognition and JSON observation export.
+The desktop adapter validates the exported format and optional source bytes.
+See [Android integration](ANDROID_INTEGRATION.md) and the [repository map](REPOSITORY_MAP.md).
+
 ## Stages 191–199 checkpoint
 
 The roadmap ends at Stage 199 with experimental package 0.1.0.dev199.

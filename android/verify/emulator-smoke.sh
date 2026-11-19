@@ -30,5 +30,7 @@ import sys
 import xml.etree.ElementTree as ET
 
 assert any(node.get("text") == "Circle" for node in ET.parse(sys.argv[1]).iter("node")), "Built-in sample did not display Circle"
-print("APK installed and sample classified on the Android emulator")
+assert any(node.get("text", "").lower() == "save observation json" and node.get("enabled") == "true"
+           for node in ET.parse(sys.argv[1]).iter("node")), "Observation export was not enabled"
+print("APK installed, sample classified and export enabled on the Android emulator")
 PY
