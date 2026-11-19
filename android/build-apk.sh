@@ -11,7 +11,7 @@ work="$(mktemp -d)"
 trap 'rm -rf "$work"' EXIT
 mkdir -p "$work/classes" "$work/dex"
 
-javac -encoding UTF-8 -source 8 -target 8 -bootclasspath "$platform" \
+javac -encoding UTF-8 --release 8 -classpath "$platform" \
     -d "$work/classes" "$root"/src/online/slickk/seye/*.java
 jar cf "$work/classes.jar" -C "$work/classes" .
 "$tools/d8" --min-api 26 --lib "$platform" --output "$work/dex" "$work/classes.jar"
