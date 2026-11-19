@@ -1,0 +1,1 @@
+{"api_version":"seye-request-v1","cache":{"entries":1,"evictions":0,"hits":3,"misses":1,"scope":"retained key/serialized-packet estimate; excludes LRU container, transient decode allocations and process RSS; fresh decode on every lookup","tracked_entry_bytes":2170},"default_denial":true,"passed":true,"profile_evidence_equal":true,"v1_release":false}

@@ -1,0 +1,7 @@
+test_adapter_does_not_escalate_missing_memory_capability (test_stage162.MemoryAdapterTests.test_adapter_does_not_escalate_missing_memory_capability) ... ok
+test_store_source_bound_read_only_query_and_refuse_changed_source (test_stage162.MemoryAdapterTests.test_store_source_bound_read_only_query_and_refuse_changed_source) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.056s
+
+OK

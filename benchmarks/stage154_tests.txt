@@ -1,0 +1,7 @@
+test_corruption_rejected_and_caller_transaction_not_committed (test_stage154.GroupedIndexTests.test_corruption_rejected_and_caller_transaction_not_committed) ... ok
+test_grouped_results_identical_and_only_one_authoritative_scan (test_stage154.GroupedIndexTests.test_grouped_results_identical_and_only_one_authoritative_scan) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.007s
+
+OK

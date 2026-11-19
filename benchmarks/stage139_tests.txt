@@ -1,0 +1,7 @@
+test_full_oracle_matrix_keeps_all_samples_and_failures (test_stage139.SceneValidationTests.test_full_oracle_matrix_keeps_all_samples_and_failures) ... ok
+test_grid_changes_are_explicit_abstentions (test_stage139.SceneValidationTests.test_grid_changes_are_explicit_abstentions) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.561s
+
+OK

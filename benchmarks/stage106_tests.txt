@@ -1,0 +1,7 @@
+test_equal_category_support_abstains (test_stage106.RejectionTests.test_equal_category_support_abstains) ... ok
+test_known_and_distant_unknown (test_stage106.RejectionTests.test_known_and_distant_unknown) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

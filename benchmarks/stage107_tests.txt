@@ -1,0 +1,7 @@
+test_ties_are_deterministic_and_bound_checked (test_stage107.CandidateTests.test_ties_are_deterministic_and_bound_checked) ... ok
+test_top_k_does_not_force_unknown_choice (test_stage107.CandidateTests.test_top_k_does_not_force_unknown_choice) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

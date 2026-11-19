@@ -1,0 +1,7 @@
+test_solid_touching_region_abstains_and_invalid_axis (test_stage094.SplitTests.test_solid_touching_region_abstains_and_invalid_axis) ... ok
+test_sparse_bridge_split_and_pixel_accounting (test_stage094.SplitTests.test_sparse_bridge_split_and_pixel_accounting) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

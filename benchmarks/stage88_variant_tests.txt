@@ -1,0 +1,6 @@
+test_stress_variants_are_deterministic_and_preserve_original (test_stage88_variants.Stage88Tests.test_stress_variants_are_deterministic_and_preserve_original) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.006s
+
+OK

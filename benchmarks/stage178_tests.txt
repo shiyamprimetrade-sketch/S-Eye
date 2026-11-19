@@ -1,0 +1,7 @@
+test_development_version_cli_surface_and_metadata_without_side_effect_claim (test_stage178.InstallationDoctorTests.test_development_version_cli_surface_and_metadata_without_side_effect_claim) ... ok
+test_generated_opt_in_selftest_is_bounded_and_labelled (test_stage178.InstallationDoctorTests.test_generated_opt_in_selftest_is_bounded_and_labelled) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.036s
+
+OK

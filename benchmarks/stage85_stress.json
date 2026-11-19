@@ -1,0 +1,3518 @@
+{
+  "schema_version": 1,
+  "stage": 85,
+  "evaluation_type": "class_presence",
+  "manifest_sha256": "91df765d5c3827ad7aff6139fca8c3486239b1cdf43d4e99be4bc1cfbd4f2d59",
+  "runtime": {
+    "python": "3.12.14",
+    "pillow": "13.0.0"
+  },
+  "pipeline_sha256": {
+    "local_contrast.py": "d2b6ba646821accf836affcd777473996feb2c68711285b4cbf019e67b170e76",
+    "group_shapes.py": "a4310e15b27cfd9f388ee417180ef2658e26339b572ba843c2309cc299054a3d",
+    "filter_regions.py": "d45662dbc44ba66a6edc2902d58c60ebc768a927c85d7cd42b26d85095f2d621",
+    "classify_camera_v2.py": "2b4cd7593fb90afe9954259d362fb4b2c5915c8b377e96a7f020bda81eec9510"
+  },
+  "evaluator_sha256": "ccc7ab7527a0ddb00f671e86652faf037222c95a6aab97595f64ea8c20d84145",
+  "distinct_sources": 7,
+  "confirmed_photographs": 0,
+  "localization_evaluated": false,
+  "limitations": [
+    "Perturbations of one image are correlated, not independent captures.",
+    "Class presence does not evaluate localization or instance counts.",
+    "Synthetic results do not establish photographic generalization.",
+    "Circle-like and polygon labels are geometric hypotheses, not object identities."
+  ],
+  "summary": [
+    {
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "variant": "original",
+      "cases": 7,
+      "pipeline_failures": 0,
+      "exact_matches": 5
+    },
+    {
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "variant": "dim",
+      "cases": 7,
+      "pipeline_failures": 0,
+      "exact_matches": 5
+    },
+    {
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "variant": "bright",
+      "cases": 7,
+      "pipeline_failures": 0,
+      "exact_matches": 5
+    },
+    {
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "variant": "low_contrast",
+      "cases": 7,
+      "pipeline_failures": 0,
+      "exact_matches": 5
+    },
+    {
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "variant": "rotate_15",
+      "cases": 7,
+      "pipeline_failures": 0,
+      "exact_matches": 6
+    },
+    {
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "variant": "rotate_minus15",
+      "cases": 7,
+      "pipeline_failures": 0,
+      "exact_matches": 6
+    },
+    {
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "variant": "affine_shear",
+      "cases": 7,
+      "pipeline_failures": 0,
+      "exact_matches": 5
+    },
+    {
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "variant": "jpeg_50",
+      "cases": 7,
+      "pipeline_failures": 0,
+      "exact_matches": 5
+    }
+  ],
+  "results": [
+    {
+      "id": "circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "original",
+      "source_sha256": "bb64da085d112b32fd2cd9af66158449b1060f28cc2f5b6d387f2bce43862257",
+      "input_sha256": "bb64da085d112b32fd2cd9af66158449b1060f28cc2f5b6d387f2bce43862257",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "3ade8295e9e881a96e6c0f7ccd77e87d6e78d6bbcfe060cccabe36c201eede7d",
+          "grouped_shapes.png": "c97526a111ac4c938baf28d5c7a719a35032e9adb8b8926cf40aa617c2430e6a",
+          "filtered_shapes.png": "accf71ef8f104e10fcf1057b8107e0b66f44b2eecac037d252c377ac6734ceed"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: bb64da085d112b32fd2cd9af66158449b1060f28cc2f5b6d387f2bce43862257\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4280, box=(78, 78, 222, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=8, hull_vertices=56\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "dim",
+      "source_sha256": "bb64da085d112b32fd2cd9af66158449b1060f28cc2f5b6d387f2bce43862257",
+      "input_sha256": "920cb7faa6e1e1e2b0598ed4e58f7fcaa07ba861e49abc10576b28eeee75f35f",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "3ade8295e9e881a96e6c0f7ccd77e87d6e78d6bbcfe060cccabe36c201eede7d",
+          "grouped_shapes.png": "c97526a111ac4c938baf28d5c7a719a35032e9adb8b8926cf40aa617c2430e6a",
+          "filtered_shapes.png": "accf71ef8f104e10fcf1057b8107e0b66f44b2eecac037d252c377ac6734ceed"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 920cb7faa6e1e1e2b0598ed4e58f7fcaa07ba861e49abc10576b28eeee75f35f\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4280, box=(78, 78, 222, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=8, hull_vertices=56\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "bright",
+      "source_sha256": "bb64da085d112b32fd2cd9af66158449b1060f28cc2f5b6d387f2bce43862257",
+      "input_sha256": "bb64da085d112b32fd2cd9af66158449b1060f28cc2f5b6d387f2bce43862257",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "3ade8295e9e881a96e6c0f7ccd77e87d6e78d6bbcfe060cccabe36c201eede7d",
+          "grouped_shapes.png": "c97526a111ac4c938baf28d5c7a719a35032e9adb8b8926cf40aa617c2430e6a",
+          "filtered_shapes.png": "accf71ef8f104e10fcf1057b8107e0b66f44b2eecac037d252c377ac6734ceed"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: bb64da085d112b32fd2cd9af66158449b1060f28cc2f5b6d387f2bce43862257\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4280, box=(78, 78, 222, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=8, hull_vertices=56\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "low_contrast",
+      "source_sha256": "bb64da085d112b32fd2cd9af66158449b1060f28cc2f5b6d387f2bce43862257",
+      "input_sha256": "17ce3c49a229ee0dfd4d620a5c449aa77e479d19ebe1a99f221b86fb8fd23dcf",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "3ade8295e9e881a96e6c0f7ccd77e87d6e78d6bbcfe060cccabe36c201eede7d",
+          "grouped_shapes.png": "c97526a111ac4c938baf28d5c7a719a35032e9adb8b8926cf40aa617c2430e6a",
+          "filtered_shapes.png": "accf71ef8f104e10fcf1057b8107e0b66f44b2eecac037d252c377ac6734ceed"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 17ce3c49a229ee0dfd4d620a5c449aa77e479d19ebe1a99f221b86fb8fd23dcf\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4280, box=(78, 78, 222, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=8, hull_vertices=56\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "rotate_15",
+      "source_sha256": "bb64da085d112b32fd2cd9af66158449b1060f28cc2f5b6d387f2bce43862257",
+      "input_sha256": "d894e5d069422fa5d28c2733aa437e7844c9e1a62d94bda71d8ddcc090dd9b8c",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "9bcc6ae544acdf995ee536f2d482443f1c52c0e0828cc227dffaa324dfc3b9ec",
+          "grouped_shapes.png": "42dce240bd4d8fd3a8f3a2ce260f735e617569d445c2e49fe37756adcf52f935",
+          "filtered_shapes.png": "c2226b17ee9ab80cdc18c994cad131ea916e6a7b9fe6a53925a5885fb584381c"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: d894e5d069422fa5d28c2733aa437e7844c9e1a62d94bda71d8ddcc090dd9b8c\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=3460, box=(90, 90, 210, 209)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.992\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=7, hull_vertices=49\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "rotate_minus15",
+      "source_sha256": "bb64da085d112b32fd2cd9af66158449b1060f28cc2f5b6d387f2bce43862257",
+      "input_sha256": "3cdc454dac829ae0d5e2116c2acd4c9d053b2d3ccda1f641e4f4928c5d83abc1",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "c60f0885561a825983276b04eba2bd8a645a59238871cba474c9047bee335c17",
+          "grouped_shapes.png": "413afb999dc924fb6680b9cdd342597cf4bbbc480a649610f6ccd4f827d56014",
+          "filtered_shapes.png": "00eb5dbd8f11d85425ca148b7d3d7968eeee0bce024a48f2be6df908073903d4"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 3cdc454dac829ae0d5e2116c2acd4c9d053b2d3ccda1f641e4f4928c5d83abc1\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=3461, box=(90, 90, 209, 210)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.992\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=8, hull_vertices=50\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "affine_shear",
+      "source_sha256": "bb64da085d112b32fd2cd9af66158449b1060f28cc2f5b6d387f2bce43862257",
+      "input_sha256": "67f3c7515db4996ee1ed818c2c09bbed44a353224bb27a69b83f11ac2c32c9cc",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "86ee4bbb7456012be17f846c3ba4ceb7cdded2d125aa6dbc8c70c2146d10026b",
+          "grouped_shapes.png": "14d64c3250b7567867c2a1486715a71ab1f3490e903b032d3ced91a22192247c",
+          "filtered_shapes.png": "7932150f8a284ba73bbf69a0d9c06ea15f126766ccba3d2260aaece193db2d74"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 67f3c7515db4996ee1ed818c2c09bbed44a353224bb27a69b83f11ac2c32c9cc\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4482, box=(76, 78, 223, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.980\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=7, hull_vertices=54\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "jpeg_50",
+      "source_sha256": "bb64da085d112b32fd2cd9af66158449b1060f28cc2f5b6d387f2bce43862257",
+      "input_sha256": "3dc3e007843483d16e1f662b14f8de053a2751a0b67e04f6592dd82b4f54e35a",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "7020c0b2a71cbd427420a50693351b6e6e3c9a0315af2d6c0869421c0c11d81f",
+          "grouped_shapes.png": "b8ff679a9353fad73151416602d27bec83345921eb350f0331f911f27ae819a8",
+          "filtered_shapes.png": "fac1aa088bcabdf35a829b81a5a2c9f9bfd419f7b7a5b2ea537ecddf38a4d9c4"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 3dc3e007843483d16e1f662b14f8de053a2751a0b67e04f6592dd82b4f54e35a\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4347, box=(78, 78, 222, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=8, hull_vertices=43\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "original",
+      "source_sha256": "fd69b583c49b4fe620b26009dd3f119cf2438c345d75702bebf2d396aa37d57b",
+      "input_sha256": "fd69b583c49b4fe620b26009dd3f119cf2438c345d75702bebf2d396aa37d57b",
+      "prediction": {
+        "labels": [
+          "Square-like"
+        ],
+        "classes": [
+          "quadrilateral"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "240de679fbd9a79bd6815e36b9e99fb26c0ad9ee2ead47802434903b0a7c7679",
+          "grouped_shapes.png": "ecbeae43b08c6624b244a3fd13ad066369cf03add49792b28cb345b536ab5238",
+          "filtered_shapes.png": "444e2dc6632ee5598043deeaad51607e3ca752f7c512de921f8f7e9b7cacc31c"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: fd69b583c49b4fe620b26009dd3f119cf2438c345d75702bebf2d396aa37d57b\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4896, box=(78, 78, 222, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Square-like, corners=4, hull_vertices=4\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "dim",
+      "source_sha256": "fd69b583c49b4fe620b26009dd3f119cf2438c345d75702bebf2d396aa37d57b",
+      "input_sha256": "36285ff27b5634e8d0da004d8809a5c6f12bd725ac2c904e940245c534da56f0",
+      "prediction": {
+        "labels": [
+          "Square-like"
+        ],
+        "classes": [
+          "quadrilateral"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "240de679fbd9a79bd6815e36b9e99fb26c0ad9ee2ead47802434903b0a7c7679",
+          "grouped_shapes.png": "ecbeae43b08c6624b244a3fd13ad066369cf03add49792b28cb345b536ab5238",
+          "filtered_shapes.png": "444e2dc6632ee5598043deeaad51607e3ca752f7c512de921f8f7e9b7cacc31c"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 36285ff27b5634e8d0da004d8809a5c6f12bd725ac2c904e940245c534da56f0\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4896, box=(78, 78, 222, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Square-like, corners=4, hull_vertices=4\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "bright",
+      "source_sha256": "fd69b583c49b4fe620b26009dd3f119cf2438c345d75702bebf2d396aa37d57b",
+      "input_sha256": "fd69b583c49b4fe620b26009dd3f119cf2438c345d75702bebf2d396aa37d57b",
+      "prediction": {
+        "labels": [
+          "Square-like"
+        ],
+        "classes": [
+          "quadrilateral"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "240de679fbd9a79bd6815e36b9e99fb26c0ad9ee2ead47802434903b0a7c7679",
+          "grouped_shapes.png": "ecbeae43b08c6624b244a3fd13ad066369cf03add49792b28cb345b536ab5238",
+          "filtered_shapes.png": "444e2dc6632ee5598043deeaad51607e3ca752f7c512de921f8f7e9b7cacc31c"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: fd69b583c49b4fe620b26009dd3f119cf2438c345d75702bebf2d396aa37d57b\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4896, box=(78, 78, 222, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Square-like, corners=4, hull_vertices=4\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "low_contrast",
+      "source_sha256": "fd69b583c49b4fe620b26009dd3f119cf2438c345d75702bebf2d396aa37d57b",
+      "input_sha256": "b5684602ba21d627f476f7a53894fc8e81ef9fdfd54e99b26b8daab6e7346338",
+      "prediction": {
+        "labels": [
+          "Square-like"
+        ],
+        "classes": [
+          "quadrilateral"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "240de679fbd9a79bd6815e36b9e99fb26c0ad9ee2ead47802434903b0a7c7679",
+          "grouped_shapes.png": "ecbeae43b08c6624b244a3fd13ad066369cf03add49792b28cb345b536ab5238",
+          "filtered_shapes.png": "444e2dc6632ee5598043deeaad51607e3ca752f7c512de921f8f7e9b7cacc31c"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: b5684602ba21d627f476f7a53894fc8e81ef9fdfd54e99b26b8daab6e7346338\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4896, box=(78, 78, 222, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Square-like, corners=4, hull_vertices=4\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "rotate_15",
+      "source_sha256": "fd69b583c49b4fe620b26009dd3f119cf2438c345d75702bebf2d396aa37d57b",
+      "input_sha256": "ca7902b1e46d36e8deefa38506990b39378e1bf98df7399531fa7c2ca799e456",
+      "prediction": {
+        "labels": [
+          "Square-like"
+        ],
+        "classes": [
+          "quadrilateral"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "13028d77a2329cbbe08d9159c1cce49ae6d60a1ba240c7534acdb024bff79c88",
+          "grouped_shapes.png": "f0a93ddaa4b31fb4985146d8537af3d375b9c4c6d0428e9ce26f963e492151ab",
+          "filtered_shapes.png": "89b05436e9da13f0b2b9584434d0c3964136da428804625cba63cad545a7f2cc"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: ca7902b1e46d36e8deefa38506990b39378e1bf98df7399531fa7c2ca799e456\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4326, box=(78, 78, 222, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Square-like, corners=4, hull_vertices=18\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "rotate_minus15",
+      "source_sha256": "fd69b583c49b4fe620b26009dd3f119cf2438c345d75702bebf2d396aa37d57b",
+      "input_sha256": "3e847ea1ce1afe7f0eb4e70851e6cf7d75d98a4f11644e11ef4f33d47e45ae3f",
+      "prediction": {
+        "labels": [
+          "Square-like"
+        ],
+        "classes": [
+          "quadrilateral"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "96aee4cba7b2ee6099393f916c07b73e852a08a01b651f5319a2bb3c5aa15fd3",
+          "grouped_shapes.png": "42b8d84dc7bcfa963ae8376c47ac13ce6495651de68359f8c26aaa9e9bfa76c7",
+          "filtered_shapes.png": "ffd4decfb2ca2b9d47b567689aeb9082af482d084f9f9b4966b27a39786bb711"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 3e847ea1ce1afe7f0eb4e70851e6cf7d75d98a4f11644e11ef4f33d47e45ae3f\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4326, box=(78, 78, 222, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Square-like, corners=4, hull_vertices=18\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "affine_shear",
+      "source_sha256": "fd69b583c49b4fe620b26009dd3f119cf2438c345d75702bebf2d396aa37d57b",
+      "input_sha256": "36e710602d7a3daffc45ec63e1d21b4348695ec529a93284554da6eb2fd2db4a",
+      "prediction": {
+        "labels": [
+          "Square-like"
+        ],
+        "classes": [
+          "quadrilateral"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "940c6ca67c0f5245d53a9ef7605e943c05bc582d4aef16900c1a3df031a67d51",
+          "grouped_shapes.png": "ab291e8d65fda6a9f7fa8cac6e4f3d319ddb33ba213a4f8921f465b828f3ffec",
+          "filtered_shapes.png": "1b63209028888d77a9acd36884d2c2b7a07adcdcf288aebddcac3e69bf769db6"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 36e710602d7a3daffc45ec63e1d21b4348695ec529a93284554da6eb2fd2db4a\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=5227, box=(67, 78, 233, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.868\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Square-like, corners=4, hull_vertices=11\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "jpeg_50",
+      "source_sha256": "fd69b583c49b4fe620b26009dd3f119cf2438c345d75702bebf2d396aa37d57b",
+      "input_sha256": "ebd1a30eac5d037e3cffcebdd245e2f1424959f009307b46b6e6005cb1535018",
+      "prediction": {
+        "labels": [
+          "Square-like"
+        ],
+        "classes": [
+          "quadrilateral"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "240de679fbd9a79bd6815e36b9e99fb26c0ad9ee2ead47802434903b0a7c7679",
+          "grouped_shapes.png": "ecbeae43b08c6624b244a3fd13ad066369cf03add49792b28cb345b536ab5238",
+          "filtered_shapes.png": "444e2dc6632ee5598043deeaad51607e3ca752f7c512de921f8f7e9b7cacc31c"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: ebd1a30eac5d037e3cffcebdd245e2f1424959f009307b46b6e6005cb1535018\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4896, box=(78, 78, 222, 222)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Square-like, corners=4, hull_vertices=4\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "original",
+      "source_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+      "input_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+      "prediction": {
+        "labels": [
+          "Triangle"
+        ],
+        "classes": [
+          "triangle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "08fbca7f19bfb5b8659a87ce8b2aea9ad44c83cce5b4b713fdc580caccb1dc3e",
+          "grouped_shapes.png": "7931afb38625d9ea911c8066ca0844d63ac95e26b63acc5b59640bae4223b45b",
+          "filtered_shapes.png": "96bc9bb0aed3491ead2252be006cf7c2f879ab01bbbce45f89c83127effff620"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=5133, box=(68, 58, 232, 227)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.971\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Triangle, corners=3, hull_vertices=8\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "dim",
+      "source_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+      "input_sha256": "2dd19798eb4b0465354f59a1e26982f129a9285372c65c9193671bdba8450d72",
+      "prediction": {
+        "labels": [
+          "Triangle"
+        ],
+        "classes": [
+          "triangle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "08fbca7f19bfb5b8659a87ce8b2aea9ad44c83cce5b4b713fdc580caccb1dc3e",
+          "grouped_shapes.png": "7931afb38625d9ea911c8066ca0844d63ac95e26b63acc5b59640bae4223b45b",
+          "filtered_shapes.png": "96bc9bb0aed3491ead2252be006cf7c2f879ab01bbbce45f89c83127effff620"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 2dd19798eb4b0465354f59a1e26982f129a9285372c65c9193671bdba8450d72\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=5133, box=(68, 58, 232, 227)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.971\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Triangle, corners=3, hull_vertices=8\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "bright",
+      "source_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+      "input_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+      "prediction": {
+        "labels": [
+          "Triangle"
+        ],
+        "classes": [
+          "triangle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "08fbca7f19bfb5b8659a87ce8b2aea9ad44c83cce5b4b713fdc580caccb1dc3e",
+          "grouped_shapes.png": "7931afb38625d9ea911c8066ca0844d63ac95e26b63acc5b59640bae4223b45b",
+          "filtered_shapes.png": "96bc9bb0aed3491ead2252be006cf7c2f879ab01bbbce45f89c83127effff620"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=5133, box=(68, 58, 232, 227)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.971\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Triangle, corners=3, hull_vertices=8\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "low_contrast",
+      "source_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+      "input_sha256": "5ad115d10fd0fcc84a44f6c09f6d2e9619bc47c0877cf52dcd66231ed4fbcfd7",
+      "prediction": {
+        "labels": [
+          "Triangle"
+        ],
+        "classes": [
+          "triangle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "08fbca7f19bfb5b8659a87ce8b2aea9ad44c83cce5b4b713fdc580caccb1dc3e",
+          "grouped_shapes.png": "7931afb38625d9ea911c8066ca0844d63ac95e26b63acc5b59640bae4223b45b",
+          "filtered_shapes.png": "96bc9bb0aed3491ead2252be006cf7c2f879ab01bbbce45f89c83127effff620"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 5ad115d10fd0fcc84a44f6c09f6d2e9619bc47c0877cf52dcd66231ed4fbcfd7\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=5133, box=(68, 58, 232, 227)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.971\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Triangle, corners=3, hull_vertices=8\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "rotate_15",
+      "source_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+      "input_sha256": "acb6742a5ca79af2f35fa7b98e811e3cd0217220d594d9abc96730d5754ae0a5",
+      "prediction": {
+        "labels": [
+          "Triangle"
+        ],
+        "classes": [
+          "triangle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "edc3b69b8b9ea267d664800d1c39be9c62783e46ce1c2b54c8a9bf0bc7f30ca1",
+          "grouped_shapes.png": "bbe9f17fc7b89c7c32b3639ca877d9fd584f0b85224ce538c622f05dc2a5f00d",
+          "filtered_shapes.png": "89832fb0de4049cfaff526a7ebf15012ff5971e6f4d1abbc1989856bcb772b06"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: acb6742a5ca79af2f35fa7b98e811e3cd0217220d594d9abc96730d5754ae0a5\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4154, box=(100, 77, 231, 228)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.868\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Triangle, corners=3, hull_vertices=16\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "rotate_minus15",
+      "source_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+      "input_sha256": "c9ab4a1bc03fa8961380138f09d9467ccadcb9a68ab89e916045c5719faf079d",
+      "prediction": {
+        "labels": [
+          "Triangle"
+        ],
+        "classes": [
+          "triangle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "4c768d2340378afbf3d1064eef29cb365edea85a41a7b0806e67e21f29793ae0",
+          "grouped_shapes.png": "cace919bf918c580467670d489ba70c9091844b8403974ddf752245f9bed3b47",
+          "filtered_shapes.png": "489c5b5a3a30e7fa0018990e3cab66dc9f7482a00a2e9ea37ecede4f292a878e"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: c9ab4a1bc03fa8961380138f09d9467ccadcb9a68ab89e916045c5719faf079d\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4152, box=(69, 77, 199, 228)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.862\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Triangle, corners=3, hull_vertices=16\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "affine_shear",
+      "source_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+      "input_sha256": "39f22f35ee893521eae12abe6b31270b425027c65204b56cdb1782bd49e8e168",
+      "prediction": {
+        "labels": [
+          "Triangle"
+        ],
+        "classes": [
+          "triangle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "5c3385b00060b620a723607eeb23e0321fcaa0df2f8e26f9f5dd82acd255cfbd",
+          "grouped_shapes.png": "72ae01ff0c79f17ebd13f7d0fcce2af070cb8fc08fdbead7782d60e09faf5304",
+          "filtered_shapes.png": "476a3321ed3a78c0551022f23332ee43fda4c9db51b9c3dcae342c2b416a6f02"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 39f22f35ee893521eae12abe6b31270b425027c65204b56cdb1782bd49e8e168\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=5341, box=(56, 58, 221, 227)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.976\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Triangle, corners=3, hull_vertices=11\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "jpeg_50",
+      "source_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+      "input_sha256": "e5f189343fa1c9b3709f05a565682ef9c0d7a890329c0723a21af801419fa0ce",
+      "prediction": {
+        "labels": [
+          "Triangle"
+        ],
+        "classes": [
+          "triangle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "7cac2c95a7e227799e28622a52e143ebbf471a3736797cd09c6aaaea446fd21c",
+          "grouped_shapes.png": "b1e3b53cfdb7a6b9ac718d5931796e8a055f1f288add7bf9e5aee93e515e27fe",
+          "filtered_shapes.png": "0544b1c8ee9501c67f41608d130afdaa149b067f14b3e57fd9af320cc7c2b5e2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: e5f189343fa1c9b3709f05a565682ef9c0d7a890329c0723a21af801419fa0ce\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=5196, box=(68, 55, 232, 227)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.954\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Triangle, corners=3, hull_vertices=7\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "blank",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-blank",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [],
+      "variant": "original",
+      "source_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "input_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "blank",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-blank",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [],
+      "variant": "dim",
+      "source_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "input_sha256": "bf26558df420ce5f20082a484af505085719d4ebd7fb332981908b01e970628a",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: bf26558df420ce5f20082a484af505085719d4ebd7fb332981908b01e970628a\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "blank",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-blank",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [],
+      "variant": "bright",
+      "source_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "input_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "blank",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-blank",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [],
+      "variant": "low_contrast",
+      "source_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "input_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "blank",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-blank",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [],
+      "variant": "rotate_15",
+      "source_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "input_sha256": "b6e56e2e195406d6a717ef4c07b68859eaa6856634be2fe6fbc208a7166f366c",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: b6e56e2e195406d6a717ef4c07b68859eaa6856634be2fe6fbc208a7166f366c\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "blank",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-blank",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [],
+      "variant": "rotate_minus15",
+      "source_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "input_sha256": "b6e56e2e195406d6a717ef4c07b68859eaa6856634be2fe6fbc208a7166f366c",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: b6e56e2e195406d6a717ef4c07b68859eaa6856634be2fe6fbc208a7166f366c\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "blank",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-blank",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [],
+      "variant": "affine_shear",
+      "source_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "input_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "blank",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-blank",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [],
+      "variant": "jpeg_50",
+      "source_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "input_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "faint_triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-faint_triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "original",
+      "source_sha256": "47dfa074776e9f8293e573d7896e4c5e3e332a5c5bfd00897619a9d89c121cc2",
+      "input_sha256": "47dfa074776e9f8293e573d7896e4c5e3e332a5c5bfd00897619a9d89c121cc2",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 47dfa074776e9f8293e573d7896e4c5e3e332a5c5bfd00897619a9d89c121cc2\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "faint_triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-faint_triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "dim",
+      "source_sha256": "47dfa074776e9f8293e573d7896e4c5e3e332a5c5bfd00897619a9d89c121cc2",
+      "input_sha256": "047cc6c441bcf52b4b26bfbd48ef2a2163aae281a6ed7e6ec42cb8715144e3c4",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 047cc6c441bcf52b4b26bfbd48ef2a2163aae281a6ed7e6ec42cb8715144e3c4\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "faint_triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-faint_triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "bright",
+      "source_sha256": "47dfa074776e9f8293e573d7896e4c5e3e332a5c5bfd00897619a9d89c121cc2",
+      "input_sha256": "40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 40221de840697b8cff44c715652f4c14a23656896210dd29f3f6a7fbdb03cbf6\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "faint_triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-faint_triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "low_contrast",
+      "source_sha256": "47dfa074776e9f8293e573d7896e4c5e3e332a5c5bfd00897619a9d89c121cc2",
+      "input_sha256": "71182e180ca41dafd09eceab7aabaccaeebe6ceeddc7e747d0df3b9961eae905",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 71182e180ca41dafd09eceab7aabaccaeebe6ceeddc7e747d0df3b9961eae905\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "faint_triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-faint_triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "rotate_15",
+      "source_sha256": "47dfa074776e9f8293e573d7896e4c5e3e332a5c5bfd00897619a9d89c121cc2",
+      "input_sha256": "ce21565fef26185f175806f7c3dc0536df48ca8b5c7c2d88cb00f76f9b619bae",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: ce21565fef26185f175806f7c3dc0536df48ca8b5c7c2d88cb00f76f9b619bae\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "faint_triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-faint_triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "rotate_minus15",
+      "source_sha256": "47dfa074776e9f8293e573d7896e4c5e3e332a5c5bfd00897619a9d89c121cc2",
+      "input_sha256": "7cb83841a59fc9871ff70e0be284d1ce6f48e751a38e00074c294b9b2304de37",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 7cb83841a59fc9871ff70e0be284d1ce6f48e751a38e00074c294b9b2304de37\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "faint_triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-faint_triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "affine_shear",
+      "source_sha256": "47dfa074776e9f8293e573d7896e4c5e3e332a5c5bfd00897619a9d89c121cc2",
+      "input_sha256": "6ecd35526ba33d57e4eba3c523a1663d1b77a15319b14ca83ff6976f7cd8848f",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "454cd2952e32ed8d1e78d33d365f0c5af18ece017e345412a9bd5c627c73b63f",
+          "grouped_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2",
+          "filtered_shapes.png": "3e55a7eb48fe1fcf431b9fd6c0d594e8b6a3bf7f7fdb6bf1323b63eb342754f2"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 6ecd35526ba33d57e4eba3c523a1663d1b77a15319b14ca83ff6976f7cd8848f\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "faint_triangle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-faint_triangle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "triangle"
+      ],
+      "variant": "jpeg_50",
+      "source_sha256": "47dfa074776e9f8293e573d7896e4c5e3e332a5c5bfd00897619a9d89c121cc2",
+      "input_sha256": "a18c50fe024f2ea36ba91468b3f67f5c17f3fa70de7df15f00f018bd94553ef2",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "cf9d1bf046e500472179196bd17e665bcb7e60e82eb5913ab02d1af48ca12a7b",
+          "grouped_shapes.png": "d1759d34203227e8c851ccf4642d1a27c598ac532c7498814fe1c2c3b30a2897",
+          "filtered_shapes.png": "d1759d34203227e8c851ccf4642d1a27c598ac532c7498814fe1c2c3b30a2897"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: a18c50fe024f2ea36ba91468b3f67f5c17f3fa70de7df15f00f018bd94553ef2\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 0\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted: 0\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "tiny_circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-tiny_circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "original",
+      "source_sha256": "e62090f5cb254ead8609fdc499f1ce34126c32a967dd417a986567a9b4680aba",
+      "input_sha256": "e62090f5cb254ead8609fdc499f1ce34126c32a967dd417a986567a9b4680aba",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "d1605b3039ad7ac5926d984a453bde65677b7fedd8a0aa492e74cbf2e8f2c458",
+          "grouped_shapes.png": "365740f21806e8bff3a2b691d5717753700714c1676e6a96bb78ca7075ce9f1b",
+          "filtered_shapes.png": "d8a3111192b3f79f1cbbd9c402d9f68fcd037b0582610addfb2915baa5ae6a3e"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: e62090f5cb254ead8609fdc499f1ce34126c32a967dd417a986567a9b4680aba\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=201, box=(143, 143, 157, 157)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=8, hull_vertices=8\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "tiny_circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-tiny_circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "dim",
+      "source_sha256": "e62090f5cb254ead8609fdc499f1ce34126c32a967dd417a986567a9b4680aba",
+      "input_sha256": "5ab03d51c112312f6d15e0b31b47756c4f0f0e49068d2b70623f1179dc9e4a47",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "d1605b3039ad7ac5926d984a453bde65677b7fedd8a0aa492e74cbf2e8f2c458",
+          "grouped_shapes.png": "365740f21806e8bff3a2b691d5717753700714c1676e6a96bb78ca7075ce9f1b",
+          "filtered_shapes.png": "d8a3111192b3f79f1cbbd9c402d9f68fcd037b0582610addfb2915baa5ae6a3e"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 5ab03d51c112312f6d15e0b31b47756c4f0f0e49068d2b70623f1179dc9e4a47\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=201, box=(143, 143, 157, 157)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=8, hull_vertices=8\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "tiny_circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-tiny_circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "bright",
+      "source_sha256": "e62090f5cb254ead8609fdc499f1ce34126c32a967dd417a986567a9b4680aba",
+      "input_sha256": "e62090f5cb254ead8609fdc499f1ce34126c32a967dd417a986567a9b4680aba",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "d1605b3039ad7ac5926d984a453bde65677b7fedd8a0aa492e74cbf2e8f2c458",
+          "grouped_shapes.png": "365740f21806e8bff3a2b691d5717753700714c1676e6a96bb78ca7075ce9f1b",
+          "filtered_shapes.png": "d8a3111192b3f79f1cbbd9c402d9f68fcd037b0582610addfb2915baa5ae6a3e"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: e62090f5cb254ead8609fdc499f1ce34126c32a967dd417a986567a9b4680aba\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=201, box=(143, 143, 157, 157)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=8, hull_vertices=8\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "tiny_circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-tiny_circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "low_contrast",
+      "source_sha256": "e62090f5cb254ead8609fdc499f1ce34126c32a967dd417a986567a9b4680aba",
+      "input_sha256": "c8ec8213787ae5b3d10db1f75f83c11f443b95b01534fd7a606bff7fa8438367",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "d1605b3039ad7ac5926d984a453bde65677b7fedd8a0aa492e74cbf2e8f2c458",
+          "grouped_shapes.png": "365740f21806e8bff3a2b691d5717753700714c1676e6a96bb78ca7075ce9f1b",
+          "filtered_shapes.png": "d8a3111192b3f79f1cbbd9c402d9f68fcd037b0582610addfb2915baa5ae6a3e"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: c8ec8213787ae5b3d10db1f75f83c11f443b95b01534fd7a606bff7fa8438367\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=201, box=(143, 143, 157, 157)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=1.000\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=8, hull_vertices=8\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "tiny_circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-tiny_circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "rotate_15",
+      "source_sha256": "e62090f5cb254ead8609fdc499f1ce34126c32a967dd417a986567a9b4680aba",
+      "input_sha256": "71a0c2a6f543a621d52b9fcbe2339249367a026f1b9ae8eba83af23161c71e65",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "43cd324d61b959b0108322c86d287a930037934600a176c32a3b12c089470490",
+          "grouped_shapes.png": "d54ad28868482a6cb98546e16cdf513777762dbaac39747740c4898ac36a5388",
+          "filtered_shapes.png": "c20334e5edef9c04e128e508730beb4e06071161b6418df71da67c05ba3a60bf"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 71a0c2a6f543a621d52b9fcbe2339249367a026f1b9ae8eba83af23161c71e65\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=181, box=(143, 143, 157, 156)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.933\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=7, hull_vertices=13\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "tiny_circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-tiny_circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "rotate_minus15",
+      "source_sha256": "e62090f5cb254ead8609fdc499f1ce34126c32a967dd417a986567a9b4680aba",
+      "input_sha256": "ce6f23eb0b72516f8d19f608ec5fac4f1e7e643cade86d633d65ed497b3750fd",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "4d6b29c547a3c2ed5e3d4efe8344c5bdcb7acaf25f9e01035c10e54ac2924fec",
+          "grouped_shapes.png": "0694ebae6ae6b3d8afd3293804ff2702749eb2dcb53a4e35d456927a449d8b31",
+          "filtered_shapes.png": "3c1062ba5eddcb58fa319cf8ed01cfe26ed3df9b7d89d952adf5a2c60836026f"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: ce6f23eb0b72516f8d19f608ec5fac4f1e7e643cade86d633d65ed497b3750fd\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=181, box=(143, 143, 156, 157)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.933\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=7, hull_vertices=13\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "tiny_circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-tiny_circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "affine_shear",
+      "source_sha256": "e62090f5cb254ead8609fdc499f1ce34126c32a967dd417a986567a9b4680aba",
+      "input_sha256": "bf1fcb451bbf37913382baead32c8da5db1d266cb61a352ed0266b8120c41375",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "8a87fcd2d58a76b60a9a76442d44d44822a3ce900319d1059013115066a0aad2",
+          "grouped_shapes.png": "bcd41774823373fed6eccefbdcaa3f15258f5c39ccce240dceeba5166195bba1",
+          "filtered_shapes.png": "020dddfa816acac67f63173a6033aec3463267ad219e05a8539a928a8480b39a"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: bf1fcb451bbf37913382baead32c8da5db1d266cb61a352ed0266b8120c41375\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=218, box=(142, 143, 158, 157)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.882\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=8, hull_vertices=10\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "tiny_circle",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-tiny_circle",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "circle"
+      ],
+      "variant": "jpeg_50",
+      "source_sha256": "e62090f5cb254ead8609fdc499f1ce34126c32a967dd417a986567a9b4680aba",
+      "input_sha256": "f5cd349b96f1fdd5cc7f1fa822052bb3298e1fce218181d0b82dfc5f04414fef",
+      "prediction": {
+        "labels": [
+          "Circle-like"
+        ],
+        "classes": [
+          "circle"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "4a0434882a4b9d03646bea8b5754fec98a04cd28d7f5591c38404d3ab57b5916",
+          "grouped_shapes.png": "5d707806102d4afedb15dc62634e1092bf6982fd2fb1f1e7f1632023790b39bb",
+          "filtered_shapes.png": "90489ccc7f3be44024fb8400391acab6bf8daee0313338e687b842dee56452f0"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: f5cd349b96f1fdd5cc7f1fa822052bb3298e1fce218181d0b82dfc5f04414fef\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=278, box=(142, 143, 160, 160)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.947\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Circle-like, corners=6, hull_vertices=10\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "wide_quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-wide_quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "original",
+      "source_sha256": "e640840f6b85f7662b1f20ffd714b3663b3db44abca532d890c47bf553b2a190",
+      "input_sha256": "e640840f6b85f7662b1f20ffd714b3663b3db44abca532d890c47bf553b2a190",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "bb51001f70918ee0cd93e032e82a8dd1fcc16ae764bec116a1d1e3f88b578969",
+          "grouped_shapes.png": "882faaf4294a3ee5ef72594bca268096ec37e5afd36b7ad602f5bd1dc9cd574f",
+          "filtered_shapes.png": "41cbfdba5516154a138be9a4fd8f99680e9dc7b4fa436ac6428d7e2ead951c9d"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: e640840f6b85f7662b1f20ffd714b3663b3db44abca532d890c47bf553b2a190\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=5076, box=(28, 123, 272, 177)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nRejected region: ratio=0.224\nAccepted: 0\nRejected: 1\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "wide_quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-wide_quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "dim",
+      "source_sha256": "e640840f6b85f7662b1f20ffd714b3663b3db44abca532d890c47bf553b2a190",
+      "input_sha256": "60e7196c502d9d33d3e0148a7cfd94d0a77e7a5deb8b45d633c52d4860669bcb",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "bb51001f70918ee0cd93e032e82a8dd1fcc16ae764bec116a1d1e3f88b578969",
+          "grouped_shapes.png": "882faaf4294a3ee5ef72594bca268096ec37e5afd36b7ad602f5bd1dc9cd574f",
+          "filtered_shapes.png": "41cbfdba5516154a138be9a4fd8f99680e9dc7b4fa436ac6428d7e2ead951c9d"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 60e7196c502d9d33d3e0148a7cfd94d0a77e7a5deb8b45d633c52d4860669bcb\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=5076, box=(28, 123, 272, 177)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nRejected region: ratio=0.224\nAccepted: 0\nRejected: 1\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "wide_quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-wide_quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "bright",
+      "source_sha256": "e640840f6b85f7662b1f20ffd714b3663b3db44abca532d890c47bf553b2a190",
+      "input_sha256": "e640840f6b85f7662b1f20ffd714b3663b3db44abca532d890c47bf553b2a190",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "bb51001f70918ee0cd93e032e82a8dd1fcc16ae764bec116a1d1e3f88b578969",
+          "grouped_shapes.png": "882faaf4294a3ee5ef72594bca268096ec37e5afd36b7ad602f5bd1dc9cd574f",
+          "filtered_shapes.png": "41cbfdba5516154a138be9a4fd8f99680e9dc7b4fa436ac6428d7e2ead951c9d"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: e640840f6b85f7662b1f20ffd714b3663b3db44abca532d890c47bf553b2a190\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=5076, box=(28, 123, 272, 177)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nRejected region: ratio=0.224\nAccepted: 0\nRejected: 1\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "wide_quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-wide_quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "low_contrast",
+      "source_sha256": "e640840f6b85f7662b1f20ffd714b3663b3db44abca532d890c47bf553b2a190",
+      "input_sha256": "87242be48664fd7d7288f9f9faff148ab6793119e8f130453eafc1c85580f1b6",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "bb51001f70918ee0cd93e032e82a8dd1fcc16ae764bec116a1d1e3f88b578969",
+          "grouped_shapes.png": "882faaf4294a3ee5ef72594bca268096ec37e5afd36b7ad602f5bd1dc9cd574f",
+          "filtered_shapes.png": "41cbfdba5516154a138be9a4fd8f99680e9dc7b4fa436ac6428d7e2ead951c9d"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 87242be48664fd7d7288f9f9faff148ab6793119e8f130453eafc1c85580f1b6\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=5076, box=(28, 123, 272, 177)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nRejected region: ratio=0.224\nAccepted: 0\nRejected: 1\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "wide_quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-wide_quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "rotate_15",
+      "source_sha256": "e640840f6b85f7662b1f20ffd714b3663b3db44abca532d890c47bf553b2a190",
+      "input_sha256": "9aea3904698f7fa0c0c465d9ed867f1dcada631f3aa3ebe141c14c925a0ba928",
+      "prediction": {
+        "labels": [
+          "Rectangle-like"
+        ],
+        "classes": [
+          "quadrilateral"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "c446e46aa4d9f772fe60b366ecdc1b41ef3fdcac4cd4581f6e1af174ddfa1526",
+          "grouped_shapes.png": "4173d83972d064fd4afeb7d89991bb5e8b768c6222a585fa963850f478140026",
+          "filtered_shapes.png": "1483b5c238da42a665e96e3c9284df587a839576f03101fd7631c09c69ab5bf5"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 9aea3904698f7fa0c0c465d9ed867f1dcada631f3aa3ebe141c14c925a0ba928\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4477, box=(48, 103, 252, 197)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.463\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Rectangle-like, corners=4, hull_vertices=20\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "wide_quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-wide_quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "rotate_minus15",
+      "source_sha256": "e640840f6b85f7662b1f20ffd714b3663b3db44abca532d890c47bf553b2a190",
+      "input_sha256": "ea3107ae3f9dee8b4b2ad5cc9999c80fc1ce537b529bc249224ad7102b0958b0",
+      "prediction": {
+        "labels": [
+          "Rectangle-like"
+        ],
+        "classes": [
+          "quadrilateral"
+        ],
+        "artifacts": {
+          "local_contrast_mask.png": "d820a13205cc45b27a46836a1ea7b87cda1c0fe0b46d5b1e560c73ba1fd6acc1",
+          "grouped_shapes.png": "ffcab0923fc0f3a12385ee0fcdda9695f047d156b5bd48839b487d744f9be33f",
+          "filtered_shapes.png": "d1e0bcf06bb6356d50c7bec08ba1af22f55316543c327d096151dbdf9cf8d8af"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: ea3107ae3f9dee8b4b2ad5cc9999c80fc1ce537b529bc249224ad7102b0958b0\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=4476, box=(48, 103, 252, 197)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nAccepted region 1: ratio=0.463\nAccepted: 1\nRejected: 0\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 1\nRegion 1: Rectangle-like, corners=4, hull_vertices=22\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "exact_match": true
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "wide_quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-wide_quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "affine_shear",
+      "source_sha256": "e640840f6b85f7662b1f20ffd714b3663b3db44abca532d890c47bf553b2a190",
+      "input_sha256": "59a780f1b90ee1942820d7e696e3f0e910a090b66c933267ee9c6bc8fb857c56",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "300a047ed2d9d91923c71b84750883e6d1d67d0d893139d7de288c683ee8ec74",
+          "grouped_shapes.png": "bec578e5d8f3411c9f0920e3606012e6449a302ec8ddeb811372daca650079ae",
+          "filtered_shapes.png": "86afe652d314b549e26b9053935de1024a47424aea3997684f465cc992cd0e76"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 59a780f1b90ee1942820d7e696e3f0e910a090b66c933267ee9c6bc8fb857c56\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=5185, box=(24, 123, 276, 177)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nRejected region: ratio=0.217\nAccepted: 0\nRejected: 1\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    },
+    {
+      "id": "wide_quadrilateral",
+      "source_kind": "synthetic",
+      "human_confirmed": false,
+      "capture_group": "generated-wide_quadrilateral",
+      "lighting": "uniform_white",
+      "camera_angle": "generated_frontal",
+      "annotation_source": "stage85_fixture.py generator",
+      "expected_classes": [
+        "quadrilateral"
+      ],
+      "variant": "jpeg_50",
+      "source_sha256": "e640840f6b85f7662b1f20ffd714b3663b3db44abca532d890c47bf553b2a190",
+      "input_sha256": "640911e5c8aa2631fcdffea481e2ecba33c87c17ff6ca02d6bd5f62abc477861",
+      "prediction": {
+        "labels": [],
+        "classes": [],
+        "artifacts": {
+          "local_contrast_mask.png": "728205082a79ac8f874de6a6637d397db54c68d7462adb9364678746d3fa3ca9",
+          "grouped_shapes.png": "9f034bb7b44bcdda8bb77e8b2100a0b25cf9007b63745f2ac4e27c7212f639e5",
+          "filtered_shapes.png": "085b1ec6d56207a3b98e12e768646aa9748cc05c4608aebf3270a59f96c74772"
+        },
+        "steps": [
+          {
+            "script": "local_contrast.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Local contrast segmentation\nPhoto: input.png\nSource SHA-256: 640911e5c8aa2631fcdffea481e2ecba33c87c17ff6ca02d6bd5f62abc477861\nImage size: (300, 300)\nContrast threshold: 18\nSaved: local_contrast_mask.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "group_shapes.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Grouped shape regions\nRegions: 1\nRegion 1: pixels=5081, box=(27, 123, 272, 177)\nSaved: grouped_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "filter_regions.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Geometric region filtering\nRejected region: ratio=0.224\nAccepted: 0\nRejected: 1\nSaved: filtered_shapes.png\n",
+            "stderr": ""
+          },
+          {
+            "script": "classify_camera_v2.py",
+            "returncode": 0,
+            "stdout": "S-Eye: Real-camera shape classification\nAccepted regions: 0\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "exact_match": false
+      },
+      "pipeline_success": true
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+test_self_exclusion_unique_and_ambiguous_distance_evidence (test_stage166.RetrievalRequestTests.test_self_exclusion_unique_and_ambiguous_distance_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.050s
+
+OK

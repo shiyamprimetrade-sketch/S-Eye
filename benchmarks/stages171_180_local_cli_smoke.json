@@ -1,0 +1,1 @@
+{"checked_commands": ["doctor", "ingest", "overlays", "report", "annotate", "validate-draft", "compare", "config-init", "config-inspect", "config-migrate", "memory"], "draft_unscored": true, "executed_outside_checkout": true, "independent_human_usability_validated": false, "installed_local_cli_passed": true, "v1_release": false}

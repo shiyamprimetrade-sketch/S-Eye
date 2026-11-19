@@ -1,0 +1,414 @@
+{
+  "format": "seye-action-contract-v1",
+  "schema_version": 1,
+  "request_envelope": [
+    "action",
+    "request_id",
+    "schema_version"
+  ],
+  "actions": {
+    "analyze": {
+      "required": [
+        "image"
+      ],
+      "optional": [
+        "mode"
+      ]
+    },
+    "ask_observation": {
+      "required": [
+        "image",
+        "question"
+      ],
+      "optional": [
+        "previous",
+        "expected_source_sha256"
+      ]
+    },
+    "extract_feature_batch": {
+      "required": [
+        "images"
+      ],
+      "optional": [
+        "components"
+      ]
+    },
+    "extract_feature_sets": {
+      "required": [
+        "image",
+        "selections"
+      ],
+      "optional": []
+    },
+    "extract_features": {
+      "required": [
+        "image"
+      ],
+      "optional": [
+        "components",
+        "perspective_quad",
+        "canonical_size"
+      ]
+    },
+    "image_observe": {
+      "required": [
+        "image"
+      ],
+      "optional": [
+        "expected_source_sha256",
+        "options"
+      ]
+    },
+    "interface_video": {
+      "required": [
+        "video"
+      ],
+      "optional": [
+        "fps",
+        "max_seconds",
+        "tracking_mode"
+      ]
+    },
+    "memory_bundle_export": {
+      "required": [
+        "memory",
+        "output"
+      ],
+      "optional": []
+    },
+    "memory_bundle_restore": {
+      "required": [
+        "memory",
+        "bundle"
+      ],
+      "optional": []
+    },
+    "memory_compare": {
+      "required": [
+        "memory",
+        "before",
+        "after"
+      ],
+      "optional": []
+    },
+    "memory_duplicates": {
+      "required": [
+        "memory"
+      ],
+      "optional": []
+    },
+    "memory_find": {
+      "required": [
+        "memory",
+        "image",
+        "maximum_distance"
+      ],
+      "optional": [
+        "components",
+        "limit",
+        "include_self",
+        "exclude_sources",
+        "expected_source_sha256"
+      ]
+    },
+    "memory_get_observation": {
+      "required": [
+        "memory",
+        "observation_id"
+      ],
+      "optional": []
+    },
+    "memory_history": {
+      "required": [
+        "memory",
+        "entity"
+      ],
+      "optional": [
+        "limit"
+      ]
+    },
+    "memory_history_link": {
+      "required": [
+        "memory",
+        "entity",
+        "observation_id",
+        "session",
+        "event_index"
+      ],
+      "optional": [
+        "reason"
+      ]
+    },
+    "memory_index_build": {
+      "required": [
+        "memory"
+      ],
+      "optional": []
+    },
+    "memory_inspect": {
+      "required": [
+        "memory",
+        "observation_id"
+      ],
+      "optional": []
+    },
+    "memory_list": {
+      "required": [
+        "memory"
+      ],
+      "optional": [
+        "limit"
+      ]
+    },
+    "memory_packet_query": {
+      "required": [
+        "memory",
+        "image"
+      ],
+      "optional": [
+        "components",
+        "limit",
+        "exclude_sources",
+        "maximum_distance"
+      ]
+    },
+    "memory_packet_query_many": {
+      "required": [
+        "memory",
+        "packets"
+      ],
+      "optional": [
+        "limit",
+        "exclude_sources",
+        "maximum_distance"
+      ]
+    },
+    "memory_provenance": {
+      "required": [
+        "memory"
+      ],
+      "optional": []
+    },
+    "memory_retention_apply": {
+      "required": [
+        "memory",
+        "plan"
+      ],
+      "optional": []
+    },
+    "memory_retention_plan": {
+      "required": [
+        "memory",
+        "maximum"
+      ],
+      "optional": [
+        "protected"
+      ]
+    },
+    "memory_scene_inventory": {
+      "required": [
+        "memory",
+        "observation_id"
+      ],
+      "optional": []
+    },
+    "memory_snapshot": {
+      "required": [
+        "memory",
+        "output"
+      ],
+      "optional": [
+        "backup_timeout"
+      ]
+    },
+    "memory_storage": {
+      "required": [
+        "memory"
+      ],
+      "optional": []
+    },
+    "memory_store_image": {
+      "required": [
+        "memory",
+        "image"
+      ],
+      "optional": [
+        "components",
+        "expected_source_sha256"
+      ]
+    },
+    "observe_interface": {
+      "required": [
+        "image"
+      ],
+      "optional": [
+        "previous",
+        "templates",
+        "stride",
+        "min_similarity",
+        "matcher",
+        "scales",
+        "region_proposals",
+        "region_mode",
+        "memory",
+        "memory_components"
+      ]
+    },
+    "observe_interface_batch": {
+      "required": [
+        "images"
+      ],
+      "optional": [
+        "options"
+      ]
+    },
+    "profile_interface": {
+      "required": [
+        "image"
+      ],
+      "optional": [
+        "previous",
+        "templates",
+        "stride",
+        "min_similarity",
+        "matcher",
+        "scales",
+        "region_proposals",
+        "region_mode"
+      ]
+    },
+    "recognize": {
+      "required": [
+        "image",
+        "model"
+      ],
+      "optional": []
+    },
+    "recognize_batch": {
+      "required": [
+        "images",
+        "model"
+      ],
+      "optional": []
+    },
+    "recognize_packet": {
+      "required": [
+        "image",
+        "model"
+      ],
+      "optional": [
+        "calibration",
+        "top_k",
+        "min_margin"
+      ]
+    },
+    "recognize_trained": {
+      "required": [
+        "image",
+        "model"
+      ],
+      "optional": [
+        "memory"
+      ]
+    },
+    "remember": {
+      "required": [
+        "image",
+        "memory"
+      ],
+      "optional": [
+        "mode"
+      ]
+    },
+    "retrieve": {
+      "required": [
+        "image",
+        "memory"
+      ],
+      "optional": [
+        "limit"
+      ]
+    },
+    "scene_absence": {
+      "required": [
+        "memory",
+        "reference",
+        "observations"
+      ],
+      "optional": [
+        "minimum_consecutive"
+      ]
+    },
+    "scene_analyze": {
+      "required": [
+        "memory",
+        "observation_id"
+      ],
+      "optional": []
+    },
+    "scene_changes": {
+      "required": [
+        "memory",
+        "before",
+        "after"
+      ],
+      "optional": [
+        "registration",
+        "movement_tolerance"
+      ]
+    },
+    "scene_compare": {
+      "required": [
+        "memory",
+        "before",
+        "after"
+      ],
+      "optional": [
+        "normalize"
+      ]
+    },
+    "track_sequence": {
+      "required": [
+        "samples",
+        "source_sha256"
+      ],
+      "optional": [
+        "config",
+        "checkpoint",
+        "output_checkpoint"
+      ]
+    },
+    "train": {
+      "required": [
+        "manifest",
+        "output"
+      ],
+      "optional": [
+        "method"
+      ]
+    },
+    "video": {
+      "required": [
+        "video"
+      ],
+      "optional": [
+        "fps",
+        "max_seconds",
+        "mode"
+      ]
+    },
+    "visual_question": {
+      "required": [
+        "image",
+        "question"
+      ],
+      "optional": [
+        "mode"
+      ]
+    }
+  },
+  "max_request_bytes": 1048576,
+  "max_response_bytes": 16777216,
+  "max_depth": 32,
+  "scope": "structural contracts; action-specific limits and explicit filesystem/capability grants still apply"
+}

@@ -1,0 +1,7 @@
+test_empty_and_truncated_reports_do_not_overclaim (test_stage137.DescriptionTests.test_empty_and_truncated_reports_do_not_overclaim) ... ok
+test_statements_have_resolvable_evidence_and_no_echoed_instructions (test_stage137.DescriptionTests.test_statements_have_resolvable_evidence_and_no_echoed_instructions) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK

@@ -1,0 +1,7 @@
+test_histograms_and_constant_texture (test_stage102.AppearanceTests.test_histograms_and_constant_texture) ... ok
+test_schema_distinguishes_features (test_stage102.AppearanceTests.test_schema_distinguishes_features) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.007s
+
+OK

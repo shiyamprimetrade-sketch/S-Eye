@@ -1,0 +1,7 @@
+{
+  "installed_module": "/tmp/seye-install-smoke/lib/python3.12/site-packages/seye/__init__.py",
+  "class": "triangle",
+  "overlay_created": true,
+  "source_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+  "executed_outside_checkout": true
+}

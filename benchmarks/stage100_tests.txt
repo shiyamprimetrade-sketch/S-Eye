@@ -1,0 +1,8 @@
+test_legacy_parity_and_versioned_composition (test_stage100.FeaturePipelineTests.test_legacy_parity_and_versioned_composition) ... ok
+test_plugin_isolation_dimensions_and_invalid_selection (test_stage100.FeaturePipelineTests.test_plugin_isolation_dimensions_and_invalid_selection) ... ok
+test_read_only_scoped_feature_contract_and_caller_perspective (test_stage100.FeaturePipelineTests.test_read_only_scoped_feature_contract_and_caller_perspective) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.021s
+
+OK

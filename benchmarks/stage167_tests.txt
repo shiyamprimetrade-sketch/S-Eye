@@ -1,0 +1,7 @@
+test_counts_boxes_and_unchanged_pixels_have_bound_evidence (test_stage167.GroundedQuestionTests.test_counts_boxes_and_unchanged_pixels_have_bound_evidence) ... ok
+test_text_and_executable_looking_questions_abstain_without_file_read (test_stage167.GroundedQuestionTests.test_text_and_executable_looking_questions_abstain_without_file_read) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.038s
+
+OK

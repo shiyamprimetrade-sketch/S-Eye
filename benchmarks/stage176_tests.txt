@@ -1,0 +1,7 @@
+test_changes_are_measured_without_inventing_accuracy (test_stage176.ComparisonTests.test_changes_are_measured_without_inventing_accuracy) ... ok
+test_partial_sources_stay_in_denominator_and_strict_mode_refuses_them (test_stage176.ComparisonTests.test_partial_sources_stay_in_denominator_and_strict_mode_refuses_them) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

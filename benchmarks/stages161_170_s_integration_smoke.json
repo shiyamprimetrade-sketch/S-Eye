@@ -1,0 +1,1 @@
+{"describe_contract_passed": true, "executed_outside_checkout": true, "explicit_write_steps": ["store", "index"], "installed_spawned_session_passed": true, "main_s_deployment": false, "operations": 5, "strict_installed_cli_passed": true}

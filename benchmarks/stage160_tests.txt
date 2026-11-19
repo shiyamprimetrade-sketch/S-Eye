@@ -1,0 +1,8 @@
+test_default_denial_envelope_bounds_and_capabilities (test_stage160.StableAPITests.test_default_denial_envelope_bounds_and_capabilities) ... ok
+test_profile_batch_features_and_granted_memory_snapshot (test_stage160.StableAPITests.test_profile_batch_features_and_granted_memory_snapshot) ... ok
+test_spawned_client_uses_same_granted_request_contract (test_stage160.StableAPITests.test_spawned_client_uses_same_granted_request_contract) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.153s
+
+OK

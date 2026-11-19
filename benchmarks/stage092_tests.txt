@@ -1,0 +1,7 @@
+test_concavity_and_hole_preserve_exact_area (test_stage092.BoundaryTests.test_concavity_and_hole_preserve_exact_area) ... ok
+test_diagonal_cells_border_and_budget (test_stage092.BoundaryTests.test_diagonal_cells_border_and_budget) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

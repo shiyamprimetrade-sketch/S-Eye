@@ -1,0 +1,7 @@
+test_crash_and_wrong_response_identity_are_not_success (test_stage168.WorkerLifecycleTests.test_crash_and_wrong_response_identity_are_not_success) ... ok
+test_pre_cancel_during_cancel_and_timeout_reap_workers (test_stage168.WorkerLifecycleTests.test_pre_cancel_during_cancel_and_timeout_reap_workers) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.802s
+
+OK

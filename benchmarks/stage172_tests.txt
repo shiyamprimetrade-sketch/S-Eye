@@ -1,0 +1,7 @@
+test_half_open_edge_box_pixels_dimensions_and_source_preserved (test_stage172.OverlayTests.test_half_open_edge_box_pixels_dimensions_and_source_preserved) ... ok
+test_workspace_overlay_metadata_and_source_files_unchanged (test_stage172.OverlayTests.test_workspace_overlay_metadata_and_source_files_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.016s
+
+OK

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "purpose": "New generated evaluation after retiring the inspected Stage 109 test from parameter selection",
+  "known_classes": ["run", "stop", "menu"],
+  "train_positions": [[8,10], [12,12], [16,14]],
+  "validation_positions": [[24,14], [28,18]],
+  "test_positions": [[52,20], [60,34]],
+  "unknown_designs": ["ring", "diamond"],
+  "candidates": [["geometry", "appearance"], ["shape"]],
+  "sgd": {"seed": 113, "epochs": 80, "learning_rate": 0.2},
+  "selection": "Validation-only model/epoch selection; no test threshold fitting",
+  "limitations": ["Shared generated renderer, not independent application captures", "Centered edge shape is not semantic understanding or general scale/perspective invariance"]
+}

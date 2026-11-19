@@ -1,0 +1,7 @@
+test_failure_is_recorded_and_reraised (test_stage152.LatencyTests.test_failure_is_recorded_and_reraised) ... ok
+test_profiled_pixels_and_regions_equal_unprofiled_evidence (test_stage152.LatencyTests.test_profiled_pixels_and_regions_equal_unprofiled_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.018s
+
+OK

@@ -1,0 +1,7 @@
+test_required_strict_fields_duplicates_depth_and_nonfinite_rejected (test_stage161.ContractTests.test_required_strict_fields_duplicates_depth_and_nonfinite_rejected) ... ok
+test_response_identity_and_result_error_exclusion (test_stage161.ContractTests.test_response_identity_and_result_error_exclusion) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

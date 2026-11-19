@@ -1,0 +1,7 @@
+test_granted_image_returns_evidence_without_action_authority (test_stage163.ToolsTests.test_granted_image_returns_evidence_without_action_authority) ... ok
+test_tool_map_is_observation_only_and_cannot_override_grants (test_stage163.ToolsTests.test_tool_map_is_observation_only_and_cannot_override_grants) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.031s
+
+OK

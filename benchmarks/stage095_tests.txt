@@ -1,0 +1,7 @@
+test_diagonal_connectivity_and_budget_policy (test_stage095.NoiseTests.test_diagonal_connectivity_and_budget_policy) ... ok
+test_specks_removed_and_thin_long_stroke_preserved (test_stage095.NoiseTests.test_specks_removed_and_thin_long_stroke_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.008s
+
+OK

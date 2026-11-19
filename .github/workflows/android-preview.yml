@@ -1,0 +1,81 @@
+name: S-Eye Android preview
+on:
+  pull_request:
+    paths: ['android/**', '.github/workflows/android-preview.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: python -m pip install -r requirements.txt
+      - uses: android-actions/setup-android@v3
+        with:
+          cmdline-tools-version: '12266719'
+          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
+      - run: bash android/build-apk.sh "$RUNNER_TEMP/seye-apk"
+      - run: python android/verify/benchmark.py --output "$RUNNER_TEMP/seye-apk/recognition.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: S-Eye-Android-preview
+          if-no-files-found: error
+          path: ${{ runner.temp }}/seye-apk/
+  emulator:
+    runs-on: ubuntu-latest
+    needs: apk
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: S-Eye-Android-preview
+          path: ${{ runner.temp }}/seye-apk/
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          cmdline-tools-version: '12266719'
+          packages: 'platform-tools'
+      - name: Install APK and classify the built-in sample on Android 16
+        shell: bash
+        run: |
+          test -e /dev/kvm
+          sudo chmod a+rw /dev/kvm
+          image='system-images;android-36;google_apis;x86_64'
+          sdkmanager emulator platform-tools "$image"
+          export ANDROID_USER_HOME="$RUNNER_TEMP/seye-android-user"
+          export ANDROID_EMULATOR_HOME="$ANDROID_USER_HOME"
+          export ANDROID_AVD_HOME="$ANDROID_USER_HOME/avd"
+          mkdir -p "$ANDROID_AVD_HOME"
+          printf 'no\n' | avdmanager create avd --force --name seye_api36 --package "$image" --path "$ANDROID_AVD_HOME/seye_api36.avd"
+          emulator_bin="${ANDROID_SDK_ROOT:-$ANDROID_HOME}/emulator/emulator"
+          "$emulator_bin" -list-avds | grep -Fx seye_api36
+          "$emulator_bin" -avd seye_api36 -no-window -gpu swiftshader_indirect -no-audio -no-boot-anim -no-snapshot > "$RUNNER_TEMP/emulator.log" 2>&1 &
+          emulator_pid=$!
+          trap 'adb emu kill || true' EXIT
+          for _ in {1..120}; do
+            if adb get-state 2>/dev/null | grep -Fx device; then break; fi
+            kill -0 "$emulator_pid" 2>/dev/null || { cat "$RUNNER_TEMP/emulator.log"; exit 1; }
+            sleep 2
+          done
+          adb get-state | grep -Fx device
+          timeout 300 bash -c 'until [[ "$(adb shell getprop sys.boot_completed | tr -d "\r")" == 1 ]]; do sleep 3; done'
+          adb shell input keyevent 82
+          bash android/verify/emulator-smoke.sh "$RUNNER_TEMP/seye-apk/S-Eye-0.3.0-preview.apk"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: S-Eye-emulator-log
+          path: ${{ runner.temp }}/emulator.log

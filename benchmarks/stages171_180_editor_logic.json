@@ -1,0 +1,74 @@
+{
+  "format": "seye-editor-logic-verification-v1",
+  "cases": [
+    {
+      "simulated_viewport_width": 1100,
+      "source_size": [
+        500,
+        300
+      ],
+      "preview_size": [
+        500,
+        300
+      ],
+      "source_box": [
+        50,
+        60,
+        300,
+        210
+      ],
+      "maximum_coordinate_error_pixels": 0,
+      "downloaded_boxes": 1,
+      "undo_boxes": 0,
+      "drawing_ignored_before_preview_load": true,
+      "unscored": true
+    },
+    {
+      "simulated_viewport_width": 390,
+      "source_size": [
+        500,
+        300
+      ],
+      "preview_size": [
+        500,
+        300
+      ],
+      "source_box": [
+        50,
+        60,
+        300,
+        210
+      ],
+      "maximum_coordinate_error_pixels": 0,
+      "downloaded_boxes": 1,
+      "undo_boxes": 0,
+      "drawing_ignored_before_preview_load": true,
+      "unscored": true
+    },
+    {
+      "simulated_viewport_width": 390,
+      "source_size": [
+        1200,
+        800
+      ],
+      "preview_size": [
+        800,
+        533
+      ],
+      "source_box": [
+        120,
+        160,
+        720,
+        560
+      ],
+      "maximum_coordinate_error_pixels": 0,
+      "downloaded_boxes": 1,
+      "undo_boxes": 0,
+      "drawing_ignored_before_preview_load": true,
+      "unscored": true
+    }
+  ],
+  "browser_rendering_verified": false,
+  "scope": "Node VM with test doubles for canvas/elements/Blob; no browser UI or horizontal-layout validation",
+  "passed": true
+}

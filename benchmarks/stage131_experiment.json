@@ -1,0 +1,1 @@
+{"representative_application_accuracy":null,"result":{"cases":4,"passed":true,"topologies":["first_contains_second","overlap","touching","disjoint"]},"schema_version":1,"scope":"controlled generated scene/video experiment","stage":131}

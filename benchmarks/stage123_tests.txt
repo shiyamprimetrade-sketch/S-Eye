@@ -1,0 +1,7 @@
+test_exact_neighbors_match_exhaustive_and_prune_distances (test_stage123.RetrievalTests.test_exact_neighbors_match_exhaustive_and_prune_distances) ... ok
+test_explicit_source_exclusion_and_unknown_schema (test_stage123.RetrievalTests.test_explicit_source_exclusion_and_unknown_schema) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.119s
+
+OK

@@ -1,0 +1,7 @@
+test_huge_nonfinite_or_outside_boxes_fail_explicitly (test_stage131.SpatialTests.test_huge_nonfinite_or_outside_boxes_fail_explicitly) ... ok
+test_topology_distinguishes_overlap_containment_touching_and_gap (test_stage131.SpatialTests.test_topology_distinguishes_overlap_containment_touching_and_gap) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK

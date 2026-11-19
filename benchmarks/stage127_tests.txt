@@ -1,0 +1,7 @@
+test_missing_historical_provenance_remains_missing (test_stage127.ProvenanceTests.test_missing_historical_provenance_remains_missing) ... ok
+test_raw_score_never_becomes_truth_probability (test_stage127.ProvenanceTests.test_raw_score_never_becomes_truth_probability) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.003s
+
+OK

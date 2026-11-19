@@ -1,0 +1,926 @@
+{
+  "baseline_commit": "e92bb5594c193a50e01ae8e008a4020f7cc45f78",
+  "tracked_files": 106,
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 383,
+      "sha256": "ce7e8b74486cd6a57896719e4200627856cffad2368f19e14e3df3bff080772e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1122,
+      "sha256": "7878794ad990f845cfe312b05b40398a4ff2a4a93a8e4447d66376f402928838"
+    },
+    {
+      "path": "adaptive_mask.py",
+      "bytes": 1144,
+      "sha256": "33572de650f05c91db36e03e619fd8eb4e7ab7082b04eab4185352df46d0a5eb",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "archive_session.py",
+      "bytes": 2656,
+      "sha256": "566eaf45b7b937f6a44e798031a52c16100422a24dac404be3f62e979bb81350",
+      "syntax": "valid",
+      "definitions": [
+        "digest",
+        "main"
+      ]
+    },
+    {
+      "path": "attention.py",
+      "bytes": 1042,
+      "sha256": "19fdbf2d121bc93763cb0303fbe9a9adb978237c2528f8381c40f94483da0fe9",
+      "syntax": "valid",
+      "definitions": [
+        "read"
+      ]
+    },
+    {
+      "path": "audit_visual_memory.py",
+      "bytes": 3654,
+      "sha256": "21f0fbf86bfd91e88bf970554657d48d382df0cfb454fef9161931d6f6c72649",
+      "syntax": "valid",
+      "definitions": [
+        "fail",
+        "sha256",
+        "main"
+      ]
+    },
+    {
+      "path": "auto_memory.py",
+      "bytes": 3184,
+      "sha256": "41c936df34003df5d66e941c8347af06af5b26f8711501b38c3f99f1b39caa99",
+      "syntax": "valid",
+      "definitions": [
+        "execute",
+        "atomic_restore",
+        "main"
+      ]
+    },
+    {
+      "path": "auto_memory_stage77_backup.py",
+      "bytes": 1890,
+      "sha256": "8f45381459d1a23c3251a6327a6facbb935c5141de1700fe9b89fe8a29b212f6",
+      "syntax": "valid",
+      "definitions": [
+        "execute",
+        "main"
+      ]
+    },
+    {
+      "path": "borderline_test.py",
+      "bytes": 1242,
+      "sha256": "c4fbc107ac6f4390e8c672c35ef6b60c8249ab2a85b2551808078f2b0c812ad3",
+      "syntax": "valid",
+      "definitions": [
+        "classify"
+      ]
+    },
+    {
+      "path": "build_memory_index.py",
+      "bytes": 4390,
+      "sha256": "ca478f2a5356977044f5741d86122c1b6ea19e4aab434cf6d417fa32674579d9",
+      "syntax": "valid",
+      "definitions": [
+        "digest",
+        "main"
+      ]
+    },
+    {
+      "path": "build_memory_index_stage76_backup.py",
+      "bytes": 3309,
+      "sha256": "11fb56bc9d7ef6a960bf8b177e0be92ac38eb6d8e51e6c8f13eb3cc066eef853",
+      "syntax": "valid",
+      "definitions": [
+        "digest",
+        "main"
+      ]
+    },
+    {
+      "path": "camera_eye.py",
+      "bytes": 2721,
+      "sha256": "7c8d0716f50ceab91f4bd7169a9dfaa5952bb06d8bee0e2702cd96c16f294eef",
+      "syntax": "valid",
+      "definitions": [
+        "detect_edges",
+        "locate_edges"
+      ]
+    },
+    {
+      "path": "camera_geometry.py",
+      "bytes": 1588,
+      "sha256": "ff296491aa19e64ca80a876784b596cd41e60856b673c204522c6fdacdcde0f4",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "camera_v2.py",
+      "bytes": 884,
+      "sha256": "59d78b203394f58403f1892c7bfe916e8234a12ffb7628c1e8b559f0d78f3784",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "checkpoint54.py",
+      "bytes": 1809,
+      "sha256": "0929f3fe1a2c4786a194c4c2d2d49aaab98d4d53e1a2553b33808facc58bbfbb",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "checkpoints/RESUME_STAGE85.txt",
+      "bytes": 858,
+      "sha256": "b0d0001e01109d4e42a11ab0830202ab2c6ca95cd121a1b607d2a15bdc8e1806"
+    },
+    {
+      "path": "checkpoints/geometry_v2_runner.py",
+      "bytes": 3263,
+      "sha256": "980745c4f4648544ececaef5281e9ce16033c97542e533bc0104392bbfd05aa2",
+      "syntax": "valid",
+      "definitions": [
+        "cross",
+        "hull",
+        "distance",
+        "simplify"
+      ]
+    },
+    {
+      "path": "checkpoints/stage37.json",
+      "bytes": 626,
+      "sha256": "314a733c0bfccf21d3a3002dcd90a307be1a62a758ef61398ca214498a913ad2"
+    },
+    {
+      "path": "checkpoints/stage52.json",
+      "bytes": 1392,
+      "sha256": "f4319250a036284a069b314e7f12336e491f5aebf75f3ab50aa317b5a6cdcc86"
+    },
+    {
+      "path": "checkpoints/stage54.json",
+      "bytes": 792,
+      "sha256": "77dfe15a7b9cead06eb4c53b2868e61f34d59f82aa251dda32308dc537b4fa15"
+    },
+    {
+      "path": "checkpoints/stress_test.py",
+      "bytes": 2142,
+      "sha256": "fffccec7ecdb84069b4fae3115c5e9ffad5a59e4436028db829a9fa35a48e212",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "checkpoints/verify_geometry.py",
+      "bytes": 629,
+      "sha256": "3d0b51369d91d0a332dc478d2b97a6e0311d709667e34103f5cc66fd9602f03d",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "classify_camera.py",
+      "bytes": 3258,
+      "sha256": "ddbb808e2b7f671644205a5e2c32c7b1032cf055e619ad6278c9b93eafdfec17",
+      "syntax": "valid",
+      "definitions": [
+        "cross",
+        "hull",
+        "distance",
+        "simplify"
+      ]
+    },
+    {
+      "path": "classify_camera_v2.py",
+      "bytes": 3348,
+      "sha256": "2b4cd7593fb90afe9954259d362fb4b2c5915c8b377e96a7f020bda81eec9510",
+      "syntax": "valid",
+      "definitions": [
+        "cross",
+        "hull",
+        "distance",
+        "simplify"
+      ]
+    },
+    {
+      "path": "clusters.py",
+      "bytes": 1484,
+      "sha256": "43579a09d7ee0153dc6fb0366829bf27496921cfccbbaad63f1bc04b36970308",
+      "syntax": "valid",
+      "definitions": [
+        "load"
+      ]
+    },
+    {
+      "path": "compare.py",
+      "bytes": 990,
+      "sha256": "df0942b9ce0adf4f030250641cc6e88ef7d5945ae8f2498cc7661df58bbf240e",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "corners.py",
+      "bytes": 1256,
+      "sha256": "89229a0d9829f5b90e38fe1ce38dc056e64444362c1220eba593a8f504da8c8b",
+      "syntax": "valid",
+      "definitions": [
+        "foreground"
+      ]
+    },
+    {
+      "path": "eye.py",
+      "bytes": 195,
+      "sha256": "9e5fd2d77e675cc76dff218d4e9040fcba39b9aee0e168e2538b8a55ac1927db",
+      "syntax": "valid",
+      "definitions": [
+        "eye"
+      ]
+    },
+    {
+      "path": "filter_regions.py",
+      "bytes": 1873,
+      "sha256": "d45662dbc44ba66a6edc2902d58c60ebc768a927c85d7cd42b26d85095f2d621",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "focus.py",
+      "bytes": 1127,
+      "sha256": "750cee674d84c7e194e167e61d39dfd0e534eff9eb1e231742f6a844cc2ea5a7",
+      "syntax": "valid",
+      "definitions": [
+        "load"
+      ]
+    },
+    {
+      "path": "geometry.py",
+      "bytes": 2986,
+      "sha256": "3c79a48ba94c67b6ffa8ab2a5a937de4faeddd5bb4e96f9263d60082774e8140",
+      "syntax": "valid",
+      "definitions": [
+        "cross",
+        "hull",
+        "distance",
+        "simplify"
+      ]
+    },
+    {
+      "path": "geometry_challenge.py",
+      "bytes": 698,
+      "sha256": "5106620784773f97806a35751db480b5bd7fabe19faa29e3ca13455ca5f6d25d",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "geometry_challenge_runner.py",
+      "bytes": 2811,
+      "sha256": "55349ef521a9ef90a2a5640153909f19f5648582b963ea33f9bd6cc9ca021b2f",
+      "syntax": "valid",
+      "definitions": [
+        "cross",
+        "hull",
+        "distance",
+        "simplify"
+      ]
+    },
+    {
+      "path": "geometry_v2.py",
+      "bytes": 1055,
+      "sha256": "a266c7afe16d596329760bda2d2ce13ac9dfded846d5ae1c29c16acdc0a18ae1",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "geometry_v2_runner.py",
+      "bytes": 3263,
+      "sha256": "980745c4f4648544ececaef5281e9ce16033c97542e533bc0104392bbfd05aa2",
+      "syntax": "valid",
+      "definitions": [
+        "cross",
+        "hull",
+        "distance",
+        "simplify"
+      ]
+    },
+    {
+      "path": "geometry_v3.py",
+      "bytes": 736,
+      "sha256": "b2e421381acd4ffee2977e467f80b3916585bbe684e5a99e38b32fb7a7b918d0",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "geometry_v3_runner.py",
+      "bytes": 3347,
+      "sha256": "965f74790501d0a4e77bae46ba6aea109e28b80eefbe60109dcf178cd0891953",
+      "syntax": "valid",
+      "definitions": [
+        "cross",
+        "hull",
+        "distance",
+        "simplify"
+      ]
+    },
+    {
+      "path": "group_shapes.py",
+      "bytes": 1597,
+      "sha256": "a4310e15b27cfd9f388ee417180ef2658e26339b572ba843c2309cc299054a3d",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "improved_focus.py",
+      "bytes": 3174,
+      "sha256": "36e88ca7bef3af9c44e2177f7e79dea3c0168bcf73a85611c239b0e2a8f954f3",
+      "syntax": "valid",
+      "definitions": [
+        "load"
+      ]
+    },
+    {
+      "path": "improved_focus_backup.py",
+      "bytes": 1791,
+      "sha256": "83b9057441860bd2bba4cc833be544e8fa4d1f9e176ee1b7f8bed8ad1af44d6a",
+      "syntax": "valid",
+      "definitions": [
+        "load"
+      ]
+    },
+    {
+      "path": "improved_focus_stage21.py",
+      "bytes": 2490,
+      "sha256": "df636aaa9c901ac79ac3bc8f93fc67a742efa896460748bea191036eb28dc2fb",
+      "syntax": "valid",
+      "definitions": [
+        "load"
+      ]
+    },
+    {
+      "path": "inspect_shapes.py",
+      "bytes": 481,
+      "sha256": "537606a7c1e8c1c3a06aeb4bec4bf832aa415965e2ce18f819f4007f3c790abf",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "inspect_square.py",
+      "bytes": 912,
+      "sha256": "17e7833754ce27b8ae707dabeb37274da42f6511674d7a5a15b8ffd03b2d8d32",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "inspect_square_runner.py",
+      "bytes": 3815,
+      "sha256": "9205997ba6a285bf794fde9e98793acf6ede1f270af97e51699342e9c8e2fd16",
+      "syntax": "valid",
+      "definitions": [
+        "cross",
+        "hull",
+        "distance",
+        "simplify"
+      ]
+    },
+    {
+      "path": "integrate_memory.py",
+      "bytes": 3417,
+      "sha256": "e25de3bd832a24960c6b6635d57b4e746b09a75030421560e7ed3dbd70e6fb6e",
+      "syntax": "valid",
+      "definitions": [
+        "digest",
+        "remember"
+      ]
+    },
+    {
+      "path": "integrate_memory_stage60_backup.py",
+      "bytes": 3161,
+      "sha256": "b669233e92d64b1cc4a9632445eda909e594bdf31855985cae204007f674d76e",
+      "syntax": "valid",
+      "definitions": [
+        "digest",
+        "remember"
+      ]
+    },
+    {
+      "path": "isolated_analysis.py",
+      "bytes": 3763,
+      "sha256": "e4bfc3ba4f91fd1f53ef2a08f5c3b0746da3c4f2aa1d1e3a8379c5dc0be93737",
+      "syntax": "valid",
+      "definitions": [
+        "digest",
+        "main"
+      ]
+    },
+    {
+      "path": "local_contrast.py",
+      "bytes": 1852,
+      "sha256": "d2b6ba646821accf836affcd777473996feb2c68711285b4cbf019e67b170e76",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "local_contrast_stage67_backup.py",
+      "bytes": 1139,
+      "sha256": "0a5483dd75bcc6392003e0fe8afbd665b7decb0f1e61cf5d736f9cc6af9a42b0",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "new_test.py",
+      "bytes": 488,
+      "sha256": "bb37a087530f7da553ea876c700f787d0fdf918acdec06baa4e08cba98baa8fa",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "paperless.py",
+      "bytes": 437,
+      "sha256": "7be5f630d16b9a653592fd6593c1ce0537705b1ed87969624e9d0c73b2e757e5",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "patch_stage60.py",
+      "bytes": 1229,
+      "sha256": "fbcedb82c1cb22b2a96c787afa2d074eff92aeb3b5884d482fb3db77370147c4",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "patch_stage61.py",
+      "bytes": 1750,
+      "sha256": "7b7643414846ad92a5f6f7aa76b87b8c3a5cc576977be1b421de0df64dfc3475",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "patch_stage62.py",
+      "bytes": 878,
+      "sha256": "86dd421657e36c59037523b7d90f5b32c781701faf18b50d267aedfa48b52372",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "patch_stage63.py",
+      "bytes": 1925,
+      "sha256": "36e9b212f9c683b3b6020166621df30536e0ac23ad85c9543a77899769851926",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "patch_stage68.py",
+      "bytes": 2146,
+      "sha256": "f79a5ba30973bb36fbde8488c0f4a37fbd65c0d2c395f493e564d7f67a59dd1f",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "patch_stage73.py",
+      "bytes": 703,
+      "sha256": "f9efcfc3935853b2b8656e4609b1465eb9466145bbdf07ee85b0964435dd0d26",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "patch_stage73_integrate.py",
+      "bytes": 2327,
+      "sha256": "33678fd2b13bde79250a82350d31afc08fc359c2f1cb21e344c267e8f58c5ce4",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "patch_stage77.py",
+      "bytes": 2100,
+      "sha256": "a3ea6d58a87eac1b693971a6c8d776b3e3941d2e384e8e43e14af7b6318207e9",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "patch_stage78.py",
+      "bytes": 3634,
+      "sha256": "8921d97da03274fde00acc92b9530c87ad6d9c9da232d4e584ade65ee52d8b7e",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "real_shapes.py",
+      "bytes": 920,
+      "sha256": "ed19af7dda1b7aec1a24e8c7dac99a79623467e2ba0b811dfb6fc4feadec5425",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "recognize.py",
+      "bytes": 1762,
+      "sha256": "4b301d32fc474bcdf6be722a325ada230b38fca181b6d0c62a0ea6e1afc15c75",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "recognize_rotation.py",
+      "bytes": 1505,
+      "sha256": "487f8f8a91cdcc100072f441ffa583c10a3eb75b99c94c28a58f718199318480",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "recognize_stage28_backup.py",
+      "bytes": 1695,
+      "sha256": "cb91f0a9554caf1707c06e39a1b917bf2aac83600ec7b6874871fbf40b33e336",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "recognize_stage29.py",
+      "bytes": 1762,
+      "sha256": "4b301d32fc474bcdf6be722a325ada230b38fca181b6d0c62a0ea6e1afc15c75",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "reliability.py",
+      "bytes": 1095,
+      "sha256": "5a059e36ef6c943a92c1ba0bb206c33e1f36f758b8c01603021f63260031e95b",
+      "syntax": "valid",
+      "definitions": [
+        "compare"
+      ]
+    },
+    {
+      "path": "remember.py",
+      "bytes": 624,
+      "sha256": "d3072039b475992488a9fea21d3256824ba04e77e02d2f4bf5119b693f2aaf80",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "rotation_test.py",
+      "bytes": 558,
+      "sha256": "325ddba2eb3f440d28e19abc095bdb110aabb8be26ffbb4893bc82f47f3d71a9",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "s_eye.py",
+      "bytes": 5058,
+      "sha256": "8d06f0fac148aca335434080fcb54ac30651236073d868d90621590e3d79c0a6",
+      "syntax": "valid",
+      "definitions": [
+        "analyze",
+        "status",
+        "main"
+      ]
+    },
+    {
+      "path": "s_eye_analysis.json",
+      "bytes": 1649,
+      "sha256": "b818037b71fce25ab3c7a7afbab1b3216d7dac805d3ad8b88e1843746a34cd0f"
+    },
+    {
+      "path": "s_eye_stage53_backup.py",
+      "bytes": 2894,
+      "sha256": "64ac3d27c6150775b0db7c7804983dc955d70cfddbe33290256fae36825a2fd5",
+      "syntax": "valid",
+      "definitions": [
+        "analyze",
+        "status",
+        "main"
+      ]
+    },
+    {
+      "path": "s_eye_stage61_backup.py",
+      "bytes": 3127,
+      "sha256": "86e18b210cbdcfc59ee5c26ed94fd4030a52a766698b042d1fa0046ed6a8c8d0",
+      "syntax": "valid",
+      "definitions": [
+        "analyze",
+        "status",
+        "main"
+      ]
+    },
+    {
+      "path": "s_eye_stage62_backup.py",
+      "bytes": 3164,
+      "sha256": "aa77b56e440a1db18844d17339a6f500d38af47266c2548e50653f1d82bf8971",
+      "syntax": "valid",
+      "definitions": [
+        "analyze",
+        "status",
+        "main"
+      ]
+    },
+    {
+      "path": "s_eye_stage72_backup.py",
+      "bytes": 4260,
+      "sha256": "4e9af2a23bc9579fc9640771fbd0dd8be7e51d7ca8aae45f87fa4147ffb21ab0",
+      "syntax": "valid",
+      "definitions": [
+        "analyze",
+        "status",
+        "main"
+      ]
+    },
+    {
+      "path": "s_eye_stage73_preintegration.py",
+      "bytes": 4260,
+      "sha256": "4e9af2a23bc9579fc9640771fbd0dd8be7e51d7ca8aae45f87fa4147ffb21ab0",
+      "syntax": "valid",
+      "definitions": [
+        "analyze",
+        "status",
+        "main"
+      ]
+    },
+    {
+      "path": "save_stage52.py",
+      "bytes": 1690,
+      "sha256": "4edbdf512102ef3b79ed62ea84dfd8ec783fb152c4e832afc1afaab2cb40db19",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "session_manifest.py",
+      "bytes": 3232,
+      "sha256": "78f48187bbdaf81d758e169edbf1b5edd520c02a243545f197471b150c6cfd5c",
+      "syntax": "valid",
+      "definitions": [
+        "sha256",
+        "main"
+      ]
+    },
+    {
+      "path": "shape_test.py",
+      "bytes": 1548,
+      "sha256": "d69edc2b058f30f5ecf2e64c6a83b88a80646a37bcf8d162a5f0b73ab3143d6e",
+      "syntax": "valid",
+      "definitions": [
+        "create_shape",
+        "analyze"
+      ]
+    },
+    {
+      "path": "shapes.py",
+      "bytes": 601,
+      "sha256": "6398485d85251f67095f05f4d4c8a4ffebc028a3a5f4cff38be8ee98c4eba056",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "source_guard.py",
+      "bytes": 1942,
+      "sha256": "b78c1030b0d70597960d5a98ef4083d35ed97da95d44f1e322e28f11ac7aeb9e",
+      "syntax": "valid",
+      "definitions": [
+        "digest",
+        "identify_source",
+        "guarded_analysis"
+      ]
+    },
+    {
+      "path": "square_decision_test.py",
+      "bytes": 1181,
+      "sha256": "ddec898e65471e9a1992ad827c4298671396141cc22b2821a51410c0a5408b01",
+      "syntax": "valid",
+      "definitions": [
+        "classify"
+      ]
+    },
+    {
+      "path": "square_geometry_test.py",
+      "bytes": 1063,
+      "sha256": "cc9c65d6f4ffcc5d4c3b7d01d33feacf36c56e02b855efc467b1acda566c3f16",
+      "syntax": "valid",
+      "definitions": [
+        "length",
+        "angle"
+      ]
+    },
+    {
+      "path": "stage82_contact_sheet.py",
+      "bytes": 1760,
+      "sha256": "7a9e8c64fde97e8c7002afe2432c5aa5ec8e730fbc8a6971c182126d27f34834",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "stage83_labels.py",
+      "bytes": 1922,
+      "sha256": "349ed36ee929338bd1d2294ac2d0d4d720a5e0b32220f2ef90265692ebbf4e13",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "stage84_evaluate.py",
+      "bytes": 2210,
+      "sha256": "1fad4fe9033fbaa138378447b2b22959c8664cab65629ad251666c418ea853a1",
+      "syntax": "valid",
+      "definitions": [
+        "normalize"
+      ]
+    },
+    {
+      "path": "stress_runner.py",
+      "bytes": 3257,
+      "sha256": "98cc96fb5d7d06fcbc7ae9e2b0da61a670bbd269f2e26b0c647c9660ebcc4a09",
+      "syntax": "valid",
+      "definitions": [
+        "cross",
+        "hull",
+        "distance",
+        "simplify"
+      ]
+    },
+    {
+      "path": "stress_test.py",
+      "bytes": 2142,
+      "sha256": "fffccec7ecdb84069b4fae3115c5e9ffad5a59e4436028db829a9fa35a48e212",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "test_image_isolation.py",
+      "bytes": 2156,
+      "sha256": "8fd164e48cf59cf8612086fa2692ff231ec269db90eb00235a0528775d707a82",
+      "syntax": "valid",
+      "definitions": [
+        "main"
+      ]
+    },
+    {
+      "path": "test_isolated_session.py",
+      "bytes": 2874,
+      "sha256": "68a18d2193aeecbd4004a281b9cfe5974b293e3762ec9ae4ca88cfccbe3c777d",
+      "syntax": "valid",
+      "definitions": [
+        "sha256",
+        "main"
+      ]
+    },
+    {
+      "path": "test_stage69.py",
+      "bytes": 3821,
+      "sha256": "dacfa45ec018b2e8611c16952878277b9535978d654c7e89e3de0de79219c076",
+      "syntax": "valid",
+      "definitions": [
+        "digest",
+        "main"
+      ]
+    },
+    {
+      "path": "test_stage70.py",
+      "bytes": 4352,
+      "sha256": "76bd1fc72f243dd6dbf2350a34c1e8521942f4775ecf26218c2817b65efb5f9b",
+      "syntax": "valid",
+      "definitions": [
+        "digest",
+        "classifications",
+        "main"
+      ]
+    },
+    {
+      "path": "test_stage79.py",
+      "bytes": 2873,
+      "sha256": "8cb81ae009f00d69307ea4e5d3822a6d2f0f65958ff4cf85e1f533eb8f3427da",
+      "syntax": "valid",
+      "definitions": [
+        "fail",
+        "read_index",
+        "run_ids",
+        "main"
+      ]
+    },
+    {
+      "path": "test_stage80.py",
+      "bytes": 2341,
+      "sha256": "60efe772be04c368da179992f452aa40911743b6ee01e3e193002a0ffc54ff9d",
+      "syntax": "valid",
+      "definitions": [
+        "digest",
+        "main"
+      ]
+    },
+    {
+      "path": "test_visual_memory.py",
+      "bytes": 1763,
+      "sha256": "a2a172cbc61f8138c532017645600dc639889c4b7ede2fa8d9519658f31a184e",
+      "syntax": "valid",
+      "definitions": [
+        "load",
+        "check"
+      ]
+    },
+    {
+      "path": "tolerance_runner.py",
+      "bytes": 3258,
+      "sha256": "ce9cb67485df79bb5eea578a5809072ce10e50ce430013dfe784a3e9478f40cf",
+      "syntax": "valid",
+      "definitions": [
+        "cross",
+        "hull",
+        "distance",
+        "simplify"
+      ]
+    },
+    {
+      "path": "tolerance_test.py",
+      "bytes": 1211,
+      "sha256": "f83b1c63f8e1eed761f7540ef1425e434851815c606b296a59e94c97262cdf4a",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "uncertainty_test.py",
+      "bytes": 1110,
+      "sha256": "c52a3d280e4e21b74f18a2a6c83b6c98797a0f973ef72174b2b76f9af3103b90",
+      "syntax": "valid",
+      "definitions": [
+        "classify"
+      ]
+    },
+    {
+      "path": "upgrade_memory_v2.py",
+      "bytes": 3853,
+      "sha256": "5c99a0ded5bd83f01757d3940a0513e513fd296df981816d4fffb6ca44ba1462",
+      "syntax": "valid",
+      "definitions": [
+        "sha256",
+        "find_photo",
+        "main"
+      ]
+    },
+    {
+      "path": "verify_geometry.py",
+      "bytes": 629,
+      "sha256": "3d0b51369d91d0a332dc478d2b97a6e0311d709667e34103f5cc66fd9602f03d",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "verify_isolated_run.py",
+      "bytes": 4855,
+      "sha256": "c3508b8e6da91cc88b3a675e8047a1af59cbbbb72e2d2b311e1bff1c5d7dd7f1",
+      "syntax": "valid",
+      "definitions": [
+        "digest",
+        "labels",
+        "fail",
+        "main"
+      ]
+    },
+    {
+      "path": "verify_memory_index.py",
+      "bytes": 5312,
+      "sha256": "46e645d90867ad8d187ccbab03e011553dfd4c0d0c8099dc6136d0f7c3aec36c",
+      "syntax": "valid",
+      "definitions": [
+        "fail",
+        "digest",
+        "parse_objects",
+        "main"
+      ]
+    },
+    {
+      "path": "verify_memory_v2.py",
+      "bytes": 4901,
+      "sha256": "258cc8aa739b07d00f39d13883eac1788a03419d6e2042d55eeae5e591b0d007",
+      "syntax": "valid",
+      "definitions": [
+        "digest",
+        "verify",
+        "resolve_photo",
+        "main"
+      ]
+    },
+    {
+      "path": "visual_change.py",
+      "bytes": 884,
+      "sha256": "e87494b1480e4548e7297ddff8f4a402072d1c296ef61b925876cf2b294cf132",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "visual_change_backup.py",
+      "bytes": 884,
+      "sha256": "e87494b1480e4548e7297ddff8f4a402072d1c296ef61b925876cf2b294cf132",
+      "syntax": "valid",
+      "definitions": []
+    },
+    {
+      "path": "visual_memory.py",
+      "bytes": 5199,
+      "sha256": "f90193e000d0653365af211fdf6dc592394158cbd0617ed5e187b21cf44046ba",
+      "syntax": "valid",
+      "definitions": [
+        "build_record",
+        "save",
+        "status",
+        "main"
+      ]
+    },
+    {
+      "path": "visualize_regions.py",
+      "bytes": 1749,
+      "sha256": "09765024e70d953682e84ed4a2594a387a607b05b1a436097bb63d6757e6ad96",
+      "syntax": "valid",
+      "definitions": []
+    }
+  ]
+}

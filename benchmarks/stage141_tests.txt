@@ -1,0 +1,7 @@
+test_frame_contract_is_atomic_and_copied (test_stage141.SamplingTests.test_frame_contract_is_atomic_and_copied) ... ok
+test_grid_and_short_decode_contract (test_stage141.SamplingTests.test_grid_and_short_decode_contract) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK

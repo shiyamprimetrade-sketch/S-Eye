@@ -1,0 +1,7 @@
+test_difference_is_exact_and_unknown_reason_preserved (test_stage108.ExplanationTests.test_difference_is_exact_and_unknown_reason_preserved) ... ok
+test_scoped_model_image_contract (test_stage108.ExplanationTests.test_scoped_model_image_contract) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.019s
+
+OK

@@ -1,0 +1,7 @@
+test_pins_stale_plan_and_link_cleanup_are_atomic (test_stage128.RecoveryRetentionTests.test_pins_stale_plan_and_link_cleanup_are_atomic) ... ok
+test_verified_new_destination_recovery_and_history_roundtrip (test_stage128.RecoveryRetentionTests.test_verified_new_destination_recovery_and_history_roundtrip) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.014s
+
+OK

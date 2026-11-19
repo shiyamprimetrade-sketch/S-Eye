@@ -1,0 +1,7 @@
+test_occurrences_separate_sessions_and_validate_order_key (test_stage121.IdentityTests.test_occurrences_separate_sessions_and_validate_order_key) ... ok
+test_pixel_and_observation_identity_are_distinct (test_stage121.IdentityTests.test_pixel_and_observation_identity_are_distinct) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.010s
+
+OK

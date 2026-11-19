@@ -1,0 +1,4828 @@
+{
+  "scope": "exploratory_generated_model_comparison",
+  "representative_validation": false,
+  "dataset_sha256": "47cb07f51119bfe5c423bdf2898c23dcef83b52ab82463642053dee4cf423a10",
+  "prototype": {
+    "dataset_sha256": "47cb07f51119bfe5c423bdf2898c23dcef83b52ab82463642053dee4cf423a10",
+    "learning_curves": [
+      {
+        "maximum_samples_per_class": 1,
+        "training": {
+          "confusion": [
+            {
+              "count": 1,
+              "expected": "circle",
+              "predicted": "circle"
+            },
+            {
+              "count": 1,
+              "expected": "quadrilateral",
+              "predicted": "quadrilateral"
+            },
+            {
+              "count": 1,
+              "expected": "triangle",
+              "predicted": "triangle"
+            }
+          ],
+          "correct": 3,
+          "known_correct": 3,
+          "known_samples": 3,
+          "partitions": [
+            {
+              "annotation_status": "generator",
+              "correct": 3,
+              "samples": 3,
+              "source_kind": "synthetic"
+            }
+          ],
+          "results": [
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-0",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.0,
+                    "label": "circle",
+                    "rejection_radius": 0.10350542575664005
+                  },
+                  {
+                    "distance": 0.20949964708226304,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.15054730977435468
+                  },
+                  {
+                    "distance": 0.32862234528251116,
+                    "label": "triangle",
+                    "rejection_radius": 0.3134516623445107
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-0",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.0,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.15054730977435468
+                  },
+                  {
+                    "distance": 0.20949964708226304,
+                    "label": "circle",
+                    "rejection_radius": 0.10350542575664005
+                  },
+                  {
+                    "distance": 0.32729283108277435,
+                    "label": "triangle",
+                    "rejection_radius": 0.3134516623445107
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-0",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.0,
+                    "label": "triangle",
+                    "rejection_radius": 0.3134516623445107
+                  },
+                  {
+                    "distance": 0.32729283108277435,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.15054730977435468
+                  },
+                  {
+                    "distance": 0.32862234528251116,
+                    "label": "circle",
+                    "rejection_radius": 0.10350542575664005
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            }
+          ],
+          "samples": 3,
+          "unknown_rejected": 0,
+          "unknown_samples": 0
+        },
+        "validation": {
+          "confusion": [
+            {
+              "count": 3,
+              "expected": "__unknown__",
+              "predicted": "__unknown__"
+            },
+            {
+              "count": 2,
+              "expected": "circle",
+              "predicted": "circle"
+            },
+            {
+              "count": 1,
+              "expected": "quadrilateral",
+              "predicted": "quadrilateral"
+            },
+            {
+              "count": 1,
+              "expected": "triangle",
+              "predicted": "__unknown__"
+            },
+            {
+              "count": 1,
+              "expected": "triangle",
+              "predicted": "triangle"
+            }
+          ],
+          "correct": 7,
+          "known_correct": 4,
+          "known_samples": 5,
+          "partitions": [
+            {
+              "annotation_status": "generator",
+              "correct": 7,
+              "samples": 8,
+              "source_kind": "synthetic"
+            }
+          ],
+          "results": [
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-1",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.09046913667104098,
+                    "label": "circle",
+                    "rejection_radius": 0.10350542575664005
+                  },
+                  {
+                    "distance": 0.2381832481775968,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.15054730977435468
+                  },
+                  {
+                    "distance": 0.37158994504125537,
+                    "label": "triangle",
+                    "rejection_radius": 0.3134516623445107
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-11",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.09409584159694549,
+                    "label": "circle",
+                    "rejection_radius": 0.10350542575664005
+                  },
+                  {
+                    "distance": 0.22955876340563694,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.15054730977435468
+                  },
+                  {
+                    "distance": 0.366258747767976,
+                    "label": "triangle",
+                    "rejection_radius": 0.3134516623445107
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-10",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.1368611907039588,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.15054730977435468
+                  },
+                  {
+                    "distance": 0.20572144311740964,
+                    "label": "circle",
+                    "rejection_radius": 0.10350542575664005
+                  },
+                  {
+                    "distance": 0.30565357599464915,
+                    "label": "triangle",
+                    "rejection_radius": 0.3134516623445107
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-1",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.2690270089131189,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.15054730977435468
+                  },
+                  {
+                    "distance": 0.2703905395900805,
+                    "label": "triangle",
+                    "rejection_radius": 0.3134516623445107
+                  },
+                  {
+                    "distance": 0.2835013364041167,
+                    "label": "circle",
+                    "rejection_radius": 0.10350542575664005
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-8",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.2849560566768279,
+                    "label": "triangle",
+                    "rejection_radius": 0.3134516623445107
+                  },
+                  {
+                    "distance": 0.2916458797474978,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.15054730977435468
+                  },
+                  {
+                    "distance": 0.3159069509212698,
+                    "label": "circle",
+                    "rejection_radius": 0.10350542575664005
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "__unknown__",
+              "id": "__unknown__-0",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.26619199441910396,
+                    "label": "circle",
+                    "rejection_radius": 0.10350542575664005
+                  },
+                  {
+                    "distance": 0.2910811600569364,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.15054730977435468
+                  },
+                  {
+                    "distance": 0.30240839704792016,
+                    "label": "triangle",
+                    "rejection_radius": 0.3134516623445107
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "__unknown__",
+              "id": "__unknown__-1",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.27813276119719654,
+                    "label": "circle",
+                    "rejection_radius": 0.10350542575664005
+                  },
+                  {
+                    "distance": 0.2836488686495536,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.15054730977435468
+                  },
+                  {
+                    "distance": 0.3001401396303941,
+                    "label": "triangle",
+                    "rejection_radius": 0.3134516623445107
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "__unknown__",
+              "id": "__unknown__-4",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.2854760283257116,
+                    "label": "circle",
+                    "rejection_radius": 0.10350542575664005
+                  },
+                  {
+                    "distance": 0.2857791741558611,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.15054730977435468
+                  },
+                  {
+                    "distance": 0.2997939008080973,
+                    "label": "triangle",
+                    "rejection_radius": 0.3134516623445107
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            }
+          ],
+          "samples": 8,
+          "unknown_rejected": 3,
+          "unknown_samples": 3
+        }
+      },
+      {
+        "maximum_samples_per_class": 2,
+        "training": {
+          "confusion": [
+            {
+              "count": 2,
+              "expected": "circle",
+              "predicted": "circle"
+            },
+            {
+              "count": 2,
+              "expected": "quadrilateral",
+              "predicted": "quadrilateral"
+            },
+            {
+              "count": 2,
+              "expected": "triangle",
+              "predicted": "triangle"
+            }
+          ],
+          "correct": 6,
+          "known_correct": 6,
+          "known_samples": 6,
+          "partitions": [
+            {
+              "annotation_status": "generator",
+              "correct": 6,
+              "samples": 6,
+              "source_kind": "synthetic"
+            }
+          ],
+          "results": [
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-0",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.024003567656695306,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  },
+                  {
+                    "distance": 0.17146661072485925,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  },
+                  {
+                    "distance": 0.280746363216193,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-3",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.024003567656695302,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  },
+                  {
+                    "distance": 0.17807611689236252,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  },
+                  {
+                    "distance": 0.26271309257887915,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-0",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.12317401190685191,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  },
+                  {
+                    "distance": 0.2082897537812583,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  },
+                  {
+                    "distance": 0.26600339514270693,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-1",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.1231740119068519,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  },
+                  {
+                    "distance": 0.2166070459810462,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  },
+                  {
+                    "distance": 0.31536959226434275,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-0",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.15814156463555626,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  },
+                  {
+                    "distance": 0.3187386455397593,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  },
+                  {
+                    "distance": 0.32008526831125916,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-2",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.15814156463555626,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  },
+                  {
+                    "distance": 0.29714524445834506,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  },
+                  {
+                    "distance": 0.30699719362210964,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            }
+          ],
+          "samples": 6,
+          "unknown_rejected": 0,
+          "unknown_samples": 0
+        },
+        "validation": {
+          "confusion": [
+            {
+              "count": 3,
+              "expected": "__unknown__",
+              "predicted": "__unknown__"
+            },
+            {
+              "count": 2,
+              "expected": "circle",
+              "predicted": "circle"
+            },
+            {
+              "count": 1,
+              "expected": "quadrilateral",
+              "predicted": "quadrilateral"
+            },
+            {
+              "count": 2,
+              "expected": "triangle",
+              "predicted": "triangle"
+            }
+          ],
+          "correct": 8,
+          "known_correct": 5,
+          "known_samples": 5,
+          "partitions": [
+            {
+              "annotation_status": "generator",
+              "correct": 8,
+              "samples": 8,
+              "source_kind": "synthetic"
+            }
+          ],
+          "results": [
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-1",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.11015755497366587,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  },
+                  {
+                    "distance": 0.1904637213460505,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  },
+                  {
+                    "distance": 0.3299321071454764,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-11",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.11383578056586736,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  },
+                  {
+                    "distance": 0.1896243246333362,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  },
+                  {
+                    "distance": 0.32376881875514973,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-10",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.19158262523664138,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  },
+                  {
+                    "distance": 0.19680593287951992,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  },
+                  {
+                    "distance": 0.2402238352256112,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-1",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.13589069238934284,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  },
+                  {
+                    "distance": 0.2711191038043875,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  },
+                  {
+                    "distance": 0.27808126965891816,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-8",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.14642734389181675,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  },
+                  {
+                    "distance": 0.3007262944896722,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  },
+                  {
+                    "distance": 0.30593839432725756,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "__unknown__",
+              "id": "__unknown__-0",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.24028282795379544,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  },
+                  {
+                    "distance": 0.24791970044348444,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  },
+                  {
+                    "distance": 0.3083459038392209,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "__unknown__",
+              "id": "__unknown__-1",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.24379276130103564,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  },
+                  {
+                    "distance": 0.2602121204806291,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  },
+                  {
+                    "distance": 0.3043256868232141,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "__unknown__",
+              "id": "__unknown__-4",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.24249177676006814,
+                    "label": "triangle",
+                    "rejection_radius": 0.16107007828099842
+                  },
+                  {
+                    "distance": 0.2676957711955331,
+                    "label": "circle",
+                    "rejection_radius": 0.12521935862245412
+                  },
+                  {
+                    "distance": 0.30576424084976883,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.21074088776030553
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            }
+          ],
+          "samples": 8,
+          "unknown_rejected": 3,
+          "unknown_samples": 3
+        }
+      },
+      {
+        "maximum_samples_per_class": 10,
+        "training": {
+          "confusion": [
+            {
+              "count": 4,
+              "expected": "circle",
+              "predicted": "__unknown__"
+            },
+            {
+              "count": 5,
+              "expected": "circle",
+              "predicted": "circle"
+            },
+            {
+              "count": 2,
+              "expected": "quadrilateral",
+              "predicted": "__unknown__"
+            },
+            {
+              "count": 8,
+              "expected": "quadrilateral",
+              "predicted": "quadrilateral"
+            },
+            {
+              "count": 3,
+              "expected": "triangle",
+              "predicted": "__unknown__"
+            },
+            {
+              "count": 6,
+              "expected": "triangle",
+              "predicted": "triangle"
+            }
+          ],
+          "correct": 19,
+          "known_correct": 19,
+          "known_samples": 28,
+          "partitions": [
+            {
+              "annotation_status": "generator",
+              "correct": 19,
+              "samples": 28,
+              "source_kind": "synthetic"
+            }
+          ],
+          "results": [
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-0",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.045273802716717965,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.13195545963046443,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.2526985793794476,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-3",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.08576823591695036,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.12982135625174002,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.23035353580741136,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-4",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.0489298213174777,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.13154122481190203,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.2560974457256938,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-5",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.017935250052053608,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.14481061670310677,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.2763973413687023,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-6",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.04702822033154901,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.13463855430124244,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.2570280028491463,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-7",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.12423138614354483,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.2139702664000701,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.3499788464998741,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-8",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.12543798404066392,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.21273512050577068,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.3503723658032531,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-9",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.08409494623257657,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.13080889897915915,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.22964788568978603,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-10",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.04856375777793593,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.16410208345623048,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.2998016136260322,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-0",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.13977779425163367,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.21153188560956518,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.23753766314900127,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-1",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.1385226029595987,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.20960129185056858,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.2976107320982319,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-3",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.1880795658240059,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.23700717640536065,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.3137236597379127,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-4",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.13815093434574546,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.20985263057098116,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.2973665914164541,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-5",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.16675560376835138,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.17150938456487524,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.2518707869269498,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-6",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.10959423502892453,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.17874908876921228,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.20007420413380914,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-7",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.1600940394871882,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.16402557896641243,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.22426713866672213,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-8",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.16995387752249735,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.18729558204507263,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.222363399243905,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-9",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.17184586639126748,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.23648391779252514,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.2457487539072203,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-11",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.1555739697258597,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.22597657760188253,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.28785969526589444,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-0",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.21622616684085919,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.2955017978783926,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.3421733642083306,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-2",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.15173942329904494,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.27438855968261183,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.32828868708115877,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-4",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.17039067122645882,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.29232870345286094,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.34542473886182345,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-5",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.18767142312846094,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.28918200908456715,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.3377800909395378,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-6",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.16695771169362703,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.23280545136886283,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.2839117220516848,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-7",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.16156621221073728,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.23781597878196828,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.2935365428709613,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-9",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.1609863755061357,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.27544529026200815,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.3266897738360722,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-10",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.15561075443405736,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.2414874690769864,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.29530442311935984,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-11",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.2370879860960053,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.3114404547751731,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.3650751737780785,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            }
+          ],
+          "samples": 28,
+          "unknown_rejected": 0,
+          "unknown_samples": 0
+        },
+        "validation": {
+          "confusion": [
+            {
+              "count": 3,
+              "expected": "__unknown__",
+              "predicted": "__unknown__"
+            },
+            {
+              "count": 2,
+              "expected": "circle",
+              "predicted": "circle"
+            },
+            {
+              "count": 1,
+              "expected": "quadrilateral",
+              "predicted": "quadrilateral"
+            },
+            {
+              "count": 2,
+              "expected": "triangle",
+              "predicted": "triangle"
+            }
+          ],
+          "correct": 8,
+          "known_correct": 5,
+          "known_samples": 5,
+          "partitions": [
+            {
+              "annotation_status": "generator",
+              "correct": 8,
+              "samples": 8,
+              "source_kind": "synthetic"
+            }
+          ],
+          "results": [
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-1",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.05188065999602484,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.16751412216429334,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.30882723978756454,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "circle",
+              "id": "circle-11",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.051805061886513626,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  },
+                  {
+                    "distance": 0.16670548792351794,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.3019172908747628,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "circle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "quadrilateral",
+              "id": "quadrilateral-10",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.16463399693630817,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.19931981569599544,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.2203115749574185,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "quadrilateral"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-1",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.1390678491572624,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.24669722010499373,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.30121277962798415,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "triangle",
+              "id": "triangle-8",
+              "prediction": {
+                "accepted": true,
+                "candidates": [
+                  {
+                    "distance": 0.16006589495407592,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.27428689880995033,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.3277944581689311,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+                "label": "triangle"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "__unknown__",
+              "id": "__unknown__-0",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.1936552223601996,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.2640938601656865,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.29658768903878713,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "__unknown__",
+              "id": "__unknown__-1",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.19967342572710198,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.26041296419476895,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.30390090517621493,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            },
+            {
+              "annotation_status": "generator",
+              "expected": "__unknown__",
+              "id": "__unknown__-4",
+              "prediction": {
+                "accepted": false,
+                "candidates": [
+                  {
+                    "distance": 0.19810851210618827,
+                    "label": "triangle",
+                    "rejection_radius": 0.17607248444948354
+                  },
+                  {
+                    "distance": 0.2611701518993817,
+                    "label": "quadrilateral",
+                    "rejection_radius": 0.181097396629939
+                  },
+                  {
+                    "distance": 0.31121414154194343,
+                    "label": "circle",
+                    "rejection_radius": 0.05706872599562733
+                  }
+                ],
+                "confidence_probability": null,
+                "explanation": "No known category is within its validation-derived descriptor radius",
+                "label": "__unknown__"
+              },
+              "source_kind": "synthetic"
+            }
+          ],
+          "samples": 8,
+          "unknown_rejected": 3,
+          "unknown_samples": 3
+        }
+      }
+    ],
+    "limitations": [
+      "Feature-based prototype learning; no pretrained or teacher weights.",
+      "Validation scores helped choose radii and are not final held-out evidence.",
+      "Dataset source/review provenance must be audited separately."
+    ],
+    "neural_network_training": false,
+    "representative_validation": false,
+    "schema_version": 1,
+    "test": {
+      "confusion": [
+        {
+          "count": 3,
+          "expected": "__unknown__",
+          "predicted": "__unknown__"
+        },
+        {
+          "count": 1,
+          "expected": "circle",
+          "predicted": "__unknown__"
+        },
+        {
+          "count": 1,
+          "expected": "quadrilateral",
+          "predicted": "__unknown__"
+        },
+        {
+          "count": 1,
+          "expected": "triangle",
+          "predicted": "__unknown__"
+        }
+      ],
+      "correct": 3,
+      "known_correct": 0,
+      "known_samples": 3,
+      "partitions": [
+        {
+          "annotation_status": "generator",
+          "correct": 3,
+          "samples": 6,
+          "source_kind": "synthetic"
+        }
+      ],
+      "results": [
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-2",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.11970100561033407,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.1996545062775556,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.3284883507322699,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-2",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.20061988651306167,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.23562890233217348,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.2593341020382272,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-3",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.23167642854106468,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.2658164494533226,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.3159524125931418,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "__unknown__",
+          "id": "__unknown__-2",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.2390493763206873,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.2947899269453545,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.3268905832883632,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "__unknown__",
+          "id": "__unknown__-3",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.19699693089020245,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.2601406136386938,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.3016415519693022,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "__unknown__",
+          "id": "__unknown__-5",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.1955550375581173,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.25948801253318854,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.29742061099756556,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        }
+      ],
+      "samples": 6,
+      "unknown_rejected": 3,
+      "unknown_samples": 3
+    },
+    "training": {
+      "confusion": [
+        {
+          "count": 4,
+          "expected": "circle",
+          "predicted": "__unknown__"
+        },
+        {
+          "count": 5,
+          "expected": "circle",
+          "predicted": "circle"
+        },
+        {
+          "count": 2,
+          "expected": "quadrilateral",
+          "predicted": "__unknown__"
+        },
+        {
+          "count": 8,
+          "expected": "quadrilateral",
+          "predicted": "quadrilateral"
+        },
+        {
+          "count": 3,
+          "expected": "triangle",
+          "predicted": "__unknown__"
+        },
+        {
+          "count": 6,
+          "expected": "triangle",
+          "predicted": "triangle"
+        }
+      ],
+      "correct": 19,
+      "known_correct": 19,
+      "known_samples": 28,
+      "partitions": [
+        {
+          "annotation_status": "generator",
+          "correct": 19,
+          "samples": 28,
+          "source_kind": "synthetic"
+        }
+      ],
+      "results": [
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-0",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.045273802716717965,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.13195545963046443,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.2526985793794476,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-3",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.08576823591695036,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.12982135625174002,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.23035353580741136,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-4",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.0489298213174777,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.13154122481190203,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.2560974457256938,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-5",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.017935250052053608,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.14481061670310677,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.2763973413687023,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-6",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.04702822033154901,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.13463855430124244,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.2570280028491463,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-7",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.12423138614354483,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.2139702664000701,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.3499788464998741,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-8",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.12543798404066392,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.21273512050577068,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.3503723658032531,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-9",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.08409494623257657,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.13080889897915915,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.22964788568978603,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-10",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.04856375777793593,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.16410208345623048,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.2998016136260322,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-0",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.13977779425163367,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.21153188560956518,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.23753766314900127,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-1",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.1385226029595987,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.20960129185056858,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.2976107320982319,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-3",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.1880795658240059,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.23700717640536065,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.3137236597379127,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-4",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.13815093434574546,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.20985263057098116,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.2973665914164541,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-5",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.16675560376835138,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.17150938456487524,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.2518707869269498,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-6",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.10959423502892453,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.17874908876921228,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.20007420413380914,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-7",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.1600940394871882,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.16402557896641243,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.22426713866672213,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-8",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.16995387752249735,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.18729558204507263,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.222363399243905,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-9",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.17184586639126748,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.23648391779252514,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.2457487539072203,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-11",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.1555739697258597,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.22597657760188253,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.28785969526589444,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-0",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.21622616684085919,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.2955017978783926,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.3421733642083306,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-2",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.15173942329904494,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.27438855968261183,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.32828868708115877,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-4",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.17039067122645882,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.29232870345286094,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.34542473886182345,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-5",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.18767142312846094,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.28918200908456715,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.3377800909395378,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-6",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.16695771169362703,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.23280545136886283,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.2839117220516848,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-7",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.16156621221073728,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.23781597878196828,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.2935365428709613,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-9",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.1609863755061357,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.27544529026200815,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.3266897738360722,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-10",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.15561075443405736,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.2414874690769864,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.29530442311935984,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-11",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.2370879860960053,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.3114404547751731,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.3650751737780785,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        }
+      ],
+      "samples": 28,
+      "unknown_rejected": 0,
+      "unknown_samples": 0
+    },
+    "validation": {
+      "confusion": [
+        {
+          "count": 3,
+          "expected": "__unknown__",
+          "predicted": "__unknown__"
+        },
+        {
+          "count": 2,
+          "expected": "circle",
+          "predicted": "circle"
+        },
+        {
+          "count": 1,
+          "expected": "quadrilateral",
+          "predicted": "quadrilateral"
+        },
+        {
+          "count": 2,
+          "expected": "triangle",
+          "predicted": "triangle"
+        }
+      ],
+      "correct": 8,
+      "known_correct": 5,
+      "known_samples": 5,
+      "partitions": [
+        {
+          "annotation_status": "generator",
+          "correct": 8,
+          "samples": 8,
+          "source_kind": "synthetic"
+        }
+      ],
+      "results": [
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-1",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.05188065999602484,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.16751412216429334,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.30882723978756454,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-11",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.051805061886513626,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              },
+              {
+                "distance": 0.16670548792351794,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.3019172908747628,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-10",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.16463399693630817,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.19931981569599544,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.2203115749574185,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-1",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.1390678491572624,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.24669722010499373,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.30121277962798415,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-8",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "distance": 0.16006589495407592,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.27428689880995033,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.3277944581689311,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Nearest fitted descriptor mean within validation-derived radius",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "__unknown__",
+          "id": "__unknown__-0",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.1936552223601996,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.2640938601656865,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.29658768903878713,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "__unknown__",
+          "id": "__unknown__-1",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.19967342572710198,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.26041296419476895,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.30390090517621493,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "__unknown__",
+          "id": "__unknown__-4",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "distance": 0.19810851210618827,
+                "label": "triangle",
+                "rejection_radius": 0.17607248444948354
+              },
+              {
+                "distance": 0.2611701518993817,
+                "label": "quadrilateral",
+                "rejection_radius": 0.181097396629939
+              },
+              {
+                "distance": 0.31121414154194343,
+                "label": "circle",
+                "rejection_radius": 0.05706872599562733
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "No known category is within its validation-derived descriptor radius",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        }
+      ],
+      "samples": 8,
+      "unknown_rejected": 3,
+      "unknown_samples": 3
+    },
+    "validation_used_for_rejection_thresholds": true
+  },
+  "linear": {
+    "dataset_sha256": "47cb07f51119bfe5c423bdf2898c23dcef83b52ab82463642053dee4cf423a10",
+    "learning_curves": [
+      {
+        "epoch": 1,
+        "training": {
+          "correct_before_rejection": 26,
+          "cross_entropy": 0.5201867283811523,
+          "samples": 28
+        },
+        "validation": {
+          "correct_before_rejection": 5,
+          "cross_entropy": 0.413584004110915,
+          "samples": 5
+        }
+      },
+      {
+        "epoch": 10,
+        "training": {
+          "correct_before_rejection": 28,
+          "cross_entropy": 0.10533352438370748,
+          "samples": 28
+        },
+        "validation": {
+          "correct_before_rejection": 5,
+          "cross_entropy": 0.0819554569815392,
+          "samples": 5
+        }
+      },
+      {
+        "epoch": 20,
+        "training": {
+          "correct_before_rejection": 28,
+          "cross_entropy": 0.05759846791673119,
+          "samples": 28
+        },
+        "validation": {
+          "correct_before_rejection": 5,
+          "cross_entropy": 0.044591917356519226,
+          "samples": 5
+        }
+      },
+      {
+        "epoch": 30,
+        "training": {
+          "correct_before_rejection": 28,
+          "cross_entropy": 0.03999159107230521,
+          "samples": 28
+        },
+        "validation": {
+          "correct_before_rejection": 5,
+          "cross_entropy": 0.030368895023935267,
+          "samples": 5
+        }
+      },
+      {
+        "epoch": 40,
+        "training": {
+          "correct_before_rejection": 28,
+          "cross_entropy": 0.030622385304937005,
+          "samples": 28
+        },
+        "validation": {
+          "correct_before_rejection": 5,
+          "cross_entropy": 0.023019780544089114,
+          "samples": 5
+        }
+      },
+      {
+        "epoch": 50,
+        "training": {
+          "correct_before_rejection": 28,
+          "cross_entropy": 0.02490289323902477,
+          "samples": 28
+        },
+        "validation": {
+          "correct_before_rejection": 5,
+          "cross_entropy": 0.01850887472472136,
+          "samples": 5
+        }
+      },
+      {
+        "epoch": 60,
+        "training": {
+          "correct_before_rejection": 28,
+          "cross_entropy": 0.02102775806659853,
+          "samples": 28
+        },
+        "validation": {
+          "correct_before_rejection": 5,
+          "cross_entropy": 0.015442109669878986,
+          "samples": 5
+        }
+      },
+      {
+        "epoch": 70,
+        "training": {
+          "correct_before_rejection": 28,
+          "cross_entropy": 0.018155467423111436,
+          "samples": 28
+        },
+        "validation": {
+          "correct_before_rejection": 5,
+          "cross_entropy": 0.013207427412629064,
+          "samples": 5
+        }
+      },
+      {
+        "epoch": 80,
+        "training": {
+          "correct_before_rejection": 28,
+          "cross_entropy": 0.01601974088197213,
+          "samples": 28
+        },
+        "validation": {
+          "correct_before_rejection": 5,
+          "cross_entropy": 0.011557895865379815,
+          "samples": 5
+        }
+      },
+      {
+        "epoch": 90,
+        "training": {
+          "correct_before_rejection": 28,
+          "cross_entropy": 0.014325357019860993,
+          "samples": 28
+        },
+        "validation": {
+          "correct_before_rejection": 5,
+          "cross_entropy": 0.010270041168391999,
+          "samples": 5
+        }
+      },
+      {
+        "epoch": 100,
+        "training": {
+          "correct_before_rejection": 28,
+          "cross_entropy": 0.012965028101846493,
+          "samples": 28
+        },
+        "validation": {
+          "correct_before_rejection": 5,
+          "cross_entropy": 0.009214785254488888,
+          "samples": 5
+        }
+      },
+      {
+        "epoch": 110,
+        "training": {
+          "correct_before_rejection": 28,
+          "cross_entropy": 0.011850140738859595,
+          "samples": 28
+        },
+        "validation": {
+          "correct_before_rejection": 5,
+          "cross_entropy": 0.00836943091255784,
+          "samples": 5
+        }
+      },
+      {
+        "epoch": 120,
+        "training": {
+          "correct_before_rejection": 28,
+          "cross_entropy": 0.010914468172592198,
+          "samples": 28
+        },
+        "validation": {
+          "correct_before_rejection": 5,
+          "cross_entropy": 0.0076665003625171115,
+          "samples": 5
+        }
+      }
+    ],
+    "limitations": [
+      "Fixed descriptors with one learned linear layer; no deep feature learning.",
+      "Softmax scores are uncalibrated; threshold uses known validation examples.",
+      "Controlled exploratory comparison; a previously inspected tiny test set is not final validation."
+    ],
+    "method": "independent_linear_softmax_sgd",
+    "representative_validation": false,
+    "schema_version": 1,
+    "test": {
+      "confusion": [
+        {
+          "count": 3,
+          "expected": "__unknown__",
+          "predicted": "triangle"
+        },
+        {
+          "count": 1,
+          "expected": "circle",
+          "predicted": "circle"
+        },
+        {
+          "count": 1,
+          "expected": "quadrilateral",
+          "predicted": "quadrilateral"
+        },
+        {
+          "count": 1,
+          "expected": "triangle",
+          "predicted": "triangle"
+        }
+      ],
+      "correct": 3,
+      "known_correct": 3,
+      "known_samples": 3,
+      "partitions": [
+        {
+          "annotation_status": "generator",
+          "correct": 3,
+          "samples": 6,
+          "source_kind": "synthetic"
+        }
+      ],
+      "results": [
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-2",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.990153539678283
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.009841174730176283
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 5.285591540751422e-06
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-2",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.9943807892800893
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.004492500160202166
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.0011267105597086303
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-3",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.8902714465960152
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.10948635840720787
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.00024219499677697524
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "__unknown__",
+          "id": "__unknown__-2",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9688235741947928
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.027434084754635
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.003742341050572245
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "__unknown__",
+          "id": "__unknown__-3",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9138996330218125
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.0831640167205704
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.0029363502576171445
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "__unknown__",
+          "id": "__unknown__-5",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9148187070850714
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.07920853625812399
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.005972756656804564
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        }
+      ],
+      "samples": 6,
+      "unknown_rejected": 0,
+      "unknown_samples": 3
+    },
+    "training": {
+      "confusion": [
+        {
+          "count": 9,
+          "expected": "circle",
+          "predicted": "circle"
+        },
+        {
+          "count": 10,
+          "expected": "quadrilateral",
+          "predicted": "quadrilateral"
+        },
+        {
+          "count": 9,
+          "expected": "triangle",
+          "predicted": "triangle"
+        }
+      ],
+      "correct": 28,
+      "known_correct": 28,
+      "known_samples": 28,
+      "partitions": [
+        {
+          "annotation_status": "generator",
+          "correct": 28,
+          "samples": 28,
+          "source_kind": "synthetic"
+        }
+      ],
+      "results": [
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-0",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.9917694962219148
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.008124874921556882
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.00010562885652823984
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-3",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.9686189621099769
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.030446190736950308
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.000934847153072856
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-4",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.9879908664243315
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.011891780848563408
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.0001173527271049628
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-5",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.9955618955515687
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.004416366475915615
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 2.1737972515688967e-05
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-6",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.9903241680399283
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.009585948653652095
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 8.98833064195625e-05
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-7",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.9970043370183037
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.0029948205921085237
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 8.423895878435744e-07
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-8",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.9960572025564575
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.003941890189568667
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 9.072539738561039e-07
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-9",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.9740948861045851
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.025075926128407772
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.0008291877670072011
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-10",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.9966938964644698
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.0033000649227230114
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 6.038612807117028e-06
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-0",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.9947165304919026
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.004267675748332529
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.001015793759764901
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-1",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.9982192245712568
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.0016535104195623965
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.00012726500918087505
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-3",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.9962395544438635
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.0033057577745697494
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.0004546877815668716
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-4",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.9984372261088199
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.001435209388079399
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.00012756450310082577
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-5",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.9898717899694932
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.007920214575315053
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.002207995455191616
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-6",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.9709796566135489
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.02259035231735171
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.006429991069099326
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-7",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.946426693771442
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.04234586622379897
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.01122744000475903
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-8",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.9686826594768679
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.022106854083373675
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.009210486439758397
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-9",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.9962362322676266
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.0024485129874929224
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.0013152547448804402
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-11",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.9958753822569513
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.0038906763114718917
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.00023394143157678507
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-0",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9994842802846493
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.0005019196547208789
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 1.380006062975909e-05
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-2",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9975934083024028
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.002390166432683626
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 1.642526491359289e-05
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-4",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9986929254129915
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.0013002076883547107
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 6.866898653912425e-06
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-5",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9963778439661564
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.003591370008609189
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 3.0786025234451755e-05
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-6",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9825663554855171
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.017148561514278928
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.00028508300020387516
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-7",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.992311662360999
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.007569694897933083
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.0001186427410678868
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-9",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9966766131628032
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.0032976626794799105
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 2.572415771675087e-05
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-10",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9823131960814571
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.01757963765109019
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.00010716626745281589
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-11",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9984726680231769
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.0015254748651980883
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 1.8571116249318167e-06
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        }
+      ],
+      "samples": 28,
+      "unknown_rejected": 0,
+      "unknown_samples": 0
+    },
+    "validation": {
+      "confusion": [
+        {
+          "count": 2,
+          "expected": "__unknown__",
+          "predicted": "__unknown__"
+        },
+        {
+          "count": 1,
+          "expected": "__unknown__",
+          "predicted": "triangle"
+        },
+        {
+          "count": 2,
+          "expected": "circle",
+          "predicted": "circle"
+        },
+        {
+          "count": 1,
+          "expected": "quadrilateral",
+          "predicted": "quadrilateral"
+        },
+        {
+          "count": 2,
+          "expected": "triangle",
+          "predicted": "triangle"
+        }
+      ],
+      "correct": 7,
+      "known_correct": 5,
+      "known_samples": 5,
+      "partitions": [
+        {
+          "annotation_status": "generator",
+          "correct": 7,
+          "samples": 8,
+          "source_kind": "synthetic"
+        }
+      ],
+      "results": [
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-1",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.9972103194043064
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.002786133969237346
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 3.546626456276994e-06
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "circle",
+          "id": "circle-11",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.9969089638149039
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.0030858023432764046
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 5.233841819623088e-06
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "circle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "quadrilateral",
+          "id": "quadrilateral-10",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.9809440454457016
+              },
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.010541687501197178
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.008514267053101368
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "quadrilateral"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-1",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9900633431129381
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.009862088682187155
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 7.45682048747487e-05
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "triangle",
+          "id": "triangle-8",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9967882834132858
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.003200864159527244
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 1.085242718700821e-05
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "__unknown__",
+          "id": "__unknown__-0",
+          "prediction": {
+            "accepted": true,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.9606509407670292
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.03307647962459527
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.006272579608375549
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Independent SGD linear-class score above validation-derived threshold",
+            "label": "triangle"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "__unknown__",
+          "id": "__unknown__-1",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.7089841540644402
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.2900653755942752
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.0009504703412847678
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Raw linear-class score below validation-derived rejection threshold",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        },
+        {
+          "annotation_status": "generator",
+          "expected": "__unknown__",
+          "id": "__unknown__-4",
+          "prediction": {
+            "accepted": false,
+            "candidates": [
+              {
+                "label": "triangle",
+                "raw_softmax_score": 0.5686113094000014
+              },
+              {
+                "label": "quadrilateral",
+                "raw_softmax_score": 0.43109135624404366
+              },
+              {
+                "label": "circle",
+                "raw_softmax_score": 0.00029733435595488954
+              }
+            ],
+            "confidence_probability": null,
+            "explanation": "Raw linear-class score below validation-derived rejection threshold",
+            "label": "__unknown__"
+          },
+          "source_kind": "synthetic"
+        }
+      ],
+      "samples": 8,
+      "unknown_rejected": 2,
+      "unknown_samples": 3
+    }
+  },
+  "fixed_geometry": {
+    "correct": 3,
+    "results": [
+      {
+        "expected": "circle",
+        "id": "circle-2",
+        "predicted": "circle"
+      },
+      {
+        "expected": "quadrilateral",
+        "id": "quadrilateral-2",
+        "predicted": "quadrilateral"
+      },
+      {
+        "expected": "triangle",
+        "id": "triangle-3",
+        "predicted": "triangle"
+      },
+      {
+        "expected": "__unknown__",
+        "id": "__unknown__-2",
+        "predicted": "quadrilateral"
+      },
+      {
+        "expected": "__unknown__",
+        "id": "__unknown__-3",
+        "predicted": "quadrilateral"
+      },
+      {
+        "expected": "__unknown__",
+        "id": "__unknown__-5",
+        "predicted": "quadrilateral"
+      }
+    ],
+    "samples": 6
+  },
+  "restore_equivalence": true,
+  "limitations": [
+    "All training/evaluation imagery is generated; no broad semantic/photo validation.",
+    "Prototype fitting is independent feature-based learning, not neural training.",
+    "Unknown rejection measured only on generated cross shapes.",
+    "Video benchmark is one simple MP4, not representative tracking quality.",
+    "Actual Android/Windows performance and main-S deployment remain unverified."
+  ]
+}

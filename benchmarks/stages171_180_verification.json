@@ -1,0 +1,196 @@
+{
+  "local_tests": 319,
+  "all_ten_reports_reproduced": true,
+  "installed_legacy_cli": {
+    "installed_module": "/tmp/seye180-venv/lib/python3.12/site-packages/seye/__init__.py",
+    "class": "triangle",
+    "overlay_created": true,
+    "source_sha256": "7468e03b464db1c3649839d5e9a07309ee41e332b26316a37e8cc79d4927ce1c",
+    "executed_outside_checkout": true,
+    "versioned_workflow_passed": true
+  },
+  "installed_python_api": {
+    "installed_python_api_passed": true,
+    "spawned_worker_passed": true,
+    "default_denial_passed": true,
+    "packet_cache_hits": 2,
+    "api_version": "seye-request-v1",
+    "executed_outside_checkout": true
+  },
+  "installed_s_session": {
+    "describe_contract_passed": true,
+    "executed_outside_checkout": true,
+    "explicit_write_steps": [
+      "store",
+      "index"
+    ],
+    "installed_spawned_session_passed": true,
+    "main_s_deployment": false,
+    "operations": 5,
+    "strict_installed_cli_passed": true
+  },
+  "installed_local_cli": {
+    "checked_commands": [
+      "doctor",
+      "ingest",
+      "overlays",
+      "report",
+      "annotate",
+      "validate-draft",
+      "compare",
+      "config-init",
+      "config-inspect",
+      "config-migrate",
+      "memory"
+    ],
+    "draft_unscored": true,
+    "executed_outside_checkout": true,
+    "independent_human_usability_validated": false,
+    "installed_local_cli_passed": true,
+    "v1_release": false
+  },
+  "editor_logic": {
+    "format": "seye-editor-logic-verification-v1",
+    "cases": [
+      {
+        "simulated_viewport_width": 1100,
+        "source_size": [
+          500,
+          300
+        ],
+        "preview_size": [
+          500,
+          300
+        ],
+        "source_box": [
+          50,
+          60,
+          300,
+          210
+        ],
+        "maximum_coordinate_error_pixels": 0,
+        "downloaded_boxes": 1,
+        "undo_boxes": 0,
+        "drawing_ignored_before_preview_load": true,
+        "unscored": true
+      },
+      {
+        "simulated_viewport_width": 390,
+        "source_size": [
+          500,
+          300
+        ],
+        "preview_size": [
+          500,
+          300
+        ],
+        "source_box": [
+          50,
+          60,
+          300,
+          210
+        ],
+        "maximum_coordinate_error_pixels": 0,
+        "downloaded_boxes": 1,
+        "undo_boxes": 0,
+        "drawing_ignored_before_preview_load": true,
+        "unscored": true
+      },
+      {
+        "simulated_viewport_width": 390,
+        "source_size": [
+          1200,
+          800
+        ],
+        "preview_size": [
+          800,
+          533
+        ],
+        "source_box": [
+          120,
+          160,
+          720,
+          560
+        ],
+        "maximum_coordinate_error_pixels": 0,
+        "downloaded_boxes": 1,
+        "undo_boxes": 0,
+        "drawing_ignored_before_preview_load": true,
+        "unscored": true
+      }
+    ],
+    "browser_rendering_verified": false,
+    "scope": "Node VM with test doubles for canvas/elements/Blob; no browser UI or horizontal-layout validation",
+    "passed": true
+  },
+  "browser_status": {
+    "format": "seye-browser-verification-status-v1",
+    "browser_rendering_verified": false,
+    "headless_attempt": {
+      "browser": "Chromium",
+      "result": "blocked",
+      "observed_error": "Process singleton socket() failed: Operation not permitted"
+    },
+    "shared_browser_attempt": {
+      "requested_protocol": "file:",
+      "result": "blocked_by_browser_url_policy",
+      "allowed_protocols": [
+        "http:",
+        "https:"
+      ]
+    },
+    "alternative": {
+      "type": "Node VM logic checks with canvas/DOM/Blob test doubles",
+      "passed": true,
+      "cases": 3,
+      "renders_browser_ui": false
+    },
+    "independent_human_usability_validated": false,
+    "scope": "No browser-security workaround attempted; editor rendering is an explicit open verification item"
+  },
+  "source_syntax": "all parsed successfully",
+  "changed_baseline_files": [
+    ".gitignore",
+    "README.md"
+  ],
+  "wheel_built": true,
+  "release_ready": false,
+  "remote_ci": "all four Ubuntu/Windows Python 3.12/3.13 jobs passed",
+  "verified_commit_sha": "004a89091b8ce429b11e39b660cccc35d6f432c5",
+  "ci_run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726736810",
+  "ci_jobs": [
+    {
+      "id": 132850190631,
+      "name": "vision (windows-latest, 3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43726736810
+    },
+    {
+      "id": 132850190771,
+      "name": "vision (windows-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43726736810
+    },
+    {
+      "id": 132850190834,
+      "name": "vision (ubuntu-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43726736810
+    },
+    {
+      "id": 132850190915,
+      "name": "vision (ubuntu-latest, 3.13)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43726736810
+    }
+  ],
+  "initial_ci_failure": {
+    "run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43726244153",
+    "cause": "Python 3.13 non-strict Path.resolve retains cyclic symlinks; strict probe added before permitting new absent outputs",
+    "corrected_source": "004a89091b8ce429b11e39b660cccc35d6f432c5"
+  }
+}

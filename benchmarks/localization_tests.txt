@@ -1,0 +1,47 @@
+test_brightness_near_duplicate_and_group_assignment (test_datasets.DatasetTests.test_brightness_near_duplicate_and_group_assignment) ... ok
+test_cannot_overwrite_splits (test_datasets.DatasetTests.test_cannot_overwrite_splits) ... ok
+test_capture_group_and_transitive_connections (test_datasets.DatasetTests.test_capture_group_and_transitive_connections) ... ok
+test_cli_split_and_audit_end_to_end (test_datasets.DatasetTests.test_cli_split_and_audit_end_to_end) ... ok
+test_confusion_matrices_and_errors_separate_pipeline_failures (test_datasets.DatasetTests.test_confusion_matrices_and_errors_separate_pipeline_failures) ... ok
+test_draft_confirmed_synthetic_and_split_results_never_mix (test_datasets.DatasetTests.test_draft_confirmed_synthetic_and_split_results_never_mix) ... ok
+test_evaluator_blocks_near_duplicate_leakage_before_inference (test_datasets.DatasetTests.test_evaluator_blocks_near_duplicate_leakage_before_inference) ... ok
+test_exact_duplicate_cross_split_rejected (test_datasets.DatasetTests.test_exact_duplicate_cross_split_rejected) ... ok
+test_insufficient_components_and_bad_ratios (test_datasets.DatasetTests.test_insufficient_components_and_bad_ratios) ... ok
+test_partial_splits_and_hash_changes_rejected (test_datasets.DatasetTests.test_partial_splits_and_hash_changes_rejected) ... ok
+test_pixel_duplicate_with_different_encoded_bytes (test_datasets.DatasetTests.test_pixel_duplicate_with_different_encoded_bytes) ... ok
+test_selected_split_counts_and_unestablished_validation (test_datasets.DatasetTests.test_selected_split_counts_and_unestablished_validation) ... ok
+test_splits_deterministic_under_manifest_reorder (test_datasets.DatasetTests.test_splits_deterministic_under_manifest_reorder) ... ok
+test_camera_pipeline_reproducible_and_isolated (test_generalization.GeneralizationTests.test_camera_pipeline_reproducible_and_isolated) ... ok
+test_cli_preserves_existing_report (test_generalization.GeneralizationTests.test_cli_preserves_existing_report) ... ok
+test_corrupt_input_and_blank_negative_control (test_generalization.GeneralizationTests.test_corrupt_input_and_blank_negative_control) ... ok
+test_duplicate_photographs_rejected (test_generalization.GeneralizationTests.test_duplicate_photographs_rejected) ... ok
+test_duplicate_variants_rejected (test_generalization.GeneralizationTests.test_duplicate_variants_rejected) ... ok
+test_hash_mismatch_rejected_before_analysis (test_generalization.GeneralizationTests.test_hash_mismatch_rejected_before_analysis) ... ok
+test_invalid_row_and_nested_class_rejected (test_generalization.GeneralizationTests.test_invalid_row_and_nested_class_rejected) ... ok
+test_invalid_taxonomy_rejected (test_generalization.GeneralizationTests.test_invalid_taxonomy_rejected) ... ok
+test_legacy_quadrilateral_taxonomy (test_generalization.GeneralizationTests.test_legacy_quadrilateral_taxonomy) ... ok
+test_non_boolean_confirmation_rejected (test_generalization.GeneralizationTests.test_non_boolean_confirmation_rejected) ... ok
+test_original_uses_actual_source_bytes (test_generalization.GeneralizationTests.test_original_uses_actual_source_bytes) ... ok
+test_path_escape_rejected (test_generalization.GeneralizationTests.test_path_escape_rejected) ... ok
+test_pipeline_failures_remain_in_denominator (test_generalization.GeneralizationTests.test_pipeline_failures_remain_in_denominator) ... ok
+test_presence_metrics_duplicates_unknown_and_empty (test_generalization.GeneralizationTests.test_presence_metrics_duplicates_unknown_and_empty) ... ok
+test_report_counts_sources_and_separates_evidence (test_generalization.GeneralizationTests.test_report_counts_sources_and_separates_evidence) ... ok
+test_synthetic_confirmation_rejected (test_generalization.GeneralizationTests.test_synthetic_confirmation_rejected) ... ok
+test_transform_determinism_and_no_input_mutation (test_generalization.GeneralizationTests.test_transform_determinism_and_no_input_mutation) ... ok
+test_historical_geometry (test_legacy_regression.LegacyRegressionTests.test_historical_geometry) ... ok
+test_adaptive_faint_shape_is_experimental (test_localization.LocalizationTests.test_adaptive_faint_shape_is_experimental) ... ok
+test_box_iou_and_mask_metric_conventions (test_localization.LocalizationTests.test_box_iou_and_mask_metric_conventions) ... ok
+test_cli_creates_private_outputs_and_preserves_existing_directory (test_localization.LocalizationTests.test_cli_creates_private_outputs_and_preserves_existing_directory) ... ok
+test_corrupt_and_outside_root_inputs_rejected (test_localization.LocalizationTests.test_corrupt_and_outside_root_inputs_rejected) ... ok
+test_deterministic_region_ids (test_localization.LocalizationTests.test_deterministic_region_ids) ... ok
+test_legacy_parity_including_mask_bytes (test_localization.LocalizationTests.test_legacy_parity_including_mask_bytes) ... ok
+test_matching_uses_augmenting_paths_not_greedy_counts (test_localization.LocalizationTests.test_matching_uses_augmenting_paths_not_greedy_counts) ... ok
+test_multiple_instances_boxes_and_masks (test_localization.LocalizationTests.test_multiple_instances_boxes_and_masks) ... ok
+test_one_to_one_matching_class_errors_and_duplicate_predictions (test_localization.LocalizationTests.test_one_to_one_matching_class_errors_and_duplicate_predictions) ... ok
+test_repeated_category_instances_are_separate (test_localization.LocalizationTests.test_repeated_category_instances_are_separate) ... ok
+test_source_coordinates_after_resize_and_orientation (test_localization.LocalizationTests.test_source_coordinates_after_resize_and_orientation) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 21.644s
+
+OK

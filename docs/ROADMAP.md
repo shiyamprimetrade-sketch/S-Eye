@@ -1,0 +1,206 @@
+# S-Eye implementation roadmap
+
+Owner directive: 2026-11-12. Standing authorization covers ordinary engineering,
+testing, commits and pull requests. Preserve independent algorithms and Stage 84.
+Do not replace them with pretrained systems without explicit approval. Continue
+substantive work while execution capacity and dependencies allow; save checkpoints.
+
+Stage numbers are planning identifiers. Completion requires code, tests, measured
+evidence and explicit limits; representative independent data is required for validation.
+
+| Stages | Objective | Required evidence / current gate |
+| --- | --- | --- |
+| 85–89 | Multi-image generalization, grouped reproducible splits, duplicate/leakage checks; lighting/rotation/perspective/scale/background probes; class confusion and errors | Harness implemented; new reviewed photographs missing. Scale/background/perspective coverage remains incomplete |
+| 90–99 | Adaptive thresholds, edges/contours, region merge/split, denoising, reconstructed boundaries, masks/boxes, overlaps and multiple objects | IoU and detection metrics on annotated instances, with baseline comparison |
+| 100–109 | Modular geometric/color/texture/spatial features, similarity, prototypes, calibrated confidence, unknown rejection, candidate explanations | Per-class and unknown-class held-out evaluation |
+| 110–119 | Dataset versions, independent initialization, reproducible training, saved/restored checkpoints, compatible preprocessing, learning curves, overfitting and model comparisons | Measured held-out improvement or documented non-improvement; no teacher labels presented as human truth |
+| 120–129 | Persistent provenance-aware indexed memory, similar images, object history, retention, integrity, migrations, import/export and rollback | Retrieval quality and corruption recovery, preserving old formats |
+| 130–139 | Inventories, spatial relations, grouping, scene similarity, grounded descriptions, changes/missing objects and uncertainty | Controlled and real-world scene validation |
+| 140–149 | Prerecorded video frames/timestamps/sampling, motion, tracking, IDs, occlusion, persistence and summaries | Throughput, tracking errors and identity switches before live camera |
+| 150–159 | Android ARM64/Termux, Linux and Windows resource/latency/batch/index/cache/storage optimization | Reproducible measurements and regression thresholds on actual tested hardware |
+| 160–169 | Versioned Python/JSON APIs, S-Memory/S-Tools adapters, permissioned files/camera, requests, evidence-grounded visual Q&A, timeouts/errors | Independently testable integration client; no unrelated S changes |
+| 170–179 | CLI, upload/analysis, overlays/reports, memory browser, annotation/experiment/config tools, installation/upgrades | A user completes workflows without editing source; UI only where justified |
+| 180–189 | Input/path/resource limits, malformed files, permissions/privacy, atomic operations, migrations, crash/dependency/CI regression checks | All release-critical security/reliability checks pass |
+| 190–199 | Full audit, integration/historical recognition/memory/video/performance/security/install tests, documentation/package/release preparation | All owner v1.0 gates fulfilled; otherwise remain experimental or release candidate |
+
+This roadmap supplements existing instructions. It is not a declaration that
+future features work. Preserve code, evidence and exact next steps before limits.
+
+
+## Owner scope correction — 13 November 2026
+
+The primary mission is visual observation of software interfaces for S: observe,
+locate known visual controls, compare screens, record evidence and emit structured
+signals. Human review is no longer a prerequisite for engineering continuation.
+Earlier Stage 88 human-review continuation blocks are superseded by this instruction.
+Stage 88 engineering acceptance is complete under the revised capture-only policy
+(benchmarks/stage88_owner_acceptance.json). No labels or accuracy were invented;
+representative generalization remains unvalidated and v1.0 remains incomplete.
+
+Implemented the independent screenshot observer and scoped observe_interface action,
+optional verified observation persistence, change-region signals, fixed-scale known
+template matching and ambiguity rejection. 106 local tests pass; five generated UI
+cases match expected statuses; four supplied screenshot same-frame probes show zero
+change. See INTERFACE_OBSERVATION.md and benchmarks/interface_* evidence.
+Stop after this stage checkpoint. Next Continue: Stage 89 interface-condition
+diagnostics and automatic fixture ground truth, without a human-review dependency.
+
+
+## Stage 89 — interface-condition diagnostic checkpoint
+
+Engineering acceptance complete: automatic renderer ground truth, 75-case theme/
+scale/state matrix, hashes, per-condition status confusion, IoU localization,
+false positives/negatives, ambiguity safety and change-count diagnostics.
+112 local tests pass. Two benchmark runs produced identical reports.
+75/75 executions and change oracles completed; only 3/18 unique targets localized
+(15 missed), 45/75 statuses matched, no false accepts or unsafe duplicate choices.
+The other 15 duplicate cases returned not-found. These are generated results,
+not representative application accuracy; no human-review block is introduced.
+See STAGE89_INTERFACE_DIAGNOSTICS.md and benchmarks/stage89_interface_conditions.json.
+No Stage 84/88 recognition algorithm, checkpoint or main-S code changed.
+Next Continue: Stage 90 independent contrast/edge processing and bounded scale
+search, measured against the frozen matcher; do not skip negative/safety cases.
+Version 1.0 and expert-programmer-level interface understanding remain incomplete.
+
+
+## Stage 90 — S visual subsystem clarification and contrast matching
+
+README and PURPOSE.md now state the primary goal: S-Eye observes another computer
+and sends grounded visual signals to S; S decides and S-Tools acts. Added opt-in
+independent local binary contrast/polarity matching and bounded multiscale search;
+the pixel baseline and historical algorithms remain preserved.
+117 local tests pass. Frozen 75-case suite: 3/18 to 18/18 unique targets localized;
+new 32-case design suite: 0/8 to 8/8. No false accepts or unsafe duplicate choices
+in either generated suite. All 214 executions complete; 107/107 change oracles
+match per method. These are generated engineering results, not real-application
+accuracy or expert equivalence. See STAGE90_INTERFACE_MATCHING.md and
+benchmarks/stage90_interface_comparison.json. Stage 90 engineering acceptance
+is complete; exact-head CI must be checked independently.
+Next Continue: Stage 91 independent edge-based interface-region proposals with
+negative/overlap checks. OCR/code comprehension and live host interaction are
+unfinished; no human-review prerequisite is imposed on engineering continuation.
+
+
+## Stage 91 — template-free interface-region hypotheses
+
+Implemented independent bounded RGB neighbor edges and eight-connected rectangular
+region proposals, opt-in via region_proposals=true in observe_interface. Proposals
+remain unlabeled and clickability unknown; default/template behavior is preserved.
+124 local tests pass. Generated 33-case benchmark: 25 matched regions, 8 extra
+proposals, 12 missed out of 37 targets at IoU >= 0.5. Outline duplicates, overlap
+and low-contrast misses remain recorded. All four supplied screenshots process,
+with 19/15/11/18 unlabelled hypotheses; no real localization accuracy is claimed.
+See STAGE91_INTERFACE_REGIONS.md, benchmarks/stage91_regions.json and
+benchmarks/stage91_uploaded_screenshots.json. Stage 91 scoped engineering acceptance
+is complete; representative application validation and v1.0 remain incomplete.
+Next Continue: Stage 92 ordered boundary extraction and outline-pair consolidation,
+keeping nested/touching/overlap tests and the fixed Stage 91 baseline.
+
+
+## Stages 92–100 batch checkpoint
+
+Implemented and tested the bounded engineering scopes in STAGES_092_100.md:
+ordered concave/hole contours; outline pairing; projection splitting; noise
+suppression; explicit gap repair; source-grid boxes/stroke masks; visible-color
+overlap analysis; caller-corner projective normalization; modular feature extraction.
+143 local tests pass. Frozen region errors improve from TP25/FP8/FN12 to
+TP25/FP0/FN12, preserving the 12 remaining misses. Four supplied screenshots
+execute refined observation and 114-value feature extraction; proposal counts do
+not improve. These are implementation/generated measurements, not representative
+application accuracy or expert equivalence. Every stage has focused tests, a
+reproducible experiment and its own implementation commit. Original comparators
+and descriptor compatibility are preserved. Exact-head CI is tracked separately.
+Owner requested stopping at Stage 100: wait for Continue before Stage 101.
+
+
+## Stages 101–110 recognition-framework checkpoint
+
+Implemented scoped geometric/appearance descriptors, schema-safe similarity,
+prototype fitting, model-bound validation-only empirical support, unknown rejection,
+ranked candidates, evidence explanations, generated evaluation and immutable dataset
+revisions. Each stage has focused tests, a reproducible experiment and a commit.
+166 local tests pass; exact-head CI is tracked separately. Existing models remain
+compatible; no pretrained model or main-S modification is introduced.
+
+Critical measured limit: generated held-out known recognition is 0/6, unknown
+rejection 4/4; all ten decisions exceed validation radii. This is a failed
+generalization result, not reliable recognition. The engineering framework is
+implemented/tested; representative Stage 100–109 recognition validation remains
+unfulfilled. See STAGES_101_110.md and benchmarks/stage109_experiment.json.
+
+Owner now requests ten-stage batches: STOP at 110; wait for Continue before
+111–120. Stage 111 should validate annotations/preprocessing and diagnose shift
+sensitivity. Do not tune on the inspected test and present it as new held-out proof.
+Version 1.0/expert vision is not complete; reaching Stage 199 is not itself release
+acceptance. Human review is not required for ordinary engineering continuation.
+
+
+## Stages 111–120 learning and persistence checkpoint
+
+Implemented annotation/provenance checks, explicit partitions, independently
+seeded schema-bound SGD, verified inference checkpoints, reproducibility records,
+overfit diagnostics, sample-count curves, baseline/ablation comparisons, separate
+known/unknown regression gates and optional verified trained-observation memory.
+187 local tests pass, including the legacy batch-recognition path. A predictor
+import-shadowing regression caught by the full suite has been corrected.
+
+New precommitted generated protocol: layout comparator 0/6 known and 4/4 unknown;
+centered prototype 6/6 and 4/4; centered SGD 6/6 and 4/4. The representation change
+accounts for the observed gain; SGD does not outperform centered prototypes here.
+These are correlated synthetic captures, not representative application accuracy.
+The original Stage 109 failure is preserved. See STAGES_111_120.md and
+benchmarks/stage118_experiment.json. No pretrained weights, old-model replacement
+or main-S change. Exact-head CI is tracked separately.
+
+STOP at Stage 120. Wait for Continue before 121–130, beginning with observation
+identity and schema-aware memory retrieval. OCR/expert vision and v1.0 remain
+unfulfilled. Human review does not block ordinary engineering continuation.
+
+
+## Stages 121–130 visual-memory checkpoint
+
+Implemented separate image/observation/session identities, persistent schema KD
+indexes, exact packet retrieval, caller-linked histories, source-grid scene
+comparison, distinct duplicate evidence, provenance audits, portable recovery
+bundles, pinned dependency-aware retention, measured generated retrieval and
+unlabeled scene inventories. New interface memories retain searchable packets;
+legacy records stay unchanged. 210 local tests pass; exact-head CI is separate.
+
+64-vector test: exact top3 matches exhaustive search with 7 versus 64 distance
+evaluations, but full integrity/snapshot cost remains linear. Generated glyph
+retrieval: 6/6 known categories top1/recall@3, 4/4 unknowns without matches under
+fixed cutoff; all known queries have tied matches and no unique-object identity.
+Verified recovery/retention preserves links or removes dependencies transactionally.
+See STAGES_121_130.md and per-stage benchmark reports. These are controlled
+engineering results, not representative application memory/identity validation.
+
+STOP at Stage 130. Wait for Continue before 131–140. Future scene relationships
+must preserve coordinate/semantic uncertainty and cannot promote caller links,
+feature matches or proximity into proven object identity. Release v1.0, OCR and
+expert programmer vision remain incomplete; human review does not block engineering.
+
+## Stages 131–140: scene evidence and prerecorded frames
+
+Implemented spatial topology, normalized relative positions, bounded alignment
+clusters, one-to-one layout comparison with alternatives, registered change
+hypotheses, persistent non-observation, evidence-referenced descriptions,
+uncertainty records and read-only S scene APIs. Stage 140 adds a bounded local
+prerecorded adapter with explicit video/read grants and sampling-grid times.
+Existing algorithms and Stage 84 checkpoint remain preserved.
+
+Measured generated scene matrix: 32 pairs / 64 frames, 28 exact event-count
+contracts matched; localization at IoU 0.5: 80 TP, 0 FP, 8 FN. All four overlap
+cases failed. The failures remain in the denominators. Representative real-world
+scene validation is unfulfilled; Stage 139 completes its executable validation
+harness only. No OCR, semantic UI identity, clickability, or expert vision claim.
+Actual generated MPEG4 decode produced four frames at 0, .5, 1, 1.5 sampling-grid
+seconds with unchanged source SHA-256. These are not original presentation times.
+
+Run `python -m unittest discover -s tests -v` and
+`python scripts/benchmark_stage131_140.py --stage N --output report.json`
+for N=131..140. See STAGES_131_140.md and per-stage benchmark JSON/test logs.
+No independently labeled new real-world scene corpus was available in this batch.
+
+STOP at Stage 140. Next Continue authorizes 141–150: prerecorded temporal
+continuity, bounded motion/tracking evaluation and performance instrumentation.
+Do not start those stages before the next Continue. Release v1.0 remains incomplete.

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "implementation_checkpoint": "ff13e94e8224ac257b89cfb76f16dde0ecb58c3a",
+  "stages": [
+    {
+      "stage": 111,
+      "sha": "8f9e91e88ae52c04fff31efdf4257fae5f8c7f64",
+      "message": "Stage 111: annotation checks and separately versioned centered preprocessing"
+    },
+    {
+      "stage": 112,
+      "sha": "1cc6839d483ba8c01d55b7f0949b9e5853c13382",
+      "message": "Stage 112: frozen generated partitions and explicit leakage boundaries"
+    },
+    {
+      "stage": 113,
+      "sha": "1d8196b9537facf800fd449490363cf0513641e4",
+      "message": "Stage 113: independently seeded schema-bound SGD and validation selection"
+    },
+    {
+      "stage": 114,
+      "sha": "6bd37a197e99faf34a1054d22d887fbd93c56997",
+      "message": "Stage 114: verified training checkpoint save and inference restore"
+    },
+    {
+      "stage": 115,
+      "sha": "f1962ce588fbd7327539471142dfadd494f0d361",
+      "message": "Stage 115: data-bound seeded training reproducibility evidence"
+    },
+    {
+      "stage": 116,
+      "sha": "d9a479abede39dbe463e8edcf4eca62cb6cfd93b",
+      "message": "Stage 116: train-validation overfitting diagnostics with explicit limits"
+    },
+    {
+      "stage": 117,
+      "sha": "8ddbd29fae3730a0e6083a25b593b34261be3762",
+      "message": "Stage 117: reproducible sample-count learning curves without test selection"
+    },
+    {
+      "stage": 118,
+      "sha": "4e39c801ef3d3aa6e3d1b3073138a83af5914d04",
+      "message": "Stage 118: frozen baseline and centered-learning comparison with ablation"
+    },
+    {
+      "stage": 119,
+      "sha": "0c04ff80a776df70fe6858405221946daa56970a",
+      "message": "Stage 119: capture-matched learning regression protection"
+    },
+    {
+      "stage": 120,
+      "sha": "b8a21b6160fd1e2fda7390ed387d85d0dadf052d",
+      "message": "Stage 120: verified persistent trained observations with explicit memory grants"
+    }
+  ],
+  "local_full_suite": "187 tests passed",
+  "new_generated_test": {
+    "layout_known_correct": "0/6",
+    "centered_prototype_known_correct": "6/6",
+    "centered_sgd_known_correct": "6/6",
+    "unknown_rejected": "4/4 per method"
+  },
+  "representative_application_accuracy": null,
+  "remote_ci": {
+    "verified_commit": "fae018ae9ed9d96568c3334fe53d611b45d53010",
+    "run": "https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/43437615904",
+    "result": "all four Ubuntu/Windows Python 3.12/3.13 jobs passed, 187 tests and ten experiments"
+  }
+}

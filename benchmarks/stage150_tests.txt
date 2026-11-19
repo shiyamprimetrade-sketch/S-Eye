@@ -1,0 +1,12 @@
+test_actual_generated_encode_decode_keeps_failures_and_inputs (test_stage150.VideoLimitsTests.test_actual_generated_encode_decode_keeps_failures_and_inputs) ... ok
+test_dense_candidate_work_budget_rejects_without_returning_partial_evidence (test_stage150.VideoLimitsTests.test_dense_candidate_work_budget_rejects_without_returning_partial_evidence) ... ok
+test_noisy_timeout_and_decoded_file_count_are_rejected (test_stage150.VideoLimitsTests.test_noisy_timeout_and_decoded_file_count_are_rejected) ... ok
+test_out_of_view_interval_does_not_invent_a_fragmentation (test_stage150.VideoLimitsTests.test_out_of_view_interval_does_not_invent_a_fragmentation) ... ok
+test_permissioned_checkpoint_resume_and_exclusive_publication (test_stage150.VideoLimitsTests.test_permissioned_checkpoint_resume_and_exclusive_publication) ... ok
+test_session_limit_numeric_edges_and_failed_update_preserve_state (test_stage150.VideoLimitsTests.test_session_limit_numeric_edges_and_failed_update_preserve_state) ... ok
+test_source_stream_read_is_bounded_and_snapshot_identical (test_stage150.VideoLimitsTests.test_source_stream_read_is_bounded_and_snapshot_identical) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.659s
+
+OK

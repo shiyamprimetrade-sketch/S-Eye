@@ -1,0 +1,7 @@
+test_cpu_allocation_scope_and_existing_tracing_preserved (test_stage157.ResourceProfileTests.test_cpu_allocation_scope_and_existing_tracing_preserved) ... ok
+test_exception_cleanup_and_nested_span_budget (test_stage157.ResourceProfileTests.test_exception_cleanup_and_nested_span_budget) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.008s
+
+OK

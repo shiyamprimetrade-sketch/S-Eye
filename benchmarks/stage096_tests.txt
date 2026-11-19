@@ -1,0 +1,7 @@
+test_large_gap_is_not_hallucinated (test_stage096.RepairTests.test_large_gap_is_not_hallucinated) ... ok
+test_one_pixel_gap_restored_without_mutating_source (test_stage096.RepairTests.test_one_pixel_gap_restored_without_mutating_source) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.004s
+
+OK
