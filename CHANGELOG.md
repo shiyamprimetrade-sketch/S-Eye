@@ -1,5 +1,20 @@
 # Changelog
 
+## Android 0.3.0 preview
+
+- Added system-camera thumbnail capture, support for light shapes on dark
+  backgrounds, and Save observation JSON.
+- Added the Android report adapter with optional source-byte checks.
+- Organized 100 root-level files into the legacy archive. The audit verified
+  97 relocated Stage 84 files against their original hashes.
+- The 15 generated Android cases and all 330 local Python tests passed.
+  The Android 16 emulator installed the signed APK, recognized the circle
+  sample, and showed the export button enabled. All four desktop CI jobs passed.
+
+Verified source: 692ce2eb3a2d66885667446347694e5a551dcab6.
+[Android build and emulator](https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/44558975634) ·
+[Desktop CI](https://github.com/shiyamprimetrade-sketch/S-Eye/actions/runs/44558976066).
+
 ## Unreleased — independent S-Eye continuation
 
 - Stage 85: preserve/audit Stage 84; explicit multi-image camera-pipeline evaluation,
